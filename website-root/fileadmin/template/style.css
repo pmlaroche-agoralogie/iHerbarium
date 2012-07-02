@@ -1,0 +1,581 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	line-height: 14px;
+	color: #4B4B4B;
+	background-color: #E0F2F2;
+	background-image:url(../medias/interface/fond_header.jpg);
+	background-repeat:repeat-x;
+	background-position:top left;
+}
+
+/* ***************************************************************************************** */
+/* definition des blocs qui structurent les contenus des pages                               */
+/* ***************************************************************************************** */
+#centrer {
+	width: 1000px;
+	margin: 0 auto 0 auto;
+	text-align: left;
+}
+#site {
+	width: 1000px;
+    position: absolute;
+}
+#contenu {
+	width: 1000px;
+	float: left;
+}
+html>body #main {
+	height: auto;
+	min-height: 1000px;
+}
+#main { 
+	padding: 0 0 50px 0;
+	margin: 0;
+	width: 1000px;
+	height: 1000px;
+	float: left;
+	background-color:#FFFFFF;
+}
+#contenu_centre {
+	width: 730px;
+	float: left;
+	margin: 20px 0 0 0;
+	padding: 0 0 0 30px;
+}
+#contenu_droite {
+	width: 225px;
+	float: left;
+	margin: 20px 0 0 0;
+	padding: 0 0 0 15px;
+}
+/* ------------------------------------------------------------------------- */
+/* Le logo                                                                   */
+/* ------------------------------------------------------------------------- */
+#bandeau_logo {
+	float: left;
+	width: 1000px;
+	height: 61px;
+	background-image:url(../medias/interface/logo.jpg);
+	background-repeat:no-repeat;
+}
+#connexion a{
+	margin: 15px 0 0 0;
+	padding: 0;
+	float:right;
+	width: 83px;
+	height: 31px;
+	display:block;
+	background-image:url(../medias/interface/btn_connect.png);
+	background-repeat:no-repeat;
+	cursor: pointer;
+}
+/* ------------------------------------------------------------------------- */
+/* Le bandeau_haut                                                           */
+/* ------------------------------------------------------------------------- */
+#bandeau_haut {
+	padding: 0;
+	margin: 15px 0 0 0;
+	width: 1000px;
+	float: left;
+}
+/* ------------------------------------------------------------------------- */
+/* Les onglets dans le menu                                                  */
+/* ------------------------------------------------------------------------- */
+#picto_home a{
+	margin: 0 10px 0 30px;
+	padding: 0;
+	float:left;
+	width: 28px;
+	height: 22px;
+	display:block;
+	background-image:url(../medias/interface/picto_home.png);
+	background-repeat:no-repeat;
+	cursor: pointer;
+}
+#barre_nav {
+	margin: 0;
+	padding: 0;
+	float:left;
+	width: 630px;
+}
+#barre_nav ul {
+	margin-top: 0px;
+	margin-right: 16px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 0;
+	list-style: none;
+}
+#barre_nav ul li {
+	padding: 0;
+	margin: 0 3px 0 0;
+	float:left;
+}
+#barre_nav ul li a {
+	float: left;
+	text-decoration: none; /* cas particulier le a n'est pas souligné => le a:hover ne l'est pas non plus */
+	letter-spacing: 0;
+	font-size: 13px;
+	padding-left: 15px;
+	background-position: 0% -40px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	background-image: url(../medias/interface/onglet_gauche.png);
+}
+#barre_nav ul li.actif  a{
+	padding-left: 0;
+	background-image:none;
+}
+#barre_nav ul li.actif {
+	float: left;
+	text-decoration: none; /* cas particulier le a n'est pas souligné => le a:hover ne l'est pas non plus */
+	letter-spacing: 0;
+	padding-left: 15px;
+	background-position: 0% 0%;
+	background-repeat: no-repeat;
+	background-image: url(../medias/interface/onglet_gauche.png);
+}
+
+#barre_nav ul li a span {
+	float: left;
+	padding-top: 6px;
+	padding-right: 17px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	background-position: 100% -40px;
+	background-repeat: no-repeat;
+	background-image: url(../medias/interface/onglet_droit.png);
+	color: #8E957F;
+}
+#barre_nav ul li.actif span {
+	float: left;
+	padding-top: 6px;
+	padding-right: 17px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	background-position: 100% 0%;
+	background-repeat: no-repeat;
+	color: #FFFFFF;
+	background-image: url(../medias/interface/onglet_droit.png);
+}
+#barre_nav ul li a:hover {
+	color: #FFFFFF;
+	background-position: 0% -80px;
+}
+#barre_nav ul li a:hover span {
+	color: #FFFFFF;
+	background-position: 100% -80px;
+}
+/* ------------------------------------------------------------------------- */
+/* La recherche                                                              */
+/* ------------------------------------------------------------------------- */
+#recherche {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+#recherche form {
+	margin: 0;
+	padding: 0;
+}
+#bandeau_haut #recherche form .btn_ok {
+	margin: 1px 0 0 5px;
+	float: right;
+	display: block;
+	width: 38px;
+	height: 21px;
+	cursor:pointer;
+	background-image:url(../medias/interface/btn_ok.jpg);
+	background-repeat:no-repeat;
+}
+/* ------------------------------------------------------------------------- */
+/* La barre de nav niveau 2                                                  */
+/* ------------------------------------------------------------------------- */
+#ss_barre_nav {
+	float: left;
+	font-size: 12px;
+	font-style:italic;
+	color: #8B927D;
+	margin: 0;
+	padding: 0 0 0 70px;
+	width: 930px;
+	height: 37px;
+	background-image: url(../medias/interface/fond_main.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+}
+#ss_barre_nav ul {
+	margin: 0;
+	padding: 10px 0 5px 0;
+	float:left;
+	list-style: disc;
+	list-style-position:inside;
+	border-bottom: 1px solid #D0CEB7;
+}
+#ss_barre_nav ul li {
+	padding: 0 8px 0 0;
+	margin: 0;
+	float:left;
+}
+#ss_barre_nav ul li a {
+	text-decoration:none;
+	color: #8B927D;
+}
+#ss_barre_nav ul li a:hover {
+	color: #334B27;
+	text-decoration:none;
+}
+#ss_barre_nav ul li.actif a{
+	color: #334B27;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Les blocs de contenu au centre                                            */
+/* ------------------------------------------------------------------------- */
+#main #contenu_centre #bloc_contenu {
+	padding: 0 0 10px 0;
+	margin: 0;
+	float: left;
+		width: 700px;
+	background-image:url(../medias/interface/centre_bloc_contenu_bas.jpg);
+	background-repeat:no-repeat;
+	background-position: left bottom;
+}
+#main #contenu_centre #bloc_contenu h1{
+	width: 700px;
+	height: 48px;
+	color: #FFFFFF;
+	padding: 12px 0 0 10px;
+	font-size: 20px;
+	font-weight: bold;
+	background-image:url(../medias/interface/centre_bloc_contenu_haut.jpg);
+	background-repeat:no-repeat;
+}
+#main #contenu_centre #bloc_contenu #bloc_contenu_texte{
+	float:left;
+	padding: 0 15px 0 10px;
+	margin: 0;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Les blocs de contenu à droite                                             */
+/* ------------------------------------------------------------------------- */
+#main #contenu_droite #bloc_contenu {
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 207px;
+	background-image:url(../medias/interface/droite_bloc_contenu_bas.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+#main #contenu_droite #bloc_contenu h1{
+	width: 207px;
+	height: 41px;
+	color: #FFFFFF;
+	padding: 2px 0 0 10px;
+	font-size: 13px;
+	font-weight: bold;
+	background-image:url(../medias/interface/droite_bloc_contenu_haut.jpg);
+	background-repeat:no-repeat;
+}
+#main #contenu_droite #bloc_contenu #bloc_contenu_texte{
+	float:left;
+	margin: 0;
+	padding: 0 15px 0 10px;
+
+}
+/* ------------------------------------------------------------------------- */
+/* Le footer                                                                 */
+/* ------------------------------------------------------------------------- */
+#footer{
+	bottom:0;
+	left:0;
+	padding:0;
+	margin:0;
+	position:fixed;
+	width:100%;
+	z-index:1000;
+	text-align:center;
+	height: 50px;
+	font-size: 11px;
+	background-image:url(../medias/interface/fond_footer.png);
+	background-repeat:repeat-x;
+}
+#footer p {
+	padding:28px 0 0 0;
+	margin:0;
+	color: #FFFFFF;
+}
+#footer a{
+	padding:0 5px 0 5px;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+#footer a:hover{
+	text-decoration: underline;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* Les styles propres à typo3                                                */
+/* ------------------------------------------------------------------------- */
+#main h1, #main h2, #main h3, #main h4, #main h5 {
+	color: #344C29;
+}
+#main h1 {
+	margin: 0;
+	padding: 0 0 12px 0;
+	font-size: 24px;
+	line-height: 26px;
+	font-weight: bold;
+}
+#main h2 {
+	margin: 0;
+	padding: 0 0 12px 0;
+	font-size: 20px;
+	line-height: 22px;
+	font-weight: bold;
+}
+#main h3 {
+	margin: 0;
+	padding: 0 0 12px 0;
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: bold;
+	font-style: italic;
+}
+#main h4 {
+	margin: 0;
+	padding: 0 0 6px 0;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: bold;
+}
+#main h5 {
+	margin: 0;
+	padding: 0 0 6px 0;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: bold;
+}
+#main h6 {
+	margin: 0;
+	padding: 0 0 6px 0;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: bold;
+	font-style: italic;
+	color: #4B4B4B;
+}
+#main p {
+	margin: 0;
+	padding: 0 0 12px 0;
+	color: #4B4B4B;
+}
+#main a {
+	color: #4B4B4B;
+	text-decoration: underline;
+}
+#main a:hover {
+	text-decoration: none;
+}
+
+/* styles texte typo3
+------------------------------------------------------------------------------------ */
+#main .remarque, #main .note {
+	color: #4B4B4B;
+}
+#main .important {
+	font-weight: bold;
+	color: #344C29;
+}
+#main .remarque {
+	font-weight: bold;
+	font-style:italic;
+}
+#main .note {
+	font-style:italic;
+}
+
+/* styles listes
+------------------------------------------------------------------------------------ */
+#main ul { 
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+#main ul li { 
+	list-style-image: url(../medias/interface/puce_niv1.gif);
+}
+#main ul li li {
+	list-style-image: url(../medias/interface/puce_niv2.gif);
+}
+#main hr {
+	margin: 0 0 18px 0;
+	height: 1px;
+	border: 0;
+	text-align: center;
+	border-bottom: 1px solid #4B4B4B;
+}
+.imggauche {
+	margin: 0 8px 0 0;
+	float: left;
+}
+.imgdroite {
+	margin: 0 0 0 8px;
+	float: right;
+}
+img {
+	border: 0;
+}
+p.clearbloc {
+	clear: both;
+}
+
+/* styles tableaux
+------------------------------------------------------------------------------------ */
+#main table.contenttable {
+	margin: 6px 10px 6px 10px;
+	padding: 0;
+	border-collapse: collapse;
+}
+#main table.contenttable p.bodytext {
+	margin: 0;
+	padding: 0;
+}
+#main table.contenttable td {
+	vertical-align: middle;
+	padding: 4px;
+	border: 1px solid #4B4B4B;
+}
+#main table.contenttable thead td, #main table.contenttable th {
+	padding: 4px;
+	color: #4B4B4B;
+	font-weight: bold;
+	border: 1px solid #4B4B4B;
+	background-color: #C4C1B0;
+}
+#main table.contenttable thead td p, #main table.contenttable th p, #main table.contenttable thead td p.bodytext, #main table.contenttable th p.bodytext {
+	font-weight: bold;
+	color: #4B4B4B;
+}
+
+/* styles formulaires
+------------------------------------------------------------------------------------ */
+#main .csc-mailform {
+	margin: 10px 0 0 3px;
+	padding: 0;
+	color: #4B4B4B;
+	border: none;
+}
+#main .csc-mailform-field {
+	margin: 0 0 3px 0;
+	padding: 0;
+}
+#main label { /*.csc-mailform {*/
+	display: block;
+	width: 130px;
+	float: left;
+}
+#main input {
+	border: 1px solid #4B4B4B;
+}
+#main input.csc-mailform-submit {
+	margin: 10px 0 0 133px;
+	color: #4B4B4B;
+	background-color: #C4C1B0;
+}
+#main .tx-newloginbox-pi1 form input[submit]{
+	margin: 10px 0 0 133px;
+	color: #4B4B4B;
+	background-color: #C4C1B0;
+}
+/* styles boutons retour
+------------------------------------------------------------------------------------ */
+#main p.btn_pageprec a, #main p.btn_pagesuiv a, #main p.btn_pagehaut a {
+	padding: 0 0 0 20px;
+	color: #4B4B4B;
+	/*line-height: 13px;*/
+	font-style: normal;
+	text-decoration: none;
+	float: left;
+	clear: both;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+#main p.btn_pageprec a:hover, #main p.btn_pagesuiv a:hover, #main p.btn_pagehaut a:hover {
+	text-decoration: underline;
+}
+#main p.btn_pageprec a {
+	background-image: url(../medias/interface/picto_pageprec.gif);
+}
+#main p.btn_pagesuiv a {
+	background-image: url(../medias/interface/picto_pagesuiv.gif);
+}
+#main p.btn_pagehaut a {
+	background-image: url(../medias/interface/picto_pagehaut.gif);
+}
+
+/* redefinition styles typo3
+------------------------------------------------------------------------------------ */
+.csc-textpic-clear { /* images */
+	margin: 0 0 8px 0;
+	padding: 0;
+	clear: both;
+}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image { margin-bottom: 0; }
+DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow { margin-bottom: 0; display: block; }
+dd.csc-textpic-caption { /* legendes des images */
+	color:#4B4B4B;
+}
+/* photo a gauche, txt autour */
+DIV.csc-textpic-intext-left img{ padding-right: 20px; } 
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap{ padding-right: 8px; padding-bottom: 12px; }
+/* photo a droite, txt autour */
+DIV.csc-textpic-intext-right img{ padding-left: 20px; } 
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { padding-left: 8px; padding-bottom: 12px; }
+/* photo a gauche, txt a droite */
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-text{ padding-left: 8px; padding-bottom: 12px; }  
+/* photo a droite, txt a gauche */
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-text{ padding-right: 8px; padding-bottom: 12px; }  
+
+.align-left{
+	text-align:left;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+
+/* styles site map
+-------------------------------------------------------------------------------------------- */
+#main .tx-dropdownsitemap-pi1 div {
+	border: none;
+	background: transparent;
+}
+#main .tx-dropdownsitemap-pi1 div.expAll {
+	background: transparent;
+	border: none;
+}
+#main .tx-dropdownsitemap-pi1 div a{
+	text-decoration:none;
+}
+#main .tx-dropdownsitemap-pi1 div a:hover{
+	text-decoration: underline;
+}
+
+#main .tx-dropdownsitemap-pi1 .level_1 {
+	border-top: 1px solid #4B4B4B;
+}
+

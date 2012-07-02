@@ -1,0 +1,21 @@
+page.stylesheet = 
+page.includeCSS.file1 = 
+page.bodyTag = <body >
+
+page.headerData.10.value =
+page.headerData.20.value = 
+page.headerData.30.value =
+
+page.10 {
+   template.file = fileadmin/template/templatenewsletter.html
+  
+   subparts.CONTENT_LEFT < styles.content.getLeft
+   
+   subparts.TITRE = TEXT
+   subparts.TITRE.value = Un botaniste dans votre smartphone
+   
+   subparts.PIED < styles.content.getRight
+    
+}
+
+plugin.tx_directmail.use_domain = www.iherbarium.fr/

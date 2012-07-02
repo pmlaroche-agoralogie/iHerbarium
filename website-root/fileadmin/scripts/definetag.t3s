@@ -1,0 +1,21 @@
+page.headerData.13 = HTML
+page.headerData.13.value = \n "\n"
+
+page.headerData.14.value = 
+page.headerData.16.value = 
+page.headerData.17.value = 
+page.headerData.18.value =
+
+page.headerData.14 = TEXT
+page.headerData.14.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-ui.css" media="all" />
+page.headerData.15 = TEXT
+page.headerData.15.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_roi/pi2/zone_tool_head.css" media="all" />
+
+page.headerData.50.value = 
+page.headerData.60.value = 
+page.headerData.70.value = 
+
+page.headerData.140 = TEXT
+page.headerData.140.value = <script type="text/javascript" src="/typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-1.6.min.js"></script>
+page.headerData.150 = TEXT
+page.headerData.150.value = <script type="text/javascript" src="/typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-ui.js"></script>

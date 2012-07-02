@@ -1,0 +1,109 @@
+plugin.tx_staticinfotables_pi1.languageCode = FR
+
+config.admPanel = 1
+admPanel {
+enable.edit = 1
+module.edit.forceDisplayFieldIcons = 1
+  
+// Force edit icons
+module.edit.forceDisplayIcons = 0
+// Force edit field icons
+module.edit.forceDisplayFieldIcons = 1
+hide = 1
+}
+
+lib.stdheader.10.stdWrap.wrap =
+config.doctype = xhtml_strict
+config.metaCharset = utf-8
+page.config.metaCharset = utf-8
+
+plugin.tx_srlanguagemenu_pi1 {
+  defaultLayout = 2
+  languagesUidsList = 0,1,2,3
+  hideIfNoAltLanguages = 0
+}
+temp.languageMenu < plugin.tx_srlanguagemenu_pi1
+
+plugin.tx_newloginbox_pi1.storagePid = 2
+#parametres pour les mails sortant suite ˆ une demande de
+#renvoi de mot de passe
+plugin.tx_newloginbox_pi1 {
+  email_from =
+  email_fromName =
+}
+
+page = PAGE
+page.typeNum = 0
+
+page.headerData.7 = TEXT
+page.headerData.7.value = <link rel="stylesheet" type="text/css" href="/fileadmin/template/stylesheet_def6a92968.css" media="all" />
+
+page.headerData.10 = TEXT
+page.headerData.10.value = <link rel="stylesheet" type="text/css" href="/fileadmin/template/style.css" media="all" />
+page.headerData.12 = TEXT
+page.headerData.12.value = <link rel="stylesheet" type="text/css" href="/fileadmin/template/style_colorbox.css" media="all" />
+
+page.headerData.14 = TEXT
+page.headerData.14.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_observations/pi4/jquery-ui.css" media="all" />
+
+page.headerData.16 = TEXT
+page.headerData.16.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_observations/pi4/theme2/jquery.ui.all.css" media="all" />
+
+page.headerData.17 = TEXT
+page.headerData.17.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_observations/pi4/blueimp-jQuery-File-Upload/jquery.fileupload-ui.css" media="all" />
+
+page.headerData.18 = TEXT
+page.headerData.18.value = <link rel="stylesheet" type="text/css" href="/typo3conf/ext/iherbarium_observations/pi4/style.css" media="all" />
+
+
+page.headerData.50 = TEXT
+page.headerData.50.value = <script type="text/javascript" src="/fileadmin/scripts/fonctions.js"></script>
+page.headerData.60 = TEXT
+page.headerData.60.value = <script type="text/javascript" src="/fileadmin/scripts/jquery.min.js"></script>
+page.headerData.370 = TEXT
+page.headerData.370.value = <script type="text/javascript" src="/fileadmin/scripts/jquery.colorbox.js"></script>
+
+page.10 = TEMPLATE
+page.10 {
+   template = FILE
+   template.file = fileadmin/template/template.html
+   workOnSubpart = DOCUMENT_BODY
+   subparts.CONTENT < styles.content.get
+   #subparts.CONTENT.renderObj.stdWrap.wrap=<div class="bordered">|</div>
+   subparts.CONTENT_RIGHT < styles.content.getRight
+  
+   subparts.MENU_HAUT = HMENU
+   subparts.MENU_HAUT.special = directory
+   subparts.MENU_HAUT.special.value = 3
+   subparts.MENU_HAUT.minItems = 0
+   subparts.MENU_HAUT.maxItems = 6
+   subparts.MENU_HAUT.1 = TMENU
+   subparts.MENU_HAUT.1.NO {
+      allWrap = <li> | </li>
+      stdWrap.dataWrap = <span> | </span>
+   }
+   subparts.MENU_HAUT.1.ACT = 1
+   subparts.MENU_HAUT.1.ACT.allWrap = <li class="actif"> | </li>
+   subparts.MENU_HAUT.1.ACT.stdWrap.dataWrap = <span> | </span>
+
+  
+  subparts.MENU_HAUT_NIV2 = HMENU
+  subparts.MENU_HAUT_NIV2.entryLevel = 2
+  subparts.MENU_HAUT_NIV2.1 = TMENU
+  subparts.MENU_HAUT_NIV2.1.noBlur = 1
+  subparts.MENU_HAUT_NIV2.1.NO.allWrap = <li> | </li>
+
+  subparts.MENU_HAUT_NIV2.1.ACT = 1
+  subparts.MENU_HAUT_NIV2.1.ACT.allWrap = <li class="actif"> | </li>
+   
+   
+   subparts.MENU_BOTTOM = HMENU
+   subparts.MENU_BOTTOM.special = directory
+   subparts.MENU_BOTTOM.special.value = 13
+   subparts.MENU_BOTTOM.1 = TMENU
+   subparts.MENU_BOTTOM.1.NO {
+     allWrap = <!-- --> |*| &nbsp;&#x7c;&nbsp; |*| &nbsp;&#x7c;&nbsp;
+   }
+  subparts.LANGAGEMENU < temp.languageMenu
+}
+

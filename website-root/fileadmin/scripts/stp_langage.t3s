@@ -1,0 +1,103 @@
+# pour la mise en place de realurl
+config.tx_realurl_enable = 1
+config.no_cache = 1
+
+#page.config.doctype = xhtml_trans
+
+# set the base href to the value of the current host (so link ignore if they are in a sub-folder in a friendly url)
+page.headerData.5 = TEXT
+page.headerData.5.data = getenv:HTTP_HOST
+page.headerData.5.wrap = <base href="http:// | /" />
+
+page.headerData.325 = TEXT
+page.headerData.325.data = getenv:REQUEST_URI
+page.headerData.325.wrap = <link rel="canonical" href=" | " />
+
+config.linkVars=L
+
+# if in a sub-domain, do not propose to go to an account
+page.10.subparts.MENU_HAUT.excludeUidList = 15
+
+config.sys_language_overlay = 0
+
+[globalVar = GP:L = 0]
+config.sys_language_uid = 0
+config.language = en
+config.locale_all = en_EN
+page.config.language = en
+page.config.htmlTag_langKey = en
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.org| " />
+[global]
+[globalVar = IENV:TYPO3_HOST_ONLY = www.iherbarium.org]
+page.10.subparts.MENU_HAUT.excludeUidList =
+config.baseURL = http://www.iherbarium.org
+[global]
+
+
+[globalVar = GP:L = 1]
+config.sys_language_uid = 1
+config.language = fr
+config.locale_all = fr_FR
+page.config.language = fr
+page.config.htmlTag_langKey = fr
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.fr| " />
+[global]
+[globalVar = IENV:TYPO3_HOST_ONLY = www.iherbarium.fr]
+page.10.subparts.MENU_HAUT.excludeUidList =
+config.baseURL = http://www.iherbarium.fr
+[global]
+
+
+[globalVar = GP:L = 2]
+config.sys_language_uid = 2
+config.language = pt
+config.locale_all = pt_PT
+page.config.language = pt
+page.config.htmlTag_langKey = pt
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.com.br| " />
+[global]
+[globalVar = IENV:TYPO3_HOST_ONLY = www.iherbarium.com.br]
+page.10.subparts.MENU_HAUT.excludeUidList =
+config.baseURL = http://www.iherbarium.com.br
+[global]
+
+[globalVar = GP:L = 3]
+config.sys_language_uid = 3
+config.language = de
+config.locale_all = de_DE
+page.config.language = de
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.de| " />
+[global]
+
+[globalVar = GP:L = 4]
+config.sys_language_uid = 4
+config.language = it
+config.locale_all = it_IT
+page.config.language = it
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.it| " />
+[global]
+
+[globalVar = GP:L = 5]
+config.sys_language_uid = 5
+config.language = es
+config.locale_all = es_ES
+page.config.language = es
+page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.es| " />
+[global]
+[globalVar = IENV:TYPO3_HOST_ONLY = www.iherbarium.es]
+page.10.subparts.MENU_HAUT.excludeUidList =
+config.baseURL = http://www.iherbarium.es
+[global]
+
+[globalVar = IENV:TYPO3_HOST_ONLY = test.iherbarium.fr]
+page.config.baseURL = http://test.iherbarium.fr/
+[global]
+
+[globalVar = IENV:TYPO3_HOST_ONLY = test.iherbarium.org]
+page.config.baseURL = http://test.iherbarium.org/
+[global]
+
+[globalVar = IENV:TYPO3_HOST_ONLY = iherbarium.local]
+page.10.subparts.MENU_HAUT.excludeUidList =
+config.baseURL = http://iherbarium.local
+[global]

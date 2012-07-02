@@ -1,0 +1,32 @@
+
+[globalVar = GP:fb > 0]
+page.10.template.file = fileadmin/template/template_fb.html
+[global]
+
+config.sys_language_uid =0
+config.language=fr
+config.locale_all= fr_FR
+page.config.language = fr
+
+#config.linkVars=L,fb
+config.linkVars=fb
+plugin.tt_news {
+  useSubCategories = 1
+  displaySubCategories = 1
+  # Turn off tt_news <p> wraps
+  general_stdWrap.parseFunc.nonTypoTagStdWrap.encapsLines.nonWrappedTag =
+  templateFile = fileadmin/template/my_news_template.htm
+}
+
+plugin.tx_indexedsearch.show.advancedSearchLink = 0
+page.config.index_enable = 1
+plugin.tx_indexedsearch.search.rootPidList = 1
+page.config.index_externals = 0
+plugin.tx_indexedsearch.show.rules = 0
+
+plugin.tx_macinasearchbox_pi1.pidSearchpage = 11
+lib.searchbox < plugin.tx_macinasearchbox_pi1
+
+
+# pour la mise en place de realurl
+config.simulateStaticDocuments = 0

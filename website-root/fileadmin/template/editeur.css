@@ -1,0 +1,66 @@
+/* 
+
+Auteur : Christian BELLET
+Date : 27/12/06
+Site : http://www.typo3journal.com
+
+Exemple de CSS pour l'éditeur RTE 
+Nous allons définir les classes en deux temps :
+- classes disponibles pour les paragraphes (entre des balises <p> par exemple)
+- classes disponibles pour le texte
+*/
+span.important {
+	font-weight: bold;
+		color: #344C29;
+}
+span.remarque {
+	font-weight: bold;
+	font-style:italic;
+		color: #4B4B4B;
+}
+span.note {
+	font-style:italic;
+		color: #4B4B4B;
+}
+p.btn_pageprec { 
+	padding: 0 0 0 20px;
+	color: #666666;
+	font-size: 13px;
+	line-height: 13px;
+	font-style: normal;
+	text-decoration: none;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	background-image: url(../medias/interface/picto_pageprec_association.gif);
+}
+p.btn_pagesuiv { 
+	padding: 0 0 0 20px;
+	color: #666666;
+	font-size: 13px;
+	line-height: 13px;
+	font-style: normal;
+	text-decoration: none;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	background-image: url(../medias/interface/picto_pagesuiv_association.gif);
+}
+p.btn_pagehaut { 
+	padding: 0 0 0 20px;
+	color: #666666;
+	font-size: 13px;
+	line-height: 13px;
+	font-style: normal;
+	text-decoration: none;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	background-image: url(../medias/interface/picto_pagehaut_association.gif);
+}
+p.align-left{
+	text-align:left;
+}
+p.align-center{
+	text-align:center;
+}
+p.align-right{
+	text-align:right;
+}
