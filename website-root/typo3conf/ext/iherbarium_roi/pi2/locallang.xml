@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbariumroi_pi2&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="selectionZones">Pour effectuer votre sélection, veuillez cliquer sur le coin supérieur de la zone qui vous intéresse, puis à l'aide de la souris,
+			sélectionner l'ensemble de celle-ci.
+			Les coordonnées du point supérieur gauche et du point inférieur droit de votre zone de sélection apparaîtront en bas de votre page. Lorsque vous avez terminé, veuillez cliquer sur "Envoyer" afin de valider votre sélection. 
+			Vous pourrez alors nous préciser la nature de ces zones.</label>
+			<label index="recommencerSelectionZones">Si vous souhaitez recommencer vos sélections, cliquer sur le bouton "Effacer les informations".</label>
+			<label index="boutonValiderZones">Envoyer</label>
+			<label index="boutonEffacerZones">Effacer les informations</label>
+			<label index="coordonneesZoneSelectionnee">Les coordonnées de votre zone de sélection (en pixels)</label>
+			<label index="zoneSelectionnee">Voici les zones que vous avez sélectionnées : </label>
+			<label index="natureZone">Est ce qu'il s'agit : </label>
+			<label index="boutonValider">Valider</label>
+			<label index="validerZone">Valider les zones : </label>
+			<label index="finSelection">Nous vous remercions pour votre participation.</label>
+			<label index="retourHerbier">Cliquez ici pour revenir à la liste de vos observations.</label>
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+		</languageKey>
+		
+		<languageKey index="en" type="array">
+			<label index="selectionZones">In order to make your selection, please click on the top left corner of the area that interests you, then using your mouse,
+			select all of it. The coordinates of your areas ( the top left corner and the bottom right corner) will appear at the bottom of your page. When you have finished, click on "Send" to confirm your selection. There you can specify the nature of these areas.</label>
+			<label index="recommencerSelectionZones">If you want to start again your selections, please click on the button 'Erase informations".</label>
+			<label index="boutonValiderZones">Send</label>
+			<label index="boutonEffacerZones">Erase informations</label>
+			<label index="coordonneesZoneSelectionnee"> The coordinates of your region </label>
+			<label index="zoneSelectionnee">Here are the areas you have selected : </label>
+			<label index="finSelection">We thank you for your participation.</label>
+			<label index="retourHerbier">Please click here to return to your herbarium.</label>
+			<label index="natureZone">Is it : </label>
+			<label index="validerZone">Confirm your regions : </label>
+			<label index="boutonValider">Confirm</label>
+		</languageKey>
+	</data>
+</T3locallang>

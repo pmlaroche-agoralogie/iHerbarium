@@ -1,0 +1,119 @@
+/***************************************************************
+ * Copyright notice
+ * 
+ * (c) 2004 macmade.net
+ * All rights reserved
+ * 
+ * This script is part of the TYPO3 project. The TYPO3 project is 
+ * free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * The GNU General Public License can be found at
+ * http://www.gnu.org/copyleft/gpl.html.
+ * 
+ * This script is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
+
+/**
+ * Default TS constants - Extension 'Drop-Down Site Map'
+ *
+ * @author      Jean-David Gadina (info@macmade.net) / macmade.net
+ * @version     1.0
+ */
+
+/**
+ * PI1 object - Drop-Down sitemap
+ */
+plugin.tx_dropdownsitemap_pi1 {
+    
+    # cat= dropdown_sitemap/dims/0; type=int+; label=Image width: The width of the icons.
+    picture.width = 16
+    
+    # cat= dropdown_sitemap/dims/1; type=int+; label=Image height: The height of the icons.
+    picture.height = 16
+    
+    # cat=dropdown_sitemap/file/0; type=string; label=Expand image: A little image for expanding a level of the sitemap.
+    picture.expand = EXT:dropdown_sitemap/res/folder-on.gif
+    
+    # cat= dropdown_sitemap/file/1; type=string; label=Collapse image: A little image for collapsing a level of the sitemap.
+    picture.collapse = EXT:dropdown_sitemap/res/folder-off.gif
+    
+    # cat= dropdown_sitemap/file/2; type=string; label=Page image: A little image for the page elements of the sitemap.
+    picture.page = EXT:dropdown_sitemap/res/page.gif
+    
+    # cat= dropdown_sitemap/file/3; type=string; label=Spacer image: A little image for the spacer elements of the sitemap.
+    picture.spacer = EXT:dropdown_sitemap/res/spacer.gif
+    
+    # cat= dropdown_sitemap/file/3; type=string; label=Expand image: A little image for the expand all link.
+    picture.expOn = EXT:dropdown_sitemap/res/exp-on.gif
+    
+    # cat= dropdown_sitemap/file/3; type=string; label=Collapse image: A little image for the collapse all link.
+    picture.expOff = EXT:dropdown_sitemap/res/exp-off.gif
+    
+    # cat= dropdown_sitemap/typo/0; type=string; label=List tag: The HTML list tag to use in the sitemap.
+    list.tag = ol
+    
+    # cat= dropdown_sitemap/typo/1; type=string; label=List type: The list type to use in the sitemap.
+    list.type = 1
+    
+    # cat= dropdown_sitemap/links/0; type=string; label=Link target: The target of the links in the sitemap.
+    linkTarget = _self
+    
+    # cat= dropdown_sitemap/links/1; type=boolean; label=ExpAll link: Add the expand/collapse all link in the sitemap.
+    expAllLink = 1
+    
+    # cat= dropdown_sitemap/enable/0; type=boolean; label=Include not in menu: If this is enabled, pages that are marked as not in menu will appear in the sitemap.
+    includeNotInMenu = 0
+    
+    # cat= dropdown_sitemap/enable/1; type=boolean; label=Show spacers: If this is enabled, pages that are marked as spacers will appear in the sitemap.
+    showSpacers = 1
+    
+    # cat= dropdown_sitemap/enable/2; type=options[None=none,Scriptaculous=scriptaculous,Mootools=mootools]; label=Effects: Uses effects to expand / collapse sections.
+    effectsEngine = scriptaculous
+    
+    # cat= dropdown_sitemap//0; type=int+; label=Levels - Show: The number of levels to show in the sitemap.
+    showLevels = 5
+    
+    # cat= dropdown_sitemap//1; type=int+; label=Levels - Expand: The number of levels to expand at start in the sitemap.
+    expandLevels = 0
+    
+    # cat= dropdown_sitemap//2; type=string; label=Exclude list: A comma list of the pages you don't want to appear in the sitemap.
+    excludeList =
+    
+    # cat= dropdown_sitemap//3; type=string; label=Exclude page types: A comma list of the page types you don't want to appear in the sitemap.
+    excludeDoktypes =
+    
+    # cat= dropdown_sitemap//4; type=string; label=Image parameters: The HTML parameters for the expand & collapse images.
+    picture.params = hspace="0" vspace="0" border="0"
+    
+    # cat= dropdown_sitemap//5; type=string; label=Title field(s): The field(s) to use as title attribute for the A tag.
+    titleFields = abstract // description // title
+    
+    # cat= dropdown_sitemap//6; type=string; label=Link text: Forces the field to use as link text.
+    linkText =
+    
+    # cat= dropdown_sitemap//7; type=string; label=Description field: The field to use as description, placed after the page title.
+    descriptionField = description
+    
+    # cat= dropdown_sitemap//8; type=options[Appear=Appear,BlindDown=BlindDown,SlideDown=SlideDown,Grow=Grow]; label=Appear effect: The appear effect to use, if scriptaculous is enabled.
+    effectsAppear = BlindDown
+    
+    # cat= dropdown_sitemap//9; type=options[Fade=Fade,Puff=Puff,BlindUp=BlindUp,SwitchOff=SwitchOff,SlideUp=SlideUp,DropOut=DropOut,Squish=Squish,Fold=Fold,Shrink=Shrink]; label=Fade effect: The fade effect to use, if scriptaculous is enabled.
+    effectsFade = BlindUp
+    
+    # cat= dropdown_sitemap/color/0; type=color; label=Links color: The color of the links, if using the default CSS styles.
+    colors.links = #FF8700
+    
+    # cat= dropdown_sitemap/color/1; type=color; label=Expall border color: The color of the expall border, if using the default CSS styles.
+    colors.expallBorder = #DBA83B
+    
+    # cat= dropdown_sitemap/color/2; type=color; label=Expall background color: The color of the expall background, if using the default CSS styles.
+    colors.expallBackground = #FCF2C8
+}

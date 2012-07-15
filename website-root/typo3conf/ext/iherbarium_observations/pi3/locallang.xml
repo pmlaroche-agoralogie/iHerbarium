@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbariumobservations_pi3&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		    <label index="numeroObservation">Observation number : </label>
+		    <label index="commentairesObservation">Comment :</label>
+			<label index="dateObservation">This observation has been photographed on : </label>
+			<label index="dateDepotObservation"> and send on :</label>
+			<label index="dateDepot">This observation has been send on :  </label>
+			<label index="imagesObservation">Here are the pictures which compose this observation : </label>   
+			<label index="latitudeObservation">This observation has been located at latitude  : </label>
+			<label index="longitudeObservation">and at longitude : </label>
+			<label index="pasLocalisation">There isn't any localisation associated with this observation </label>
+			<label index="DonnerNomPlante">You can specify us the name of this plant</label>
+			<label index="expertises">Here are the latest remarks that have been made on this plant  : </label>
+			<label index="expertises_forweb">Here are the latest remarks that have been made on this plant  : </label>
+			<label index="expertises_formail">Here is the latest remarks that have been made on your observation  : </label>
+			<label index="seeproximity">Click here for the nearest observations</label>
+			
+			<label index="visibiliteobs">Your observation is : </label>
+			<label index="semi">partially public, its localisation can't be visible by other members of the site. </label>
+			<label index="public">public. Information about your observation can be seen by other members of the site</label>
+			<label index="prive">private. Information about your observation can only be seen by you.</label>
+			<label index="changerStatut">You can change the status of your observation, you just have to select the new status that you want for your observation</label>
+			<label index="changerVersPrivee">Change to private</label>
+			<label index="changerVersPublic">Change to public</label>
+			<label index="changerVersSemi">Change to partially public</label>
+			<label index="goqrpage">Print a page with a label to store the plant</label>
+			<label index="morphoexplication">Regions of interest show the following answers </label>
+
+			<label index="zonesInteretObservation">Edit detailed region on interest</label>
+
+			<label index="creerroi">Create detailed region on interest</label>
+			<label index="creerroialt">With this step you help us to identify this plant</label>
+
+			<label index="submit_button_label">Click here to submit value</label>
+			
+			<label index="le">On </label>
+			<label index="nomCommun">, Common name : </label>
+			<label index="nomCommun_forweb">, Common name : </label>
+			<label index="nomCommun_formail">, Common name : </label>
+			
+			<label index="nomScientifique">, Scientific name : </label>
+			<label index="nomScientifique_forweb">, Scientific name : </label>
+			<label index="nomScientifique_formail">, Scientific name : </label>
+			
+			<label index="aboutprecision_formail">  About the precision of this name : </label>
+			<label index="aboutcertitude_formail">  About the certitude of this name : </label>
+			<label index="aboutcertitude_forweb">  Expert certitude : </label>
+			<label index="editButton">Edit observation</label>
+			<label index="deleteButton">Delete observation</label>
+			<label index="deleteAreYouSure">Are you sure you want to delete this observation?</label>
+			
+			<label index="donotshowforall">Set invisible for all but the owner</label>
+			
+			
+		</languageKey>
+		
+		
+		<languageKey index="fr" type="array">
+			<label index="numeroObservation">Observation numéro : </label>
+			<label index="commentairesObservation">Commentaires :</label>
+			<label index="dateObservation">Cette observation a été faite le : </label>
+			<label index="dateDepotObservation"> et déposée le :</label>
+			<label index="dateDepot">Cette observation a été déposée le : </label>
+			<label index="imagesObservation">Voici les images constituant cette observation : </label>
+			<label index="latitudeObservation">Cette observation a été localisée à la latitude : </label>
+			<label index="longitudeObservation">et à la longitude : </label>
+			<label index="pasLocalisation">Il n'y a pas de localisation associée à cette observation </label>
+			<label index="DonnerNomPlante">Vous pouvez nous indiquer ici le nom de cette plante</label>
+			<label index="expertises">Voici les dernières remarques qui ont été faites sur cette plante : </label>
+			<label index="expertises_forweb">Voici les dernières remarques qui ont été faites sur cette plante : </label>
+			<label index="expertises_formail">Notes et remarques saisies : </label>
+			<label index="seeproximity">Cliquer ici pour voir des observations proches</label>
+			<label index="zonesInteretObservation">Editer les regions d'interest des images</label>
+			<label index="visibiliteobs">Votre observation est : </label>			
+			<label index="semi">partiellement publique, c'est-à-dire que toutes les informations sur votre observation peuvent être consultées par les autres membres du site,sauf sa localisation qui reste privée.</label>
+			<label index="public">publique. Toutes les informations sur votre observation peuvent être consultées par les autres membres du site.</label>
+			<label index="prive">privée. Toutes les informations sur votre observation ne peuvent être visibles que par vous.</label>
+			<label index="changerStatut">Vous pouvez changer le statut de votre observation si vous le souhaitez en sélectionnant le statut que vous souhaitez lui appliquer.</label>
+			<label index="changerVersPrivee">Changer vers privée</label>
+			<label index="changerVersPublic">Changer vers publique</label>
+			<label index="changerVersSemi">Changer vers semi-publique</label>
+			<label index="goqrpage">Obtenir une page à imprimer où vous pourrez fixer votre récolte</label>
+			<label index="morphoexplication">Les zones intéressantes des images ont données les résultats suivants</label>
+			<label index="creerroi">Détailler les régions importantes de vos photos</label>
+			<label index="creerroialt">Cette opération nous permettra de vous aider à identifier cette plante</label>
+
+
+			<label index="submit_button_label">Cliquer ici pour soumettre la valeur</label>
+			
+			<label index="le">Le </label>
+			<label index="nomCommun">Nom commun : </label>
+			<label index="nomCommun_forweb">, Nom commun : </label>
+			<label index="nomCommun_formail"> Nom commun : </label>
+			<label index="nomScientifique">, Nom scientifique: </label>
+			<label index="nomScientifique_forweb">, Nom scientifique: </label>
+			<label index="nomScientifique_formail">, Nom scientifique: </label>
+			<label index="aboutprecision_formail">  A propos de la précision de ce nom : </label>
+			<label index="aboutcertitude_formail">  A propos de la certitude de l'expert qui propose ce nom : </label>
+			<label index="aboutcertitude_forweb">  Certitude de l'expert qui propose ce nom : </label>
+
+			<label index="editButton">Modifier l'observation</label>
+			<label index="deleteButton">Supprimer l'observation</label>
+			<label index="deleteAreYouSure">Est-ce que vous êtes sûr que vous voulez supprimer cette observation?</label>
+			<label index="donotshowforall">Invisible sauf le proprietaire</label>
+			
+		</languageKey>
+		
+		
+		<languageKey index="de" type="array">
+		    <label index="numeroObservation">Sighting number : </label>
+		    <label index="commentairesObservation">Comment :</label>
+			<label index="dateObservation">This sighting has been photographed on : </label>
+			<label index="dateDepotObservation"> and send on :</label>
+			<label index="dateDepot">This sighting has been send on :  </label>
+			<label index="imagesObservation">Hier die Bilder, die diese Beobachtung darstellen: </label>   
+			<label index="latitudeObservation">This sighting has been located at laltitude  : </label>
+			<label index="longitudeObservation">and at longitude : </label>
+			<label index="pasLocalisation">nicht eine assoziierte Lokalisierung</label>
+			<label index="DonnerNomPlante">Sie können uns den Namen dieser Pflanze hier angeben</label>
+			<label index="expertises">Sind hier die spätesten Sachkenntnisse, die auf dieser Anlage gebildet worden sind:  </label>
+			<label index="le">On </label>
+			<label index="nomCommun">, Gemeinsamer Name : </label>
+			<label index="nomScientifique">, Wissenschaftlicher Name : </label>
+			<label index="visibiliteobs">Your sighting is : </label>
+			<label index="semi">partially public, its localisation can't be visible by other members of the site. </label>
+			<label index="public">public. Information about your sighting can be seen by other members of the site</label>
+			<label index="prive">private. Information about your sighting can only be seen by you.</label>
+			<label index="changerStatut">You can change the status of your sighting, you just have to select the new status that you want for your sighting</label>
+			<label index="changerVersPrivee">Change to private</label>
+			<label index="changerVersPublic">Change to public</label>
+			<label index="changerVersSemi">Change to partially public</label>
+			
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+		</languageKey>
+		
+		<languageKey index="es" type="array">
+		    <label index="numeroObservation">Observation numéro : </label>
+		    <label index="commentairesObservation"> Comentarios :</label>
+		    <label index="dateObservation"> Esta observación fue hecha el : </label>
+		    <label index="dateDepotObservation"> y añadido el :</label>
+			<label index="dateDepot"> Esta observación fue añadido el : </label>
+		    <label index="imagesObservation"> Aquí están las imágenes que constituyen esta observación : </label>
+		    <label index="latitudeObservation"> Esta observación se encuentra en la latitud : </label>
+		    <label index="longitudeObservation"> y la longitud : </label>
+		    <label index="pasLocalisation"> No hay lugar asociado con esta observación </label>
+			<label index="DonnerNomPlante"> Puede indicar aqui el nombre de esta planta </label>
+			<label index="expertises"> Estos son los últimos comentarios que se han realizado en esta planta : </label>
+			<label index="expertises_forweb"> Estos son los últimos comentarios que se han realizado en esta planta : </label>
+			<label index="expertises_formail"> Notas y comentarios ingresados : </label>
+			<label index="seeproximity"> Haga clic aquí para ver una observación similar.</label>
+			
+			<label index="visibiliteobs"> Su observación es : </label>			
+			<label index="semi"> En parte público, es decir que toda la información de su observación puede ser vista por otros miembros del sitio, excepto su ubicación sigue siendo privada.</label>
+			<label index="public"> público. Toda la información sobre su observación puede ser vista por otros miembros del sitio.</label>
+			<label index="prive"> privado. Toda la información sobre tu comentario no puede ser visible sólo para ti.</label>
+			<label index="changerStatut"> Usted puede si lo desea, cambiar el estado de su observación en seleccionando el estado que quieres aplicar.</label>
+			<label index="changerVersPrivee"> Cambiar a privado</label>
+			<label index="changerVersPublic"> Cambiar a público</label>
+			<label index="changerVersSemi"> Cambiar a "partialmente pública"</label>
+			<label index="goqrpage"> Obtener de la página impresa, donde se puede establecer su cosecha </label>
+			<label index="morphoexplication"> Las áreas de interés en la imagen dan los resultados siguientes. </label>
+			<label index="creerroi"> Indicar las áreas más importantes de sus fotos. </label>
+			<label index="creerroialt"> Esta operación nos permitirá ayudaros a identificar esta planta </label>
+
+
+			<label index="submit_button_label"> Haga clic aquí para presentar el valor</label>
+			
+			<label index="le"> El </label>
+			<label index="nomCommun"> Nombre común : </label>
+			<label index="nomCommun_forweb">, Nombre común : </label>
+			<label index="nomCommun_formail"> Nombre común : </label>
+			<label index="nomScientifique">, Nombre científico : </label>
+			<label index="nomScientifique_forweb">, Nombre científico : </label>
+			<label index="nomScientifique_formail">, Nombre científico : </label>
+			<label index="aboutprecision_formail">  Sobre la exactitud del nombre : </label>
+			<label index="aboutcertitude_formail">  Sobre la exactitud del nombre propuesto por el experto : </label>
+			<label index="aboutcertitude_forweb">  La certeza del experto que proporciona el nombre : </label>
+
+			<label index="editButton"> Cambiar la observación </label>
+			<label index="deleteButton"> Eliminar la observación </label>
+			<label index="deleteAreYouSure"> ¿Está seguro que desea borrar esta observación? </label>
+			<label index="donotshowforall"> Invisibles excepto por el dueño </label>
+			
+		</languageKey>
+		<languageKey index="pt" type="array">
+		    <label index="numeroObservation">Número de observação : </label>
+		    <label index="commentairesObservation">comentários :</label>
+		    <label index="dateObservation">Esta observação foi feita em : </label>
+		    <label index="dateDepotObservation"> e arquivado em :</label>
+			<label index="dateDepot">Esse comentário foi apresentada em : </label>
+		    <label index="imagesObservation">Aqui estão as imagens que compõem esta observação : </label>
+		    <label index="latitudeObservation">Esta observação foi localizado na latitude : </label>
+		    <label index="longitudeObservation">e longitude : </label>
+		    <label index="pasLocalisation">Não há local GPS associado com esta observação </label>
+			<label index="DonnerNomPlante">Você pode inserir o nome desta planta</label>
+			<label index="expertises">Aqui estão os últimos comentários que foram feitos sobre esta planta: </label>
+			<label index="expertises_forweb">Aqui estão os últimos comentários que foram feitos sobre esta planta: </label>
+			<label index="expertises_formail">Notas e comentários inseridos: </label>
+			<label index="seeproximity">Clique aqui para ver os comentários fechar</label>
+			<label index="zonesInteretObservation">Editar as regiões d' interest das imagens</label>
+			<label index="visibiliteobs">Sua observação é : </label>			
+			<label index="semi">parte do público, que quer dizer que todas as informações sobre a sua observação pode ser visualizada por outros membros do site, exceto sua localização GPS continua a ser privada.</label>
+			<label index="public">público. Todas as informações sobre a sua observação pode ser visto por outros membros do site.</label>
+			<label index="prive">privado. Todas as informações sobre o seu comentário não pode ser visível para você.</label>
+			<label index="changerStatut">Você pode alterar o status da sua observação, se quiser, selecionando o status que você deseja aplicar.</label>
+			<label index="changerVersPrivee">Mude para o Privado</label>
+			<label index="changerVersPublic">Mude para o público</label>
+			<label index="changerVersSemi">Mude para o semi-públicos</label>
+			<label index="goqrpage">Get a página impressa, onde você pode definir a sua cultura</label>
+			<label index="morphoexplication">Áreas interessantes de dados de imagem têm os seguintes resultados</label>
+			<label index="creerroi">Detalhe as áreas importantes de suas fotos</label>
+			<label index="creerroialt">Isto irá permitir-nos a ajudá-lo a identificar esta planta</label>
+
+
+			<label index="submit_button_label">Clique aqui para enviar valor</label>
+			
+			<label index="le">O </label>
+			<label index="nomCommun">Nome comum : </label>
+			<label index="nomCommun_forweb">, Nome comum : </label>
+			<label index="nomCommun_formail"> Nome comum : </label>
+			<label index="nomScientifique">, Nome científico: </label>
+			<label index="nomScientifique_forweb">, Nome científico: </label>
+			<label index="nomScientifique_formail">, Nome científico: </label>
+			<label index="aboutprecision_formail">Sobre a exatidão do nome: </label>
+			<label index="aboutcertitude_formail">Sobre a certeza do perito que fornece o nome: </label>
+			<label index="aboutcertitude_forweb">Sobre a certeza do perito que fornece o nome: </label>
+
+			<label index="editButton">Alterar a observação</label>
+			<label index="deleteButton">Excluir da observação</label>
+			<label index="deleteAreYouSure">Você tem certeza que quer deletar este comentário?</label>
+			<label index="donotshowforall">Invisível a menos que o proprietário</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>

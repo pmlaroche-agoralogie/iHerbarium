@@ -1,0 +1,84 @@
+2006-10-24  Stefan Strasser <strada at stradax dot net>
+
+	* Updated manual (enhanced with information for storagePid and showForgotPassword)
+	* Updated ext_php_api.dat (old version contained some old mysql-quotations)
+	* Release of newloginbox 3.0.1
+
+2006-10-13  Stefan Strasser <strada at stradax dot net>
+
+	* Fixed bug #0004265 : Page browser error (number of users and pages are now shown correctly)
+	* Storage page for FE users now configurable with TypoScript: plugin.tx_newloginbox_pi1.storagePid = 123 (bug #0001787)
+	* Show-forgot-password-link now configurable with TypoScript: plugin.tx_newloginbox_pi1.showForgotPassword = 1 (bug #0001389)
+
+2006-10-01  Stefan Strasser <strada at stradax dot net>
+
+	* Fixed bug #0003197 : password-forgot-mails contains htmlencodings
+
+2006-09-13  Stefan Strasser <strada at stradax dot net>
+
+	* updated ext_emconf.php after overriding TER-version 3.0.0 (now not shy, upload-comment corrected)
+
+2006-09-02  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Added support for Permanent Log-In (aka "Stay logged in") that just entered Subversion trunk of the Core
+
+2006-08-29  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Minor cleanup and locallang changes while merging with the TER version
+
+2006-01-26  Brice Bernard <contact@brikou.com>
+
+	* Added/corrected some french language in locallang_db.php and pi1/locallang.php
+	* Revision of the manual : added explanation about templating system
+	* Improved default css style in ext_typoscript_setup.txt file
+	* Few cosmetic changes
+
+2006-01-26  Ingmar Schlecht <ingmar@typo3.org>
+
+	* Merged hook for Bernhard Kraft's md5 password extension from TER version to CVS
+
+2005-10-11  Sebastian Roth <sebastian.roth@gmail.com>
+	
+	* Fixed bug #0001110 : bug in the Hook for kb_md5fepw. Thanks to
+	  Dietrich Heise for reporting
+
+2005-07-09  Brice Bernard <contact@brikou.com>
+
+	* Corrected few php syntax problem in class.ext_update.php due to DBAL changes
+	* Added <tbody> and <tfoot> tag to template newloginbox_00.html
+
+2005-05-30  Sebastian Roth <sebastian.roth@gmail.com>
+	
+	* Added DBAL compatibility
+	* Smaller cleanups
+
+2005-05-11  Brice Bernard <contact@brikou.com>
+
+	* Fixed bug #0001059 : Users don't have to login twice anymore when the option domains is enable... Thank to Ries for reporting and correcting it!
+	* Added a new template file (res/newloginbox_00.html) to control the pi1 (pi1/class.tx_newloginbox_pi1.php) display. A lot of changes have been made and some stuff where deleted from 'pi1/class.tx_newloginbox_pi1.php' because they are directly set in the template. Every  Thank a lot to Alistair MacDonal!
+	* Added TODO.txt
+
+2005-01-29  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Added customProcessing functionality for field values, especially useful for "image" field.
+
+2005-01-14  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Added ID attributes to <input> tags.
+	* Corrected <br> linebreak problem in locallang files.
+
+2005-01-12  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Added general hook $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['newloginbox']['login_confirmed'] that is executed on successful login.
+
+2004-11-06  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Fixed spelling mistake in pi1/locallang.php file. Thanks to Glen Gibb for reporting it!
+
+2004-11-06  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Created hook in pi1 class for dkd_redirect_at_login extension.
+
+2004-11-06  Ingmar Schlecht  <ingmar@typo3.org>
+
+	* Added ChangeLog to newloginbox

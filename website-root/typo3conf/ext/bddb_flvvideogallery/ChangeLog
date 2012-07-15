@@ -1,0 +1,18 @@
+(add new changes on top of this file)
+
+07-09-25 Sebastian Fahrenkrog <sfahrenkrog@binaerdesign.de>
+
+         Add typenum to ext_typoscript_setup.txt for the xml playlist 
+         Add XML Template to template.tmpl
+
+07-07-20 Sebastian Fahrenkrog <sfahrenkrog@binaerdesign.de>
+	
+	0.0.3	- Fixed a small Bug concerning the Pagebrowser: URLs have been decoded wrong on some systems.
+			  - integrated new Version (3.99) of the FLV Player from Jeroen Wijering.
+			  - Set status of the Extension to BETA.
+
+07-05-17 Sebastian Fahrenkrog <sfahrenkrog@binaerdesign.de>
+	
+	0.0.2	- Added additional features and templates 
+
+	0.0.1	- sk_simpleflvplayer from Steffen Kamper <steffen@dislabs.de>

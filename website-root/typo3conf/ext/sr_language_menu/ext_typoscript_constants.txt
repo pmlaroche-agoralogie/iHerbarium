@@ -1,0 +1,74 @@
+plugin.tx_srlanguagemenu_pi1 {
+
+    # cat=plugin.tx_srlanguagemenu_pi1/file/01; type=file[html,htm,tmpl,txt]; label= Template File: HTML-template file 
+	file.templateFile = EXT:sr_language_menu/pi1/tx_srlanguagemenu_pi1_template.tmpl
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/01; type=boolean; label= Use the sys_language title: If enabled, the title field of table sys_language will be used instead of the language name from the static_languages table.
+	useSysLanguageTitle = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/02; type=boolean; label= Use the language's self name: If enabled, the name of the language will be displayed in the language itself. Ignored if either useSysLanguageTitle or useIsoLanguageCountryCode is set.
+	useSelfLanguageTitle = 1
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/03; type=boolean; label= Use the ISO language and country codes: If enabled, the ISO language code and, possibly, the country code will be used instead of the language name from the static_languages table. Ignored if useSysLanguageTitle is set. 
+	useIsoLanguageCountryCode = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1//04; type=string; label= Language ISO-2 code of default site language: Language ISO-2 code of site language when sys_language_uid = 0.
+	defaultLanguageISOCode = EN
+
+    # cat=plugin.tx_srlanguagemenu_pi1//05; type=string; label= Country ISO-2 code of default site language: Country ISO-2 code of site language when sys_language_uid = 0.
+	defaultCountryISOCode = 
+
+    # cat=plugin.tx_srlanguagemenu_pi1/file/02; type=file[gif]; label= File name of the English language flag: All flags should be in the same directory as this one.
+	englishFlagFile = EXT:sr_language_menu/flags/en.gif
+
+    # cat=plugin.tx_srlanguagemenu_pi1/file/03; type=string; label= File name of the pointer image: The pointer may be used in stdWrap to highlight the currently displayed language.
+	pointerImage = typo3/gfx/content_client.gif
+
+    # cat=plugin.tx_srlanguagemenu_pi1//06; type=string; label= List of uids of language records from table sys_language: This list will be used by default to build the list of languages to select from, if no list is otherwise provided to the plugin.
+	languagesUidsList = 
+
+    # cat=plugin.tx_srlanguagemenu_pi1//01; type=string; label= Default layout: Default layout to be used, if no layout is otherwise provided to the plugin. 0 = list of flags, 1=selection list, 2 = list of links
+	defaultLayout = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/04; type=boolean; label= Hide selection if no alt languages: If enabled, the selection list or menu is hidden if no alternative languages are present on the current page. 
+	hideIfNoAltLanguages = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1//07; type=string; label= Separator between links: String to be used in stdWrap as separator between links.
+	separator = &nbsp;
+
+    # cat=plugin.tx_srlanguagemenu_pi1//02; type=string; label= Target of the menu links: The target to be used in the menu links, if any.
+	target = 
+
+    # cat=plugin.tx_srlanguagemenu_pi1//03; type=string; label= Parameters that should not be forwarded: List of parameters that should not be forwarded when linking to another language.
+	removeParams = user,pass
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/10; type=boolean; label= Add a header to the selection list: If enabled, when the layout is a selection list, a header will be added at the top of the list.
+	addSelectionListHeader = 1
+
+    # cat=plugin.tx_srlanguagemenu_pi1//09; type=string; label= Selection list separator: Separator between the selection list and its header, if the selection list header is enabled.
+	selectionListSeparator = ----------
+
+    # cat=plugin.tx_srlanguagemenu_pi1//08; type=string; label= StdWrap split token: Token to be used in stdWrap split.
+	token = |
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/05; type=boolean; label= Show current language: If enabled, the current language is shown in the language menu.
+	showCurrent = 1
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/06; type=boolean; label= Do not link the current language: If enabled in the flags or list of links layout, the flag or name of the current language is not wrapped in a link.
+	doNotLinkCurrent = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/07; type=boolean; label= Show inactive languages: If enabled, languages for which there is no translation are shown in the language menu (except in dropdown list). 
+	showInactive = 1
+	
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/08; type=boolean; label= Do not link inactive languages: If enabled in the flags or list of links layout, the flags or names of inactive languages are not wrapped in a link.
+	doNotLinkInactive = 1
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/09; type=boolean; label= Show both links and flags: If enabled, when using the flags layout, both flags and links will be shown.
+	showLinkWithFlag = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/11; type=boolean; label= Show the current language first: If enabled, the current language is always the first item shown in the menu.
+	showCurrentFirst = 0
+
+    # cat=plugin.tx_srlanguagemenu_pi1/enable/12; type=boolean; label= Add a header in front of the list of links: If enabled, when the layout is a list of links, a header will be added at the top of the list.
+	addLinksListHeader = 0
+}

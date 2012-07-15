@@ -1,0 +1,8 @@
+plugin.tx_rlmplanguagedetection_pi1 {
+	defaultLang =
+	useOneTreeMethod = 1
+	multipleTreesRootPages {
+		
+	}
+	dontAddSchemeToURL = 0
+}

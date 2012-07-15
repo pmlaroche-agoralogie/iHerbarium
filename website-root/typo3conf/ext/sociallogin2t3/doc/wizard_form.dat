@@ -1,0 +1,50 @@
+a:8:{s:4:"save";a:3:{s:13:"extension_key";s:14:"sociallogin2t3";s:18:"print_wop_comments";s:1:"0";s:15:"overwrite_files";a:13:{s:9:"ChangeLog";s:1:"1";s:10:"README.txt";s:1:"1";s:12:"ext_icon.gif";s:1:"1";s:17:"ext_localconf.php";s:1:"1";s:14:"ext_tables.php";s:1:"1";s:14:"ext_tables.sql";s:1:"1";s:16:"locallang_db.xml";s:1:"1";s:19:"doc/wizard_form.dat";s:1:"1";s:20:"doc/wizard_form.html";s:1:"1";s:35:"pi1/class.tx_sociallogin2t3_pi1.php";s:1:"1";s:17:"pi1/locallang.xml";s:1:"1";s:42:"static/social_login_to_typo3/constants.txt";s:1:"1";s:38:"static/social_login_to_typo3/setup.txt";s:1:"1";}}s:6:"emconf";a:1:{i:1;a:7:{s:5:"title";s:21:"Social Login to TYPO3";s:11:"description";s:490:"The extension "sociallogin2t3" is a social media login tool for logging into the front-end of TYPO3 with social media accounts from Facebook, Hyves, Twitter and LinkedIn based on OAuth authentication. It was developed by Ron Schoellmann and Joost van Berckel for the Dutch trade union CNV (Christelijk Nationaal Vakverbond).
+
+User data will be imported/ updated to table fe_users. User will be logged in as FE user. More info: http://blog.firmstream.com/2010/10/19/social-login-to-typo3/.";s:8:"category";s:6:"plugin";s:5:"state";s:5:"alpha";s:12:"dependencies";s:18:"sr_feuser_register";s:6:"author";s:34:"Ron Schoellmann, Joost van Berckel";s:12:"author_email";s:38:"ron@netsinn.de, joost@contentonline.nl";}}s:6:"tables";a:0:{}s:6:"fields";a:1:{i:1;a:3:{s:11:"which_table";s:8:"fe_users";s:5:"title";s:25:"fe_users (Frontend Users)";s:6:"fields";a:6:{i:1;a:9:{s:9:"fieldname";s:16:"service_provider";s:5:"title";s:23:"Social service provider";s:4:"type";s:5:"input";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";s:9:"conf_size";s:0:"";s:8:"conf_max";s:0:"";s:13:"conf_required";s:1:"0";s:12:"conf_varchar";s:1:"1";}i:2;a:9:{s:9:"fieldname";s:2:"id";s:5:"title";s:14:"Social user id";s:4:"type";s:5:"input";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";s:9:"conf_size";s:0:"";s:8:"conf_max";s:0:"";s:13:"conf_required";s:1:"0";s:12:"conf_varchar";s:1:"1";}i:3;a:9:{s:9:"fieldname";s:10:"first_name";s:5:"title";s:17:"Social first name";s:4:"type";s:5:"input";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";s:9:"conf_size";s:0:"";s:8:"conf_max";s:0:"";s:13:"conf_required";s:1:"0";s:12:"conf_varchar";s:1:"1";}i:4;a:9:{s:9:"fieldname";s:9:"last_name";s:5:"title";s:16:"Social last name";s:4:"type";s:5:"input";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";s:9:"conf_size";s:0:"";s:8:"conf_max";s:0:"";s:13:"conf_required";s:1:"0";s:12:"conf_varchar";s:1:"1";}i:5;a:9:{s:9:"fieldname";s:6:"gender";s:5:"title";s:13:"Social gender";s:4:"type";s:5:"input";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";s:9:"conf_size";s:0:"";s:8:"conf_max";s:0:"";s:13:"conf_required";s:1:"0";s:12:"conf_varchar";s:1:"1";}i:6;a:5:{s:9:"fieldname";s:3:"url";s:5:"title";s:10:"Social url";s:4:"type";s:4:"link";s:12:"excludeField";s:1:"0";s:7:"_DELETE";s:1:"0";}}}}s:2:"pi";a:1:{i:1;a:11:{s:5:"title";s:21:"Social Login to TYPO3";s:13:"plus_user_obj";s:1:"0";s:23:"plus_not_staticTemplate";s:1:"0";s:7:"addType";s:9:"list_type";s:8:"plus_wiz";s:1:"0";s:20:"plus_wiz_description";s:0:"";s:12:"list_default";s:1:"0";s:21:"list_default_listmode";s:1:"0";s:23:"list_default_singlemode";s:1:"0";s:8:"tag_name";s:0:"";s:12:"plus_user_ex";s:1:"0";}}s:2:"cm";a:0:{}s:2:"sv";a:0:{}s:2:"ts";a:1:{i:1;a:3:{s:5:"title";s:21:"Social Login to TYPO3";s:9:"constants";s:1154:"plugin.tx_sociallogin2t3_pi1 {
+
+    # cat=sociallogin2t3; type=string; label=OAuth consumer key:The consumer key of your OAuth application
+    consumerKey =
+
+    # cat=sociallogin2t3; type=string; label=OAuth consumer secret:The consumer secret of your OAuth application
+    consumerSecret =
+
+    # cat=sociallogin2t3; type=int+; label=User storage page:uid of the page where Frontend user records are stored
+    usersPid =
+
+    # cat=sociallogin2t3; type=int+; label=User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    userGroup =
+
+    # cat=sociallogin2t3; type=string; label=OAuth account fields for fetch:Comma separated OAuth fields to be fetched (use field names that are used in OAuth's user object)
+    oauthFields4Fetch = id,name
+
+    # cat=sociallogin2t3; type=string; label=Typo3 fe_users fields:Comma separated fe_users fields where OAuth fields are stored (positions correspond to oauthFields4Fetch)
+    fe_usersFields = username,name
+
+    # cat=sociallogin2t3; type=int+; label=Show logout link after successfull login? (type in 1 for yes)
+    showLogoutLink = 1
+
+}";s:5:"setup";s:988:"plugin.tx_sociallogin2t3_pi1 = USER_INT
+plugin.tx_sociallogin2t3_pi1 {
+
+    # OAuth consumer key
+    consumerKey = {$plugin.tx_sociallogin2t3_pi1.consumerKey}
+
+    # OAuth consumer secret
+    consumerSecret = {$plugin.tx_sociallogin2t3_pi1.consumerSecret}
+
+    # uid of the page where Frontend user records are stored
+    usersPid = {$plugin.tx_sociallogin2t3_pi1.usersPid}
+
+    # uid (comma separated if multiple) of the group(s) the Frontend will belong to
+    userGroup = {$plugin.tx_sociallogin2t3_pi1.userGroup}
+
+    # OAuth account fields (use field names that are used in OAuth's user object)
+    oauthFields4Fetch = {$plugin.tx_sociallogin2t3_pi1.oauthFields4Fetch}
+
+    # Typo3 fe_users fields where OAuth fields are stored (positions correspond to oauthFields4Fetch)
+    fe_usersFields = {$plugin.tx_sociallogin2t3_pi1.fe_usersFields}
+
+    # Show logout link after successfull login?
+    showLogoutLink = {$plugin.tx_sociallogin2t3_pi1.showLogoutLink}
+
+}";}}}

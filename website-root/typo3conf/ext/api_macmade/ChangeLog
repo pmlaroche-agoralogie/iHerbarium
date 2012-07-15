@@ -1,0 +1,291 @@
+2008-09-04  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.6.
+	* Fixed a bug in the be_includeLightBoxJs method.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.6 of the API.
+
+2008-02-27  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.5 of the API.
+
+2008-02-04  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.5.
+	* Fixed a bug in the constructor of class tx_apimacmade_flexform. Thanx to Nux for the report.
+	* Fixed a bug with the JS functions.
+	* Fixed a bug with the fe_createSelectFromTable function.
+
+2007-12-10  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.4.
+	* Added the WebToolKit JS scripts.
+	* Added a parameter in function fe_buildLoginBox to get the TS configuration array instead of the HTML code.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.4 of the API.
+
+2007-10-29  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.3.
+	* Added the Mootools JS framework.
+	* Added TS setup and constants.
+	* Added the possibility not to load the JS scripts.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.3 of the API.
+
+2007-10-29  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.2.
+	* Fixed a bug in the backend JS functions.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.2 of the API.
+
+2007-10-16  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 4.1.
+	* New function: newInstance. This function is used to to get an instance of a class.
+	* Fixed a bug with the TYPO3 site path in the JavaScript methods.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.1 of the API.
+
+2007-10-03  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 4.0 of the API.
+
+2007-09-26  Jean-David Gadina  <info@macmade.net>
+
+	* Removed the 'displayErrors' property, which was not usefull.
+	* Modified the errorMsg function. An error message and the line number have now to be passed with the method name.
+	* Added error messages for each function calling the errorMsg function.
+	* Fixed a bug in the function fe_linkTP_keepPIvars.
+	* Increased API internal version number to 4.0.
+	* Added a directory for PHP5 only classes.
+	* New function: getPhp5Class. This function is used to load API classes designed exclusively for PHP5.
+	* Added the tx_apimacmade_flexform PHP5 class.
+
+2007-09-20  Jean-David Gadina  <info@macmade.net>
+	
+	* Increased API internal version number to 3.4.
+	* New function: fe_includeLightBoxJs. This function is used to include the lightbox JavaScript in a frontend context.
+	* New function: be_includeLightBoxJs. This function is used to include the lightbox JavaScript in a backend context.
+	* New function: fe_includeUfo. This function is used to include the UFO JavaScript in a frontend context.
+	* New function: be_includeUfo. This function is used to include the UFPO JavaScript in a backend context.
+	* New function: fe_includeSwfObject. This function is used to include the SWFObject JavaScript in a frontend context.
+	* New function: be_includeSwfObject. This function is used to include the SWFObject JavaScript in a backend context.
+
+2007-08-22  Jean-David Gadina  <info@macmade.net>
+	
+	* Increased API internal version number to 3.1.
+	* Fixed a bug in function fe_linkTP_keepPIvars.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 3.2 of the API.
+	* Increased API internal version number to 3.3.
+	* Added an option to keep existing piVars in function fe_typoLinkParams.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 3.3 of the API.
+
+2007-08-20  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 3.1.
+	* Fixed a bug in function fe_buildLoginBox method (cHash related problem)
+	* New function: fe_typoLinkParams. This function is used to build the additionalParams option of a typoLink from a frontend plugin.
+	* New function: fe_linkTP_keepPIvars. Same as tslib_piBase::pi_linkTP_keepPIvars, but with a bugfix for the cHash.
+	* New function: fe_linkTP_keepPIvars_url. Same as tslib_piBase::pi_linkTP_keepPIvars_url, but with a bugfix for the cHash.
+	* Fixed a bug in method fe_linkTP related to the cHash.
+
+2007-07-25  Jean-David Gadina  <info@macmade.net>
+	* New function: be_includePrototypeJs. This function is used to include the Prototype JavaScript framework in a backend context.
+	* New function: be_includeScriptaculousJs. This function is used to include the Scriptaculous JavaScript framework in a backend context.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 3.0 of the API.
+
+2007-07-04  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 3.0.
+	* Fixed a bug in function fe_makeStyledContent.
+	* New function: fe_includePrototypeJs. This function is used to include the Prototype JavaScript framework in a frontend context.
+	* New function: fe_includeScriptaculousJs. This function is used to include the Scriptaculous JavaScript framework in a frontend context.
+	* Changed coding style. Class tx_apimacmade now follows the Zend FrameWork coding rules.
+	* Miscellaneous enhancements.
+
+2006-10-19  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.8.
+	* Modified the fe_buildLoginBox function. Added CSS classes to input fields.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.8 of the API.
+
+2006-09-19  Jean-David Gadina  <info@macmade.net>
+
+	* Modified the fe_buildLoginBox function. Added an option for permalogin with extension 'core_permalogin'.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.7 of the API.
+
+2006-09-4  Jean-David Gadina  <info@macmade.net>
+
+	* New function: fe_buildSearchBox. This function constructs a standard Typo3 search box for use in plugins. The result is basically the same as tslib_piBase::pi_list_searchBox, but the output is valid XHTML, without tables
+	* New function: fe_buildBrowseBox. This function constructs a standard Typo3 browse box for use in plugins. The result is basically the same as tslib_piBase::pi_list_browseresults, but the output is valid XHTML, without tables.
+
+2006-08-22  Jean-David Gadina  <info@macmade.net>
+
+	* Modified the fe_makeStyledContent function. The generated code should now be clean and valid XHTML.
+
+2006-08-22  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.7.
+	* Modified the fe_buildSwapClassesJSCode function. The generated JavaScript is now able to change an otionnal icon, at the same time as the class name.
+
+2006-06-07  Jean-David Gadina  <info@macmade.net>
+
+	* Added parameter 'checkType' to function div_checkArrayKeys. That parameter is used to check the variable type of the final array.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.6 of the API.
+
+2006-06-06  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.6.
+	* New function: div_isType. The function is used to check the type of a variable, without using the PHP gettype() function, which should never be used to check a variable type.
+
+2006-05-28  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.5.
+	* Fixed typos in the function div_vCardCreate. Thanx to Stephan Struckmann for the feedback.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.5 of the API.
+
+2006-04-12  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.4.
+	* New function: div_rmdir. The function is used to delete a complete directory.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.4 of the API.
+
+2006-03-01  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.3 of the API.
+
+2006-02-20  Jean-David Gadina  <info@macmade.net>
+
+	* New function: div_checkArrayKeys. The function is used to check for specific keys in a multidimensionnal array.
+
+2005-12-15  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.3.
+
+2005-11-16  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.2 of the API.
+
+2005-10-31  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.2.
+	* New function: be_initCSM. The function is used to initiate the code of the context sensitive menu in a backend module.
+	* New function: be_getRecordCSMIcon. The function is used to create an icon of a database record, with a context sensitive menu attached.
+
+2005-10-10  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.1 of the API.
+
+2005-10-06  Jean-David Gadina  <info@macmade.net>
+
+	* Fixed a bug with the function div_array2xml, which would prevent the numeric tags to be processed correctly.
+	* New function: fe_linkTP. The function is used to create a link to a page. It's the same function as tslib_pibase::pi_linkTP, except that a configuration array for the typolink can be passed directly as an argument.
+
+2005-09-12  Jean-David Gadina  <info@macmade.net>
+
+	* Modified the div_vCardCreate function to allow other charset than US-ASCII in the vCard elements.
+
+2005-09-06  Jean-David Gadina  <info@macmade.net>
+
+	* Modified the div_convertLineBreaks function to allow ASCII null characters to be removed.
+
+2005-09-05  Jean-David Gadina  <info@macmade.net>
+
+	* New function: div_vCardFileParse. The function is used to parse a vCard file and to return its content as a multidimensionnal array.
+	* New function: div_convertLineBreaks. The function is used to convert different line breaks into standard Unix line breaks.
+
+2005-09-02  Jean-David Gadina  <info@macmade.net>
+
+	* Improved the function div_vCardCreate for a full vCard compatibility.
+
+2005-08-30  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.1.
+	* Fixed a bug with the function fe_buildLoginBox, which would prevent the action parameter of the form tag to be created sucessfully on some configurations.
+
+2005-08-08  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 2.0.
+	* Fixed a bug with the functions db_table2text & db_table2xml, which would prevent some MySQL query parts to be taken. Thanx to Florian Hengartner for the report.
+	* Fixed a bug with the function db_table2xml, which would prevent the XML namespace to be displayed. Thanx to Onno Schuit for the report.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 2.0 of the API.
+
+2005-06-28  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 1.9.
+	* Added support for XML namespacing in the db_table2xml function. Thanx to Onno Schuit for the feedback.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 1.9 of the API.
+
+2005-06-14  Jean-David Gadina  <info@macmade.net>
+
+	* Fixed a bug with the function fe_mergeTSconfFlex, which would prevent some values to be preserved.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 1.8 of the API.
+
+2005-06-13  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 1.8.
+	* Corrected some API functions' descriptions.
+
+2005-05-27  Jean-David Gadina  <info@macmade.net>
+
+	* New function: be_getSelectStyleRecordIcon. The function is used to create the CSS styles to correctly display a record icon inside an option tag of a select menu.
+	* Updated the class index.
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 1.7 of the API.
+
+2005-05-26  Jean-David Gadina  <info@macmade.net>
+
+	* Increased API internal version number to 1.7.
+	* New function: be_buildPageTreeSelect. The function is used to create a select menu representing the page tree from a given page ID.
+
+2005-05-02  Jean-David Gadina  <info@macmade.net>
+
+	* Fixed a bug with the function div_crop.
+	* Release of version 1.6 of the API.
+
+2005-04-28  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+
+2005-04-25  Jean-David Gadina  <info@macmade.net>
+
+	* Updated the API documentation (doc/manual.sxw).
+	* Release of version 1.5 of the API.
+
+2005-04-23  Jean-David Gadina  <info@macmade.net>
+
+	* Fixed a bug in the div_xml2array with the suffix for multiple same tag names.
+	* Updated the class index.
+
+2005-04-22  Jean-David Gadina  <info@macmade.net>
+
+	* Added a change log (CVS compliant)
+	* Increased API internal version number to 1.5.
+	* New function: div_formatXHTML. The function is used to format XHTML compliant code, with line breaks and indentations.
+	* Modified the div_xml2array function to allow the use of same multiple tag names inside the same parent element. In that case, the array keys are now suffixed with a '-N', where N is the current occurence number of the tag name.
+	* Modified the div_array2xml function to add compatibility with the modified div_xml2array function (see previous entry).
+	* Corrected some API functions' descriptions.
+	* Added the $funcId internal variable to some functions.
+	* Changed the name of the 'MAIN' section to 'INTERNAL'.
+	* Fixed a bug with the function div_xml2array, which would prevent the tag attributes to be stored in some cases.
+	* Modified the div_array2xml function to add compatibility with the modified div_xml2array function (see previous entry).
+	* Updated the class index.
+	* Added a copy of the GNU General Public License in the distribution of the API (GPL.txt).

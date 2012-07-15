@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Labels of extension rlmp_flashdetection</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array" />
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tt_content.tx_rlmpflashdetection_flashmovie">Flash movie</label>
+            <label index="tx_rlmpflashdetection_flashmovie">Flash Movie</label>
+            <label index="tx_rlmpflashdetection_flashmovie.description">Name of the Flash movie</label>
+            <label index="tx_rlmpflashdetection_flashmovie.requiresflashversion">Required Flash version (2 or higher)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.width">Width</label>
+            <label index="tx_rlmpflashdetection_flashmovie.height">Height</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.0">High</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.1">Low</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality">Quality</label>
+            <label index="tx_rlmpflashdetection_flashmovie.displaymenu">Display menu?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashloop">Loop?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatepic">Alternate image (if no Flash plugin available)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatelink">Link (will be wrapped around alternate picture)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatetext">Alt- and Title-TAG text for alternative image</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashmovie">Flash file</label>
+            <label index="tx_rlmpflashdetection_flashmovie.additionalparams">Additional parameters. Each parameter in one line, name and value separated by comma (eg. 'FlashVars, xtype=normal')</label>
+			<label index="tx_rlmpflashdetection_flashmovie.xmlfile">XML file you want to pass to the Flash movie.</label>
+            <label index="tt_content.list_type_pi1">Flash movie</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+			<label index="tt_content.tx_rlmpflashdetection_flashmovie">Flash Film</label>
+            <label index="tx_rlmpflashdetection_flashmovie">Flash Film</label>
+            <label index="tx_rlmpflashdetection_flashmovie.description">Name des Flash-Films</label>
+            <label index="tx_rlmpflashdetection_flashmovie.requiresflashversion">Erforderliche Flash Version (2 oder höher)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.width">Breite</label>
+            <label index="tx_rlmpflashdetection_flashmovie.height">Höhe</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.0">Hoch</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.1">Niedrig</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality">Qualität</label>
+            <label index="tx_rlmpflashdetection_flashmovie.displaymenu">Menü anzeigen?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashloop">Wiederholen?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatepic">Alternatives Bild (wenn kein Flash Plugin erkannt wird)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatelink">Link (verlinkt alternatives Bild)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatetext">Alt- und Title-TAG Text für alternatives Bild</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashmovie">Flash-Datei</label>
+            <label index="tx_rlmpflashdetection_flashmovie.additionalparams">Zusätzliche Parameter. Jeder Parameter eine Zeile, getrennt durch Komma (z.B. 'FlashVars, xtype=normal')</label>
+			<label index="tx_rlmpflashdetection_flashmovie.xmlfile">XML-Datei mit Parametern für den Flash Film</label>
+			<label index="tt_content.list_type_pi1">Flash Film</label>
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="tt_content.tx_rlmpflashdetection_flashmovie">Flash elokuva</label>
+            <label index="tx_rlmpflashdetection_flashmovie">Flash elokuva</label>
+            <label index="tx_rlmpflashdetection_flashmovie.description">Nimi Flash elokuvalle</label>
+            <label index="tx_rlmpflashdetection_flashmovie.requiresflashversion">Tarvittava Flash versio (2+)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.width">Leveys</label>
+            <label index="tx_rlmpflashdetection_flashmovie.height">Korkeus</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.0">Paras</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.1">Heikompi</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality">Laatu</label>
+            <label index="tx_rlmpflashdetection_flashmovie.displaymenu">Näytä valikko ?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashloop">Loopissa ?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatepic">Vaihtoehtoinen kuva (jos Flash ei käytettävissä)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatelink">Link (will be wrapped around alternate picture)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatetext">Alt- and Title-TAG text for alternative image</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashmovie">Flash tiedosto</label>
+            <label index="tx_rlmpflashdetection_flashmovie.additionalparams">Lisäparametrit. Jokainen parametri omalla rivillään nimi ja arvo erotettu pilkulla (esim. 'FlashVars, xtype=normal')</label>
+			<label index="tx_rlmpflashdetection_flashmovie.xmlfile">XML file you want to pass to the Flash movie.</label>
+            <label index="tt_content.list_type_pi1">Flash elokuva</label>
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="tt_content.tx_rlmpflashdetection_flashmovie">Filme em Flash</label>
+            <label index="tx_rlmpflashdetection_flashmovie">Filme em Flash</label>
+            <label index="tx_rlmpflashdetection_flashmovie.description">Nome do filme em Flash</label>
+            <label index="tx_rlmpflashdetection_flashmovie.requiresflashversion">Versão Flash requerida (entre 2+)</label>
+            <label index="tx_rlmpflashdetection_flashmovie.width">Largura</label>
+            <label index="tx_rlmpflashdetection_flashmovie.height">Altura</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.0">Alta</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality.I.1">Baixa</label>
+            <label index="tx_rlmpflashdetection_flashmovie.quality">Qualidade</label>
+            <label index="tx_rlmpflashdetection_flashmovie.displaymenu">Exibir menu?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashloop">Loop?</label>
+            <label index="tx_rlmpflashdetection_flashmovie.alternatepic">Imagem alternativa (se o plugin do Flash não estiver disponível)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatelink">Link (will be wrapped around alternate picture)</label>
+			<label index="tx_rlmpflashdetection_flashmovie.alternatetext">Alt- and Title-TAG text for alternative image</label>
+            <label index="tx_rlmpflashdetection_flashmovie.flashmovie">Arquivo flash</label>
+            <label index="tx_rlmpflashdetection_flashmovie.additionalparams">Parâmetros adicionais. Cada parâmetro em uma linha, nome e valor separados por vírgula (ex: 'FlashVars, xtype=normal')</label>
+			<label index="tx_rlmpflashdetection_flashmovie.xmlfile">XML file you want to pass to the Flash movie.</label>
+            <label index="tt_content.list_type_pi1">Filme em Flash</label>
+        </languageKey>
+    </data>
+</T3locallang>

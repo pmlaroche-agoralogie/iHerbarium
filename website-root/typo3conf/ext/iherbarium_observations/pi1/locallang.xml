@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin tx_iherbariumobservations_pi1</description>
+	</meta>
+	<data type="array">
+		
+		<languageKey index="default" type="array">
+			<label index="deposele">Deposit on : </label>
+			<label index="voirobservationdetail">Click to acces to details </label>
+			<label index="nomPlante">Name of the plant : </label>
+			<label index="utilisateur">, By the user : </label>
+			<label index="obs">Observation : </label>
+			
+			<label index="le">On </label>
+			<label index="nomCommun">, Common name : </label>
+			<label index="nomScientifique">, Scientific name : </label>
+			
+			<label index="herbierVide">You don't have yet any picture in your virtual herbarium.</label>
+			<label index="commencerHerbier">Click on "Add a observation" if you want to send to the website your pictures in order to have a virtual herbarium.</label>
+			
+			<label index="detail">data</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="deposele">Déposée le : </label>
+			<label index="voirobservationdetail">Cliquez sur une image pour voir le détail </label>
+			<label index="utilisateur">, Par l'utilisateur : </label>
+			<label index="nomPlante">Nom de la plante : </label>
+			<label index="obs">Observation : </label>
+			
+			<label index="le">Le </label>
+			<label index="nomCommun">, Nom commun : </label>
+			<label index="nomScientifique">, Nom scientifique: </label>
+			
+			<label index="herbierVide">Vous n'avez pas encore de plantes dans votre herbier virtuel.</label>
+			<label index="commencerHerbier">Cliquer sur l'onglet "Ajouter une observation" si vous souhaitez envoyer vos images de plantes sur le site
+			afin de constituer votre herbier.</label>
+			<label index="detail">data</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="deposele">Deposit on : </label>
+			<label index="voirobservationdetail">Click to acces to details </label>
+			<label index="nomPlante">Name of the plant : </label>
+			<label index="utilisateur">, By the user : </label>
+			<label index="obs">Observation : </label>
+			
+			<label index="le">On </label>
+			<label index="nomCommun">, Gemeinsamer Name : </label>
+			<label index="nomScientifique">, Wissenschaftlicher Name : </label>
+			
+			<label index="herbierVide">You don't have yet any picture in your virtual herbarium.</label>
+			<label index="commencerHerbier">Click on "Add a observation" if you want to send to the website your pictures in order to have a virtual herbarium.</label>
+			
+			
+		</languageKey>
+		<languageKey index="es" type="array">
+			<label index="deposele"> Añadido el : </label>
+			<label index="voirobservationdetail"> Haga clic en la imagen para ver detalles </label>
+			<label index="nomPlante"> Nombre de la planta : </label>
+			<label index="utilisateur">, por el usuario : </label>
+			<label index="obs"> Observación : </label>
+			
+			<label index="le"> El </label>
+			<label index="nomCommun">, Nombre común : </label>
+			<label index="nomScientifique">, Nombre científico : </label>
+			
+			<label index="herbierVide"> Usted aún no tiene plantas en su Herbario Virtual. </label>
+			<label index="commencerHerbier"> Haga clic en "Añadir" si usted quiere enviar fotografías de plantas en el sitio para construir su herbario. </label>
+			
+			
+			
+		</languageKey>
+		<languageKey index="pt" type="array">
+			<label index="deposele">arquivado em : </label>
+			<label index="voirobservationdetail">Clique para o acesso a detalhes </label>
+			<label index="nomPlante">Nome da planta : </label>
+			<label index="utilisateur">, pelo usuário : </label>
+			<label index="obs">observação : </label>
+			
+			<label index="le">em </label>
+			<label index="nomCommun">, Nome comum : </label>
+			<label index="nomScientifique">, Nome científico : </label>
+			
+			<label index="herbierVide">Você não tem plantas em seu Herbário Virtual.</label>
+			<label index="commencerHerbier">Clicar em l' onglete " Acrescentar um observation" se deseja enviar as vossas imagens de plantas sobre o sítio a fim de constituir o vosso herbário</label>
+			
+			
+		</languageKey>
+	</data>
+</T3locallang>

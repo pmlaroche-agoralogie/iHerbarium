@@ -1,0 +1,184 @@
+/***************************************************************
+ * Copyright notice
+ * 
+ * (c) 2004 macmade.net
+ * All rights reserved
+ * 
+ * This script is part of the TYPO3 project. The TYPO3 project is 
+ * free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * The GNU General Public License can be found at
+ * http://www.gnu.org/copyleft/gpl.html.
+ * 
+ * This script is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
+
+/**
+ * Default TS setup - Extension 'Drop-Down Site Map'
+ *
+ * @author      Jean-David Gadina (info@macmade.net) / macmade.net
+ * @version     1.0
+ */
+
+/**
+ * PI1 object - Drop-Down sitemap
+ */
+plugin.tx_dropdownsitemap_pi1 {
+    
+    // Exclude list
+    excludeList      = {$plugin.tx_dropdownsitemap_pi1.excludeList}
+    
+    // Exclude page types
+    excludeDoktypes  = {$plugin.tx_dropdownsitemap_pi1.excludeDokTypes}
+    
+    // Include not in menu pages
+    includeNotInMenu = {$plugin.tx_dropdownsitemap_pi1.includeNotInMenu}
+    
+    // Include spacers pages
+    showSpacers      = {$plugin.tx_dropdownsitemap_pi1.showSpacers}
+    
+    // Add the expand/collapse all link
+    expAllLink       = {$plugin.tx_dropdownsitemap_pi1.expAllLink}
+    
+    // Number of levels to show
+    showLevels       = {$plugin.tx_dropdownsitemap_pi1.showLevels}
+    
+    // Number of levels to expand at start
+    expandLevels     = {$plugin.tx_dropdownsitemap_pi1.expandLevels}
+    
+    // Target of the menu links
+    linkTarget       = {$plugin.tx_dropdownsitemap_pi1.linkTarget}
+    
+    // Field(s) for the A tag title
+    titleFields      = {$plugin.tx_dropdownsitemap_pi1.titleFields}
+    
+    // Link text
+    linkTest         = {$plugin.tx_dropdownsitemap_pi1.linkTest}
+    
+    // Field for description
+    descriptionField = {$plugin.tx_dropdownsitemap_pi1.descriptionField}
+    
+    // Effects options
+    effects {
+        
+        // Enable the use of JS effects
+        engine = {$plugin.tx_dropdownsitemap_pi1.effectsEngine}
+        
+        // Appear effect
+        appear = {$plugin.tx_dropdownsitemap_pi1.effectsAppear}
+        
+        // Fade effect
+        fade   = {$plugin.tx_dropdownsitemap_pi1.effectsFade}
+    }
+    
+    // Picture
+    picture { 
+        
+        // Expand image
+        expand   = {$plugin.tx_dropdownsitemap_pi1.picture.expand}
+        
+        // Collapse Image
+        collapse = {$plugin.tx_dropdownsitemap_pi1.picture.collapse}
+        
+        // Page Image
+        page     = {$plugin.tx_dropdownsitemap_pi1.picture.page}
+        
+        // Spacer Image
+        spacer   = {$plugin.tx_dropdownsitemap_pi1.picture.spacer}
+        
+        // Expand Image
+        expOn    = {$plugin.tx_dropdownsitemap_pi1.picture.expOn}
+        
+        // Collapse Image
+        expOff   = {$plugin.tx_dropdownsitemap_pi1.picture.expOff}
+        
+        // IMG tag parameters
+        params   = {$plugin.tx_dropdownsitemap_pi1.picture.params}
+        
+        // Width of the picture
+        width    = {$plugin.tx_dropdownsitemap_pi1.picture.width}
+        
+        // Height of the picture
+        height   = {$plugin.tx_dropdownsitemap_pi1.picture.height}
+    }
+    
+    // List HTML element
+    list {
+        
+        // HTML tag (ol or ul)
+        tag  = {$plugin.tx_dropdownsitemap_pi1.list.tag}
+        
+        // List type
+        type = {$plugin.tx_dropdownsitemap_pi1.list.type}
+    }
+    
+    // Default CSS styling
+    _CSS_DEFAULT_STYLE (
+        .tx-dropdownsitemap-pi1 UL, .tx-dropdownsitemap-pi1 OL {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .tx-dropdownsitemap-pi1 A, .tx-dropdownsitemap-pi1 A:link, .tx-dropdownsitemap-pi1 A:visited, .tx-dropdownsitemap-pi1 A:hover, .tx-dropdownsitemap-pi1 A:active {
+            color: {$plugin.tx_dropdownsitemap_pi1.colors.links};
+            background-color: inherit;
+        }
+        .tx-dropdownsitemap-pi1 DIV {
+            margin-left: 20px;
+            margin-top: 2px;
+            padding: 2px;
+        }
+        .tx-dropdownsitemap-pi1 LI.open OL {
+            display: block;
+        }
+        .tx-dropdownsitemap-pi1 LI.closed OL {
+            display: none;
+        }
+        .tx-dropdownsitemap-pi1 LI.open UL {
+            display: block;
+        }
+        .tx-dropdownsitemap-pi1 LI.closed UL {
+            display: none;
+        }
+        .tx-dropdownsitemap-pi1 SPAN.ifsub {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .tx-dropdownsitemap-pi1 SPAN.spc {
+            text-transform: uppercase;
+            font-style: italic;
+        }
+        .tx-dropdownsitemap-pi1 .description {
+            font-style: italic;
+            font-size: 80%;
+            margin-left: 5px;
+        }
+        .tx-dropdownsitemap-pi1 DIV {
+        }
+        .tx-dropdownsitemap-pi1 DIV.level_2 {
+        }
+        .tx-dropdownsitemap-pi1 DIV.level_3 {
+        }
+        .tx-dropdownsitemap-pi1 DIV.level_4 {
+        }
+        .tx-dropdownsitemap-pi1 DIV.level_5 {
+        }
+        .tx-dropdownsitemap-pi1 DIV.expAll {
+            border: solid 1px {$plugin.tx_dropdownsitemap_pi1.colors.expallBorder};
+            background-color: {$plugin.tx_dropdownsitemap_pi1.colors.expallBackground};
+            color: inherit;
+            padding: 5px;
+        }
+        .tx-dropdownsitemap-pi1 IMG {
+            margin-right: 5px;
+        }
+    )
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbariumobservations_pi2&quot;</description>
+	</meta>
+	<data type="array">
+		
+		<languageKey index="default" type="array">
+		    <label index="numeroObservation">observation  number : </label>
+			<label index="deposele">Deposit on : </label>
+			<label index="zonesInteretObservation">You can see the regions of interest which characterize the pictures of your sighting or define them  </label>
+			<label index="DonnerNomPlante">You can specify to us the name of this plant</label>
+			<label index="voirobservationdetail">Click on a picture to see details</label>
+			<label index="utilisateur">, By the user : </label>
+			<label index="nomPlante">Name of the plant : </label>
+			<label index="obs">Observation : </label>
+			
+			<label index="le">On </label>
+			<label index="nomCommun">, Common name : </label>
+			<label index="nomScientifique">, Scientific name : </label>
+			
+			<label index="lastzoneobservation">Observations  (limited to 75 last) from area : </label>
+			<label index="lastwebsiteobservation">Last observations  (limited to 75) </label>
+			<label index="noobservation">No observation </label>
+			
+			<label index="speciesinventory">Species inventory (for named observation)</label>
+			<label index="nospeciesobservation">No observation named in this area</label>
+			<label index="numberdistinctfamily">Number of distinct family in this area </label>
+			<label index="numberdistinctgenus">Number of distinct genus in this area </label>
+			<label index="number_total_observation">Number of observations in this area </label>
+			
+			<label index="numberdistinctspecies">Number of species in this area </label>
+			<label index="detail">data</label>
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+		    <label index="numeroObservation">Observation numéro :  </label>
+			<label index="deposele">Déposée le : </label> 
+			<label index="zonesInteretObservation">Vous pouvez voir ici les zones d'intérêt des photos de cet observation ou les définir  </label>
+			<label index="DonnerNomPlante">Vous pouvez nous indiquer ici le nom  de cette plante</label>
+			<label index="voirobservationdetail">Cliquez sur une image pour avoir les détails</label>
+			
+			<label index="utilisateur">, Par l'utilisateur : </label>
+			<label index="nomPlante">nom de la plante : </label>
+			<label index="obs">Observation : </label>
+			<label index="le">Le </label>
+			<label index="nomCommun">, Nom commun : </label>
+			<label index="nomScientifique">, Nom scientifique: </label>
+			
+			<label index="lastzoneobservation">Observations  (limitées aux 75 dernières) de la zone : </label>
+			<label index="lastwebsiteobservation">Dernières observations (limitées à 75) déposées sur le site</label>
+			<label index="noobservation">Pas d'observation dans cette zone </label>
+			
+			<label index="speciesinventory">Inventaires des especes déterminées</label>
+			<label index="nospeciesobservation">Pas d'observations déterminées dans cette zone</label>
+			<label index="numberdistinctfamily">Nombre de famille différentes dans cette zone </label>
+			<label index="numberdistinctgenus">Nombre de genre différents dans cette zone </label>
+			<label index="numberdistinctspecies">Nombre d'especes différentes dans cette zone </label>
+ <label index="number_total_observation">Nombre d'observations dans cette zone : </label>
+
+			<label index="detail">data</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+		    <label index="numeroObservation">observation  number : </label>
+			<label index="deposele">Deposit on : </label>
+			<label index="zonesInteretObservation">You can see the regions of interest which characterize the pictures of your sighting or define them  </label>
+			<label index="DonnerNomPlante">You can specify to us the name of this plant</label>
+			<label index="voirobservationdetail">Click on a picture to see details</label>
+			<label index="utilisateur">, By the user : </label>
+			<label index="nomPlante">Name of the plant : </label>
+			<label index="obs">Observation : </label>
+			<label index="le">On </label>
+			<label index="nomCommun">, Gemeinsamer Name : </label>
+			<label index="nomScientifique">, Wissenschaftlicher Name : </label>
+			
+		</languageKey>
+		<languageKey index="es" type="array">
+		    <label index="numeroObservation"> Observación número :  </label>
+			<label index="deposele"> Añadido el : </label> 
+			<label index="zonesInteretObservation"> Aquí usted puede ver las áreas de interés de las fotos de esta observación o usted les puede definir.  </label>
+			<label index="DonnerNomPlante"> Puede indicar aqui el nombre de esta planta </label>
+			<label index="voirobservationdetail"> Haga clic en la imagen para más detalles </label>
+			<label index="utilisateur">, por el usuario : </label>
+			<label index="nomPlante"> Nombre de la planta : </label>
+			<label index="obs"> Observación : </label>
+			<label index="le"> El </label>
+			<label index="nomCommun">, Nombre común : </label>
+			<label index="nomScientifique">, Nombre científico : </label>
+			
+			<label index="lastzoneobservation"> Las últimas observaciones (limitado a 75) presentado en el sitio : </label>
+			<label index="lastwebsiteobservation"> Las últimas observaciones (limitado a 75) </label>
+			<label index="noobservation"> No hay comentarios </label>
+			<label index="speciesinventory"> El inventario de las especies (para la observación indicado ) </label>
+			<label index="nospeciesobservation"> Ninguna observación con un nombre en esta zona </label>
+			<label index="numberdistinctfamily"> Número de familias distintas en esta área : </label>
+			<label index="numberdistinctgenus"> Número de géneros distintos en esta área : </label>
+			<label index="numberdistinctspecies"> Número de especies distintas en esta área : </label>
+			
+		</languageKey>
+		<languageKey index="pt" type="array">
+		    <label index="numeroObservation">Número de observação :  </label>
+			<label index="deposele">arquivado em : </label> 
+			<label index="zonesInteretObservation">Aqui você pode ver as áreas de interesse ou imagens desta observação para definir </label>
+			<label index="DonnerNomPlante">Você pode inserir o nome desta planta</label>
+			<label index="voirobservationdetail">Clique na imagem para mais detalhes</label>
+			<label index="utilisateur">, pelo usuário : </label>
+			<label index="nomPlante">Nome da planta : </label>
+			<label index="obs">Observação : </label>
+			<label index="le">Le </label>
+			<label index="nomCommun">, Nome comum : </label>
+			<label index="nomScientifique">, Nome científico : </label>
+			
+			<label index="lastzoneobservation">Observações na zona (limitados aos 75 últimos) : </label>
+			<label index="lastwebsiteobservation">Últimas observações (limitados à 75) depositadas sobre o sítio</label>
+			<label index="noobservation">Não d' observação nesta zona</label>
+			<label index="speciesinventory">Inventários das espécies determinadas</label>
+			<label index="nospeciesobservation">Não d' observações determinadas nesta zona</label>
+			<label index="numberdistinctfamily">Número de família diferente nesta zona </label>
+			<label index="numberdistinctgenus">Número de tipo diferente nesta zona </label>
+			<label index="numberdistinctspecies">Número d' espécies diferentes nesta zona </label>
+			
+		</languageKey>
+	</data>
+</T3locallang>

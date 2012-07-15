@@ -1,0 +1,11 @@
+plugin.tx_rlmpflashdetection_pi1 {
+	general {
+		allowScriptAccess = sameDomain
+		codeBase = http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab
+		pluginsPage = http://www.adobe.com/go/getflashplayer
+		xmlFileFlashParamName = xurl
+	}
+	conf {
+
+	}
+}

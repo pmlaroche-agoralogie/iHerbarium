@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbanommage_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		
+		
+		<languageKey index="default" type="array">
+			<label index="demandeInfo">Please indicate us the  'tropicos' identifier of this plant. </label>
+			<label index="explication">More on this here : http://www.iherbarium.org/index.php?id=69 .</label>
+			<label index="explication2">You juste have to enter its name thank to the field "Search".</label>
+			<label index="explication3">You will find an identifier for your plant, it's the number to the right of your page's link.</label>
+			<label index="identifiant">Identifier on the website tropicos : </label>
+			<label index="infoUser">We thank you to have indicate us the common name of the plant.</label>
+			<label index="indicationNom">Common name of the plant : </label>
+			<label index="nomCommun">Common name of this plant indicated : </label>
+			<label index="infoTropicos"> We have gathered that the informations about this plant, with the identifier number : </label> 
+			<label index="sont">, are : </label>
+			<label index="nomScientifique">its scientific name : </label>
+			<label index="famille">its family : </label>
+			<label index="determin_comment">comments : </label>
+			<label index="genre">its genus : </label>
+			<label index="espece">its species : </label>
+			<label index="retourHerbier">Please click here to return to your herbarium.</label>
+			<label index="valider">Validate</label>
+			
+			<label index="near_plants_list">Here is a list of plant which are near this one, and have been named. You can click on "Choose" to confirm it is the same as the one you are naming</label>
+			<label index="near_plants_choose">Choose this name</label>
+			
+			<label index="nomCommun_forweb">, Common name : </label>
+			<label index="nomCommun_formail">, Common name : </label>
+			
+			<label index="nomScientifique_forweb">, Scientific name : </label>
+			<label index="nomScientifique_formail">, Scientific name : </label>
+			
+			<label index="aboutprecision_formail">About the precision of this name : </label>
+			<label index="aboutcertitude_formail">About the certitude of this name : </label>
+			<label index="aboutcertitude_forweb">Expert certitude : </label>
+			<label index="expertises_forweb">Here are the latest remarks that have been made on this plant  : </label>
+			<label index="expertises_formail">Here is the latest remarks that have been made on your observation  : </label>
+
+			<label index="mail_notif_subject">iHerbarium : answer on observation : </label>
+			<label index="mail_notif_body">A botanist or the expert system add a note to the observation  </label>
+			<label index="mail_notif_footer">This website is still an experiment, please report any problem. \n iHerbarium Team</label>
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+			<label index="demandeInfo">Si vous êtes botaniste, vous pouvez saisir l'identifiant 'tropicos' de la plante  observée. </label>
+			<label index="explication">voir http://www.iherbarium.org/index.php?id=69 à ce sujet.</label>
+			<label index="explication2"></label>
+			<label index="explication3"></label>
+			<label index="infoUser">Nous vous remercions d'avoir préciser le nom commun de cette plante.</label>
+			<label index="identifiant">Identifiant sur le site tropicos : </label>
+			<label index="indicationNom">Nom commun ou scientifique de la plante : </label>
+			<label index="nomCommun">Nom commun de la plante indiqué : </label>
+			<label index="infoTropicos">Nous avons trouvé que les informations concernant cette plante, d'identifiant : </label>
+			<label index="sont">, sont les suivantes : </label>
+			<label index="nomScientifique">Son nom scientifique : </label>
+			<label index="famille">Sa famille : </label>
+			<label index="determin_comment">Commentaires (habitat , altitude, sol,.....) : </label>
+			<label index="genre">Son genre : </label>
+			<label index="espece">Son espèce : </label>
+			<label index="retourHerbier">Cliquez ici pour revenir à la liste de vos observations.</label>
+			<label index="valider">Valider</label>
+			
+			<label index="near_plants_list">Voici une liste de plantes trouvées proches de celle-ci, et qui ont été nommées précisement. Vous pouvez cliquer sur "Choisir", cela validera le même nom pour la plante courante</label>
+			<label index="near_plants_choose">Choisir ce nom pour la plante courante (celle visible en haut)</label>
+
+			
+			<label index="nomCommun_forweb">, Nom commun : </label>
+			<label index="nomCommun_formail"> Nom commun : </label>
+			<label index="nomScientifique_forweb">, Nom scientifique: </label>
+			<label index="nomScientifique_formail">, Nom scientifique: </label>
+			<label index="aboutprecision_formail">A propos de la précision de ce nom : </label>
+			<label index="aboutcertitude_formail">A propos de la certitude de l'expert qui propose ce nom : </label>
+			<label index="aboutcertitude_forweb">Certitude de l'expert qui propose ce nom : </label>
+			<label index="expertises_forweb">Voici les dernières remarques qui ont été faites sur cette plante : </label>
+			<label index="expertises_formail">Notes et remarques saisies : </label>
+			
+			
+			<label index="mail_notif_subject">iHerbarium : une reponse faite sur l'obervation : </label>
+			<label index="mail_notif_body">Un botaniste a repondu au sujet de l'observation </label>
+			<label index="mail_notif_footer">Ce programme est en cours d'experimentation, merci de nous signaler toute anomalie ou de nous proposer toute modification.  \n L'équipe de iherbarium</label>
+		</languageKey>
+		<languageKey index="es" type="array">
+			<label index="demandeInfo">Please indicate us the  'tropicos' identifier of this plant. </label>
+			<label index="explication">More on this here : http://www.iherbarium.org/index.php?id=69 .</label>
+			<label index="explication2">You juste have to enter its name thank to the field "Search".</label>
+			<label index="explication3">You will find an identifier for your plant, it's the number to the right of your page's link.</label>
+			<label index="identifiant">Identifier on the website tropicos : </label>
+			<label index="infoUser">We thank you to have indicate us the common name of the plant.</label>
+			<label index="indicationNom">Common name of the plant : </label>
+			<label index="nomCommun">Common name of this plant indicated : </label>
+			<label index="infoTropicos"> We have gathered that the informations about this plant, with the identifier number : </label> 
+			<label index="sont">, are : </label>
+			<label index="nomScientifique">its scientific name : </label>
+			<label index="famille">its family : </label>
+			<label index="determin_comment">comments : </label>
+			<label index="genre">its genus : </label>
+			<label index="espece">its species : </label>
+			<label index="retourHerbier">Please click here to return to your herbarium.</label>
+			<label index="valider">Validate</label>
+			
+			
+		</languageKey>
+		<languageKey index="pt" type="array">
+			<label index="demandeInfo">Indique-nos por favor o identificador dos “tropicos” desta planta. </label>
+			<label index="explication">mais nisto aqui: http://www.iherbarium.org/index.php?id=69 .</label>
+			<label index="explication2">You juste have to enter its name thank to the field "Search".</label>
+			<label index="explication3">You will find an identifier for your plant, it's the number to the right of your page's link.</label>
+			<label index="identifiant">Identificador nos tropicos do Web site : </label>
+			<label index="infoUser">Nós agradecemo-lo ter indicar-nos o nome comum da planta.</label>
+			<label index="indicationNom">Nome comum da planta : </label>
+			<label index="nomCommun">Nome comum da planta : </label>
+			<label index="infoTropicos"> Nós recolhemos que as informações sobre esta planta, com o número do identificador : </label> 
+			<label index="sont">, seja : </label>
+			<label index="nomScientifique">seu nome científico : </label>
+			<label index="famille">sua família : </label>
+			<label index="determin_comment">comentários : </label>
+			<label index="genre">its genus : </label>
+			<label index="espece">seu genus : </label>
+			<label index="retourHerbier">Estale por favor aqui para retornar a seu herbarium.</label>
+			<label index="valider">Valide</label>
+			
+			<label index="nomCommun_forweb">, Nome comum : </label>
+			<label index="nomCommun_formail">, Nome comum : </label>
+			
+			<label index="nomScientifique_forweb">, nome científico : </label>
+			<label index="nomScientifique_formail">, nome científico : </label>
+			
+			<label index="aboutprecision_formail">Sobre a precisão deste nome : </label>
+			<label index="aboutcertitude_formail">Sobre o certitude deste nome: </label>
+			<label index="aboutcertitude_forweb">Certitude perito : </label>
+			<label index="expertises_forweb">Estão aqui as observações as mais atrasadas que foram feitas nesta planta  : </label>
+			<label index="expertises_formail">Estão aqui as observações as mais atrasadas que foram feitas em sua observação  : </label>
+
+			<label index="mail_notif_subject">iHerbarium : resposta na observação : </label>
+			<label index="mail_notif_body">Um botânico ou o sistema perito adicionam uma nota à observação  </label>
+			<label index="mail_notif_footer">Este Web site é ainda uma experiência, relate por favor todo o problema. \n equipe do iHerbarium</label>
+		</languageKey>
+	</data>
+</T3locallang>

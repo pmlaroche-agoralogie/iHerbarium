@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbariumroi_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		    <label index="definirZoneInteret">Définir des zones d'intérêt pour cette image</label>
+		    <label index="ajouterZoneInteret">Ajouter des zones d'intérêt pour cette image</label>
+		    <label index="supprimerZoneInteret">Supprimer</label>
+		    <label index="zonesDejaDefinies">Zones d'intérets déjà définies : </label>
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+		</languageKey>
+		<languageKey index="en" type="array">
+		    <label index="definirZoneInteret">Define regions of interest for this picture</label>
+		    <label index="ajouterZoneInteret">Add regions of interest for this picture</label>
+		    <label index="supprimerZoneInteret">Delete</label>
+		    <label index="zonesDejaDefinies">Regions of interests already defined : </label>
+		</languageKey>
+	</data>
+</T3locallang>

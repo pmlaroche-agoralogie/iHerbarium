@@ -1,0 +1,51 @@
+<!-- ###FLVPLAYER### begin -->
+<div id="flvplayercaption">
+
+<div style="">###LOADING###</div>
+
+###PLAYER###
+
+###DESC###
+
+
+</div>
+<!-- ###PLAYLIST### begin -->
+	<div style="float: left;">
+  <!-- ###CONTENT### -->
+    <!-- ###ITEM### -->
+       <div style="float: left; ###NEWLINE###" class="flvplayer_listpic ###SELECTED### ###ROWPOSITION###">
+        <a href="###LINK###" ###AJAX###>
+          <img src="###IMAGE###" class="flvplayer_listpic_pic ###PICSELECTED### ###PICROWPOSITION###" alt="###TITLE###" title="###TITLE###" />
+        </a>
+      </div>
+    <!-- ###ITEM### -->
+  <!-- ###CONTENT### -->
+      <div style="clear: both;">
+      </div>
+      <div class="flvplayer_pagebrowser">
+		  ###PAGEBROWSER###
+      </div>
+    </div>
+    <div style="clear: both;">
+    </div>
+
+<!-- ###PLAYLIST### end -->
+<!-- ###XMLPLAYLIST### begin -->
+ <playlist version='1' xmlns='http://xspf.org/ns/0/'>;
+ 	<title>Videos</title>;
+ 	<info>www.typo3.org</info>;
+ 	<trackList>;
+    <!-- ###ITEM### -->
+	 		<track>;
+	 			<title>###TITLE###</title>;
+	 			<creator>bddb_flvvideogallery</creator>;
+	 			<location>###LINK###</location>;
+	 			<info></info>;
+	 			<image>###IMAGE###</image>;
+	 		</track>;
+     <!-- ###ITEM### -->
+ 	</trackList>;
+</playlist>
+<!-- ###XMLPLAYLIST### end -->
+
+<!-- ###FLVPLAYER### end -->

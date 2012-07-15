@@ -1,0 +1,22 @@
+plugin.tx_facebook2t3_pi1 = USER_INT
+plugin.tx_facebook2t3_pi1 {
+
+    appId = {$plugin.tx_facebook2t3_pi1.appId}
+
+    secret = {$plugin.tx_facebook2t3_pi1.secret}
+
+    usersPid = {$plugin.tx_facebook2t3_pi1.usersPid}
+
+    userGroup = {$plugin.tx_facebook2t3_pi1.userGroup}
+
+    facebookLanguage = {$plugin.tx_facebook2t3_pi1.facebookLanguage}
+
+    facebookFields4Perms = {$plugin.tx_facebook2t3_pi1.facebookFields4Perms}
+
+    facebookFields4Fetch = {$plugin.tx_facebook2t3_pi1.facebookFields4Fetch}
+
+    fe_usersFields = {$plugin.tx_facebook2t3_pi1.fe_usersFields}
+}
+
+# Include Facebook xmlns in html-tag
+config.htmlTag_setParams := appendString( xmlns:fb="http://www.facebook.com/2008/fbml")

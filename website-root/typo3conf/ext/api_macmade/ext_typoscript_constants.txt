@@ -1,0 +1,74 @@
+/***************************************************************
+ * Copyright notice
+ *
+ * (c) 2004 macmade.net
+ * All rights reserved
+ *
+ * This script is part of the TYPO3 project. The TYPO3 project is 
+ * free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * The GNU General Public License can be found at
+ * http://www.gnu.org/copyleft/gpl.html.
+ *
+ * This script is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
+
+/**
+ * Default TS constants - Extension 'Developer API'
+ *
+ * @author      Jean-David Gadina (info@macmade.net) / macmade.net
+ * @version     4.3
+ */
+
+/**
+ * PI1 object - Developer API
+ */
+plugin.tx_apimacmade_pi1 {
+    
+    # cat=api_macmade/enable/00; type=boolean; label=Has Prototype: Enable this if your website already includes the Prototype JS script, to prevent it beeing loaded a second time from the API.
+    hasPrototype = 0
+    
+    # cat=api_macmade/enable/01; type=boolean; label=Has Mootools: Enable this if your website already includes the Mootools JS script, to prevent it beeing loaded a second time from the API.
+    hasMootools = 0
+    
+    # cat=api_macmade/enable/02; type=boolean; label=Has Scriptaculous: Enable this if your website already includes the Scriptaculous JS script, to prevent it beeing loaded a second time from the API.
+    hasScriptaculous = 0
+    
+    # cat=api_macmade/enable/03; type=boolean; label=Has LightBox: Enable this if your website already includes the LightBox JS script, to prevent it beeing loaded a second time from the API.
+    hasLightBox = 0
+    
+    # cat=api_macmade/enable/04; type=boolean; label=Has UFO: Enable this if your website already includes the UFO JS script, to prevent it beeing loaded a second time from the API.
+    hasUfo = 0
+    
+    # cat=api_macmade/enable/05; type=boolean; label=Has SWFObject: Enable this if your website already includes the SWFObject JS script, to prevent it beeing loaded a second time from the API.
+    hasSwfObject = 0
+    
+    # cat=api_macmade/enable/06; type=boolean; label=Has Base64: Enable this if your website already includes the WebToolKit Base64 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.base64 = 0
+    
+    # cat=api_macmade/enable/07; type=boolean; label=Has CRC32: Enable this if your website already includes the WebToolKit CRC32 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.crc32 = 0
+    
+    # cat=api_macmade/enable/08; type=boolean; label=Has MD5: Enable this if your website already includes the WebToolKit MD5 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.md5 = 0
+    
+    # cat=api_macmade/enable/09; type=boolean; label=Has SHA1: Enable this if your website already includes the WebToolKit SHA1 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.sha1 = 0
+    
+    # cat=api_macmade/enable/10; type=boolean; label=Has SHA256: Enable this if your website already includes the WebToolKit SHA256 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.sha256 = 0
+    
+    # cat=api_macmade/enable/11; type=boolean; label=Has URL Encode: Enable this if your website already includes the WebToolKit URL Encode JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.url = 0
+    
+    # cat=api_macmade/enable/12; type=boolean; label=Has UTF-8: Enable this if your website already includes the WebToolKit UTF-8 JS script, to prevent it beeing loaded a second time from the API.
+    hasWebToolKit.utf8 = 0
+}

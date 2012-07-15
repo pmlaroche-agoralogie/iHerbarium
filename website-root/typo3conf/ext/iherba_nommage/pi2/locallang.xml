@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbanommage_pi2&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="deposele">Deposit on : </label>
+			<label index="voirobservationdetail">View this sighting in details </label>
+			<label index="nomPlante">Name of the plant : </label>
+			<label index="numObs">Sighting number :  </label>
+			<label index="obs">Sighting : </label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			<label index="detail">data</label>
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+			<label index="deposele">Déposée le : </label>
+			<label index="voirobservationdetail">Voir le détail de cette observation </label>
+			<label index="numObs">numero d'observation : </label>
+			<label index="nomPlante">nom de la plante : </label>
+			<label index="obs">Observation : </label>
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			<label index="detail">data</label>
+		</languageKey>
+		
+		
+	</data>
+</T3locallang>

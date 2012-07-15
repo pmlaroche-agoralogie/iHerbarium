@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+		<description>Language labels for extension rlmp_flashdetection used in the frontend.</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <fileId>EXT:rlmp_flashdetection/pi1/locallang.xml</fileId>
+        <labelContext type="array" />
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="no_flash_text">Flash version ###VERSION### is required for showing this movie!</label>
+        </languageKey>
+        <languageKey index="dk" type="array">
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="no_flash_text">Flash-Version ###VERSION### ist erforderlich für die Ansicht des Films!</label>
+        </languageKey>
+    </data>
+</T3locallang>

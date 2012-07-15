@@ -1,0 +1,25 @@
+img{
+	border:0;
+}
+
+.question-image {
+border:1px solid #D0D1D5;
+position:relative;
+#width:130px;
+float:left;
+}
+
+img.questionpic {
+position:relative;
+#width:130px;
+z-index:2;
+}
+
+img.questionclip {
+bottom:3px;
+right:3px;
+display:block;
+position:absolute;
+width:25px;
+z-index:4;
+}

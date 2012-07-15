@@ -1,0 +1,51 @@
+/***************************************************************
+ * Copyright notice
+ *
+ * (c) 2004 macmade.net
+ * All rights reserved
+ *
+ * This script is part of the TYPO3 project. The TYPO3 project is 
+  * free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * The GNU General Public License can be found at
+ * http://www.gnu.org/copyleft/gpl.html.
+ *
+ * This script is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
+
+/**
+ * Default TS setup - Extension 'Developer API'
+ *
+ * @author      Jean-David Gadina (info@macmade.net)
+ * @version     4.3
+ */
+
+/**
+ * PI1 object - Developer API
+ */
+
+plugin.tx_apimacmade_pi1 {
+    
+    // JavaScript flags
+    hasPrototype         = {$plugin.tx_apimacmade_pi1.hasPrototype}
+    hasMootools          = {$plugin.tx_apimacmade_pi1.hasMootools}
+    hasScriptaculous     = {$plugin.tx_apimacmade_pi1.hasScriptaculous}
+    hasLightBox          = {$plugin.tx_apimacmade_pi1.hasLightBox}
+    hasUfo               = {$plugin.tx_apimacmade_pi1.hasUfo}
+    hasSwfObject         = {$plugin.tx_apimacmade_pi1.hasSwfObject}
+    hasWebToolkit.base64 = {$plugin.tx_apimacmade_pi1.hasWebToolkit.base64}
+    hasWebToolkit.crc32  = {$plugin.tx_apimacmade_pi1.hasWebToolkit.crc32}
+    hasWebToolkit.md5    = {$plugin.tx_apimacmade_pi1.hasWebToolkit.md5}
+    hasWebToolkit.sha1   = {$plugin.tx_apimacmade_pi1.hasWebToolkit.sha1}
+    hasWebToolkit.sha256 = {$plugin.tx_apimacmade_pi1.hasWebToolkit.sha256}
+    hasWebToolkit.url    = {$plugin.tx_apimacmade_pi1.hasWebToolkit.url}
+    hasWebToolkit.utf8   = {$plugin.tx_apimacmade_pi1.hasWebToolkit.utf8}
+}

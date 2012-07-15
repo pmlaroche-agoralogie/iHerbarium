@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbariumobservations_pi4&quot;</description>
+	</meta>
+	<data type="array">
+		
+		<languageKey index="default" type="array">
+			<label index="votreImage">Please send your picture here : </label>
+			<label index="visibilite">Do you want your sighting to be visible by others internauts?</label>
+			<label index="oui">Yes</label>
+			<label index="non">No</label>
+			<label index="semi">Partially (the location will remain private)</label>
+			<label index="envoyer">Submit</label>
+			<label index="imagesDejaEnvoyees">Here are the pictures you have already sent : </label>
+			<label index="merci">We thank you for your participation.</label>
+			<label index="finDepot">Please close this window by clicking on the cross. </label>
+			<label index="fichierIntrouvable">The specified file can't be found</label>
+		    <label index="erreurFormat">The file that you want to send isn't a picture</label>
+			<label index="commentairesObservation">You can write your comments on this sighting here : </label>
+			<label index="imageRecu">Here is the picture that you have sent : </label>
+			<label index="dateExif">Exif datas of your picture allow us to say that it was taken on : </label>
+			<label index="modifierDate">If it is not the good date, you can indicate us the real one. </label>
+			<label index="autresPhotosAenvoyer">Do you have others pictures relative to this sighting that you want to send ? </label>
+			<label index="saisirDate">Please indicate us the date of this sighting : </label>
+			<label index="carteLocalisation"> Could you please indicate us the place where you have taken these pictures ? </label>
+			<label index="erreurLocalisation">It's seems that we have made an error. </label>
+			<label index="localisationExif">We think we have found, with the header of the pictures, the place where your sighting comes from</label>
+			<label index="carteInitialeCentre">By default, this map is center on Paris.</label>
+			<label index="carteInitialeDeplacement"> You can move on the map using the mouse or with arrows above on the right of the card.</label>
+			<label index="carteInitialeAdresse">You can also seize an address, which will allow you to visualize the place more easily .</label>
+			<label index="validerLocalisation">Once the place was located, please click above it, a red marker will appear. So, you can validate your
+			sighting by pressing the button "Validate your sighting". </label>
+			<label index="recommencerSaisie">If you want to begin again the seizure, use the button "Erase informations". </label>		
+			<label index="localisationExif">We think we have found that this sighting comes from :</label>	
+			<label index="validerGeolocalisation">Is it the place where you have taken this sighting ?</label>	
+			<label index="recommencerlocalisation">You can start again the localisation clicking here : </label>
+			<label index="boutonValiderLocalisation">Validate your sighting</label>
+			<label index="boutonEffacerInformations">Erase informations</label>
+			<label index="LocaliserAvecAdresse">Locate</label>
+			<label index="formatDate">(format dd/mm/yyyy).</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+
+			
+			<label index="addFilesAddButton">Add...</label>
+			<label index="addFilesDoneButton">Done</label>
+			<label index="commentaryLabel">Commentary</label>
+			<label index="commentaryInput">You can write a commentary for this observation here : </label>
+			<label index="privacyLabel">Privacy</label>
+			<label index="privacyInput">Do you want your observation to be visible by others internauts?</label>
+			<label index="privacyOptionPublic">Yes</label>
+			<label index="privacyOptionPrivate">Partially (the location will remain private)</label>
+			<label index="geolocalisationInput">Geolocalisation</label>
+			<label index="geolocalisationShow">The geolocalisation of this observation</label>
+			<label index="createSubmit">Submit the observation</label>
+			<label index="editSubmit">Submit modifications</label>
+			<label index="editAddPhotosButton">Add more photos</label>
+			<label index="editDelete">Delete the observation</label>
+			<label index="saveObservationSavedWithId">Observation saved with id = </label>
+			<label index="uploadedPhotosLabel">Photos</label>
+			<label index="uploadedPhotosShow">Here are the pictures you have sent : </label>
+
+			<label index="noUserEmailLabel">E-mail</label>
+			<label index="noUserEmailInput">Fill in your e-mail if you want to automatically create an account : </label>
+			<label index="anonymousLabel">Anonymity</label>
+			<label index="anonymousInput">Do you wish to remain completely anonymous?</label>
+			<label index="anonymousOptionNo">No</label>
+			<label index="anonymousOptionYes">Yes</label>
+			<label index="anonymousUserName">Anonymous</label>
+			<label index="detail">detail</label>
+		</languageKey>
+
+		<languageKey index="fr" type="array">
+		    <label index="votreImage">Séléctionnez l'image à envoyer : </label> 
+			<label index="visibilite">Souhaitez-vous que votre observation soit visible par tous les internautes ?</label>
+			<label index="oui">Oui</label>
+			<label index="non">Non</label>
+			<label index="semi">Partiellement (la localisation restera privée)</label>
+			<label index="envoyer">Envoyer</label>
+			<label index="imagesDejaEnvoyees">Voici les images que vous nous avez déjà fais parvenir : </label>
+			<label index="merci">Nous vous remercions pour votre participation. </label>
+			<label index="finDepot">Veuillez fermer cette fenêtre en cliquant sur la croix en haut à droite. </label>
+			<label index="fichierIntrouvable">Le fichier est introuvable</label>
+			<label index="erreurFormat">Le fichier que vous souhaitez envoyer n'est pas une image</label>
+			<label index="commentairesObservation">Vous pouvez nous laisser vos commentaires concernant cette observation ici : </label>
+			<label index="imageRecu">Voici l'image que vous venez d'envoyer : </label>
+			<label index="dateExif">Les données exif de votre image nous font penser que cette photo a été prise le : </label>
+			<label index="modifierDate">Si ce n'est pas la bonne date, vous pouvez en saisir une nouvelle.</label>
+			<label index="saisirDate">Veuillez nous indiquer la date à laquelle cette photo a été prise : </label>
+			<label index="autresPhotosAenvoyer">Avez-vous d'autres photos constituant une même observation (même lieu même date) ? </label>
+			<label index="erreurLocalisation">Il semblerait que nous ayons commis une erreur.</label>
+			<label index="localisationExif">Nous pensons avoir trouvé le lieu d'où proviennent les photos que vous venez de nous envoyer</label>
+			<label index="carteLocalisation"> Pouvez-vous nous indiquer le lieu où vous avez effectué cette observation ?</label>
+		    <label index="carteInitialeCentre">Cette carte est par défaut centrée sur Paris.</label>
+			<label index="carteInitialeDeplacement"> Vous pouvez vous déplacer sur la carte à l'aide de la souris ou en vous servant des flèches situées en haut à droite de la carte.</label>
+			<label index="carteInitialeAdresse">Vous pouvez également saisir une adresse, ce qui vous permettra de vous positionner rapidement sur la carte.</label>
+			<label index="validerLocalisation">Une fois le lieu repéré, veuillez cliquer dessus, un marqueur rouge apparaîtra alors. Il ne vous restera plus qu'à valider votre observation 
+			en appuyant sur le bouton "Valider localisation".</label>
+			<label index="recommencerSaisie">Si vous souhaitez recommencer la saisie, utiliser le bouton "Effacer les informations".</label>
+			<label index="localisationExif">Nous pensons avoir trouvé (grâce aux entetes des photos) le lieu où a été faite l'observation :</label>
+			<label index="validerGeolocalisation">Est ce qu'il s'agit bien de l'endroit où vous avez pris la photo?</label>
+			<label index="recommencerlocalisation">Vous pouvez recommencer la localisation en cliquant ici : </label>
+			<label index="boutonValiderLocalisation">Valider localisation</label>
+			<label index="boutonEffacerInformations">Effacer les informations</label>
+			<label index="formatDate">(format jj/mm/aaaa).</label>
+			<label index="LocaliserAvecAdresse">Localiser</label>
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+
+			<label index="addFilesAddButton">Ajouter...</label>
+			<label index="addFilesDoneButton">Fini</label>
+			<label index="commentaryLabel">Commentaires</label>
+			<label index="commentaryInput">Vous pouvez saisir des commentaires concernant cette observation ici, le département et l'altitude sont tres utiles :</label>
+			<label index="privacyLabel">Respect de la vie privée</label>
+			<label index="privacyInput">Souhaitez-vous que votre observation soit visible par tous les internautes ?</label>
+			<label index="privacyOptionPublic">Oui</label>
+			<label index="privacyOptionPrivate">Partiellement (la localisation restera privée)</label>						
+			<label index="geolocalisationInput">Geolocalisation</label>
+			<label index="geolocalisationShow">La geolocalisation de cette observation</label>
+			<label index="createSubmit">Valider l'observation</label>
+			<label index="editSubmit">Sauver les modifications</label>
+			<label index="editAddPhotosButton">Ajouter des photos</label>
+			<label index="editDelete">Supprimer l'observation</label>
+			<label index="saveObservationSavedWithId">Observation saved with id = </label>
+			<label index="uploadedPhotosLabel">Photos</label>
+			<label index="uploadedPhotosShow">Voici les images que vous nous avez déjà fais parvenir : </label>
+
+			<label index="noUserEmailLabel">E-mail</label>
+			<label index="noUserEmailInput">Inserez votre e-mail si vous désirez recevoir l'identification, dans quelques heures  : </label>
+			<label index="anonymousLabel">Anonymat</label>
+			<label index="anonymousInput">Est-ce que vous souhaitez rester complètement anonyme ?</label>
+			<label index="anonymousOptionNo">Non</label>
+			<label index="anonymousOptionYes">Oui</label>
+			<label index="anonymousUserName">Anonyme</label>
+			<label index="detail">detail</label>
+		</languageKey>
+
+		<languageKey index="es" type="array">
+		    <label index="votreImage"> Seleccione la imagen para enviar : </label> 
+			<label index="visibilite"> ¿Quieres que tu comentario sea visible para cualquier usuario de Internet? </label>
+			<label index="oui"> sí </label>
+			<label index="non"> No </label>
+			<label index="semi"> En parte (La ubicación se mantendrá en privado)</label>
+			<label index="envoyer"> Enviar </label>
+			<label index="imagesDejaEnvoyees"> Aquí están las fotos que ya usted ha enviado : </label>
+			<label index="merci"> Gracias por su participación. </label>
+			<label index="finDepot"> Por favor, cierre esta ventana en haciendo clic en la cruz en la parte superior derecha. </label>
+			<label index="fichierIntrouvable"> El archivo no se encuentra </label>
+			<label index="erreurFormat"> El archivo que desea enviar no es una imagen </label>
+			<label index="commentairesObservation"> Puede dejar sus comentarios acerca de esta observación aquí : </label>
+			<label index="imageRecu"> Aquí es la imagen que acaba de enviar : </label>
+			<label index="dateExif"> Los datos EXIF ​​de la imagen nos hacen pensar que esta foto fue tomada el  : </label>
+			<label index="modifierDate"> Si este no es la fecha correcta, usted puede la introducir de nuevo. </label>
+			<label index="saisirDate"> Indique por favor la fecha en que fue tomada la foto : </label>
+			<label index="autresPhotosAenvoyer"> ¿Tiene alguna otras imágenes constituyendo una misma observación (misma fecha, mismo lugar)? </label>
+			<label index="erreurLocalisation"> Se parece que hayamos cometido un error. </label>
+			<label index="localisationExif"> Creemos que hemos encontrado el lugar de donde vienen las photos que nos han enviado. </label>
+			<label index="carteLocalisation"> ¿Puede usted decirnos donde usted hizo ese comentario? </label>
+		    <label index="carteInitialeCentre"> De manera predeterminada, esta tarjeta se centra en París. </label>
+			<label index="carteInitialeDeplacement"> Usted puede moverle en el mapa con el ratón o usando las flechas ubicado en la parte superior derecha del mapa. </label>
+			<label index="carteInitialeAdresse"> También puede introducir una dirección lo que vos permitirá ubicar vos de forma rápida en el mapa. </label>
+			<label index="validerLocalisation"> Una vez que el lugar ha ubicado, por favor haga clic en él y un marcador de color rojo aparecerá. Despuès, usted sólo han a validar la observación haciendo clic en el botón "Confirmar la ubicación". </label>
+			<label index="recommencerSaisie"> Si desea empezar de nuevo la adición de las observaciones, use el botón "Borrar la información". </label>
+			<label index="localisationExif"> Creemos haber encontrado el lugar donde la observación se hizo (gracias a las informaciones de las fotos): </label>
+			<label index="validerGeolocalisation"> ¿Es este el lugar donde se tomó la foto? </label>
+			<label index="recommencerlocalisation"> Se puede empezar de nuevo tu localización haciendo clic aquí: </label>
+			<label index="boutonValiderLocalisation"> Confirmar la ubicación </label>
+			<label index="boutonEffacerInformations"> Borrar la información </label>
+			<label index="formatDate">(formato dd/mm/aaaa). </label>
+			<label index="LocaliserAvecAdresse"> Localizar </label>
+			<label index="list_mode_1"> Modo 1 </label>
+			<label index="list_mode_2"> Modo 2 </label>
+			<label index="list_mode_3"> Modo 3 </label>
+			<label index="back"> Volver </label>
+			<label index="submit_button_label"> Haga clic aquí para indicar el valor : </label>
+
+			<label index="addFilesAddButton"> Añadir... </label>
+			<label index="addFilesDoneButton"> Terminar </label>
+			<label index="commentaryLabel"> Comentarios </label>
+			<label index="commentaryInput"> Aquí se pueden introducir comentarios relativos a esta observación (El departamento y la altitud son muy útiles): </label>
+			<label index="privacyLabel"> Respeto de la privacidad </label>
+			<label index="privacyInput"> ¿Quieres que tu comentario sea visible para cualquier usuario de Internet? </label>
+			<label index="privacyOptionPublic"> Sí </label>
+			<label index="privacyOptionPrivate"> Parcialmente (la ubicación se mantendrá en privado) </label>						
+			<label index="geolocalisationInput"> Geolocalización </label>
+			<label index="geolocalisationShow"> La geolocalización de esta observación </label>
+			<label index="createSubmit"> Validar la observación </label>
+			<label index="editSubmit"> Guardar los cambios </label>
+			<label index="editAddPhotosButton"> Añadir fotos </label>
+			<label index="editDelete"> Borrar la observación </label>
+			<label index="saveObservationSavedWithId"> Observación registrada con id = </label>
+			<label index="uploadedPhotosLabel"> Fotos </label>
+			<label index="uploadedPhotosShow"> Aquí están las imágenes que habéis nos ya enviado : </label>
+
+			<label index="noUserEmailLabel"> Correo electrónico </label>
+			<label index="noUserEmailInput"> Introduzca su correo electrónico si desea recibir una identificación (en pocas horas): </label>
+			<label index="anonymousLabel"> Anónimo </label>
+			<label index="anonymousInput"> ¿Desea permanecer completamente anónimo? </label>
+			<label index="anonymousOptionNo"> No </label>
+			<label index="anonymousOptionYes"> Sí </label>
+			<label index="anonymousUserName"> Anónimo </label>
+
+		</languageKey>
+
+
+		<languageKey index="pt" type="array">
+		    <label index="votreImage">Séléctionnez l'image à envoyer : </label> 
+			<label index="visibilite">Souhaitez-vous que votre observation soit visible par tous les internautes ?</label>
+			<label index="oui">Oui</label>
+			<label index="non">Non</label>
+			<label index="semi">Partiellement (la localisation restera privée)</label>
+			<label index="envoyer">Envoyer</label>
+			<label index="imagesDejaEnvoyees">Voici les images que vous nous avez déjà fais parvenir : </label>
+			<label index="merci">Nous vous remercions pour votre participation. </label>
+			<label index="finDepot">Veuillez fermer cette fenêtre en cliquant sur la croix en haut à droite. </label>
+			<label index="fichierIntrouvable">Le fichier est introuvable</label>
+			<label index="erreurFormat">Le fichier que vous souhaitez envoyer n'est pas une image</label>
+			<label index="commentairesObservation">Vous pouvez nous laisser vos commentaires concernant cette observation ici : </label>
+			<label index="imageRecu">Voici l'image que vous venez d'envoyer : </label>
+			<label index="dateExif">Les données exif de votre image nous font penser que cette photo a été prise le : </label>
+			<label index="modifierDate">Si ce n'est pas la bonne date, vous pouvez en saisir une nouvelle.</label>
+			<label index="saisirDate">Veuillez nous indiquer la date à laquelle cette photo a été prise : </label>
+			<label index="autresPhotosAenvoyer">Avez-vous d'autres photos constituant une même observation (même lieu même date) ? </label>
+			<label index="erreurLocalisation">Il semblerait que nous ayons commis une erreur.</label>
+			<label index="localisationExif">Nous pensons avoir trouvé le lieu d'où proviennent les photos que vous venez de nous envoyer</label>
+			<label index="carteLocalisation"> Pouvez-vous nous indiquer le lieu où vous avez effectué cette observation ?</label>
+		    <label index="carteInitialeCentre">Cette carte est par défaut centrée sur Paris.</label>
+			<label index="carteInitialeDeplacement"> Vous pouvez vous déplacer sur la carte à l'aide de la souris ou en vous servant des flèches situées en haut à droite de la carte.</label>
+			<label index="carteInitialeAdresse">Vous pouvez également saisir une adresse, ce qui vous permettra de vous positionner rapidement sur la carte.</label>
+			<label index="validerLocalisation">Une fois le lieu repéré, veuillez cliquer dessus, un marqueur rouge apparaîtra alors. Il ne vous restera plus qu'à valider votre observation 
+			en appuyant sur le bouton "Valider localisation".</label>
+			<label index="recommencerSaisie">Si vous souhaitez recommencer la saisie, utiliser le bouton "Effacer les informations".</label>
+			<label index="localisationExif">Nous pensons avoir trouvé (grâce aux entetes des photos) le lieu où a été faite l'observation :</label>
+			<label index="validerGeolocalisation">Est ce qu'il s'agit bien de l'endroit où vous avez pris la photo?</label>
+			<label index="recommencerlocalisation">Vous pouvez recommencer la localisation en cliquant ici : </label>
+			<label index="boutonValiderLocalisation">Valider localisation</label>
+			<label index="boutonEffacerInformations">Effacer les informations</label>
+			<label index="formatDate">(format jj/mm/aaaa).</label>
+			<label index="LocaliserAvecAdresse">Localiser</label>
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+
+			<label index="addFilesAddButton">Adicionar...</label>
+			<label index="addFilesDoneButton">Terminado</label>
+			<label index="commentaryLabel">comentários</label>
+			<label index="commentaryInput">Você pode inserir comentários sobre esta observação pelo departamento de altitude e são muito úteis:</label>
+			<label index="privacyLabel">Respeito pela privacidade</label>
+			<label index="privacyInput">Quer que o seu comentário a ser visível para qualquer pessoa na Internet?</label>
+			<label index="privacyOptionPublic">Sim</label>
+			<label index="privacyOptionPrivate">Parcialmente (o local permanecerá privada)</label>						
+			<label index="geolocalisationInput">geolocalização</label>
+			<label index="geolocalisationShow">A localização geográfica desta observação</label>
+			<label index="createSubmit">Validar a observação</label>
+			<label index="editSubmit">Salve as alterações</label>
+			<label index="editAddPhotosButton">Ajouter des photos</label>
+			<label index="editDelete">Excluir da observação</label>
+			<label index="saveObservationSavedWithId">Observação salvo com id = </label>
+			<label index="uploadedPhotosLabel">fotos</label>
+			<label index="uploadedPhotosShow">Aqui estão as fotos que você já estou enviando: </label>
+
+			<label index="noUserEmailLabel">E-mail</label>
+			<label index="noUserEmailInput">Insira o seu e-mail se você gostaria de identificação, em poucas horas  : </label>
+			<label index="anonymousLabel">anonimato</label>
+			<label index="anonymousInput">Você deseja permanecer completamente anônimos ?</label>
+			<label index="anonymousOptionNo">não</label>
+			<label index="anonymousOptionYes">sim</label>
+			<label index="anonymousUserName">anônimo</label>
+
+		</languageKey>
+
+	</data>
+</T3locallang>

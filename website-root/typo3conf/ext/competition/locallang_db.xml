@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'competition'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_competition_periode">periode</label>
+			<label index="tx_competition_periode.competition_name">competition_name</label>
+			<label index="tx_competition_periode.comment">comment</label>
+			<label index="tx_competition_periode.beginning_timestamp">beginning_timestamp</label>
+			<label index="tx_competition_periode.end_timestamp">end_timestamp</label>
+			<label index="tt_content.list_type_pi1">participants_list</label>
+		</languageKey>
+	</data>
+</T3locallang>

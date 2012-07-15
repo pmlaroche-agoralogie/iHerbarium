@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields belonging to extension 'dropdown_sitemap'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tt_content.list_type_pi1">Drop-Down sitemap</label>
+            <label index="tt_content.flexform_pi1.s_def">Main</label>
+            <label index="tt_content.flexform_pi1.s_pages">Pages</label>
+            <label index="tt_content.flexform_pi1.s_pages.exclude_pages">Exclude pages</label>
+            <label index="tt_content.flexform_pi1.s_pages.exclude_doktypes">Exclude page types</label>
+            <label index="tt_content.flexform_pi1.s_pages.include_not_in_menu">Include not in menu</label>
+            <label index="tt_content.flexform_pi1.s_pages.show_spacers">Show spacers</label>
+            <label index="tt_content.flexform_pi1.s_options">Options</label>
+            <label index="tt_content.flexform_pi1.s_options.show_levels">Levels to show</label>
+            <label index="tt_content.flexform_pi1.s_options.expand_levels">Levels to expand</label>
+            <label index="tt_content.flexform_pi1.s_options.link_text">Forces the link text</label>
+            <label index="tt_content.flexform_pi1.s_options.description_field">Description field</label>
+            <label index="tt_content.flexform_pi1.s_options.expall">Expand all link</label>
+            <label index="tt_content.flexform_pi1.s_options.expall.I.1">Enable</label>
+            <label index="tt_content.flexform_pi1.s_options.expall.I.2">Disable</label>
+            <label index="tt_content.flexform_pi1.s_advanced">Advanced</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag">List tag</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag.I.1">Ordered list (OL)</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag.I.2">Unordered list (UL)</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_type">List type</label>
+            <label index="tt_content.flexform_pi1.s_advanced.link_target">Target for links</label>
+            <label index="tt_content.flexform_pi1.LGL.default">Default</label>
+            <label index="tt_content.flexform_pi1.LGL.yes">Yes</label>
+            <label index="tt_content.flexform_pi1.LGL.no">No</label>
+            <label index="tt_content.flexform_pi1.s_effects">Effects</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine">Use effects</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.0">None</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.1">Scriptaculous</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.2">Mootools</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear">Appear effect (Scriptaculous)</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear.I.0">Appear</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear.I.1">Blind Down</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear.I.2">Slide Down</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear.I.3">Grow</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade">Fade effect (Scriptaculous)</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.0">Fade</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.1">Puff</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.2">Blind Up</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.3">Switch Off</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.4">Slide Up</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.5">Drop Out</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.6">Squish</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.7">Fold</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade.I.8">Shrink</label>
+       </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tt_content.list_type_pi1">Drop-Down Sitemap</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+            <label index="tt_content.list_type_pi1">Drop-Down sidekart</label>
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="tt_content.list_type_pi1">Plan du site déroulant</label>
+            <label index="tt_content.flexform_pi1.s_def">Général</label>
+            <label index="tt_content.flexform_pi1.s_pages">Pages</label>
+            <label index="tt_content.flexform_pi1.s_pages.exclude_pages">Pages à exclure</label>
+            <label index="tt_content.flexform_pi1.s_pages.exclude_doktypes">Types de pages à exclure</label>
+            <label index="tt_content.flexform_pi1.s_pages.include_not_in_menu">Inclure les pages hors-menu</label>
+            <label index="tt_content.flexform_pi1.s_pages.show_spacers">Affricher les espaceurs</label>
+            <label index="tt_content.flexform_pi1.s_options">Options</label>
+            <label index="tt_content.flexform_pi1.s_options.show_levels">Niveaux à afficher</label>
+            <label index="tt_content.flexform_pi1.s_options.expand_levels">Niveaux à étendre</label>
+            <label index="tt_content.flexform_pi1.s_options.link_text">Forcer le texte du lien</label>
+            <label index="tt_content.flexform_pi1.s_options.description_field">Champ de description</label>
+            <label index="tt_content.flexform_pi1.s_options.expall">Lien afficher tout</label>
+            <label index="tt_content.flexform_pi1.s_options.expall.I.1">Activer</label>
+            <label index="tt_content.flexform_pi1.s_options.expall.I.2">Désactiver</label>
+            <label index="tt_content.flexform_pi1.s_advanced">Avancé</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag">Balise de liste</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag.I.1">Liste à numéro (OL)</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_tag.I.2">Liste à puce (UL)</label>
+            <label index="tt_content.flexform_pi1.s_advanced.list_type">Type de liste</label>
+            <label index="tt_content.flexform_pi1.s_advanced.link_target">Cible des liens</label>
+            <label index="tt_content.flexform_pi1.LGL.default">Par défaut</label>
+            <label index="tt_content.flexform_pi1.LGL.yes">Oui</label>
+            <label index="tt_content.flexform_pi1.LGL.no">Non</label>
+            <label index="tt_content.flexform_pi1.s_effects">Effets</label>
+            <label index="tt_content.flexform_pi1.s_effects.scriptaculous">Utiliser des effets</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine">Use effects</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.0">Aucun</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.1">Scriptaculous</label>
+            <label index="tt_content.flexform_pi1.s_effects.engine.I.2">Mootools</label>
+            <label index="tt_content.flexform_pi1.s_effects.appear">Effet d'apparition (Scriptaculous)</label>
+            <label index="tt_content.flexform_pi1.s_effects.fade">Effet de disparition (Scriptaculous)</label>
+        </languageKey>
+        <languageKey index="cz" type="array">
+            <label index="tt_content.list_type_pi1">Rozbalovací mapa webu</label>
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="tt_content.list_type_pi1">Drop-Down sivukartta</label>
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="tt_content.list_type_pi1">Mapa do Site "Drop-Down"</label>
+        </languageKey>
+    </data>
+</T3locallang>

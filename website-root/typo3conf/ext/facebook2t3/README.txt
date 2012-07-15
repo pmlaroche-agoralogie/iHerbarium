@@ -1,0 +1,1 @@
+https://typo3.org/extensions/repository/view/facebook2t3/current/

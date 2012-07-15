@@ -1,0 +1,72 @@
+## LOGIN BOX
+plugin.tx_newloginbox_pi1 {
+	storagePid =
+	detailsPage =
+	showForgotPassword =
+	email_from =
+	email_fromName =
+	replyTo =
+	templateFile = EXT:newloginbox/res/newloginbox_00.html
+	// Allowed Referrer-Redirect-Domains:
+	domains =
+}
+
+plugin.tx_newloginbox_pi1._CSS_DEFAULT_STYLE (
+)
+
+plugin.tx_newloginbox_pi1._LOCAL_LANG.default {
+}
+
+plugin.tx_newloginbox_pi1._DEFAULT_PI_VARS {
+}
+
+## USER LISTING
+plugin.tx_newloginbox_pi3 {
+    CMD =
+    pidList =
+    recursive =
+}
+
+plugin.tx_newloginbox_pi3.listView {
+	customProcessing {
+		image = IMAGE
+		image.file {
+			import = uploads/pics/
+			import.field = image
+			import.listNum = 0
+			maxW = 200
+			maxH = 300
+		}
+		/* Example for custom processing of username field:
+		username = TEXT
+		username.field = username
+		username.wrap = <b>|</b>
+		*/
+	}
+    results_at_a_time = 50
+    maxPages = 20
+	show.email = 1
+	show.email_in_details = 1
+	show.email_in_details_when_logged_in = 1
+	alwaysPrev = 1
+	tableParams_list =
+}
+
+plugin.tx_newloginbox_pi3.singleView.customProcessing < plugin.tx_newloginbox_pi3.listView.customProcessing
+
+plugin.tx_newloginbox_pi3._CSS_DEFAULT_STYLE (
+	.tx-newloginbox-pi3-listrow TH { background:#ccc; padding:0 .5em; white-space:nowrap; }
+	.tx-newloginbox-pi3-listrow TD { background:#eee; padding:0 .5em; }
+	.tx-newloginbox-pi3-singleView TH { background:#ccc; padding:0 .5em; text-align:right; white-space:nowrap; }
+	.tx-newloginbox-pi3-singleView TD { background:#eee; padding:0 .5em; }
+)
+
+plugin.tx_newloginbox_pi3._LOCAL_LANG.default {
+	# Example for setting the list field header of a column called "date_of_birth":
+	# listFieldHeader_date_of_birth = Date of birth
+}
+
+plugin.tx_newloginbox_pi3._DEFAULT_PI_VARS {
+}
+
+# TYPO3 CVS ID: $Id: ext_typoscript_setup.txt 3923 2006-10-13 20:20:50Z stradarius $

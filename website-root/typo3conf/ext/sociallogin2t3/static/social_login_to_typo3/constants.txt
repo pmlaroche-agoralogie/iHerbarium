@@ -1,0 +1,109 @@
+plugin.tx_sociallogin2t3_pi1 {
+
+    # cat=sociallogin2t3//01; type=boolean; label=All, Show logout link after successfull login?
+    showLogoutLink = 1
+
+    ##Facebook
+    
+    # cat=sociallogin2t3//10; type=boolean; label= Facebook, Include?:Include it as social login?
+    facebook.includeIt = 0
+
+    # cat=sociallogin2t3//11; type=string; label= Facebook app id:The app id of your Facebook application
+    facebook.consumerKey =
+
+    # cat=sociallogin2t3//12; type=string; label= Facebook app secret:The secret of your Facebook application
+    facebook.consumerSecret =
+
+    # cat=sociallogin2t3//13; type=int+; label= Facebook, User storage page:uid of the page where Frontend user records are stored
+    facebook.usersPid =
+
+    # cat=sociallogin2t3//14; type=int+; label= Facebook, User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    facebook.userGroup =
+
+    # cat=sociallogin2t3//15; type=string; label= Facebook account fields for fetch:Comma separated fields to be fetched (use field names that are used in user object)
+    facebook.fields4Fetch = id,name,first_name,last_name,link,gender
+
+    # cat=sociallogin2t3//16; type=string; label= Facebook, Typo3 fe_users fields:Comma separated fe_users fields where fields are stored (positions correspond to xxxFields4Fetch)
+    facebook.fe_usersFields = username,name,tx_sociallogin2t3_first_name,tx_sociallogin2t3_last_name,tx_sociallogin2t3_url,tx_sociallogin2t3_gender
+
+    # cat=sociallogin2t3//17; type=string; label= Facebook custom button path:Define a possible path for a custom button
+    facebook.customButton =
+
+    ##Hyves
+
+    # cat=sociallogin2t3//20; type=boolean; label= Hyves, Include?:Include it as social login?
+    hyves.includeIt = 0
+
+    # cat=sociallogin2t3//21; type=string; label= Hyves consumer key:The consumer key of your Hyves application
+    hyves.consumerKey =
+
+    # cat=sociallogin2t3//22; type=string; label= Hyves consumer secret:The consumer secret of your Hyves application
+    hyves.consumerSecret =
+
+    # cat=sociallogin2t3//23; type=int+; label= Hyves, User storage page:uid of the page where Frontend user records are stored
+    hyves.usersPid =
+
+    # cat=sociallogin2t3//24; type=int+; label= Hyves, User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    hyves.userGroup =
+
+    # cat=sociallogin2t3//25; type=string; label= Hyves account fields for fetch:Comma separated fields to be fetched (use field names that are used in user object)
+    hyves.fields4Fetch = userid,displayname,firstname,lastname,gender
+
+    # cat=sociallogin2t3//26; type=string; label= Hyves, Typo3 fe_users fields:Comma separated fe_users fields where fields are stored (positions correspond to xxxFields4Fetch)
+    hyves.fe_usersFields = username,name,tx_sociallogin2t3_first_name,tx_sociallogin2t3_last_name,tx_sociallogin2t3_gender
+
+    # cat=sociallogin2t3//27; type=string; label= Hyves custom button path:Define a possible path for a custom button
+    hyves.customButton =
+
+    ##Twitter
+
+    # cat=sociallogin2t3//30; type=boolean; label= Twitter, Include?:Include it as social login?
+    twitter.includeIt = 0
+
+    # cat=sociallogin2t3//31; type=string; label= Twitter consumer key:The consumer key of your Twitter application
+    twitter.consumerKey =
+
+    # cat=sociallogin2t3//32; type=string; label= Twitter consumer secret:The consumer secret of your Twitter application
+    twitter.consumerSecret =
+
+    # cat=sociallogin2t3//33; type=int+; label= Twitter, User storage page:uid of the page where Frontend user records are stored
+    twitter.usersPid =
+
+    # cat=sociallogin2t3//34; type=int+; label= Twitter, User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    twitter.userGroup =
+
+    # cat=sociallogin2t3//35; type=string; label= Twitter account fields for fetch:Comma separated fields to be fetched (use field names that are used in user object)
+    twitter.fields4Fetch = id,name
+
+    # cat=sociallogin2t3//36; type=string; label= Twitter, Typo3 fe_users fields:Comma separated fe_users fields where fields are stored (positions correspond to xxxFields4Fetch)
+    twitter.fe_usersFields = username,name
+
+    # cat=sociallogin2t3//37; type=string; label= Twitter custom button path:Define a possible path for a custom button
+    twitter.customButton =
+
+    ##LinkedIn
+
+    # cat=sociallogin2t3//40; type=boolean; label= LinkedIn, Include?:Include it as social login?
+    linkedin.includeIt = 0
+
+    # cat=sociallogin2t3//41; type=string; label= LinkedIn consumer key:The consumer key of your LinkedIn application
+    linkedin.consumerKey =
+
+    # cat=sociallogin2t3//42; type=string; label= LinkedIn consumer secret:The consumer secret of your LinkedIn application
+    linkedin.consumerSecret =
+
+    # cat=sociallogin2t3//43; type=int+; label= LinkedIn, User storage page:uid of the page where Frontend user records are stored
+    linkedin.usersPid =
+
+    # cat=sociallogin2t3//44; type=int+; label= LinkedIn, User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    linkedin.userGroup =
+
+    # cat=sociallogin2t3//45; type=string; label= LinkedIn account fields for fetch:Comma separated fields to be fetched (use field names that are used in user object)
+    linkedin.fields4Fetch = id,first-name,last-name
+
+    # cat=sociallogin2t3//46; type=string; label= LinkedIn, Typo3 fe_users fields:Comma separated fe_users fields where fields are stored (positions correspond to xxxFields4Fetch)
+    linkedin.fe_usersFields = username,tx_sociallogin2t3_first_name,tx_sociallogin2t3_last_name
+
+    # cat=sociallogin2t3//47; type=string; label= LinkedIn custom button path:Define a possible path for a custom button
+    linkedin.customButton =
+}

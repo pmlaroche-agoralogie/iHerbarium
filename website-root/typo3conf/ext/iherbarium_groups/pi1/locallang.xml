@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+  <meta type="array">
+    <type>module</type>
+    <description>Language labels for plugin &quot;tx_iherbariumgroups_pi1&quot;</description>
+  </meta>
+  <data type="array">
+    
+    <languageKey index="default" type="array">
+
+      <label index="group">Group</label>
+      <label index="name">Name</label>
+      <label index="description">Description</label>      
+
+      <label index="selectGroup">Groups :</label>
+      <label index="selectAction">Actions :</label>
+      <label index="showGroupButton">Show this Group</label>      
+      <label index="regenerateGroupQuestionsButton">Regenerate Questions</label>
+      <label index="regenerateAreYouSure">Are you sure you want to regenerate Questions for this Group?</label>
+      <label index="recomputeAsIfQuestionsFinishedButton">Simulate finishing all Questions</label>
+      <label index="recomputeAsIfQuestionsFinishedAreYouSure">Are you sure you want to notify artificially all Observations in this Group, that all their Questions have just been answered?</label>
+
+      <label index="backToShowGroupsButton">Back</label>      
+
+    </languageKey>
+    
+    <languageKey index="fr" type="array">
+
+      <label index="group">Groupe</label>
+      <label index="name">Nom</label>
+      <label index="description">Description</label>      
+
+      <label index="selectGroup">Groupes :</label>
+      <label index="selectAction">Actions :</label>
+      <label index="showGroupButton">Afficher cette Groupe</label>
+      <label index="regenerateGroupQuestionsButton">Régénérer les Questions</label>
+      <label index="regenerateAreYouSure">Est-ce que vous êtes sûr que vous voulez régénérer le Questions pour cette Groupe?</label>
+      <label index="recomputeAsIfQuestionsFinishedButton">Simulate finishing all Questions</label>
+      <label index="recomputeAsIfQuestionsFinishedAreYouSure">Are you sure you want to notify artificially all Observations in this Group, that all their Questions have just been answered?</label>
+
+      <label index="backToShowGroupsButton">Retourner</label>      
+
+    </languageKey>
+    
+  </data>
+</T3locallang>

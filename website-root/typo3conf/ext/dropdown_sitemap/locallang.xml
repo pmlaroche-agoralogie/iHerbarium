@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>module</type>
+        <description>Language labels for extension 'dropdown_sitemap'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="pi1_title">Drop-Down sitemap</label>
+            <label index="pi1_plus_wiz_description">Adds a drop-down sitemap to the page.</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi1_title">Drop-Down Sitemap</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+            <label index="pi1_title">Drop-Down sidekart</label>
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="pi1_title">Plan du site déroulant</label>
+            <label index="pi1_plus_wiz_description">Ajoute un plan du site déroulant à la page.</label>
+        </languageKey>
+        <languageKey index="cz" type="array">
+            <label index="pi1_title">Rozbalovací mapa webu</label>
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="pi1_title">Drop-Down sivukartta</label>
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="pi1_title">Mapa do Site "Drop-Down"</label>
+        </languageKey>
+    </data>
+</T3locallang>

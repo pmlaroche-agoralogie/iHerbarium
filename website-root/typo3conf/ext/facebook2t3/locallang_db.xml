@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'facebook2t3'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="fe_users.tx_facebook2t3_id">Facebook user id</label>
+			<label index="fe_users.tx_facebook2t3_first_name">Facebook first name</label>
+			<label index="fe_users.tx_facebook2t3_last_name">Facebook last name</label>
+			<label index="fe_users.tx_facebook2t3_link">Facebook link</label>
+			<label index="fe_users.tx_facebook2t3_gender">Facebook gender</label>
+			<label index="tt_content.list_type_pi1">Facebook Connect to TYPO3</label>
+		</languageKey>
+	</data>
+</T3locallang>

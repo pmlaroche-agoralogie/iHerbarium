@@ -1,0 +1,15 @@
+*******************************************
+TODO LIST for the newloginbox extension
+
+Maintained by Brikou and Ingmar
+Do not modify without permission!
+*******************************************
+
+- BUG:
+	- There's a problem with frame template I guess: 'successful login' and 'error login' does not appear???
+	- Correction withimage in listview for typo3.org
+
+- FEATURES:
+	- Add 1 or more other template for forms about newloginbox without TABLE parameter only fielset
+	- Templating the pi3 about listing users
+	- Update manual about template file... and explain marker maybe

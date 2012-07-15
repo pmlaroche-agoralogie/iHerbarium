@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'bddb_flvvideogallery'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">Advanced FLV Player and Video Gallery</label>
+			<label index="video_parameter">FLV Player Configuration</label>
+			<label index="video_file">flv file(s)</label>
+			<label index="video_thumb">Thumbnails for the flv's</label>
+			<label index="video_default">Player Startimage</label>
+			<label index="RedirectFlash">No Flash Redirect</label>
+			<label index="showplaylist">Show Playlist?</label>
+			<label index="shownoplayer">Hide Player?</label>			
+			<label index="showxmlplaylist">Show intern Playlist?</label>			
+			<label index="dir_path">relative Path to flv</label>
+			<label index="video_title">Video title</label>
+			<label index="video_caption">Video caption</label>
+			<label index="video_subtitle">TimedText XML subtitle file(s)</label>			
+			<label index="video_autostart">Autostart</label>
+			<label index="video_width">Width</label>
+			<label index="video_height">Height</label>
+			<label index="maxcolumn">Max. column number</label>
+			<label index="maxrows">Max. row number</label>
+			<label index="thumb_width">Thumb width</label>
+			<label index="thumb_height">Thumb height</label>			
+			<label index="pi_list_browseresults_first"></label>
+      <label index="pi_list_browseresults_prev"></label>
+      <label index="pi_list_browseresults_page"></label>
+      <label index="pi_list_browseresults_next"></label>
+      <label index="pi_list_browseresults_last"></label>
+      <label index="pi_list_browseresults_to">bis</label>
+      <label index="pi_list_browseresults_displays">Treffer ###FROM### - ###TO### von ###OUT_OF###</label>
+      
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="tt_content.list_type_pi1">Erweiterter FLV Player und Videogalerie</label>
+			<label index="video_parameter">FLV Player Konfiguration</label>
+			<label index="video_file">flv-Datei(en)</label>
+			<label index="video_thumb">Thumbnails für die flv's</label>
+			<label index="video_default">Player Startbild</label>
+			<label index="showplaylist">Zeige Playlist?</label>
+			<label index="showxmlplaylist">Zeige interne Playlist?</label>			
+			<label index="dir_path">relativer Pfad zu den Flv's</label>		
+			<label index="video_title">Video Titel</label>
+			<label index="video_caption">Video Beschreibung</label>
+			<label index="video_subtitle">TimedText XML Untertitel Datei(en)</label>			
+			<label index="video_autostart">Autostart</label>
+			<label index="video_width">Breite</label>
+			<label index="video_height">Höhe</label>
+			<label index="RedirectFlash">Kein Flash Redirect</label>
+			<label index="maxcolumn">Max. Spalten Anzahl</label>
+			<label index="maxrows">Max. Zeilen Anzahl</label>
+			<label index="thumb_width">Thumbnail Breite</label>
+			<label index="thumb_height">Thumbnail Höhe</label>				
+			<label index="pi_list_browseresults_first"></label>
+      <label index="pi_list_browseresults_prev"></label>
+      <label index="pi_list_browseresults_page"></label>
+      <label index="pi_list_browseresults_next"></label>
+      <label index="pi_list_browseresults_last"></label>
+      <label index="pi_list_browseresults_to">bis</label>
+      <label index="pi_list_browseresults_displays">Treffer ###FROM### - ###TO### von ###OUT_OF###</label>
+      
+		</languageKey>
+		
+	</data>
+</T3locallang>

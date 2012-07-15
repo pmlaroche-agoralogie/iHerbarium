@@ -1,0 +1,2 @@
+   # cat=basic; type=boolean; label=Use references to files instead of making a copy: If set, the files will not be copied to /uploads/tx_rlmpflashdetection/ anymore. Instead a direct reference to the original file is stored. If the original file is modified, the changes will take effect instantly without the need to remap the file.
+useReference = 1

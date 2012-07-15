@@ -1,0 +1,86 @@
+plugin.tx_sociallogin2t3_pi1 = USER_INT
+plugin.tx_sociallogin2t3_pi1 {
+
+    # Show logout link after successfull login?
+    showLogoutLink = {$plugin.tx_sociallogin2t3_pi1.showLogoutLink}
+
+
+
+    ##Facebook
+
+    facebook.includeIt = {$plugin.tx_sociallogin2t3_pi1.facebook.includeIt}
+
+    facebook.consumerKey = {$plugin.tx_sociallogin2t3_pi1.facebook.consumerKey}
+
+    facebook.consumerSecret = {$plugin.tx_sociallogin2t3_pi1.facebook.consumerSecret}
+
+    facebook.usersPid = {$plugin.tx_sociallogin2t3_pi1.facebook.usersPid}
+
+    facebook.userGroup = {$plugin.tx_sociallogin2t3_pi1.facebook.userGroup}
+
+    facebook.fields4Fetch = {$plugin.tx_sociallogin2t3_pi1.facebook.fields4Fetch}
+
+    facebook.fe_usersFields = {$plugin.tx_sociallogin2t3_pi1.facebook.fe_usersFields}
+
+    facebook.customButton = {$plugin.tx_sociallogin2t3_pi1.facebook.customButton}
+
+
+
+    ##Hyves
+
+    hyves.includeIt = {$plugin.tx_sociallogin2t3_pi1.hyves.includeIt}
+
+    hyves.consumerKey = {$plugin.tx_sociallogin2t3_pi1.hyves.consumerKey}
+
+    hyves.consumerSecret = {$plugin.tx_sociallogin2t3_pi1.hyves.consumerSecret}
+
+    hyves.usersPid = {$plugin.tx_sociallogin2t3_pi1.hyves.usersPid}
+
+    hyves.userGroup = {$plugin.tx_sociallogin2t3_pi1.hyves.userGroup}
+
+    hyves.fields4Fetch = {$plugin.tx_sociallogin2t3_pi1.hyves.fields4Fetch}
+
+    hyves.fe_usersFields = {$plugin.tx_sociallogin2t3_pi1.hyves.fe_usersFields}
+
+    hyves.customButton = {$plugin.tx_sociallogin2t3_pi1.hyves.customButton}
+
+
+
+    ##Twitter
+
+    twitter.includeIt = {$plugin.tx_sociallogin2t3_pi1.twitter.includeIt}
+
+    twitter.consumerKey = {$plugin.tx_sociallogin2t3_pi1.twitter.consumerKey}
+
+    twitter.consumerSecret = {$plugin.tx_sociallogin2t3_pi1.twitter.consumerSecret}
+
+    twitter.usersPid = {$plugin.tx_sociallogin2t3_pi1.twitter.usersPid}
+
+    twitter.userGroup = {$plugin.tx_sociallogin2t3_pi1.twitter.userGroup}
+
+    twitter.fields4Fetch = {$plugin.tx_sociallogin2t3_pi1.twitter.fields4Fetch}
+
+    twitter.fe_usersFields = {$plugin.tx_sociallogin2t3_pi1.twitter.fe_usersFields}
+
+    twitter.customButton = {$plugin.tx_sociallogin2t3_pi1.twitter.customButton}
+
+
+    ##LinkedIn
+
+    linkedin.includeIt = {$plugin.tx_sociallogin2t3_pi1.linkedin.includeIt}
+
+    linkedin.consumerKey = {$plugin.tx_sociallogin2t3_pi1.linkedin.consumerKey}
+
+    linkedin.consumerSecret = {$plugin.tx_sociallogin2t3_pi1.linkedin.consumerSecret}
+
+    linkedin.usersPid = {$plugin.tx_sociallogin2t3_pi1.linkedin.usersPid}
+
+    linkedin.userGroup = {$plugin.tx_sociallogin2t3_pi1.linkedin.userGroup}
+
+    linkedin.fields4Fetch = {$plugin.tx_sociallogin2t3_pi1.linkedin.fields4Fetch}
+
+    linkedin.fe_usersFields = {$plugin.tx_sociallogin2t3_pi1.linkedin.fe_usersFields}
+
+    linkedin.customButton = {$plugin.tx_sociallogin2t3_pi1.linkedin.customButton}
+
+}

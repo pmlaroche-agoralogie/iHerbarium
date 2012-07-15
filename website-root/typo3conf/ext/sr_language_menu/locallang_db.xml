@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language Selection Plugin</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Languages to select from:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Flags</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Dropdown list</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Links</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Type of layout</label>
+            <label index="tt_content.CType">Language Selection</label>
+        </languageKey>
+        <languageKey index="dk" type="array">
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Sprachen zur Auswahl:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Fahnen</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Dropdown-Liste</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Links</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Aussehen</label>
+            <label index="tt_content.CType">Language Selection</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+        </languageKey>
+        <languageKey index="it" type="array">
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Langues qui peuvent être choisies:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Drapeaux</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Liste déroulante</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Liens</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Présentation</label>
+            <label index="tt_content.CType">Choix de langue</label>
+        </languageKey>
+        <languageKey index="es" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Idiomas que se pueden elegir:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Banderas</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Selector</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Vínculos</label>
+            <label index="tt_content.CType">Elección de idioma</label>
+        </languageKey>
+        <languageKey index="nl" type="array">
+        </languageKey>
+        <languageKey index="cz" type="array">
+        </languageKey>
+	<languageKey index="pl" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Ilość języków do wyboru</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Flagi</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Lista-Dropdown</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Linki</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Wygląd</label>
+	    <label index="tt_content.CType">Wybór języka</label>
+	</languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Valittavat kielet:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Liput</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Alasveto lista</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Linkit</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Ulkoasun muoto</label>
+            <label index="tt_content.CType">Kielivalinta</label>
+        </languageKey>
+        <languageKey index="tr" type="array">
+        </languageKey>
+        <languageKey index="se" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Välj bland dessa språk:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Flaggor</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Dropdown-lista</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Länkar</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Layout-typ</label>
+            <label index="tt_content.CType">Språkval</label>
+        </languageKey>
+        <languageKey index="pt" type="array">
+        </languageKey>
+        <languageKey index="ru" type="array">
+	    <label index="tt_content.tx_srlanguagemenu_languages">Языки на выбор:</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.0">Флаги (Знамена)</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.1">Раскрывающийся-список</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.2">Налево</label>
+	    <label index="tt_content.tx_srlanguagemenu_type">Имеет вид (Выглядит)</label>
+	    <label index="tt_content.CType">Выбор языка</label>
+        </languageKey>
+        <languageKey index="ro" type="array">
+        </languageKey>
+        <languageKey index="ch" type="array">
+        </languageKey>
+        <languageKey index="sk" type="array">
+        </languageKey>
+        <languageKey index="lt" type="array">
+        </languageKey>
+        <languageKey index="is" type="array">
+        </languageKey>
+        <languageKey index="hr" type="array">
+        </languageKey>
+        <languageKey index="hu" type="array">
+        </languageKey>
+        <languageKey index="gl" type="array">
+        </languageKey>
+        <languageKey index="th" type="array">
+        </languageKey>
+        <languageKey index="gr" type="array">
+        </languageKey>
+        <languageKey index="hk" type="array">
+        </languageKey>
+        <languageKey index="eu" type="array">
+        </languageKey>
+        <languageKey index="bg" type="array">
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages">Idiomas que podem ser selecionados:</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0">Bandeiras</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1">Lista de seleção</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2">Links</label>
+            <label index="tt_content.tx_srlanguagemenu_type">Layout</label>
+            <label index="tt_content.CType">Seleção de Idioma</label>
+        </languageKey>
+        <languageKey index="et" type="array">
+        </languageKey>
+        <languageKey index="ar" type="array">
+        </languageKey>
+        <languageKey index="he" type="array">
+        </languageKey>
+        <languageKey index="ua" type="array">
+        </languageKey>
+        <languageKey index="lv" type="array">
+        </languageKey>
+        <languageKey index="jp" type="array">
+        </languageKey>
+        <languageKey index="vn" type="array">
+        </languageKey>
+        <languageKey index="ca" type="array">
+        </languageKey>
+        <languageKey index="ba" type="array">
+        </languageKey>
+        <languageKey index="kr" type="array">
+        </languageKey>
+        <languageKey index="eo" type="array">
+        </languageKey>
+        <languageKey index="my" type="array">
+        </languageKey>
+        <languageKey index="hi" type="array">
+        </languageKey>
+	<languageKey index="fo">
+	</languageKey>
+	<languageKey index="fa">
+	</languageKey>
+	<languageKey index="sr" type="array">
+	    <label index="tt_content.tx_srlanguagemenu_languages">Jezici za biranje</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.0">Zastave</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.1">Dropdown lista</label>
+	    <label index="tt_content.tx_srlanguagemenu_type.I.2">Linkovi</label>
+	    <label index="tt_content.tx_srlanguagemenu_type">Izgled</label>
+	    <label index="tt_content.CType">Izbor jezika</label>
+	</languageKey>
+	<languageKey index="mk">
+	</languageKey>
+    </data>
+    <orig_hash type="array">
+        <languageKey index="default" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="dk" type="array">
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+        </languageKey>
+        <languageKey index="it" type="array">
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="es" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="nl" type="array">
+        </languageKey>
+        <languageKey index="cz" type="array">
+        </languageKey>
+        <languageKey index="pl" type="array">
+        </languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="tr" type="array">
+        </languageKey>
+        <languageKey index="se" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="pt" type="array">
+        </languageKey>
+        <languageKey index="ru" type="array">
+        </languageKey>
+        <languageKey index="ro" type="array">
+        </languageKey>
+        <languageKey index="ch" type="array">
+        </languageKey>
+        <languageKey index="sk" type="array">
+        </languageKey>
+        <languageKey index="lt" type="array">
+        </languageKey>
+        <languageKey index="is" type="array">
+        </languageKey>
+        <languageKey index="hr" type="array">
+        </languageKey>
+        <languageKey index="hu" type="array">
+        </languageKey>
+        <languageKey index="gl" type="array">
+        </languageKey>
+        <languageKey index="th" type="array">
+        </languageKey>
+        <languageKey index="gr" type="array">
+        </languageKey>
+        <languageKey index="hk" type="array">
+        </languageKey>
+        <languageKey index="eu" type="array">
+        </languageKey>
+        <languageKey index="bg" type="array">
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="tt_content.tx_srlanguagemenu_languages" type="integer">115653434</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.0" type="integer">82475009</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.1" type="integer">160992294</label>
+            <label index="tt_content.tx_srlanguagemenu_type.I.2" type="integer">198772955</label>
+            <label index="tt_content.tx_srlanguagemenu_type" type="integer">209576476</label>
+            <label index="tt_content.CType" type="integer">169324978</label>
+        </languageKey>
+        <languageKey index="et" type="array">
+        </languageKey>
+        <languageKey index="ar" type="array">
+        </languageKey>
+        <languageKey index="he" type="array">
+        </languageKey>
+        <languageKey index="ua" type="array">
+        </languageKey>
+        <languageKey index="lv" type="array">
+        </languageKey>
+        <languageKey index="jp" type="array">
+        </languageKey>
+        <languageKey index="vn" type="array">
+        </languageKey>
+        <languageKey index="ca" type="array">
+        </languageKey>
+        <languageKey index="ba" type="array">
+        </languageKey>
+        <languageKey index="kr" type="array">
+        </languageKey>
+        <languageKey index="eo" type="array">
+        </languageKey>
+        <languageKey index="my" type="array">
+        </languageKey>
+        <languageKey index="hi" type="array">
+        </languageKey>
+    </orig_hash>
+    <orig_text type="array">
+        <languageKey index="default" type="array">
+        </languageKey>
+        <languageKey index="dk" type="array">
+        </languageKey>
+        <languageKey index="de" type="array">
+        </languageKey>
+        <languageKey index="no" type="array">
+        </languageKey>
+        <languageKey index="it" type="array">
+        </languageKey>
+        <languageKey index="fr" type="array">
+        </languageKey>
+        <languageKey index="es" type="array">
+        </languageKey>
+        <languageKey index="nl" type="array">
+        </languageKey>
+        <languageKey index="cz" type="array">
+        </languageKey>
+        <languageKey index="pl" type="array">
+        </languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+        </languageKey>
+        <languageKey index="tr" type="array">
+        </languageKey>
+        <languageKey index="se" type="array">
+        </languageKey>
+        <languageKey index="pt" type="array">
+        </languageKey>
+        <languageKey index="ru" type="array">
+        </languageKey>
+        <languageKey index="ro" type="array">
+        </languageKey>
+        <languageKey index="ch" type="array">
+        </languageKey>
+        <languageKey index="sk" type="array">
+        </languageKey>
+        <languageKey index="lt" type="array">
+        </languageKey>
+        <languageKey index="is" type="array">
+        </languageKey>
+        <languageKey index="hr" type="array">
+        </languageKey>
+        <languageKey index="hu" type="array">
+        </languageKey>
+        <languageKey index="gl" type="array">
+        </languageKey>
+        <languageKey index="th" type="array">
+        </languageKey>
+        <languageKey index="gr" type="array">
+        </languageKey>
+        <languageKey index="hk" type="array">
+        </languageKey>
+        <languageKey index="eu" type="array">
+        </languageKey>
+        <languageKey index="bg" type="array">
+        </languageKey>
+        <languageKey index="br" type="array">
+        </languageKey>
+        <languageKey index="et" type="array">
+        </languageKey>
+        <languageKey index="ar" type="array">
+        </languageKey>
+        <languageKey index="he" type="array">
+        </languageKey>
+        <languageKey index="ua" type="array">
+        </languageKey>
+        <languageKey index="lv" type="array">
+        </languageKey>
+        <languageKey index="jp" type="array">
+        </languageKey>
+        <languageKey index="vn" type="array">
+        </languageKey>
+        <languageKey index="ca" type="array">
+        </languageKey>
+        <languageKey index="ba" type="array">
+        </languageKey>
+        <languageKey index="kr" type="array">
+        </languageKey>
+        <languageKey index="eo" type="array">
+        </languageKey>
+        <languageKey index="my" type="array">
+        </languageKey>
+        <languageKey index="hi" type="array">
+        </languageKey>
+    </orig_text>
+</T3locallang>

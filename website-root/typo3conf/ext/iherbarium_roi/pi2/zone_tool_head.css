@@ -1,0 +1,15 @@
+<style>
+.creation {border:1px dotted pink;}
+.selection {font-family: Verdana,Sans-Serif;font-size: 12px;color: #333333;
+	cursor:move;border: 1px solid white;background: white;opacity:0.5 }
+.edit {background:none;opacity:1;}
+.formdiv {display:block; border:1px solid black;background:#FFFEE3;
+	cursor:default;padding:5px;;width:257px;}
+.ok, .cancel, .delete {cursor:pointer;display:inline-block; padding:3px 5px 3px 24px;
+border:1px solid #CCCCCC;margin-left:6px;width:48px;margin-top:10px;}
+.ok {background:url('img/accept.png') 5px 50% no-repeat #FFFFFF;margin-left:0px;}
+.cancel {background:url('img/cross.png') 5px 50% no-repeat #FFFFFF;}
+.delete {background:url('img/delete.png') 5px 50% no-repeat #FFFFFF;}
+
+#send_button{border:1px solid black;clear:both;float:left;margin-top:50px;cursor:pointer;}
+</style>

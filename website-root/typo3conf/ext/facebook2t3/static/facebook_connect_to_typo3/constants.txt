@@ -1,0 +1,26 @@
+plugin.tx_facebook2t3_pi1 {
+
+    # cat=facebook2t3//10; type=string; label=Facebook app id:The app id of your Facebook application
+    appId =
+
+    # cat=facebook2t3//11; type=string; label=Facebook secret:The application secret of your Facebook application
+    secret =
+
+    # cat=facebook2t3//12; type=int+; label=User storage page:uid of the page where Frontend user records are stored
+    usersPid =
+
+    # cat=facebook2t3//13; type=int+; label=User group id(s):uid (comma separated if multiple) of the group(s) the frontend user will belong to
+    userGroup =
+
+    # cat=facebook2t3//14; type=string; label=Facebook language:The Facebook application language (e.g. en_US, de_DE)
+    facebookLanguage = en_US
+
+    # cat=facebook2t3//20; type=string; label=Facebook account fields for permissions:Comma separated Facebook fields to be fetched (use field names that are needed for permissions)
+    facebookFields4Perms = id,name,first_name,last_name,link,gender
+
+    # cat=facebook2t3//21; type=string; label=Facebook account fields for fetch:Comma separated Facebook fields to be fetched (use field names that are used in Facebooks user object), usually equal to facebookFields4Perms
+    facebookFields4Fetch = id,name,first_name,last_name,link,gender
+
+    # cat=facebook2t3//22; type=string; label=TYPO3 fe_users fields:Comma separated fe_users fields where Facebook fields are stored (positions correspond to facebookFields)
+    fe_usersFields = username,name,tx_facebook2t3_first_name,tx_facebook2t3_last_name,tx_facebook2t3_link,tx_facebook2t3_gender
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Labels of extension rlmp_flashdetection</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array" />
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="pi1_title">Flash movie</label>
+            <label index="pi1_plus_wiz_description">Adds a flash movie with automatic detection.</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi1_title">Flash Film</label>
+            <label index="pi1_plus_wiz_description">Fügt einen Flash-Film mit automatischer Erkennung des Plugins ein.</label>
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="pi1_title">Flash elokuva</label>
+            <label index="pi1_plus_wiz_description">Lisää flash elokuvan automaatisella ilmaisulla</label>
+        </languageKey>
+        <languageKey index="br" type="array">
+            <label index="pi1_title">Filme em Flash</label>
+            <label index="pi1_plus_wiz_description">Insere um filme em flash com detecção automática.</label>
+        </languageKey>
+    </data>
+</T3locallang>

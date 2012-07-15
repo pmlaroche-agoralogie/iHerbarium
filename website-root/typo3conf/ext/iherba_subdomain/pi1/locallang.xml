@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_iherbasubdomain_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			
+			<label index="label_form_shortname">short name for the left part of the url :</label>
+			<label index="label_form_latitude">Latitude of the center area :</label>
+			<label index="label_form_longitude">Longitude of the center area :</label>
+			<label index="label_form_radius">Radius of the area, in meters :</label>
+			<label index="label_form_longdesc">Description of the area :</label>
+			<label index="label_form_emailcreator">Email of the creator :</label>
+			
+			<label index="label_form_shortname_example">example : paris (.iherbarium.fr) </label>
+			<label index="label_form_latitude_example">example : 48,1234 (minus if South)</label>
+			<label index="label_form_longitude_example">example : 2,789 (minus if West)</label>
+			<label index="label_form_radius_example">example : 500 </label>
+			<label index="label_form_longdesc_example">example : the city of Paris</label>
+			<label index="label_form_emailcreator_example">example : contact@iherbarium.fr</label>
+			
+			<label index="submit_button_label">Click here to ask for the sub domain creation</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="label_form_shortname">Nom court pour la partie gauche de l'adresse (minuscules, pas d'espace, pas d'accent):</label>
+			<label index="label_form_latitude">Latitude du centre de la zone :</label>
+			<label index="label_form_longitude">Longitude du centre de la zone :</label>
+			<label index="label_form_radius">Rayon de la zone, en metre :</label>
+			<label index="label_form_longdesc">Description de la zone :</label>
+			<label index="label_form_emailcreator">Email du créateur :</label>
+			<label index="label_form_shortname_example">exemple : paris (.iherbarium.fr) </label>
+			<label index="label_form_latitude_example">exemple : 48,1234 (négatif si hémisphère Sud)</label>
+			<label index="label_form_longitude_example">exemple : 2,789 (négatif si à l'Ouest du méridien de greenwich)</label>
+			<label index="label_form_radius_example">exemple : 500 </label>
+			<label index="label_form_longdesc_example">exemple : la ville de Paris</label>
+			<label index="label_form_emailcreator_example">example : contact@iherbarium.fr</label>
+			
+			<label index="submit_button_label">Cliquer ici pour demander la création de cette zone</label>
+		</languageKey>
+		<languageKey index="es" type="array">
+			
+			<label index="label_form_shortname"> Nombre corto por el lado izquierdo de la dirección de correo electrónico: </label>
+			<label index="label_form_latitude"> Latitud del centro de la zona de interés: </label>
+			<label index="label_form_longitude"> Longitud del centro de la zona de interés: </label>
+			<label index="label_form_radius"> Radio de la zona de interés (en metros): </label>
+			<label index="label_form_longdesc"> Descripción de la zona de interés: </label>
+			<label index="label_form_emailcreator"> Correo electrónico del autor: </label>
+			<label index="label_form_shortname_example">ejemplo: PARIS (.iherbarium.es) </label>
+			<label index="label_form_latitude_example">ejemplo: 48,1234 (negativo por el Hemisferio Sur)</label>
+			<label index="label_form_longitude_example">ejemplo: 2,789 (negativo al oeste del meridiano de Greenwich)</label>
+			<label index="label_form_radius_example">ejemplo: 500 </label>
+			<label index="label_form_longdesc_example">ejemplo: la ciudad de París </label>
+			<label index="label_form_emailcreator_example">ejemplo: contact@iherbarium.fr</label>
+			
+			<label index="submit_button_label"> Haga clic aquí para solicitar la creación de esta área </label>
+		</languageKey>
+		<languageKey index="pt" type="array">
+			<label index="label_form_shortname">Nom court pour la partie gauche de l'adresse :</label>
+			<label index="label_form_latitude">Latitude du centre de la zone :</label>
+			<label index="label_form_longitude">Longitude du centre de la zone :</label>
+			<label index="label_form_radius">Rayon de lazone, en metre :</label>
+			<label index="label_form_longdesc">Description de la zone :</label>
+			<label index="label_form_emailcreator">Email du créateur :</label>
+			<label index="label_form_shortname_example">exemple : PARIS (.iherbarium.fr) </label>
+			<label index="label_form_latitude_example">exemple : 48,1234 (minus if south)</label>
+			<label index="label_form_longitude_example">exemple : 2,789 (minus if east)</label>
+			<label index="label_form_radius_example">exemple : 500 </label>
+			<label index="label_form_longdesc_example">exemple : la ville de Paris</label>
+			<label index="label_form_emailcreator_example">example : contact@iherbarium.fr</label>
+			
+			<label index="submit_button_label">Cliquer ici pour demander la création de cette zone</label>
+		</languageKey>
+	</data>
+</T3locallang>

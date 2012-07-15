@@ -1,0 +1,309 @@
+a:2:{s:4:"meta";a:3:{s:5:"title";s:13:"New Login Box";s:5:"descr";s:0:"";s:7:"options";a:2:{s:10:"usageCount";N;s:19:"includeCodeAbstract";s:1:"1";}}s:5:"files";a:5:{s:14:"MD5_90958d130c";a:4:{s:8:"filename";s:20:"class.ext_update.php";s:8:"filesize";i:6591;s:6:"header";a:5:{s:4:"text";s:77:"
+
+Class for updating newloginbox from the previous version under TYPO3 3.5.0
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author  Kasper Skårhøj <kasper@typo3.com>";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj <kasper@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:3:"DAT";a:4:{i:1;a:8:{s:6:"header";s:18:"class ext_update {";s:5:"class";i:1;s:11:"parentClass";s:10:"ext_update";s:4:"cDat";a:5:{s:4:"text";s:77:"
+
+Class for updating newloginbox from the previous version under TYPO3 3.5.0
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author  Kasper Skårhøj <kasper@typo3.com>";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj <kasper@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:7:"content";a:2:{i:0;s:3:"
+		";i:1;i:-1;}s:12:"content_size";i:3;s:13:"content_lines";i:1;s:6:"atLine";i:45;}i:3;a:7:{s:6:"header";s:17:"function main() {";s:11:"parentClass";s:10:"ext_update";s:4:"cDat";a:3:{s:4:"text";s:58:"
+
+Main function, returning the HTML content of the module
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:4:"HTML";}}s:7:"content";a:2:{i:0;s:507:"			$query = $this->query('*');
+
+			$res = $GLOBALS['TYPO3_DB']->sql_query($query );
+
+			if ($GLOBALS['TYPO3_DB']->sql_error() ) {
+				t3lib_div::debug(array('SQL error:',
+					$GLOBALS['TYPO3_DB']->sql_error() ) );
+			}
+
+			$count = $GLOBALS['TYPO3_DB']->sql_num_rows($res );
+
+			if (!t3lib_div::GPvar('do_update')) {
+				$onClick = "document.location='".t3lib_div::linkThisS
+[...]
+3lib_div::debug(array('SQL error:', $updateQ ) );
+					}
+
+					return sprintf('ROW %s updated.', $count );
+				}
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:3193;s:13:"content_lines";i:115;s:6:"atLine";i:52;}i:5;a:4:{s:6:"header";s:19:"function access() {";s:11:"parentClass";s:10:"ext_update";s:4:"cDat";a:3:{s:4:"text";s:67:"
+
+Checks how many rows are found and returns true if there are any
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:7:"boolean";i:1;s:0:"";}}s:6:"atLine";i:173;}i:7;a:7:{s:6:"header";s:25:"function query($fields) {";s:11:"parentClass";s:10:"ext_update";s:4:"cDat";a:3:{s:4:"text";s:124:"
+
+Creates  query finding all tt_content elements of plugin/newloginbox type which has any of the message/header fields set.
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:107:"Select fields, eg. "*" or "tx_newloginbox_show_forgot_password,tx_newloginbox_header_welcome" or "count(*)"";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:10:"Full query";}}s:7:"content";a:2:{i:0;s:507:"			return $GLOBALS['TYPO3_DB']->SELECTquery(
+			$fields,
+				'tt_content',
+				'CType="list" AND list_type="newloginbox_pi1" AND
+				(
+				tx_newloginbox_show_forgot_password OR
+				tx_newloginbox_header_welcome OR
+				tx_newloginbox_msg_welcome OR
+				tx_newloginbox_header_success OR
+				tx_newloginbox_msg_success OR
+				tx_newloginbox_header_error OR
+				tx_newloginbox_m
+[...]
+ss.ext_update.php']) {
+		include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/class.ext_update.php']);
+	}
+
+?>";i:1;i:1;}s:12:"content_size";i:777;s:13:"content_lines";i:25;s:6:"atLine";i:195;}}}s:14:"MD5_97e55aebac";a:4:{s:8:"filename";s:32:"class.tx_newloginbox_feusers.php";s:8:"filesize";i:2659;s:6:"header";a:5:{s:4:"text";s:24:"
+
+SELECT box processing
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:3:"DAT";a:3:{i:1;a:8:{s:6:"header";s:30:"class tx_newloginbox_feusers {";s:5:"class";i:1;s:11:"parentClass";s:22:"tx_newloginbox_feusers";s:4:"cDat";a:5:{s:4:"text";s:24:"
+
+SELECT box processing
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:7:"content";a:2:{i:0;s:2:"
+	";i:1;i:-1;}s:12:"content_size";i:2;s:13:"content_lines";i:1;s:6:"atLine";i:36;}i:3;a:4:{s:6:"header";s:32:"function main(&$params,&$pObj)	{";s:11:"parentClass";s:22:"tx_newloginbox_feusers";s:4:"cDat";a:3:{s:4:"text";s:51:"
+
+Adding fe_users field list to selector box array
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:5:"array";i:1;s:50:"Parameters, changing "items". Passed by reference.";}i:1;a:2:{i:0;s:6:"object";i:1;s:13:"Parent object";}}s:6:"return";a:2:{i:0;s:4:"void";i:1;s:0:"";}}s:6:"atLine";i:45;}i:5;a:7:{s:6:"header";s:39:"function mainDetails(&$params,&$pObj)	{";s:11:"parentClass";s:22:"tx_newloginbox_feusers";s:4:"cDat";a:3:{s:4:"text";s:66:"
+
+Adding fe_users field list to selector box array - details view
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:5:"array";i:1;s:50:"Parameters, changing "items". Passed by reference.";}i:1;a:2:{i:0;s:6:"object";i:1;s:13:"Parent object";}}s:6:"return";a:2:{i:0;s:4:"void";i:1;s:0:"";}}s:7:"content";a:2:{i:0;s:416:"		global $TCA;
+
+		$this->main($params,$pObj);
+
+		if (is_array($params['items']))	{
+			array_unshift($params['items'],array('-- divider --','---'));
+		}
+	}
+}
+
+
+// Include extension?
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/class.tx_newloginbox_feusers.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/class.tx_newloginbox_feusers.php']);
+}
+
+?>";i:1;i:0;}s:12:"content_size";i:416;s:13:"content_lines";i:16;s:6:"atLine";i:68;}}}s:14:"MD5_186562ec87";a:4:{s:8:"filename";s:32:"pi1/class.tx_newloginbox_pi1.php";s:8:"filesize";i:15730;s:6:"header";a:5:{s:4:"text";s:61:"
+
+Plugin 'Better login-box' for the 'newloginbox' extension.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author		Kasper Skårhøj (kasper@typo3.com)";i:1;s:15:"@package		TYPO3";i:2;s:26:"@subpackage	tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:3:"DAT";a:3:{i:1;a:8:{s:6:"header";s:47:"class tx_newloginbox_pi1 extends tslib_pibase {";s:5:"class";i:1;s:11:"parentClass";s:18:"tx_newloginbox_pi1";s:4:"cDat";a:5:{s:4:"text";s:61:"
+
+Plugin 'Better login-box' for the 'newloginbox' extension.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author		Kasper Skårhøj (kasper@typo3.com)";i:1;s:15:"@package		TYPO3";i:2;s:26:"@subpackage	tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:7:"content";a:2:{i:0;s:263:"
+		// Default plugin variables:
+		var $prefixId = 'tx_newloginbox_pi1'; // Same as class name
+		var $scriptRelPath = 'pi1/class.tx_newloginbox_pi1.php'; // Path to this script relative to the extension dir.
+		var $extKey = 'newloginbox'; // The extension key.
+
+		";i:1;i:-1;}s:12:"content_size";i:263;s:13:"content_lines";i:6;s:6:"atLine";i:53;}i:3;a:4:{s:6:"header";s:32:"function main($content, $conf) {";s:11:"parentClass";s:18:"tx_newloginbox_pi1";s:4:"cDat";a:3:{s:4:"text";s:87:"
+
+Displays an alternative, more advanced / user friendly login form (than the default)
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:30:"Default content string, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:39:"TypoScript configuration for the plugin";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:19:"HTML for the plugin";}}s:6:"atLine";i:67;}i:5;a:7:{s:6:"header";s:47:"function getOutputLabel($key, $sheet, $field) {";s:11:"parentClass";s:18:"tx_newloginbox_pi1";s:4:"cDat";a:3:{s:4:"text";s:186:"
+
+Returns the headers/messages for the login/logout/status etc state of the login form. If a value is found int cObj->data[...] then that is used, otherwise the default from local_lang.
+";s:5:"param";a:3:{i:0;a:2:{i:0;s:6:"string";i:1;s:36:"The key used for labels in locallang";}i:1;a:2:{i:0;s:6:"string";i:1;s:59:"The sheet refering to T3FlexForm content from "pi_flexform"";}i:2;a:2:{i:0;s:6:"string";i:1;s:65:"The field from the sheet of T3FlexForm content from "pi_flexform"";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:17:"The result string";}}s:7:"content";a:2:{i:0;s:507:"			$dataF = nl2br(trim(strip_tags($this->pi_getFFvalue($this->cObj->data['pi_flexform'], $field, $sheet), '<b><i><a>')));
+			// The possible entities from the flexform should theoretically be htmlspecialchars()'ed for XHTML compatibility - but this was not easy to just fix since SOME HTML should be allowed! Further, allowing HTML with strip_tags does not prevent wrong attr
+[...]
+.php']) {
+		include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/pi1/class.tx_newloginbox_pi1.php']);
+	}
+
+?>
+";i:1;i:1;}s:12:"content_size";i:740;s:13:"content_lines";i:11;s:6:"atLine";i:323;}}}s:14:"MD5_9d04c2f0de";a:4:{s:8:"filename";s:40:"pi1/class.tx_newloginbox_pi1_wizicon.php";s:8:"filesize";i:2817;s:6:"header";a:5:{s:4:"text";s:35:"
+
+Class that adds the wizard icon.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:3:"DAT";a:3:{i:1;a:8:{s:6:"header";s:34:"class tx_newloginbox_pi1_wizicon {";s:5:"class";i:1;s:11:"parentClass";s:26:"tx_newloginbox_pi1_wizicon";s:4:"cDat";a:5:{s:4:"text";s:35:"
+
+Class that adds the wizard icon.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:7:"content";a:2:{i:0;s:2:"
+	";i:1;i:-1;}s:12:"content_size";i:2;s:13:"content_lines";i:1;s:6:"atLine";i:54;}i:3;a:4:{s:6:"header";s:29:"function proc($wizardItems)	{";s:11:"parentClass";s:26:"tx_newloginbox_pi1_wizicon";s:4:"cDat";a:3:{s:4:"text";s:35:"
+
+Adds the newloginbox wizard icon
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:5:"array";i:1;s:41:"Input array with wizard items for plugins";}}s:6:"return";a:2:{i:0;s:5:"array";i:1;s:60:"Modified input array, having the item for newloginbox added.";}}s:6:"atLine";i:62;}i:5;a:7:{s:6:"header";s:29:"function includeLocalLang()	{";s:11:"parentClass";s:26:"tx_newloginbox_pi1_wizicon";s:4:"cDat";a:3:{s:4:"text";s:62:"
+
+Includes the locallang file for the 'newloginbox' extension
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:5:"array";i:1;s:20:"The LOCAL_LANG array";}}s:7:"content";a:2:{i:0;s:345:"		include(t3lib_extMgm::extPath('newloginbox').'locallang.php');
+		return $LOCAL_LANG;
+	}
+}
+
+
+
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/pi1/class.tx_newloginbox_pi1_wizicon.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/pi1/class.tx_newloginbox_pi1_wizicon.php']);
+}
+?>";i:1;i:0;}s:12:"content_size";i:345;s:13:"content_lines";i:10;s:6:"atLine";i:82;}}}s:14:"MD5_f3ae91ec84";a:4:{s:8:"filename";s:32:"pi3/class.tx_newloginbox_pi3.php";s:8:"filesize";i:18063;s:6:"header";a:5:{s:4:"text";s:57:"
+
+Plugin 'User listing' for the 'newloginbox' extension.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:45:"@author	Kasper Skårhøj <kasperYYYY@typo3.com>";i:1;s:14:"@package	TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:37:"Kasper Skårhøj <kasperYYYY@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:3:"DAT";a:9:{i:1;a:8:{s:6:"header";s:47:"class tx_newloginbox_pi3 extends tslib_pibase {";s:5:"class";i:1;s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:5:{s:4:"text";s:57:"
+
+Plugin 'User listing' for the 'newloginbox' extension.
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:45:"@author	Kasper Skårhøj <kasperYYYY@typo3.com>";i:1;s:14:"@package	TYPO3";i:2;s:26:"@subpackage tx_newloginbox";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:37:"Kasper Skårhøj <kasperYYYY@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:15:"tx_newloginbox ";}}}s:7:"content";a:2:{i:0;s:498:"
+		var $prefixId = 'tx_newloginbox_pi3'; // Same as class name
+		var $scriptRelPath = 'pi3/class.tx_newloginbox_pi3.php'; // Path to this script relative to the extension dir.
+		var $extKey = 'newloginbox'; // The extension key.
+		var $viewMode = 'listView'; // either listView or singleView
+		var $conf = array(); // TypoScript configuration for the plugin
+
+		// Internal vars:
+		var $manualFieldOrder = FALSE;
+		var $manualFieldOrder_details = array();
+		var $manualFieldOrder_list = array();
+
+		";i:1;i:-1;}s:12:"content_size";i:498;s:13:"content_lines";i:12;s:6:"atLine";i:60;}i:3;a:7:{s:6:"header";s:32:"function main($content, $conf) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:40:"
+
+Main function, called from TypoScript
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:30:"Default content string, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:39:"TypoScript configuration for the plugin";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:19:"HTML for the plugin";}}s:7:"content";a:2:{i:0;s:507:"
+			$this->conf = $conf;
+			// Init FlexForm configuration for plugin:
+			$this->pi_initPIflexForm();
+			$this->manualFieldOrder = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'field_manualOrder') ? TRUE : FALSE;
+			$this->manualFieldOrder_details = t3lib_div::trimExplode(',', $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'field_orderDetails'), 1);
+			$t
+[...]
+Obj->data['recursive'];
+				}
+				return $this->pi_wrapInBaseClass($this->listView($content, $conf));
+				break;
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:1094;s:13:"content_lines";i:27;s:6:"atLine";i:80;}i:5;a:7:{s:6:"header";s:36:"function listView($content, $conf) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:114:"
+
+List view, listing the records from the table.
+Does also provide the single view if the "showUid" piVar is set.
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:38:"HTML input content - not used, ignore.";}i:1;a:2:{i:0;s:5:"array";i:1;s:30:"TypoScript configuration array";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:29:"HTML content for the listing.";}}s:7:"content";a:2:{i:0;s:507:"
+			// Init:
+			$this->conf = $conf; // Setting the TypoScript passed to this function in $this->conf
+			$this->pi_setPiVarDefaults();
+			$this->pi_loadLL(); // Loading the LOCAL_LANG values
+			$this->pi_USER_INT_obj = 1; // Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
+			$this->lCon
+[...]
+			$fullTable .= $this->pi_list_searchBox();
+
+				// Returns the content from the plugin.
+				return $fullTable;
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:2755;s:13:"content_lines";i:67;s:6:"atLine";i:116;}i:7;a:7:{s:6:"header";s:38:"function singleView($content, $conf) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:191:"
+
+Single view display of users.
+
+When this function is called, $this->internal['currentTable'] is set to the table name, "fe_users" and $this->internal['currentRow'] will contain the record.
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:32:"Content input. Not used. Ignore.";}i:1;a:2:{i:0;s:5:"array";i:1;s:24:"TypoScript configuration";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:41:"HTML content for display of user details.";}}s:7:"content";a:2:{i:0;s:507:"
+			// Init
+			$this->conf = $conf;
+			$this->pi_setPiVarDefaults();
+			$this->pi_loadLL();
+			$this->viewMode = 'singleView';
+
+			// This sets the title of the page for use in indexed search results:
+			if ($this->internal['currentRow']['title']) $GLOBALS['TSFE']->indexedDocTitle = $this->internal['currentRow']['title'];
+
+			if ($this->manualFieldOrder) {
+				$rows = '';
+
+[...]
+singleview_back', '', TRUE), 0).'</p>';
+			}
+
+			$content .= '</div>'. $this->pi_getEditPanel();
+
+			return $content;
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:5911;s:13:"content_lines";i:198;s:6:"atLine";i:193;}i:9;a:7:{s:6:"header";s:26:"function pi_list_row($c) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:31:"
+
+A single list row displayed:
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:7:"integer";i:1;s:27:"Counter for rows displayed.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:39:"HTML content; a Table row, <tr>...</tr>";}}s:7:"content";a:2:{i:0;s:507:"			$editPanel = $this->pi_getEditPanel();
+			if ($editPanel) $editPanel = '<td>'.$editPanel.'</td>';
+
+			if ($this->manualFieldOrder) {
+				$cells = array();
+				foreach($this->manualFieldOrder_list as $fieldName) {
+					if ($fieldName != 'email' || $this->lConf['show.']['email']) {
+						$cells[] = '
+							<td>'.$this->getFieldContent($fieldName).'</td>
+							';
+					}
+
+[...]
+e').'</td>
+						<td>'.$this->getFieldContent('username').'</td>
+						'.$editPanel.'
+						</tr>
+						';
+				}
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:1249;s:13:"content_lines";i:42;s:6:"atLine";i:398;}i:11;a:7:{s:6:"header";s:27:"function pi_list_header() {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:41:"
+
+List header row, showing column names:
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:39:"HTML content; a Table row, <tr>...</tr>";}}s:7:"content";a:2:{i:0;s:507:"
+			if ($this->manualFieldOrder) {
+				$cells = array();
+				foreach($this->manualFieldOrder_list as $fieldName) {
+					if ($fieldName != 'email' || $this->lConf['show.']['email']) {
+						$cells[] = '
+							<th>'.$this->getFieldHeader_sortLink($fieldName).'</th>
+							';
+					}
+				}
+
+				return '
+					<tr>
+					'.implode('', $cells).'
+					</tr>';
+
+			} else {
+				if (
+[...]
+sortLink('name').'</th>
+						<th>'.$this->getFieldHeader_sortLink('username').'</th>
+						</tr>
+						';
+				}
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:992;s:13:"content_lines";i:38;s:6:"atLine";i:446;}i:13;a:7:{s:6:"header";s:31:"function getFieldContent($fN) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:54:"
+
+Field content, processed, prepared for HTML output.
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:9:"Fieldname";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:31:"Content, ready for HTML output.";}}s:7:"content";a:2:{i:0;s:507:"
+			// feature added by Ingmar Schlecht <ingmar@typo3.org>
+			if ($this->conf[$this->viewMode.'.']['customProcessing.'][$fN]) {
+
+				// keep old data array for later restorage
+				$temp = $this->cObj->data;
+
+				// load currentRow as cObj->data
+				$this->cObj->data = $this->internal['currentRow'];
+
+				// "execute" the TypoScript, i.e. do the custom processing for the fie
+[...]
+al['currentRow'][$fN]);
+				default:
+				return htmlspecialchars($this->internal['currentRow'][$fN]);
+				break;
+			}
+		}
+
+		";i:1;i:1;}s:12:"content_size";i:1096;s:13:"content_lines";i:33;s:6:"atLine";i:491;}i:15;a:4:{s:6:"header";s:30:"function getFieldHeader($fN) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:58:"
+
+Field header name; Getting the label for field headers.
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:9:"Fieldname";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:31:"Content, ready for HTML output.";}}s:6:"atLine";i:531;}i:17;a:7:{s:6:"header";s:39:"function getFieldHeader_sortLink($fN) {";s:11:"parentClass";s:18:"tx_newloginbox_pi3";s:4:"cDat";a:3:{s:4:"text";s:66:"
+
+Field header name, but wrapped in a link for sorting by column.
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:9:"Fieldname";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:31:"Content, ready for HTML output.";}}s:7:"content";a:2:{i:0;s:375:"			return $this->pi_linkTP_keepPIvars($this->getFieldHeader($fN), array('sort' => $fN.':'.($this->internal['descFlag']?0:1)));
+		}
+	}
+
+
+
+	if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/pi3/class.tx_newloginbox_pi3.php']) {
+		include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/newloginbox/pi3/class.tx_newloginbox_pi3.php']);
+	}
+
+?>";i:1;i:0;}s:12:"content_size";i:375;s:13:"content_lines";i:10;s:6:"atLine";i:545;}}}}}

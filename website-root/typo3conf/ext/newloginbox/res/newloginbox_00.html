@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Templates 00 for Newloginbox plugin</title>
+	<meta name="author" content="Brice Bernard http://www.brikou.com" />
+	<meta name="date" content="2006-01-26" />
+	<style type="text/css">
+	body { margin:1em; padding:1em; }
+	p.separator { padding:1em; border:2px solid gray; }
+	</style>
+</head>
+<body>
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a></p>
+<!--=========================================================-->
+
+<h1>Common markers</h1>
+<p>These are substituted in all newloginbox item displaying templates.</p>
+
+<h2>Markers</h2>
+<ul>
+	<li>###ACTION_URI###     - URI of the request for the login/logout form</li>
+	<li>###EXTRA_HIDDEN###   - Hook required (additionnal hidden field used by kb_md5fepw extension by Kraft Bernhard)</li>
+	<li>###ON_SUBMIT###      - Hook required (used by kb_md5fepw extension by Kraft Bernhard)</li>
+	<li>###PREFIXID###       - Same as class name ('tx_newloginbox_pi1') usefull to get a unique classname prefix</li>
+	<li>###REDIRECT_URL###   - URL of redirection upon login</li>
+	<li>###STORAGE_PID###    - explicit enough I guess (if not : id of the page where user are stored)</li>
+	<li>###STATUS_HEADER###  - depends of the template</li>
+	<li>###STATUS_MESSAGE### - depends of the template</li>
+</ul>
+
+<h2>Wrap parts</h2>
+<ul>
+	<li>###HEADER_VALID###  - usefull to define what to show/hide</li>
+	<li>###MESSAGE_VALID### - usefull to define what to show/hide</li>
+	<li>###FORGOTP_VALID### - usefull to define what to show/hide</li>
+	<li>###PERMALOGIN_VALID### - usefull to define what to show/hide</li>
+</ul>
+
+<h2>Newloginbox Language Markers (see pi/locallang.php)</h2>
+<ul>
+	<li>###EMAIL_LABEL###                 - corresponding to 'your_email'</li>
+	<li>###FORGOT_PASSWORD###             - corresponding to 'forgot_password'</li>
+	<li>###FORGOT_PASSWORD_BACKTOLOGIN### - corresponding to 'forgot_password_backToLogin'</li>
+	<li>###FORGOT_PASSWORD_ENTEREMAIL###  - corresponding to 'forgot_password_enterEmail'</li>
+	<li>###LOGIN_LABEL###                 - corresponding to 'login'</li>
+	<li>###PASSWORD_LABEL###              - corresponding to 'password'</li>
+	<li>###SEND_PASSWORD###               - corresponding to 'send_password'</li>
+	<li>###USERNAME_LABEL###              - corresponding to 'username'</li>
+</ul>
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<h1>Newloginbox templates - example</h1>
+
+<a name="navigation"></a><h2>Navigation</h2>
+<ul>
+	<li><a href="#template_login">TEMPLATE_LOGIN</a></li>
+	<li><a href="#template_logout">TEMPLATE_LOGOUT</a></li>
+	<li><a href="#template_success">TEMPLATE_SUCCESS</a></li>
+	<li><a href="#template_forgot">TEMPLATE_FORGOT</a></li>
+	<li><a href="#template_forgot_sent">TEMPLATE_FORGOT_SENT</a></li>
+</ul>
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<a name="template_login"></a><h1>TEMPLATE_LOGIN</h1>
+<p>This is the template for the login form with/without the 'forgot password' link.</p>
+
+<!--###TEMPLATE_LOGIN###-->
+
+<!--###HEADER_VALID###-->
+<h3>###STATUS_HEADER###</h3>
+<!--###HEADER_VALID###-->
+
+<!--###MESSAGE_VALID###-->
+<p>###STATUS_MESSAGE###</p>
+<!--###MESSAGE_VALID###-->
+
+<form action="###ACTION_URI###" target="_top" method="post" onSubmit="###ON_SUBMIT###">
+	<table>
+		<tbody>
+			<tr>
+				<th><label for="user">###USERNAME_LABEL###</label></th>
+				<td><input type="text" id="user" name="user" value="" /></td>
+			</tr>
+			<tr>
+				<th><label for="pass">###PASSWORD_LABEL###</label></th>
+				<td><input type="password" id="pass" name="pass" value="" /></td>
+			</tr>
+			<!--###PERMALOGIN_VALID###-->
+			<tr>
+				<th><label for="permalogin">###PERMALOGIN###</label></th>
+				<td>
+					<input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField">
+					<input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### id="permalogin"  onclick="document.getElementById('permaloginHiddenField').disabled = this.checked;" />
+				</td>
+			</tr>
+			<!--###PERMALOGIN_VALID###-->
+		</tbody>
+		<tfoot>
+	 		<tr>
+	 			<td></td>
+	 			<td>
+	 				<input type="submit" name="submit" value="###LOGIN_LABEL###" />
+	 			</td>
+	 		</tr>
+		</tfoot>
+	</table>
+	<input type="hidden" name="logintype" value="login" />
+	<input type="hidden" name="pid" value="###STORAGE_PID###" />
+	<input type="hidden" name="redirect_url" value="###REDIRECT_URL###" />
+	###EXTRA_HIDDEN###
+</form>
+
+<!--###FORGOTP_VALID###-->
+<p><!--###FORGOTP_LINK###-->###FORGOT_PASSWORD###<!--###FORGOTP_LINK###--></p>
+<!--###FORGOTP_VALID###-->
+
+<!--###TEMPLATE_LOGIN###-->
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<a name="template_logout"></a><h1>TEMPLATE_LOGOUT</h1>
+<p>This is the template shown after you logged in or displaying the status of current connection.</p>
+
+<!--###TEMPLATE_LOGOUT###-->
+
+<!--###HEADER_VALID###-->
+<h3>###STATUS_HEADER###</h3>
+<!--###HEADER_VALID###-->
+
+<!--###MESSAGE_VALID###-->
+<p>###STATUS_MESSAGE###</p>
+<!--###MESSAGE_VALID###-->
+
+<form action="###ACTION_URI###" target="_top" method="post">
+	<table>
+		<thead>
+	 		<tr>
+	 			<th>###USERNAME_LABEL###</th>
+	 			<td>###USERNAME###</td>
+	 		</tr>
+		</thead>
+		<tbody>
+	 		<tr>
+	 			<td></td>
+	 			<td>
+	 				<input type="submit" name="submit" value="###LOGOUT_LABEL###" />
+	 			</td>
+	 		</tr>
+		</tbody>
+	</table>
+	<input type="hidden" name="logintype" value="logout" />
+	<input type="hidden" name="pid" value="###STORAGE_PID###" />
+</form>
+
+<!--###TEMPLATE_LOGOUT###-->
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<a name="template_success"></a><h1>TEMPLATE_SUCCESS</h1>
+<p>This is the template displayed when successfull login.</p>
+
+<!--###TEMPLATE_SUCCESS###-->
+
+<h3>###STATUS_HEADER###</h3>
+<p>###STATUS_MESSAGE###</p>
+
+<!--###TEMPLATE_SUCCESS###-->
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<a name="template_forgot"></a><h1>TEMPLATE_FORGOT</h1>
+<p>This is the template made to mail you back your password to the adress you've registered.</p>
+
+<!--###TEMPLATE_FORGOT###-->
+
+<h3>###STATUS_HEADER###</h3>
+<p>###FORGOT_PASSWORD_ENTEREMAIL###</p>
+<form action="###ACTION_URI###" method="post">
+	<table>
+		<tfoot>
+	 		<tr>
+	 			<td></td>
+	 			<td><input type="submit" name="submit" value="###SEND_PASSWORD###" /></td>
+	 		</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<th><label for="###PREFIXID###[DATA][forgot_email]">###EMAIL_LABEL###</label></th>
+				<td><input type="text" name="###PREFIXID###[DATA][forgot_email]" /></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+
+<!--###TEMPLATE_FORGOT###-->
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+<a name="template_forgot_sent"></a><h1>TEMPLATE_FORGOT_SENT</h1>
+<p>This is the template shown when password has been mailed back.</p>
+
+<!--###TEMPLATE_FORGOT_SENT###-->
+
+<h3>###STATUS_HEADER###</h3>
+<p>###STATUS_MESSAGE###</p>
+<p>###FORGOT_PASSWORD_BACKTOLOGIN###</p>
+
+<!--###TEMPLATE_FORGOT_SENT###-->
+
+<!--=========================================================-->
+<p class="separator"><a href="#navigation">Navigation</a> | <a href="#">To top</a></p>
+<!--=========================================================-->
+
+</body>
+</html>
