@@ -1,4 +1,5 @@
 <?php 
+require_once("connexion.php");
 
 define('repertoire_sources', './medias/sources');
 define('repertoire_big', './medias/big');
@@ -73,23 +74,7 @@ function desamorcer($chaine)
   return $chaine;
 }
 
-function bd_connect(){
-  //$serveur = mysql_connect("localhost","_SHELL_REPLACED_USER_TEST","_SHELL_REPLACED_PWD_TEST"); // TEST
-  $serveur = mysql_connect("localhost","_SHELL_REPLACED_USER_PROD","_SHELL_REPLACED_PWD_PROD"); // PRODUCTION
-  if (!$serveur)
-    {
-      if($debug_level>0)echo mysql_error();
-      die('');
-    }
-  
-  //$bd = mysql_select_db('_SHELL_REPLACED_DATABASE_TEST', $serveur); // TEST
-  $bd = mysql_select_db('_SHELL_REPLACED_DATABASE_PROD', $serveur); // PRODUCTION
-  if (!$bd)
-    {
-      if($debug_level>0)echo mysql_error();
-      die ('');
-    }
-}
+
 
 // construit une chaine de caracteres decrivant la r»gion observ»e et dont le pattern de r»ponse a »t» enregistr»
 function build_response($ligne,$cibleaction = "#",$show_delete_button=0)
@@ -1078,10 +1063,11 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
       return "";// cas moderation = 1 surement
     }
   }
-		
+  
+  
+      
   $sqlphoto="select date_depot,nom_photo_final from iherba_photos where id_obs=$numobs ".$limitsqlphoto;
-
-  $result_photo = mysql_query($sqlphoto)or die ();
+  $result_photo = mysql_query($sqlphoto) or die ();
   $compteur=0; //Compteur
   while ($row2 = mysql_fetch_assoc($result_photo)) {
     $date_depot=$row2["date_depot"];
@@ -1090,13 +1076,14 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
 			
     $paramlien = array(numero_observation  => $numobs, check=>456789);
     if($compteur==0){
-      $content.=$cetobjet->pi_getLL('deposele', '', 1).$jour.'-'.$mois.'-'.$annee;
- if($row_iduser['computed_usable_for_similarity']!="0")$content .= " (Modele) ";
+      
+      $entete_content = $cetobjet->pi_getLL('deposele', '', 1).$jour.'-'.$mois.'-'.$annee;
+      if($row_iduser['computed_usable_for_similarity']!="0")$entete_content .= " (Modele) ";
       if (isset($iduser)){
-	$content.=$cetobjet->pi_getLL('utilisateur', '', 1).$iduser_name."<br/><br/>";
-      }
-      $content.='</h1><div id="bloc_contenu_texte">';
-		        
+	  $entete_content.=$cetobjet->pi_getLL('utilisateur', '', 1).$iduser_name."<br/><br/> </h1>";
+	}
+      
+      $content.= $entete_content . '<div id="bloc_contenu_texte">'; 
       $content.="<br/>\n";
 	        
 	                     
@@ -1120,17 +1107,23 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
     }	
     $image=repertoire_vignettes."/$nom_photo_final";
     $linkObservation = $cetobjet->pi_getPageLink(21) . $cetobjet->pi_getLL('detail') . '/';
-	// On g»nÀre le lien
-	if(empty($rewriting)) {
-		$link = $numobs;
-	} else {
-		$link = $rewriting . '-' . $numobs;
-	}
+    
+    // link to the most friendly url
+    if(empty($rewriting)) {
+	    $link = $numobs;
+    } else {
+	    $link = $rewriting . '-' . $numobs;
+    }
     $content.= '<a href="'.$linkObservation . $link .'"><img src="'.$image.'" ></a>';
-			
+    
+    
     $compteur++;
   }
-        
+  
+  
+  //if no photo, return empty content
+  if($compteur==0) return ;
+    
   $content.="</div><!--fin bloc_contenu_texte--></div><!--fin bloc_contenu--> \n";  
   return $content;
 }
