@@ -1078,11 +1078,11 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
     if($compteur==0){
       
       $entete_content = $cetobjet->pi_getLL('deposele', '', 1).$jour.'-'.$mois.'-'.$annee;
-      if($row_iduser['computed_usable_for_similarity']!="0")$entete_content .= " (Modele) ";
+      if($row_iduser['computed_usable_for_similarity']=="1")$entete_content .= " (Modele) ";
       if (isset($iduser)){
-	  $entete_content.=$cetobjet->pi_getLL('utilisateur', '', 1).$iduser_name."<br/><br/> </h1>";
+	  $entete_content.=$cetobjet->pi_getLL('utilisateur', '', 1).$iduser_name;
 	}
-      
+      $entete_content.= "<br/><br/> </h1>";
       $content.= $entete_content . '<div id="bloc_contenu_texte">'; 
       $content.="<br/>\n";
 	        
