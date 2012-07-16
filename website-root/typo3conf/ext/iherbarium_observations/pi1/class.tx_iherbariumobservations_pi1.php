@@ -61,7 +61,7 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
         /* Requête qui permet de sélectionner les dernières observations (si elles sont publiques ou partiellement publiques)*/
         $sql_order =" order by deposit_timestamp desc";
 	
-	if(is_sousdomaine_www())	$sql_limit = " limit 0,20 "; else $sql_limit = "0,300 ";
+	if(is_sousdomaine_www())	$sql_limit = " limit 0,20 "; else $sql_limit = " limit 0,300 ";
 	
 	$display_type = "public";
 	bd_connect();
