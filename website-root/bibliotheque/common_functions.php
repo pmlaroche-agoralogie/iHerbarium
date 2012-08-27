@@ -946,7 +946,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   if($texteseul==0){$finchamps ="_forweb"; $finligne = "<br/>";} else {$finchamps ="_formail";$finligne = " \n";}
   if($texteseul==0)$champscomment = 'web_comment'; else $champscomment = 'email_comment';
   //$sql_determination="select nom_commun,nom_scientifique,date,famille,genre,comment from iherba_determination where (nom_commun !='' OR nom_scientifique != '') AND id_obs=$numero_observation ";
-  $sql_determination.="select nom_commun,nom_scientifique,date, famille,genre ,id_cases, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
+  $sql_determination.="select iherba_determination.id , nom_commun,nom_scientifique,date, famille,genre ,id_cases, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
   $sql_determination.="where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value AND iherba_determination.id_obs=$numero_observation ";
   $sql_determination.= " order by creation_timestamp desc";
@@ -1009,11 +1009,19 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	    else
 	      $content.= $finligne.get_string_language($expertise_translate,'aboutcertitude_formail',$mylanguage).$row_determination["certitude_comment"];
 	  }
-	/*if($texteseul==0)$content.=' <img src="/interface/valid_green.png" width=24> ';
+	
 	  if($texteseul==0)
-	  if($publication!="liste")
-	  $content.='&nbsp;<img alt="je ne suis pas d\'accord avec ce nom" title="je ne suis pas d\'accord avec ce nom" src="/interface/minus16.png"><img src="/interface/plus16.png" alt="je suis d\'accord avec ce nom" title="je suis d\'accord avec ce nom">';
-	*/	
+	    if($publication!="liste")
+	      {
+		$numero_id_determination = $row_determination["id"];
+	    $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "minus", etape => 'comment',check=>456789);
+	    $lien_minus=$cetobjet->pi_linkToPage('<img alt="je ne suis pas d\'accord avec ce nom" title="je ne suis pas d\'accord avec ce nom" src="/interface/minus16.png">',87,'',$paramlien);
+	    $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "plus", etape => 'comment', check=>456789);
+	    $lien_plus=$cetobjet->pi_linkToPage('<img src="/interface/plus16.png" alt="je suis d\'accord avec ce nom" title="je suis d\'accord avec ce nom">',87,'',$paramlien);
+
+	      $content.='&nbsp;'.$lien_minus.$lien_plus;
+
+	      }
 	}
 
 	
@@ -1027,14 +1035,15 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 		$content.= get_string_language($expertise_translate,'note',$mylanguage);;
 		$content.=$row_determination["comment"];
 	}
-if($texteseul!=2)
-{		
-	$content.= $finligne;
-	$content.= $finligne;
+	
+    if($texteseul!=2)
+      {		
+	    $content.= $finligne;
+	    $content.= $finligne;
+      }
+    else
+      $content = utf8_encode($content);		
   }
-else
-$content = utf8_encode($content);		
-}
   return $content;	
 }
 

@@ -53,7 +53,8 @@ class tx_iherbanommage_pi1 extends tslib_pibase {
 		
 		if($_GET['etape']=="")$content = affichage_formulaire($this);	
 		if($_GET['etape']=="1")$content = preciser_determination($this);
-	
+		if($_GET['etape']=="comment")$content = affichage_formulaire_comment($this);
+		if($_GET['etape']=="record_comment")$content = preciser_determination_comment($this);
 		return $this->pi_wrapInBaseClass($content);
 	}
 }

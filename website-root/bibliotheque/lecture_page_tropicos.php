@@ -249,6 +249,57 @@ $content .= "<font size=-2>(".$p['expertise'].")</font><br>";
   return $content;
 }
 
+function affichage_formulaire_comment($monobjet){
+ 
+  $numobs=desamorcer($_GET['numero_observation']);
+  $numdet=desamorcer($_GET['numero_det']);
+  $content="";
+  
+  // show thumbnail of the current observations
+  bd_connect();
+  $sql_list_vignettes =
+      " SELECT * 
+	FROM  `iherba_photos` 
+	WHERE  `id_obs` = $numobs";
+
+  $result = mysql_query($sql_list_vignettes) or die(mysql_error());
+  $list_vignette = array();
+  while ($row = mysql_fetch_array($result)) { 
+    $list_vignette[] = $row['nom_photo_final'];
+  }
+  foreach($list_vignette as $v)
+  {
+    //$content.= '<img src="http://www.iherbarium.fr/medias/vignettes/'.$v.'" width=100px >';
+    $content.= '<img src="/medias/vignettes/'.$v.'" width=100px >';
+  }
+
+
+  $content.= "<br> ";
+    
+    
+     $content.= "\n";
+	$content.='<form method="post" enctype="multipart/form-data" action="index.php?id=87&etape=record_comment&numero_observation='.$numobs.'&numdet='.$numdet.'">';
+//$content .= "<font size=-2>(".$p['expertise'].")</font><br>";
+ // $content.= ' <INPUT NAME="id_tropicos" TYPE="hidden"   SIZE="15" value="'.$p['tropicosid'].'" > ';
+  //$content.= ' <INPUT NAME="instanciation" TYPE="hidden"   SIZE="15" value="'.$numobs_proche.'" > ';
+ 
+  $content.=' <br> Comment : <INPUT NAME="remarque" TYPE="TEXT" SIZE="15" ><br />';
+  if($_GET['sens']=="minus")
+   $content.='<input type="radio" name="reaction" value="no"> i am sure it is an error<br>
+<input type="radio" name="reaction" value="probablynot"> difficult to say, but it seems not to be this species<br>
+<input type="radio" name="reaction" value="difficult" checked> the species can t be given with these data<br>';
+else
+       $content.='<input type="radio" name="reaction" value="sure"> i am sure it is the good species<br>
+<input type="radio" name="reaction" value="probalyyes"> it is probably this species<br>
+<input type="radio" name="reaction" value="difficult" checked> one can t be absolutly sure, but it semms very probable<br>';
+
+      $content.='<br><input type="submit" value="'."enregistrer".'">'."</form><br><br><br>";
+      
+      
+  return $content;
+}
+
+
 /*Cette fonction nous permet de rechercher le nom de la plante sur le site tropicos.org */
 function rechercher_nom_plante($value_name){
   $value = json_decode($value_name);
@@ -391,6 +442,28 @@ L\'equipe de iherbarium '),
 		mail($to, $subject, $message, $headers);
 }
 
+/* record comment about a determination*/
+function preciser_determination_comment($monobjet){
+  global $id_tropicos;
+  $content="The comment is recorded. Thank you.";
+  $reaction_case = desamorcer($_POST['reaction']);
+  $reaction_comment = desamorcer($_POST['remarque']);
+  $numdet = desamorcer($_GET['numdet']);
+  $iduser = $_SERVER['REMOTE_ADDR'];
+  bd_connect();
+ 
+  $sql_insertion_determination =
+    " INSERT INTO iherba_determination_reaction " .
+    " (id_determination, id_user, comment, reactioncase )" . 
+    " VALUES ('$numdet','$iduser','$reaction_comment','$reaction_case' )"; // ADDED certitudeLevel & precisionLevel
+	 
+
+  $result_insertion_determination = mysql_query($sql_insertion_determination) or die ('Erreur SQL !'.$sql_insertion_determination.'<br />'.mysql_error());	 
+
+
+  return $content;
+
+}
 
 /* Cette fonction affiche les informations trouvées grâce à l'identifiant que nous fournit l'utilisateur (le nom de la plante, la famille à laquelle
  * elle appartient, son genre, son espèce)*/
