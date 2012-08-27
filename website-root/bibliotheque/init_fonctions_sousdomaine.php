@@ -5,7 +5,20 @@ global $etat_requete_where ;
 
 function exists_sousdomaine($sousdomaine,&$data)
 {
+ // protect from injection sql (from character authorized in url
   $sousdomaine = str_replace("'","?",$sousdomaine);
+
+//detect if a species is called
+
+ $posuser = strpos($sousdomaine,"species_");
+  if($posuser===0)
+    {
+      $refuser = substr($sousdomaine,8);
+          $data = refuser;
+          $data[type_ssdomaine]='species';
+          return true;
+    }
+
   $posuser = strpos($sousdomaine,"user_");
   if($posuser===0)
     {
@@ -64,6 +77,12 @@ global $etat_requete_where ;
     $etat_requete_where =  " `iherba_observations`.id_user = '".$area['uid']."' " ;
     
     $etat_description_sousdomaine = "User : ".$area['name'];
+  }
+
+if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')){
+    $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area."' " ;
+
+    $etat_description_sousdomaine = "Species : ".$area;
   }
   
 }
