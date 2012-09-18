@@ -1,0 +1,6 @@
+#!/bin/bash
+# Echo out all files in directory!
+for file in *.kml ; do
+	echo "$file"
+	grep 'coordi\|color' $file |sed -e "s/    <coordinates>//" |sed -e "s/,0<\/coordinates>//"|sed -e "s/   <color>//"|sed -e "s/<\/color>//" > reduced-$file
+done

@@ -107,7 +107,7 @@ function get_sousdomaine()
 }
 function is_sousdomaine_www()
 {global $etat_sousdomaine ;
-  if(($etat_sousdomaine == "www")||($etat_sousdomaine == "api-test"))
+  if(($etat_sousdomaine == "www")||($etat_sousdomaine == "api-test")||($etat_sousdomaine == "wwwtest"))
     return true;
       else
     return false;
