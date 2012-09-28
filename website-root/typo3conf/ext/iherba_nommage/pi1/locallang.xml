@@ -35,6 +35,17 @@
 			<label index="nomScientifique_forweb">, Scientific name : </label>
 			<label index="nomScientifique_formail">, Scientific name : </label>
 			
+			<label index="comment_freetext">What do you think of the given name (you can leave empty and just check a box below) :</label>
+			<label index="comment_sure_it_is_false">i am sure it is not this species</label>
+			<label index="comment_not_sure_seems_false">it seems not to be this species</label>
+			<label index="comment_difficult_bad_not_enough">it seems not to be this species, moreover there is not enough data</label>
+			<label index="comment_sure_it_is_goodspecies">i am sure it is the good species</label>
+			<label index="comment_not_sure_seems_good">it is probably this species</label>
+			<label index="comment_difficult_good_not_enough">there is not enough data, but it seems a good guess</label>
+			<label index="comment_submit">Submit your comment</label>
+			<label index="comment_submitted_ok">Your comment was recorded.</label>
+			
+			
 			<label index="aboutprecision_formail">About the precision of this name : </label>
 			<label index="aboutcertitude_formail">About the certitude of this name : </label>
 			<label index="aboutcertitude_forweb">Expert certitude : </label>
@@ -79,6 +90,15 @@
 			<label index="expertises_forweb">Voici les dernières remarques qui ont été faites sur cette plante : </label>
 			<label index="expertises_formail">Notes et remarques saisies : </label>
 			
+			<label index="comment_freetext">Que pensez vous du nom donné (vouspouvez laissez le champs vide et juste cliquer en dessous) :</label>
+			<label index="comment_sure_it_is_false">je suis sur que ce n'est pas cette espèce</label>
+			<label index="comment_not_sure_seems_false">ça ne semble pas être cette espèce</label>
+			<label index="comment_difficult_bad_not_enough">des données manquent, mais ça ne semble pas être cette espèce</label>
+			<label index="comment_sure_it_is_goodspecies">je suis sur que c'est cette espèce</label>
+			<label index="comment_not_sure_seems_good">C'est probablement cette espèce</label>
+			<label index="comment_difficult_good_not_enough">des données manquent, mais ça semble un bon choix </label>
+			<label index="comment_submit">Enregistrer votre remarques</label>
+			<label index="comment_submitted_ok">Votre commentaire a bien été enregistré.</label>
 			
 			<label index="mail_notif_subject">iHerbarium : une reponse faite sur l'obervation : </label>
 			<label index="mail_notif_body">Un botaniste a repondu au sujet de l'observation </label>

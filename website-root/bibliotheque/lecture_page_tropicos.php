@@ -272,31 +272,26 @@ function affichage_formulaire_comment($monobjet){
     //$content.= '<img src="http://www.iherbarium.fr/medias/vignettes/'.$v.'" width=100px >';
     $content.= '<img src="/medias/vignettes/'.$v.'" width=100px >';
   }
-
-
+  
   $content.= "<br> ";
-    
-    
-     $content.= "\n";
-	$content.='<form method="post" enctype="multipart/form-data" action="index.php?id=87&etape=record_comment&numero_observation='.$numobs.'&numdet='.$numdet.'">';
+  $content.= "\n";
+  $content.='<form method="post" enctype="multipart/form-data" action="index.php?id=87&etape=record_comment&numero_observation='.$numobs.'&numdet='.$numdet.'">';
 //$content .= "<font size=-2>(".$p['expertise'].")</font><br>";
  // $content.= ' <INPUT NAME="id_tropicos" TYPE="hidden"   SIZE="15" value="'.$p['tropicosid'].'" > ';
   //$content.= ' <INPUT NAME="instanciation" TYPE="hidden"   SIZE="15" value="'.$numobs_proche.'" > ';
  
-  $content.=' <br> Comment : <INPUT NAME="remarque" TYPE="TEXT" SIZE="15" ><br />';
-  if($_GET['sens']=="minus")
-   $content.='<input type="radio" name="reaction" value="no"> i am sure it is an error<br>
-<input type="radio" name="reaction" value="probablynot"> difficult to say, but it seems not to be this species<br>
-<input type="radio" name="reaction" value="difficult" checked> the species can t be given with these data<br>';
-else
-       $content.='<input type="radio" name="reaction" value="sure"> i am sure it is the good species<br>
-<input type="radio" name="reaction" value="probalyyes"> it is probably this species<br>
-<input type="radio" name="reaction" value="difficult" checked> one can t be absolutly sure, but it semms very probable<br>';
+ $content.=' <br> '.$monobjet->pi_getLL('comment_freetext', '', 1).' <INPUT NAME="remarque" TYPE="TEXT" SIZE="15" ><br />';
+ if($_GET['sens']=="minus")
+       $content.='<input type="radio" name="reaction" value="no">'.$monobjet->pi_getLL('comment_sure_it_is_false', '', 1).'<br>
+<input type="radio" name="reaction" value="probablynot">'.$monobjet->pi_getLL('comment_not_sure_seems_false', '', 1).'<br>
+<input type="radio" name="reaction" value="difficult" checked>'.$monobjet->pi_getLL('comment_difficult_bad_not_enough', '', 1).' <br>';
+   else
+       $content.='<input type="radio" name="reaction" value="sure">'.$monobjet->pi_getLL('comment_sure_it_is_goodspecies', '', 1).'<br>
+<input type="radio" name="reaction" value="probalyyes">'.$monobjet->pi_getLL('comment_not_sure_seems_good', '', 1).'<br>
+<input type="radio" name="reaction" value="difficult" checked>'.$monobjet->pi_getLL('comment_difficult_good_not_enough', '', 1).'<br>';
 
-      $content.='<br><input type="submit" value="'."enregistrer".'">'."</form><br><br><br>";
-      
-      
-  return $content;
+ $content.='<br><input type="submit" value="'.$monobjet->pi_getLL('comment_submit', '', 1).'">'."</form><br><br><br>";
+ return $content;
 }
 
 
@@ -445,7 +440,7 @@ L\'equipe de iherbarium '),
 /* record comment about a determination*/
 function preciser_determination_comment($monobjet){
   global $id_tropicos;
-  $content="The comment is recorded. Thank you.";
+  $content=$monobjet->pi_getLL('comment_submitted_ok', '', 1);
   $reaction_case = desamorcer($_POST['reaction']);
   $reaction_comment = desamorcer($_POST['remarque']);
   $numdet = desamorcer($_GET['numdet']);
