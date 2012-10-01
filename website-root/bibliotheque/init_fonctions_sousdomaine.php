@@ -8,7 +8,7 @@ function exists_sousdomaine($sousdomaine,&$data)
  // protect from injection sql (from character authorized in url
   $sousdomaine = str_replace("'","?",$sousdomaine);
 
-//detect if a species is called
+  //detect if a species is called
 
  $posuser = strpos($sousdomaine,"species_");
   if($posuser===0)
@@ -53,10 +53,10 @@ function exists_sousdomaine($sousdomaine,&$data)
 }
 
 function set_sousdomaine($sousdomaine,$area)
-{
+  {
   global $etat_sousdomaine ;
-global $etat_description_sousdomaine ;
-global $etat_requete_where ;
+  global $etat_description_sousdomaine ;
+  global $etat_requete_where ;
 
   $etat_sousdomaine = $sousdomaine;
   
@@ -79,34 +79,38 @@ global $etat_requete_where ;
     $etat_description_sousdomaine = "User : ".$area['name'];
   }
 
-if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')){
-    $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area."' " ;
-
-    $etat_description_sousdomaine = "Species : ".$area;
+  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')){
+      $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area."' " ;
+  
+      $etat_description_sousdomaine = "Species : ".$area;
   }
   
 }
 
 function get_description_sousdomaine($language = "fr")
 {
-global $etat_description_sousdomaine ;
+  global $etat_description_sousdomaine ;
 
   // prevoir gestion langue
   return $etat_description_sousdomaine;
 }
 
 function get_requete_where_sousdomaine($language = "fr")
-{global $etat_requete_where ;
+{
+  global $etat_requete_where ;
   // prevoir gestion langue
   return $etat_requete_where;
 }
 
 function get_sousdomaine()
-{global $etat_sousdomaine ;
+{
+  global $etat_sousdomaine ;
   return $etat_sousdomaine;
 }
+
 function is_sousdomaine_www()
-{global $etat_sousdomaine ;
+{
+  global $etat_sousdomaine ;
   if(($etat_sousdomaine == "www")||($etat_sousdomaine == "api-test")||($etat_sousdomaine == "wwwtest"))
     return true;
       else
