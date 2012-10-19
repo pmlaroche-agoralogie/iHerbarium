@@ -27,7 +27,7 @@ $nb_square_long = $row_zone['nb_square_long'];
 $nbgroupes = $row_zone['nbgroupes'];
 
 //Recupere le fichier output de R
-$donneesr = file("http://www.indicateurs-biodiversite.com/scripts/output_".$myzone);
+$donneesr = file("http://calcul.indicateurs-biodiversite.com/scripts/output_".$myzone);
 for($zone=1;$zone<count($donneesr);$zone++)
  {
  $ligne = explode(" ",$donneesr[$zone]);

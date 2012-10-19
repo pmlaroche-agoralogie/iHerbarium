@@ -130,7 +130,7 @@ $params = array(
    );
    $ctx = stream_context_create($params);
 
-$resultat = file_get_contents('http://www.indicateurs-biodiversite.com/scripts/manage_matrix.php',false,$ctx);
+$resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/scripts/manage_matrix.php',false,$ctx);
 
 echo $resultat;
 echo $content;
