@@ -57,7 +57,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$this->pi_USER_INT_obj = 1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
 		
 		$currentobs = desamorcer($_GET['numero_observation']);
-		$urlqrencode = "http://www.iherbarium.org/observation/data/numero_observation=".$currentobs;
+		$urlqrencode = "http://www.iherbarium.org/observation/data/".$currentobs;
 		$urlgoogle =  urlencode($urlqrencode);
 		$content='<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2"> <tbody> <tr> <td style="width: 100px;">
 			<img src=http://chart.apis.google.com/chart?chs=380x380&cht=qr&chld=H&chl='.$urlgoogle.' width=100><br>	

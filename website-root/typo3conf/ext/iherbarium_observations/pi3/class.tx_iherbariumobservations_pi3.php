@@ -457,11 +457,13 @@ $paramlien = array(numero_observation  => $numero_observation,check=>456789);
 	    $content.= "<!-- no proximity -->";
 	  }
       }
-    if(niveau_testeur()>0)
-      if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
+      
+    if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
-	$content.= $this->pi_linkToPage($this->pi_getLL('goqrpage', '', 1),47,'',$paramlien);
+	$content.= "<br>".$this->pi_linkToPage($this->pi_getLL('goqrpage', '', 1),47,'',$paramlien);
       }
+    //if(niveau_testeur()>0)
+      
 
     if(isset($_GET['cmpAll'])) {
 

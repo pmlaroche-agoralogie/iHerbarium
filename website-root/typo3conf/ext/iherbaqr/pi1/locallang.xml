@@ -9,14 +9,14 @@
 			<label index="text_before_obs_num">Observation:</label>
 			<label index="text_before_date">Date:</label>
 			<label index="text_before_comment">Personal comment:</label>
-			<label index="text_before_localisation">Localisation (latitude, logitude):</label>
+			<label index="text_before_localisation">Localisation (latitude, longitude):</label>
 			<label index="text_before_determination">Named (on </label>
 		</languageKey>
 		<languageKey index="fr" type="array">
 			<label index="text_before_obs_num">Observation :</label>
 			<label index="text_before_date">Date de récolte :</label>
 			<label index="text_before_comment">Commentaire personnel :</label>
-			<label index="text_before_localisation">Localisation (latitude, logitude) :</label>
+			<label index="text_before_localisation">Localisation (latitude, longitude) :</label>
 			<label index="text_before_determination">Détermination (le </label>
 		</languageKey>
 	</data>
