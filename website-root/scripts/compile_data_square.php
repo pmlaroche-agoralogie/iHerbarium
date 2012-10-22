@@ -1,6 +1,6 @@
 <?php
 include("../bibliotheque/common_functions.php");
-include("../bibliotheque/connexion.php");
+
 $myzone = 1;
 if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$myzone=desamorcer($_GET['numerozone']);
 
@@ -79,7 +79,7 @@ function traite_square($ilong,$ilat,$nbiter,$detail_zone)
 
 }
 
-dbconnect();
+bd_connect();
 
 //$fieldname_lat = "lat";
 $fieldname_lat = "latitude";
