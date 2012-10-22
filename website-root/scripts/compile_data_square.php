@@ -1,5 +1,6 @@
 <?php
 include("../bibliotheque/common_functions.php");
+include("../bibliotheque/connexion.php");
 $myzone = 1;
 if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$myzone=desamorcer($_GET['numerozone']);
 
@@ -78,12 +79,7 @@ function traite_square($ilong,$ilat,$nbiter,$detail_zone)
 
 }
 
-$serveur = '';
-$login = 'sqlherba';
-$motpasse = 'mldgztxcsf';
-$connexion = mysql_connect ($serveur,$login,$motpasse) or die ("accès à la base impossible");
-//mysql_select_db("basefdc");
-mysql_select_db("typoherbarium");
+dbconnect();
 
 //$fieldname_lat = "lat";
 $fieldname_lat = "latitude";
