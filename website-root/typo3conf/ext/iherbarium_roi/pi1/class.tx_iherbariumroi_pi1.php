@@ -118,8 +118,7 @@ class tx_iherbariumroi_pi1 extends tslib_pibase {
 	$langue=$GLOBALS['TSFE']->config[config][language];
 	/*On va afficher à côté de chacune des roi déjà définies, le tag qui lui est associé (s'il s'agit d'une fleur, d'une feuille...)*/
 	// PL penser a ajuster lien vers table translation
-	// if($langue=="fr")
-	//{
+	
 	$sql_tag="select iherba_tags.tag from iherba_tags,iherba_roi_tag,iherba_roi where iherba_roi.id='$id' 
 					   and iherba_roi.id=iherba_roi_tag.id_roi and iherba_roi_tag.id_tag=iherba_tags.id_tag";
 	$result_tag = mysql_query($sql_tag)or die ('Erreur SQL !'.$sql_tag.'<br />'.mysql_error());
@@ -132,8 +131,7 @@ class tx_iherbariumroi_pi1 extends tslib_pibase {
 							   
 	  $content.=$tag." ";
 	}
-	//}
-			 			   
+	
 	           
 	$rep_roi=roi_vignettes;
 	$montest ="roi_".$id.".jpg";
