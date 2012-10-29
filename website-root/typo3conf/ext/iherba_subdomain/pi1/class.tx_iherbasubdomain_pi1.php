@@ -104,6 +104,7 @@ class tx_iherbasubdomain_pi1 extends tslib_pibase {
 			<br />
 			
 		';
+	
 		return $this->pi_wrapInBaseClass($content);
 	}
 }
