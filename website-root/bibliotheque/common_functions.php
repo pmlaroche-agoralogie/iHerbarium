@@ -505,8 +505,8 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 /*Cette fonction permet de s»lectionner des zones de l'image */
 function selectionner_zones_image($monobjet){
   $content="";
-  $numero_observation=$_GET['numero_observation'];
-  $identifiant_photo=$_GET['identifiant_photo'];
+  $numero_observation=desamorcer($_GET['numero_observation']);
+  $identifiant_photo=desamorcer($_GET['identifiant_photo']);
 	
   bd_connect();
   /* On s»lectionne la photo sur laquelle l'utilisateur souhaite d»finir une zone d'int»rÕt */
