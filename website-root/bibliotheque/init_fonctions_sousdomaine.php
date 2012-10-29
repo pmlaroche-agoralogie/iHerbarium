@@ -9,16 +9,14 @@ function exists_sousdomaine($sousdomaine,&$data)
   $sousdomaine = str_replace("'","?",$sousdomaine);
 
   //detect if a species is called
-
  $posuser = strpos($sousdomaine,"species_");
   if($posuser===0)
     {
       $refuser = substr($sousdomaine,8);
           $data = refuser;
-          $data[type_ssdomaine]='species';
+          $data[type_ssdomaine]='species';echo "<!-- $refuser -->";
           return true;
     }
-
   $posuser = strpos($sousdomaine,"user_");
   if($posuser===0)
     {
@@ -64,7 +62,7 @@ function set_sousdomaine($sousdomaine,$area)
   $etat_requete_where = " 1 ";
   $etat_description_sousdomaine = "";
     
-  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='area')){
+  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='area')&&($etat_sousdomaine != "wwwtest")){
     $etat_requete_where = " iherba_observations.latitude >".($area['center_lat']-$area['radius']). "";
     $etat_requete_where .= " AND iherba_observations.latitude < ".($area['center_lat']+$area['radius']). "";
     $etat_requete_where .= " AND iherba_observations.longitude > ".($area['center_long']-$area['radius']). "";
@@ -73,15 +71,14 @@ function set_sousdomaine($sousdomaine,$area)
     $etat_description_sousdomaine = $area['areaname'];
   }
   
-  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='user')){
+  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='user')&&($etat_sousdomaine != "wwwtest")){
     $etat_requete_where =  " `iherba_observations`.id_user = '".$area['uid']."' " ;
     
     $etat_description_sousdomaine = "User : ".$area['name'];
   }
 
-  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')){
+  if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')&&($etat_sousdomaine != "wwwtest")){
       $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area."' " ;
-  
       $etat_description_sousdomaine = "Species : ".$area;
   }
   
