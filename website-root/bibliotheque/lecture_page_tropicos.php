@@ -467,7 +467,7 @@ function preciser_determination($monobjet){
   $content="";
   $site = "";
   if(isset($_POST['id_tropicos'])){
-    $id_tropicos=$_POST['id_tropicos']; // on récupère l'identifiant entré dans le formulaire par l'utilisateur
+    $id_tropicos=desamorcer($_POST['id_tropicos']); // on récupère l'identifiant entré dans le formulaire par l'utilisateur
     if(($id_tropicos!="")&&(!(ctype_digit($id_tropicos))))die("<!--warning not ctype -->"); // anti sql injection
     $name_url= "http://services.tropicos.org/Name/"."$id_tropicos"."?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
     $highertaxa_url= "http://services.tropicos.org/Name/"."$id_tropicos"."/HigherTaxa?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
@@ -475,7 +475,7 @@ function preciser_determination($monobjet){
 	
 
   if(isset($_POST['nom_commun'])){
-    $nom_commun=$_POST ['nom_commun'];
+    $nom_commun=desamorcer($_POST ['nom_commun']);
     $nom_commun= desarmorcer($nom_commun);
   }
 
