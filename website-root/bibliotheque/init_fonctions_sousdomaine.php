@@ -13,8 +13,8 @@ function exists_sousdomaine($sousdomaine,&$data)
   if($posuser===0)
     {
       $refuser = substr($sousdomaine,8);
-          $data = refuser;
-          $data[type_ssdomaine]='species';echo "<!-- $refuser -->";
+          $data[ref] = $refuser;
+          $data[type_ssdomaine]='species';
           return true;
     }
   $posuser = strpos($sousdomaine,"user_");
@@ -61,7 +61,7 @@ function set_sousdomaine($sousdomaine,$area)
   //default value
   $etat_requete_where = " 1 ";
   $etat_description_sousdomaine = "";
-    
+  //limition to an area  
   if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='area')&&($etat_sousdomaine != "wwwtest")){
     $etat_requete_where = " iherba_observations.latitude >".($area['center_lat']-$area['radius']). "";
     $etat_requete_where .= " AND iherba_observations.latitude < ".($area['center_lat']+$area['radius']). "";
@@ -70,15 +70,16 @@ function set_sousdomaine($sousdomaine,$area)
     
     $etat_description_sousdomaine = $area['areaname'];
   }
-  
+ //limitation to a user 
   if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='user')&&($etat_sousdomaine != "wwwtest")){
     $etat_requete_where =  " `iherba_observations`.id_user = '".$area['uid']."' " ;
     
     $etat_description_sousdomaine = "User : ".$area['name'];
   }
 
+ //limitation to a species
   if(($etat_sousdomaine != "www")&&($area[type_ssdomaine]=='species')&&($etat_sousdomaine != "wwwtest")){
-      $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area."' " ;
+      $etat_requete_where =  " `iherba_observations`.computed_best_tropicos_id = '".$area['ref']."' " ;
       $etat_description_sousdomaine = "Species : ".$area;
   }
   
