@@ -120,7 +120,7 @@ $content = $textexplication;
   return 	$content;
 }
 
-function information_analyse($id_obs,$idlangue,$explication="Region of interest show the following answers ",$cibleaction="##",$show_delete_button=0)
+function information_analyse($id_obs,$idlangue,$explication="Region of interest show the following answers ",$cibleaction="##",$show_delete_button=0,$libellespeciesname='')
 {	
   $langue="en";
   switch ($idlangue) {
@@ -134,55 +134,60 @@ function information_analyse($id_obs,$idlangue,$explication="Region of interest 
     $langue = "de";
     break;
   }
-$content = "";	
+  $content = "";	
+ // $langue = "fr";$show_delete_button=1;
   bd_connect();
-//same request as the followinf one, but group by id of roi
-$requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,
-        iherba_roi_answers_pattern.id_question,
-        iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
-        iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail"    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
-    "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question
-        where iherba_photos.id_obs=$id_obs and
-        iherba_photos.idphotos=iherba_roi.id_photo and
-        iherba_roi.id=iherba_roi_answers_pattern.id_roi and iherba_question.id_langue='$langue'
-        and
-        iherba_roi_answers_pattern.id_question = iherba_question.id_question  group by iherba_roi.id";
+  //same request as the following one, but group by id of roi
+  $requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,
+	  iherba_roi_answers_pattern.id_question,
+	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
+	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail ,tag ,texte as legendtag"    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
+      "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question,iherba_tags,iherba_roi_tag,iherba_tags_translation
+	  where iherba_photos.id_obs=$id_obs and
+	  iherba_photos.idphotos=iherba_roi.id_photo and
+	  iherba_roi.id=iherba_roi_answers_pattern.id_roi and iherba_question.id_langue='$langue'
+	  and
+	  iherba_tags.id_tag = iherba_roi_tag.id_tag and iherba_roi_tag.id_roi = iherba_roi.id
+	  and
+	  iherba_tags_translation.id_tag = iherba_tags.id_tag and iherba_tags_translation.id_langue = '$langue'
+	  and
+	  iherba_roi_answers_pattern.id_question = iherba_question.id_question  group by iherba_roi.id";
 
   $lignes_reponse = mysql_query($requete_lignes_pattern);
 
-$liste_roi= array();
-
+  $liste_roi= array();
+  $liste_roi_tag= array();
   if(mysql_num_rows($lignes_reponse)>0)
     {
       while ($ligne = mysql_fetch_array($lignes_reponse)) {
 		$liste_roi[] = $ligne['id'];
-      }
+		$liste_roi_tag[] = $ligne['legendtag'];
+	    }
     }
 
-
-foreach($liste_roi as $key => $value)
-{
-$content .= "<img src=/medias/roi_vignettes/roi_".$value.".jpg>";
-  $requete_lignes_pattern="select iherba_roi_answers_pattern.id_roi,
-	iherba_roi_answers_pattern.id_question,
-	iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,	iherba_roi_answers_pattern.id_just_less_common,	iherba_roi_answers_pattern.prob_just_less,
-	iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail" 
-    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
-    "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question
-	where iherba_roi.id = $value and iherba_photos.id_obs=$id_obs and
-	iherba_photos.idphotos=iherba_roi.id_photo and
-	iherba_roi.id=iherba_roi_answers_pattern.id_roi and iherba_question.id_langue='$langue' 
-	and
-	iherba_roi_answers_pattern.id_question = iherba_question.id_question  ";
-
-  $lignes_reponse = mysql_query($requete_lignes_pattern); 
-  if(mysql_num_rows($lignes_reponse)>0)
+  foreach($liste_roi as $key => $value)
     {
-      $content .= $explication.": <br>";
-      while ($ligne = mysql_fetch_array($lignes_reponse)) { 
-	$content .= build_response($ligne,$cibleaction,$show_delete_button)."<br>";
+    $content .= "<img src=/medias/roi_vignettes/roi_".$value.".jpg alt='".$liste_roi_tag[$key] ."  : $libellespeciesname ' >";
+    $requete_lignes_pattern="select iherba_roi_answers_pattern.id_roi,
+	  iherba_roi_answers_pattern.id_question,
+	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,	iherba_roi_answers_pattern.id_just_less_common,	iherba_roi_answers_pattern.prob_just_less,
+	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail" 
+      /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
+      "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question
+	  where iherba_roi.id = $value and iherba_photos.id_obs=$id_obs and
+	  iherba_photos.idphotos=iherba_roi.id_photo and
+	  iherba_roi.id=iherba_roi_answers_pattern.id_roi and iherba_question.id_langue='$langue' 
+	  and
+	  iherba_roi_answers_pattern.id_question = iherba_question.id_question  ";
+    //$content .= "<!-- $requete_lignes_pattern -->";
+    $lignes_reponse = mysql_query($requete_lignes_pattern); 
+    if(mysql_num_rows($lignes_reponse)>0)
+      {
+	$content .= "<br>".$explication." <br>";
+	while ($ligne = mysql_fetch_array($lignes_reponse)) { 
+	  $content .= build_response($ligne,$cibleaction,$show_delete_button)."<br>";
+	}
       }
-    }
 }
   return $content;
 }

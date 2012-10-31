@@ -31,6 +31,7 @@
 			<label index="changerVersSemi">Change to partially public</label>
 			<label index="goqrpage">Print a page with a label to store the plant</label>
 			<label index="morphoexplication">Regions of interest show the following answers </label>
+			<label index="roimorphoexplication">This part of picture was qualified : </label>
 
 			<label index="zonesInteretObservation">Edit detailed region on interest</label>
 
@@ -87,6 +88,7 @@
 			<label index="changerVersSemi">Changer vers semi-publique</label>
 			<label index="goqrpage">Obtenir une page à imprimer où vous pourrez fixer votre récolte</label>
 			<label index="morphoexplication">Les zones intéressantes des images ont données les résultats suivants</label>
+			<label index="roimorphoexplication">Cette region d'image apportent ces qualifications : </label>
 			<label index="creerroi">Détailler les régions importantes de vos photos</label>
 			<label index="creerroialt">Cette opération nous permettra de vous aider à identifier cette plante</label>
 

@@ -307,6 +307,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     /* Liste des dernières expertises faites sur la plante */
     $content.= affiche_expertise($numero_observation,$this,"detail",$demandenom);
     $montitre = affiche_expertise($numero_observation,$this,"detail",$demandenom,2);
+    $libelle_roi_morphoexplication = desamorcer($montitre );
     
     //title header of the generated html
     $GLOBALS['TSFE']->content = preg_replace(
@@ -437,10 +438,14 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     }
     if(niveau_testeur()>0)
 	{
-$paramlien = array(numero_observation  => $numero_observation,check=>456789);
-      $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,$this->pi_getLL('morphoexplication', '', 1),$this->pi_getPageLink($GLOBALS['TSFE']->id,'',$paramlien));
+	$show_delete_button=1;
 	}
-
+	else
+	$show_delete_button=0;
+    $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
+    $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,$this->pi_getLL('roimorphoexplication', '', 1),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
+	
+	
     if(niveau_testeur()>0)
       //if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)
       {
