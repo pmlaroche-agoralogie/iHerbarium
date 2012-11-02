@@ -1,21 +1,19 @@
 <?php
-
 // study results after comparisons
 include("../bibliotheque/common_functions.php");
 
 function lister_determination($ObservationId) //$ids_list_obs
 {
-$sql_mydet = "  SELECT distinct idobs ,  iherba_determination.nom_scientifique,iherba_determination.tropicosgenusid,tropicosid,tropicosfamilyid
-            FROM iherba_observations, iherba_determination
+  $sql_mydet = "  SELECT distinct idobs ,  iherba_determination.nom_scientifique,iherba_determination.tropicosgenusid,tropicosid,tropicosfamilyid
+		FROM iherba_observations, iherba_determination
                 WHERE  idobs = '$ObservationId' and iherba_observations.idobs =  iherba_determination.id_obs and tropicosid != '' ";
 
-    $result_determ= mysql_query($sql_mydet) or die ("Pb");
+  $result_determ= mysql_query($sql_mydet) or die ("Pb");
         
-	$row_quest= mysql_fetch_assoc($result_determ);
-$myid = array('species'=>$row_quest['tropicosid'],'genus'=>$row_quest['tropicosgenusid'],'family'=>$row_quest['tropicosfamilyid']);
+  $row_quest= mysql_fetch_assoc($result_determ);
+  $myid = array('species'=>$row_quest['tropicosid'],'genus'=>$row_quest['tropicosgenusid'],'family'=>$row_quest['tropicosfamilyid']);
 	  return $myid;
 }
-
 
 function update_tropicos_data($id,$myid,$listobs){
   bd_connect();
@@ -25,8 +23,6 @@ function update_tropicos_data($id,$myid,$listobs){
     " where iherba_determination_log.id = $id"; 
   $result_update = mysql_query($sql_update)or die ('Erreur SQL !'.$sql_update.'<br />'.mysql_error()); 
 }
-
-
 
 bd_connect();
 
