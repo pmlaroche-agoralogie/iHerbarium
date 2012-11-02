@@ -414,14 +414,15 @@ L\'equipe de iherbarium '),
   assert(mysql_num_rows($userResult) == 1);
   $user = mysql_fetch_assoc($userResult);
   
-   // notification
-   $parameters = array();
-   $parameters[determination]=$determinationId;
+  // notification
+  $parameters = array();
+  $parameters[determination]=$determinationId;
+  $parameters[owner]=$obs['id_user'];
   $notifQuery =
-    " INSERT INTO `iherba_notification` (  `id_dest`, `id_carboncopy`, `message_type`, `preferred_language`, `parameters`)
-    VALUES ('".$obs['id_user'] ."', '', 'somebody-say', '$mylanguage', '".json_encode($parameters)."');";
+   " INSERT INTO `iherba_notification` (   `message_type`, `preferred_language`, `parameters`)
+   VALUES ('somebody-say', '$mylanguage', '".json_encode($parameters)."');";
   $notifResult = mysql_query($notifQuery) or die (mysql_error());
-  
+  /*
   // Prepare Mail
   $agoralogieAddress = 'notification@iherbarium.fr';
   $bccagoralogieAddress = 'agoralogie@gmail.com';
@@ -443,6 +444,7 @@ L\'equipe de iherbarium '),
   // Send mail
   //if(($determination["comment_case"]!=7)&&($determination["comment_case"]!=6)&&($determination["comment_case"]!= -1))
 		mail($to, $subject, $message, $headers);
+  */
 }
 
 /* record comment about a determination*/

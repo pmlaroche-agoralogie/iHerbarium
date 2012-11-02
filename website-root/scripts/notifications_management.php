@@ -100,7 +100,7 @@ $thenotification = mysql_fetch_assoc($notifications);
 $parameters = json_decode($thenotification['parameters']);
 
 
-$messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$thenotification['id_dest'],$thenotification['preferred_language']);
+$messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$parameters->owner,$thenotification['preferred_language']);
 $messagetexte = desamorcer($messagetexte);
 $sentnotification =
     " update iherba_notification" .
