@@ -348,28 +348,10 @@ function remplir_table_determination($nom_commun,$nom_plante,$famille_plante,$ge
 
 
 function notifyUserAboutDetermination($determinationId,$monobjet=null) {
- $email_translate = array(
-  'en' => array(
-		'mail_notif_subject' => 'iHerbarium : answer on observation :',
-		'mail_notif_body'=> 'A botanist or the expert system add a note to the observation ',
-		'mail_notif_footer'=> 'This website is still an experiment, please report any problem. \n iHerbarium Team '),
-  'fr' => array (
-		 'mail_notif_subject' => 'iHerbarium : une reponse faite sur l\'observation :',
-		 'mail_notif_body'=> 'Un botaniste a repondu au sujet de l\'observation',
-		 'mail_notif_footer'=> 'Ce programme est en cours d\'experimentation, merci de nous signaler toute anomalie ou de nous proposer toute modification. \n
-L\'equipe de iherbarium '),
-  'es' => array(
-        'mail_notif_subject' => 'Una respuesta fue haciendo sobre la observaci—n :',
-        'mail_notif_body'=> 'Un bot‡nico ha respondido sobre la observaci—n',
-        'mail_notif_footer'=> 'Este programa est‡ en fase de experimentaci—n. Gracias a reportarnos cualquier anomal’a o proponernos ningœn cambio. \n El equipo de iherbarium.'
-        ) ,
-  'pt' => array(
-		'mail_notif_subject' => 'iHerbarium : resposta na observa‹o :',
-		'mail_notif_body'=> 'Um bot‰nico ou o sistema perito adicionam uma nota ˆ observa‹o ',
-		'mail_notif_footer'=> 'Este Web site Ž ainda uma experincia, relate por favor todo o problema. \n equipe do iHerbarium'
-		)
-);
-
+ 
+  // we will talk to an observation owner using the same language a contributor has used to add a determination
+  // good if people work on flower of thier own country
+  
   $mylanguage = 'en';
   if($monobjet!=null)
     {
@@ -379,8 +361,7 @@ L\'equipe de iherbarium '),
       if($monobjet->cObj->data['sys_language_uid']==2)$mylanguage='pt';
       if($monobjet->cObj->data['sys_language_uid']==5)$mylanguage='es';
       }
-  //print_r($monobjet->cObj->data);die();
-  //echo get_string_language($email_translate,'mail_notif_body',$mylanguage);die();
+  
   // Determination
   $determinationQuery =
     " SELECT *" .
@@ -422,29 +403,7 @@ L\'equipe de iherbarium '),
    " INSERT INTO `iherba_notification` (   `message_type`, `preferred_language`, `parameters`)
    VALUES ('somebody-say', '$mylanguage', '".json_encode($parameters)."');";
   $notifResult = mysql_query($notifQuery) or die (mysql_error());
-  /*
-  // Prepare Mail
-  $agoralogieAddress = 'notification@iherbarium.fr';
-  $bccagoralogieAddress = 'agoralogie@gmail.com';
-
-  $to = $user['email'];
   
-	
-  $subject = get_string_language($email_translate,'mail_notif_subject',$mylanguage) . $obs['idobs'];
-  $message = get_string_language($email_translate,'mail_notif_body',$mylanguage);
-  $message .= $obs['idobs']." : \n".'http://www.iherbarium.fr/index.php?id=detail&numero_observation='.$obs['idobs']."  \n";
-  $message .= affiche_expertise($obs['idobs'],$monobjet,"courte",$x,1,$mylanguage);
-  $message .= get_string_language($email_translate,'mail_notif_footer',$mylanguage) ;
-  $message = str_replace('\n ',"\n",$message);
-  $message = str_replace('\n',"\n",$message);
-  $headers = 
-    "From: " . $agoralogieAddress . "\r\n" .
-    "Bcc: " . $bccagoralogieAddress . "\r\n";
-  
-  // Send mail
-  //if(($determination["comment_case"]!=7)&&($determination["comment_case"]!=6)&&($determination["comment_case"]!= -1))
-		mail($to, $subject, $message, $headers);
-  */
 }
 
 /* record comment about a determination*/
