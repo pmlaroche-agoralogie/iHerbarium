@@ -300,93 +300,90 @@ function fairecarte($latitude,$longitude){
 
 /* fonction qui permet d'afficher toutes les observations  determinées */
 function liste_espece($monobjet,$numuser = 0){
-	$content= "";
-	
-	bd_connect();
-	if($numuser==0){
-		
-		$limitnb = "limit 0,175";
-		$where = "iherba_observations.public='oui' ";
-		
-	}
-	else {
-	$limitnb = "limit 0,175";
-	$where = "iherba_observations.id_user=".$numuser;
-	}
-	$where .= " AND " . get_requete_where_sousdomaine() ; 
-	$order = " order by iherba_determination.famille,iherba_determination.genre ";
-	
-	
-	$sql_list_carto_select = "SELECT distinct iherba_observations.idobs,iherba_observations.longitude,iherba_observations.latitude,iherba_observations.commentaires,iherba_photos.nom_photo_final,iherba_observations.deposit_timestamp ,iherba_determination.nom_commun,iherba_determination.nom_scientifique,iherba_determination.famille,iherba_determination.genre";
-	$sql_list_carto_select_family = "SELECT distinct iherba_determination.famille";
-	$sql_list_carto_select_genre = "SELECT distinct iherba_determination.genre";
-	$sql_list_carto_select_espece = "SELECT distinct iherba_determination.tropicosid";
-$sql_list_carto_select_nbobs = "SELECT distinct iherba_observations.idobs ";	
+    $content= "";
+    bd_connect();
+    if($numuser==0){  
+      $limitnb = "limit 0,75";
+      $where = "iherba_observations.public='oui' ";
+      }
+      else {
+      $limitnb = "limit 0,175";
+      $where = "iherba_observations.id_user=".$numuser;
+      }
+    $where .= " AND " . get_requete_where_sousdomaine() ; 
+    $order = " order by iherba_determination.famille,iherba_determination.genre ";
+    
+    
+    $sql_list_carto_select = "SELECT distinct iherba_observations.idobs,iherba_observations.longitude,iherba_observations.latitude,iherba_observations.commentaires,iherba_photos.nom_photo_final,iherba_observations.deposit_timestamp ,iherba_determination.nom_commun,iherba_determination.nom_scientifique,iherba_determination.famille,iherba_determination.genre";
+    $sql_list_carto_select_family = "SELECT distinct iherba_determination.famille";
+    $sql_list_carto_select_genre = "SELECT distinct iherba_determination.genre";
+    $sql_list_carto_select_espece = "SELECT distinct iherba_determination.tropicosid";
+    $sql_list_carto_select_nbobs = "SELECT distinct iherba_observations.idobs ";	
 
-	$sql_list_carto_from = " FROM iherba_photos,iherba_observations ,iherba_determination where iherba_observations.latitude !=0 AND iherba_observations.idobs=iherba_photos.id_obs ";
-	$sql_list_carto_from .= " AND iherba_determination.`tropicosfamilyid` != '' AND iherba_observations.idobs=iherba_determination.id_obs and $where group by iherba_determination.tropicosid ".$order;
-	
-	$sql_family = "$sql_list_carto_select_family $sql_list_carto_from";
-	$result = mysql_query ($sql_family) or die ();
-	$nb_lignes_family=mysql_num_rows($result);
-	
-	$sql_genre = "$sql_list_carto_select_genre $sql_list_carto_from";
-	$result = mysql_query ($sql_genre) or die ();
-	$nb_lignes_genre = mysql_num_rows($result);
-	
-	 $sql_espece = "$sql_list_carto_select_espece $sql_list_carto_from";
-	$result = mysql_query ($sql_espece) or die ();
-	$nb_lignes_especes = mysql_num_rows($result);
-	
- $sql_nb_obs = "$sql_list_carto_select_nbobs from iherba_observations where $where";
-       $result = mysql_query ($sql_nb_obs) or die ();
-        $nb_lignes_nb_obs = mysql_num_rows($result);
-echo "<!-- $nb_lignes_nb_obs $sql_nb_obs -->";
-	
-	$sql_list_carto = "$sql_list_carto_select $sql_list_carto_from $limitnb";
-	
-	echo  "<!-- sqlcarto $sql_list_carto  -->";
-	$result=mysql_query ($sql_list_carto) or die ();
-	$nb_lignes_resultats=mysql_num_rows($result);
-	
+    $sql_list_carto_from = " FROM iherba_photos,iherba_observations ,iherba_determination where iherba_observations.latitude !=0 AND iherba_observations.idobs=iherba_photos.id_obs ";
+    $sql_list_carto_from .= " AND iherba_determination.`tropicosfamilyid` != '' AND iherba_observations.idobs=iherba_determination.id_obs and $where group by iherba_determination.tropicosid ".$order;
+    
+    $sql_family = "$sql_list_carto_select_family $sql_list_carto_from";
+    $result = mysql_query ($sql_family) or die ();
+    $nb_lignes_family=mysql_num_rows($result);
+    
+    $sql_genre = "$sql_list_carto_select_genre $sql_list_carto_from";
+    $result = mysql_query ($sql_genre) or die ();
+    $nb_lignes_genre = mysql_num_rows($result);
+    
+    $sql_espece = "$sql_list_carto_select_espece $sql_list_carto_from";
+    $result_species_list = mysql_query ($sql_espece) or die ();
+    $nb_lignes_especes = mysql_num_rows($result_species_list);
+    
+    $sql_nb_obs = "$sql_list_carto_select_nbobs from iherba_observations where $where";
+    $result = mysql_query ($sql_nb_obs) or die ();
+    $nb_lignes_nb_obs = mysql_num_rows($result);
+    //echo "<!-- $nb_lignes_nb_obs $sql_nb_obs -->";
+    
+    $sql_list_carto = "$sql_list_carto_select $sql_list_carto_from $limitnb";
+    
+    echo  "<!-- sqlcarto $sql_list_carto  -->";
+    $result=mysql_query ($sql_list_carto) or die ();
+    $nb_lignes_resultats=mysql_num_rows($result);
+    
 
-	$content .= "<h3>";
-	if (!is_sousdomaine_www())
-	      {
-	      $content .= $monobjet->pi_getLL('speciesinventory', '', 1)."&nbsp;".get_description_sousdomaine()."<br/>";
-	      }
-	      else
-	      $content .= $monobjet->pi_getLL('speciesinventory', '', 1) ."</br>";
-	$content .= "</h3>";
-	if($nb_lignes_resultats ==0)
-	      $content.= "<h3>".$monobjet->pi_getLL('nospeciesobservation', '', 1)."</h3>";
-	$content.= "<h2>".$monobjet->pi_getLL('number_total_observation', '', 1)." $nb_lignes_nb_obs </h2>";
+    $content .= "<h3>";
+    if (!is_sousdomaine_www())
+	  {
+	  $content .= $monobjet->pi_getLL('speciesinventory', '', 1)."&nbsp;".get_description_sousdomaine()."<br/>";
+	  }
+	  else
+	  $content .= $monobjet->pi_getLL('speciesinventory', '', 1) ."</br>";
+    $content .= "</h3>";
+    if($nb_lignes_resultats ==0)
+	  $content.= "<h3>".$monobjet->pi_getLL('nospeciesobservation', '', 1)."</h3>";
+    $content.= "<h2>".$monobjet->pi_getLL('number_total_observation', '', 1)." $nb_lignes_nb_obs </h2>";
 
-	$content.= "<h2>".$monobjet->pi_getLL('numberdistinctfamily', '', 1)." $nb_lignes_family </h2>";
-	$content.= "<h2>".$monobjet->pi_getLL('numberdistinctgenus', '', 1)." $nb_lignes_genre </h2>";
-	$content.= "<h2>".$monobjet->pi_getLL('numberdistinctspecies', '', 1)." $nb_lignes_especes </h2>";
+    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctfamily', '', 1)." $nb_lignes_family </h2>";
+    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctgenus', '', 1)." $nb_lignes_genre </h2>";
+    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctspecies', '', 1)." $nb_lignes_especes </h2>";
 
 
-	$repertoire=repertoire_vignettes;
-	$current = array();
-	while ($donnees = mysql_fetch_array($result)){
-		$image=repertoire_vignettes."/".$donnees['nom_photo_final'];
-		
-		if($donnees['famille']!=$current['famille'])
-			$content .= "<br> <font size=+2>Famille : ".$donnees['famille']."</font><br>";
-		if($donnees['genre']!=$current['genre'])
-			$content .= "<br> &nbsp;&nbsp;&nbsp;&nbsp; <font size=+1>Genre : ".$donnees['genre']."</font><br>";
-		$content.='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="'.$image.'" border="2" width="100"  />
-			    <a href=http://'.$_SERVER['HTTP_HOST'].'/index.php?id=detail&numero_observation='.$donnees['idobs'].'>'.
-		' '.$donnees['nom_commun']."/".$donnees['nom_scientifique']."</a>";
-		
-		$current['famille'] = $donnees['famille'];
-		$current['genre'] = $donnees['genre'];
-		$content.= "<br>";
-	}
-	      
-	
-	return $content;
+    $repertoire=repertoire_vignettes;
+    $current = array();
+    while ($donnees = mysql_fetch_array($result)){
+	    $image=repertoire_vignettes."/".$donnees['nom_photo_final'];
+	    
+	    if($donnees['famille']!=$current['famille'])
+		    $content .= "<br> <font size=+2>Famille : ".$donnees['famille']."</font><br>";
+	    if($donnees['genre']!=$current['genre'])
+		    $content .= "<br> &nbsp;&nbsp;&nbsp;&nbsp; <font size=+1>Genre : ".$donnees['genre']."</font><br>";
+	    $content.='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="'.$image.'" border="2" width="100"  />
+			<a href=http://'.$_SERVER['HTTP_HOST'].'/index.php?id=detail&numero_observation='.$donnees['idobs'].'>'.
+	    ' '.$donnees['nom_commun']."/".$donnees['nom_scientifique']."</a>";
+	    
+	    $current['famille'] = $donnees['famille'];
+	    $current['genre'] = $donnees['genre'];
+	    $content.= "<br>";
+    }
+	  
+    
+    return $content;
 }
 
 function getRewritingObservation() {
