@@ -81,9 +81,11 @@ L\'equipe de iherbarium '),
   
   // Send mail
   mail($to, $subject, $message, $headers);
-  return $subject."---".$message."---".$headers;
+  return "to : $to ".$subject."---".$message."---".$headers;
 }
 
+
+//test if notification to do
 bd_connect();
 $notsentnotification =
     " SELECT *" .
@@ -92,15 +94,20 @@ $notsentnotification =
   
 $notifications = mysql_query($notsentnotification) or die (mysql_error());
 if(mysql_num_rows($notifications)==0)die();
+
+//if at least one notification, do the first one
 $thenotification = mysql_fetch_assoc($notifications);
 $parameters = json_decode($thenotification['parameters']);
-print_r($parameters);
-echo $parameters->determination;
-$messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$thenotification['id_dest'],$thenotification['preferred_language']);
 
+
+$messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$thenotification['id_dest'],$thenotification['preferred_language']);
+$messagetexte = desamorcer($messagetexte);
 $sentnotification =
     " update iherba_notification" .
     " set  `ts_send` =  CURRENT_TIMESTAMP ";
+$sentnotification =
+    " update iherba_notification" .
+    " set  `sent_text` =  '$messagetexte' ";
   
 $sentnotificationresult = mysql_query($sentnotification) or die (mysql_error());
 
