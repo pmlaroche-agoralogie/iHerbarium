@@ -950,8 +950,11 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   //$sql_determination="select nom_commun,nom_scientifique,date,famille,genre,comment from iherba_determination where (nom_commun !='' OR nom_scientifique != '') AND id_obs=$numero_observation ";
   $sql_determination.="select iherba_determination.id , nom_commun,nom_scientifique,date, famille,genre ,id_cases, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
-  $sql_determination.="where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value AND iherba_determination.id_obs=$numero_observation ";
+  
+  $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
+  $sql_determination.=" AND iherba_determination.id_obs=$numero_observation ";
   $sql_determination.= " order by creation_timestamp desc";
+  
   // if list in a compact mode, only last two determination
   if($publication=="liste")
     $sql_determination .= " limit 2";
