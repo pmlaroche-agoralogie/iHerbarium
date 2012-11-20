@@ -1,4 +1,5 @@
 <?php
+// export to a xml file a set of observations
 
 include("../bibliotheque/common_functions.php");
 bd_connect();
@@ -14,7 +15,6 @@ $list_zones = "select * from iherba_indicateurs_zones where uid=$myzone";
 $result_ref = mysql_query($list_zones)or die ('Erreur SQL !'.$list_zones.'<br />'.mysql_error());
 $row_zone= mysql_fetch_assoc($result_ref) ;
 
-
 $fieldname_lat = "latitude";
 $fieldname_long = "longitude";
 
@@ -27,8 +27,8 @@ $deltalat = $row_zone['deltalat'];
 $deltalong = $row_zone['deltalong'];
 
 // modify this when list of quadrat is used
-$wheresql = " AND $fieldname_lat > ".$startlat. " AND $fieldname_lat < ".($startlat+(($nb_square_lat + 1)* $deltalat)). " ";
-$wheresql .=  " AND $fieldname_long > ".$startlong. " AND $fieldname_long < ".($startlong+(($nb_square_long + 1)* $deltalong));
+$wheresql = " AND $fieldname_lat > ".$startlat. " AND $fieldname_lat <= ".($startlat+(($nb_square_lat + 1)* $deltalat)). " ";
+$wheresql .=  " AND $fieldname_long > ".$startlong. " AND $fieldname_long <= ".($startlong+(($nb_square_long + 1)* $deltalong));
     
 
 $base_request = "
@@ -44,18 +44,13 @@ $result_sure = mysql_query($base_request)or die ('Erreur SQL !'.$base_request.'<
 //echo $base_request;
 $n=0;
 $xmlfile = '<?xml version="1.0" encoding="utf-8"?><pma_xml_export version="1.0">
-    
-    <database name="typoherbarium">
+        <database name="typoherbarium">
         <!-- Table indicabio_inventaire -->
         ';
         
 while($row_obs= mysql_fetch_assoc($result_sure) ){
-    $n++;
-        /*echo $row_obs['nom_scientifique'];
-        echo $row_obs['latitude']. " ";echo $row_obs['longitude']. " ";
-        echo $row_obs['longitude']. " ";
-        echo $row_obs['name']. " ";
-        echo "http://www.iherbarium.fr/observation/data/".$row_obs['idobs']. " <br>";*/
+        $n++;
+                
         $xmlfile .= '<table name="indicabio_inventaire">';
         $xmlfile .= ' <column name="set_id">'.$targetzone.'</column>
             <column name="origin_uid">'.$row_obs['idobs'].'</column>
@@ -69,12 +64,28 @@ while($row_obs= mysql_fetch_assoc($result_sure) ){
             <column name="computed_genus_name">'.$row_obs['genre'].'</column>
             <column name="computed_family_name">'.$row_obs['famille'].'</column>
         </table>';
-       }
+        }
 
 echo "<br>Zone : $myzone ; Nb d'observations : $n ";
 
 $xmlfile .= '    </database> </pma_xml_export>';
 $filename = "export_inventaire_".rand(100,900)."_".$myzone.".xml";
 file_put_contents($filename,$xmlfile);
+
 echo "<a href=http://www.iherbarium.fr/scripts/".$filename." >Lien vers le fichier</a>"."<br>";
+
+$data = base64_encode($xmlfile);
+
+$params = array(
+      'http' => array(
+                'method' => 'POST',
+                'header'=>
+                "Accept-language: en\r\n".
+                "Content-type: application/x-www-form-urlencoded\r\n",
+                'content'=>http_build_query(array('setid'=>$targetzone ,'data'=>$data ))
+                )
+        );
+$ctx = stream_context_create($params);
+$resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/scripts/manage_matrix.php',false,$ctx);
+
 ?>
