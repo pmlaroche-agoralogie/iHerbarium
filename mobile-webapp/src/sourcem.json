@@ -1,0 +1,780 @@
+{
+    "proposals": [
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15362",
+            "pretty_time": "2:00pm",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Carol Bartz is the chief executive officer and a director of Yahoo!. Previously, Bartz served as executive chairman of the board of Autodesk, Inc. In April, 2006, she stepped down as chairman, president and CEO of Autodesk after 14 years with the company. During her tenure, the company diversified its product line and grew revenues from $285 million to $1.523 billion in FY06.</p>\n\n\n\t<p>Bartz previously held positions at Sun Microsystems, most recently serving as vice president of worldwide field operations and an executive officer of the company. Before joining Sun, she held product line and sales management positions at Digital Equipment Corporation and 3M Corporation.</p>\n\n\n\t<p>Bartz holds an honors degree in computer science from the University of Wisconsin. She was granted an honorary Doctor of Humane Letters degree from the New Jersey Institute of Technology, an honorary Doctor of Science degree from Worcester Polytechnic Institute and an honorary Doctor of Letters degree from William Woods University.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Carol Bartz",
+                    "last_name": "Bartz",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_60981.jpg",
+                    "icon": null,
+                    "position": "CEO",
+                    "first_name": "Carol",
+                    "id": 60981,
+                    "affiliation": "Yahoo!"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation",
+                "Live Stream"
+            ],
+            "title": "A Conversation with Carol Bartz, CEO, Yahoo!",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T14:25:00",
+            "id": 15362,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T14:00:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16285",
+            "pretty_time": "2:35pm",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Tim O’Reilly is the founder and CEO of <a href=\"http://www.oreilly.com/\">O’Reilly Media</a>, Inc., thought by many to be the best computer book publisher in the world. O’Reilly Media also hosts conferences on technology topics, including the <a href=\"http://www.oscon.com/\">O’Reilly Open Source Convention</a>, the <a href=\"http://www.web2summit.com\">Web 2.0 Summit</a>, and the Gov 2.0 Summit. Tim’s blog, the <a href=\"http://radar.oreilly.com/\">O’Reilly Radar</a> “watches the alpha geeks” to determine emerging technology trends, and serves as a platform for advocacy about issues of importance to the technical community. Tim is on the boards of <a href=\"www.collab.net/\">CollabNet</a>, <a href=\"www.safaribooksonline.com/\">Safari Books Online</a>, and <a href=\"http://codeforamerica.org/\">Code for America</a>.</p>",
+                    "twitter": "timoreilly",
+                    "url": "http://www.oreilly.com/",
+                    "name": "Tim O'Reilly",
+                    "last_name": "O'Reilly",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_251.jpg",
+                    "icon": null,
+                    "position": "Founder and CEO",
+                    "first_name": "Tim",
+                    "id": 251,
+                    "affiliation": "O'Reilly Media, Inc."
+                },
+                {
+                    "bio": "<p>Since joining Google in 2001, Eric Schmidt has helped grow the company from a Silicon Valley startup to a global enterprise. Under his leadership, Google has dramatically scaled its infrastructure and broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead Google&#8217;s efforts toward technological solutions that focus on users. With founders Sergey Brin and Larry Page, and the rest of the executive team, Eric oversees the company&#8217;s technical and business strategy.</p>\n\n\n\t<p>Prior to joining Google, Eric was the Chairman and CEO of Novell and Chief Technology Officer at Sun Microsystems, Inc., where he led the development of Java, Sun&#8217;s platform-independent programming technology. Earlier in his career, Eric was a member of the research staff at Xerox Palo Alto Research Center (PARC) and held positions at Bell Laboratories and Zilog. He holds a bachelor&#8217;s degree in electrical engineering from Princeton University as well as a master&#8217;s and Ph.D. in computer science from the University of California, Berkeley.</p>\n\n\n\t<p>Eric is a member of President Obama&#8217;s Council of Advisors on Science and Technology. He was elected to the National Academy of Engineering in 2006 and inducted into the American Academy of Arts and Sciences as a fellow in 2007. Eric also chairs the board of the New America Foundation.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Eric Schmidt",
+                    "last_name": "Schmidt",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_102517.jpg",
+                    "icon": null,
+                    "position": "Chairman of the Board and Chief Executive Officer ",
+                    "first_name": "Eric",
+                    "id": 102517,
+                    "affiliation": "Google"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation",
+                "Live Stream"
+            ],
+            "title": "A Conversation with Eric Schmidt, CEO, Google",
+            "date": "11/15/2010",
+            "end_time": "2010-11-15T15:10:00",
+            "id": 16285,
+            "proposal_type": "Plenary",
+            "time": "2010-11-15T14:35:00",
+            "day": "Monday, 11/15/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15370",
+            "pretty_time": "4:40pm",
+            "speakers": [
+                {
+                    "bio": "<p>Evan Williams is a co-founder and board member of Twitter and, after serving as CEO for two years, he is now focusing on product design and vision. Previously, he was co-founder and CEO of Pyra Labs, who created Blogger in 1999. In 2003, Blogger was purchased by Google, where Williams worked as a product and engineering manager until late 2004. Williams was raised on a farm in Nebraska and dropped out of college as a sophomore, prior starting his first Internet company in 1994.</p>",
+                    "twitter": "ev",
+                    "url": "http://www.twitter.com/",
+                    "name": "Evan Williams",
+                    "last_name": "Williams",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_40285.jpg",
+                    "icon": null,
+                    "position": "Co-founder",
+                    "first_name": "Evan",
+                    "id": 40285,
+                    "affiliation": "Twitter, Inc."
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Ev Williams, Co-founder, Twitter",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T17:10:00",
+            "id": 15370,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T16:40:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15399",
+            "pretty_time": "2:15pm",
+            "speakers": [
+                {
+                    "bio": "<p>Bill Gurley joined Benchmark Capital in 1999 after spending two years as a partner with Hummer Winblad Venture Partners.  Before entering the venture capital business, Bill spent four years on Wall Street as a top-ranked research analyst, including three years at CS First Boston focusing on the personal computer hardware and software business.  His research coverage included such companies as Dell, Compaq, and Microsoft, and he was the lead analyst on the Amazon IPO.  In both 1995 and 1996, Bill was a member of the Institutional Investor All-American Research Team.  Prior to his investment career, Bill was a design engineer at Compaq Computer, where he worked on products such as the 486/50 and Compaq’s initial multi-processor server.  Before Compaq, he served in the technical marketing group of Advanced Micro Devices embedded processor division.  For the past seven years, Bill has also authored the Above the Crowd newsletter, which focuses on the evolution and economics of high technology businesses.  His current investments include Clicker, FanBase, Linden Lab/SecondLife, LiveOps, Nanosolar, OpenTable (IPO: OPEN), Scale Computing, Tropos Networks, and Zillow.com.</p>\n\n\n\t<p>Bill received a BS in computer science from the School of Engineering at the University of Florida, and an MBA from the University of Texas.</p>",
+                    "twitter": "bgurley",
+                    "url": "http://www.benchmark.com/",
+                    "name": "Bill Gurley",
+                    "last_name": "Gurley",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_68392.jpg",
+                    "icon": null,
+                    "position": "General Partner",
+                    "first_name": "Bill",
+                    "id": 68392,
+                    "affiliation": "Benchmark Capital"
+                },
+                {
+                    "bio": "<p>Frank Quattrone is a founding member and CEO of Qatalyst.  Frank has advised technology companies since 1981, and successfully built and led global technology banking franchises for Morgan Stanley, Deutsche Bank and Credit Suisse.  Over the past three decades, Frank and the teams he has led have advised on more than 400 mergers and acquisitions with an aggregate transaction value over $500 billion and on more than 350 financings that raised over $65 billion for technology companies worldwide.</p>\n\n\n\t<p>Over the past three decades Frank has enjoyed the privilege of advising technology leaders including Accenture, Adobe, Amazon.com, AOL, Apple, Applied Materials, Ascend, Cascade, Cerent, Cisco, Cypress, Google, HP, IBM, Intel, Intuit, KLA-Tencor, Linear Technology, Lucent, National Semiconductor, Nortel, Novell, Oracle, RIM, ST Microelectronics, Synopsys, SynOptics, 3Com, TiVo, VeriFone, VeriSign, Veritas and Xilinx.</p>\n\n\n\t<p>Frank serves as Board Chairman of The Tech Museum of Innovation in San Jose, CA, as Advisory Board Chair of the Northern California Innocence Project at Santa Clara Law School, and as a Trustee of Castilleja School.</p>\n\n\n\t<p>Frank is originally from Philadelphia, Pennsylvania and received a B.S. in Economics summa cum laude from the Wharton School of the University of Pennsylvania and an M.B.A. from Stanford University Graduate School of Business where he was an Arjay Miller Scholar.</p>",
+                    "twitter": "",
+                    "url": "http://www.qatalyst.com/",
+                    "name": "Frank  Quattrone",
+                    "last_name": "Quattrone",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_78307.jpg",
+                    "icon": null,
+                    "position": "CEO",
+                    "first_name": "Frank ",
+                    "id": 78307,
+                    "affiliation": "Qatalyst Partners"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Frank Quattrone, Founder, Qatalyst Partners",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T14:40:00",
+            "id": 15399,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T14:15:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16181",
+            "pretty_time": "9:10am",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Todd Bradley is executive vice president of HP’s Personal Systems Group, a $35 billion annual revenue business that includes personal computers, mobile devices, technical workstations, personal storage solutions and Internet services. He is also a member of HP’s 10-person Executive Council.</p>\n\n\n\t<p>Under Bradley’s leadership, PSG has accelerated profitable growth, firmly establishing HP as the #1 PC vendor in the world. During his four year tenure, the business has added more than $10 billion in revenues and increased profitability threefold. His organization reset the global PC industry with its “The Computer Is Personal Again” campaign, setting a new standard for design, user interface and the overall customer experience. At the helm of the largest global supply chain in the IT industry, Bradley has promoted environmental and social responsibility across thousands of suppliers and channel partners and millions of customers whose lives and businesses HP touches.</p>\n\n\n\t<p>During his 30-year management career, Bradley has held senior roles at GE Capital, Dun &#38; Bradstreet and FedEx. Prior to joining HP, Bradley was the chief executive officer of Palm. Before that, Bradley was executive vice president of global operations for Gateway. \nBradley holds a Bachelor of Science degree in business administration from Towson University, He serves as a director of LiveOps and trustee of the American Film Institute.\n4/2010</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Todd Bradley",
+                    "last_name": "Bradley",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_101040.jpg",
+                    "icon": null,
+                    "position": "Executive Vice President, Personal Systems Group",
+                    "first_name": "Todd",
+                    "id": 101040,
+                    "affiliation": "HP"
+                },
+                {
+                    "bio": "<p>Jon has helped launch some of the most influential computing products of our time.  He served as Palm&#8217;s Chairman and CEO prior to its acquisition by HP and was the driving force behind the company&#8217;s return to innovation with its award-winning webOS software and innovative smartphone devices. As head of the Palm global business unit, Jon is leading HP&#8217;s efforts in the mobility space, responsible for webOS software development and webOS based hardware products.</p>\n\n\n\t<p>As a member of Apple&#8217;s senior executive staff, Jon was instrumental in conceiving the iPod and as head of hardware engineering, led the rapid rollout of the iMac, a product that revitalized Apple and revolutionized personal computer design. Before joining Apple, Jon built his career at computer companies including Hewlett-Packard and NeXT, and founded his own company, Firepower Systems Inc.</p>\n\n\n\t<p>Jon is a member of the National Academy of Engineering and a senior member of the IEEE. He received bachelor&#8217;s and master&#8217;s degrees in electrical engineering from Cornell University and a master&#8217;s degree in computer science from Colorado State University.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Jon Rubinstein",
+                    "last_name": "Rubinstein",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_53208.jpg",
+                    "icon": null,
+                    "position": "Senior Vice President and General Manager",
+                    "first_name": "Jon",
+                    "id": 53208,
+                    "affiliation": "Palm Global Business Unit, HP"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with HP",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T09:40:00",
+            "id": 16181,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T09:10:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15398",
+            "pretty_time": "11:50am",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Jeff is Chief Executive Officer of LinkedIn. Prior to LinkedIn, Jeff was an Executive in Residence at Accel Partners and Greylock Partners where he focused primarily on advising the leadership teams of the firms&#8217; consumer technology portfolio companies while also working closely with the partners to evaluate new investment opportunities. Jeff previously served in key leadership roles at Yahoo! for over seven years. He was most recently the Executive Vice President of Yahoo!&#8217;s Network Division where he managed the company’s consumer web product portfolio, including Yahoo!&#8217;s Front Page, Mail, Search, and Media products. In addition to LinkedIn, Jeff serves on the Board of Directors for DonorsChoose.org and Malaria No More. He holds a B.S. in Economics from The Wharton School at the University of Pennsylvania.</p>",
+                    "twitter": "",
+                    "url": "http://www.linkedin.com/",
+                    "name": "Jeff Weiner",
+                    "last_name": "Weiner",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_93293.jpg",
+                    "icon": null,
+                    "position": "CEO",
+                    "first_name": "Jeff",
+                    "id": 93293,
+                    "affiliation": "LinkedIn"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation",
+                "Live Stream"
+            ],
+            "title": "A Conversation with Jeff Weiner, CEO, LinkedIn",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T12:15:00",
+            "id": 15398,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T11:50:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16289",
+            "pretty_time": "11:40am",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Since 1992, Jim Balsillie has been co-CEO at Research In Motion (RIM), maker of the world renowned BlackBerry wireless solution.</p>\n\n\n\t<p>In 2002, Mr. Balsillie founded The Centre for International Governance Innovation (CIGI), a world-class global research institute focused on the restructuring of international governance. In 2007, Mr. Balsillie announced the creation of the new Canadian International Council (CIC) of which he is the Chair. In 2008, he founded the Balsillie School of International Affairs.\nMr. Balsillie is a graduate of the University of Toronto and the Harvard Graduate School of Business. He is a chartered accountant and a fellow of the Ontario Institute of Chartered Accountants. He also holds numerous honorary doctorate degrees.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Jim Balsillie",
+                    "last_name": "Balsillie",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_102588.jpg",
+                    "icon": null,
+                    "position": "Co-CEO",
+                    "first_name": "Jim",
+                    "id": 102588,
+                    "affiliation": "Research In Motion"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Jim Balsillie, CEO, Research In Motion",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T12:05:00",
+            "id": 16289,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T11:40:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16397",
+            "pretty_time": "11:20am",
+            "speakers": [
+                {
+                    "bio": "<p>John Heilemann writes “The Power Grid” column for New York magazine, as well as longer features. An award-winning journalist and author, he has covered politics, business, and their intersection for nearly two decades, in America and abroad. His recent cover stories for New York have included “Obama Is From Mars, Wall Street Is From Venus,” a look at the dysfunctional relationship between Obama and Wall Street and the push for financial reform; “Obama Lost, Obama Found,” an assessment of the president’s first year in the Oval Office; and “Inside Obama’s Economic Brain Trust,” on the White House’s efforts to rescue the American economy from ruin.</p>\n\n\n\t<p>Heilemann’s book about the 2008 presidential election, “Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime,” coauthored with Time’s Mark Halperin was published by HarperCollins in January 2010; it spent seven weeks in the #1 spot on the New York Times best seller list. Game Change is being developed into a movie by HBO Films, and Heilemann and Halperin are set to write a sequel covering the 2012 election for Penguin.</p>\n\n\n\t<p>Heilemann is a former correspondent and columnist for The Economist and Wired (where his coverage of the Microsoft antitrust trial made him a finalist for a National Magazine Award) and a former staff writer for The New Yorker. His book Pride Before the Fall: The Trials of Bill Gates and the End of the Microsoft Era was named by BusinessWeek (among others) as one of the best books of 2001. His four-part documentary on the World Wide Web aired on Discovery in 2008.</p>\n\n\n\t<p>Heilemann’s writing has been anthologized in “The Best American Political Writing” three times (2005, 2007, and 2008) and in “The Best American Crime Writing” (2006). He appears regularly as a commentator on Morning Joe, The Chris Matthews Show, Hardball, and Charlie Rose, as well as other shows on CNN, MSNBC, and NPR. A native of Los Angeles, he lives in Brooklyn.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "John Heilemann",
+                    "last_name": "Heilemann",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_40504.jpg",
+                    "icon": null,
+                    "position": "National Political Columnist & Correspondent",
+                    "first_name": "John",
+                    "id": 40504,
+                    "affiliation": "New York Magazine"
+                },
+                {
+                    "bio": "<p>Julius Genachowski was nominated by President Barack Obama as Chairman of the Federal Communications Commission on March 3, 2009, and sworn into office on June 29, 2009.</p>\n\n\n\t<p>Chairman Genachowski has two decades of experience in public service and the private sector. Prior to his appointment, he spent more than 10 years working in the technology industry as an executive and entrepreneur. He co-founded LaunchBox Digital and Rock Creek Ventures, where he served as Managing Director, and he was a Special Advisor at General Atlantic. In these capacities, he worked to start, accelerate, and invest in early- and mid-stage technology and other companies. From 1997-2005, he was a senior executive at IAC/InterActiveCorp, a Fortune 500 company, where his positions included Chief of Business Operations and General Counsel.</p>\n\n\n\t<p>Genachowski‚Äôs public service spanned broadly across government. His confirmation as FCC Chairman returns him to the agency where, from 1994 until 1997, he served as Chief Counsel to FCC Chairman Reed Hundt, and, before that, as Special Counsel to then-FCC General Counsel (later Chairman) William Kennard. Previously, he was a law clerk at the U.S. Supreme Court for Justice David Souter and Justice William J. Brennan, Jr. (ret.), and at the U.S. Court of Appeals for the D.C. Circuit for Chief Judge Abner Mikva. Genachowski also worked in Congress for then-U.S. Representative (now Senator) Charles E. Schumer (D-N.Y.), and on the staff of the House select committee investigating the Iran-Contra Affair.</p>\n\n\n\t<p>Genachowski has been active at the intersection of social responsibility and the marketplace. He was part of the founding group of New Resource Bank, which specializes in serving the needs of green entrepreneurs and sustainable businesses, and has served on the Advisory Board of Environmental Entrepreneurs (E2). He also served as a board member of Common Sense Media, a leading non-partisan, non-profit organization seeking to improve the media lives of children and families.</p>\n\n\n\t<p>Genachowski received a J.D from Harvard Law School (magna cum laude), where he was co-Notes Editor of the Harvard Law Review. He received a B.A. from Columbia College (magna cum laude), where he was Editor of Columbia Spectator‚Äôs Broadway Magazine, re-established Columbia‚Äôs oldest newspaper (Acta Columbiana), and was a writer and researcher for Fred Friendly. He was also a certified Emergency Medical Technician who served on the Columbia Area Volunteer Ambulance, and taught cardiopulmonary resuscitation (CPR).</p>\n\n\n\t<p>Genachowski, a son of immigrants, is married to Rachel Goslins and has three children, Jacob, Lilah and Aaron.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Julius Genachowski",
+                    "last_name": "Genachowski",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_66712.jpg",
+                    "icon": null,
+                    "position": "Chairman",
+                    "first_name": "Julius",
+                    "id": 66712,
+                    "affiliation": "Federal Communications Commission "
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation",
+                "Live Stream"
+            ],
+            "title": "A Conversation with Julius Genachowski, Chairman, FCC",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T11:50:00",
+            "id": 16397,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T11:20:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15679",
+            "pretty_time": "4:50pm",
+            "speakers": [
+                {
+                    "bio": "<p>Mark Zuckerberg is the CEO of Facebook, which he founded in 2004. Facebook is a social utility that helps people communicate more efficiently with their friends, families and coworkers. Mark is responsible for setting the overall direction and product strategy for the company. He leads the design of Facebook&#8217;s service and development of its core technology and infrastructure. Mark attended Harvard University and studied computer science before moving the company to Palo Alto, California.</p>",
+                    "twitter": "",
+                    "url": "http://www.facebook.com/",
+                    "name": "Mark Zuckerberg",
+                    "last_name": "Zuckerberg",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_14999.jpg",
+                    "icon": null,
+                    "position": "CEO and Co-Founder",
+                    "first_name": "Mark",
+                    "id": 14999,
+                    "affiliation": "Facebook"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Mark Zuckerberg, CEO, Facebook",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T17:20:00",
+            "id": 15679,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T16:50:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/17202",
+            "pretty_time": "5:30pm",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Neil Smit serves as President of Comcast Cable Communications, responsible for all business aspects of the Company’s cable operations.</p>\n\n\n\t<p>Mr. Smit joined Comcast in March, 2010 from Charter Communications where he served as Chief Executive Officer and Director since 2005.  Prior to joining Charter, Mr. Smit was the President of Time Warner’s America Online Access Business overseeing Internet access services, including America Online (AOL), CompuServe and Netscape ISPs.  He also served at AOL as Executive Vice President, Member Services, and Chief Operating Officer of MapQuest.  Mr. Smit also was a regional president with Nabisco and served in a number of management positions at Pillsbury.  For five and a half years, Mr. Smit served on active duty with the Navy SEAL Teams and retired from the service as a Lieutenant Commander.</p>\n\n\n\t<p>Mr. Smit has served on the boards of the National Cable and Telecommunications Association (NCTA), CableLabs and C-Span.  He has a bachelor’s of science degree from Duke University and a master’s degree from Tufts University’s Fletcher School.  He resides in Philadelphia with his wife and sons.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Neil Smit",
+                    "last_name": "Smit",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_104732.jpg",
+                    "icon": null,
+                    "position": "President",
+                    "first_name": "Neil",
+                    "id": 104732,
+                    "affiliation": "Comcast Cable Communications"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Neil Smit, President, Comcast Cable Communications",
+            "date": "11/15/2010",
+            "end_time": "2010-11-15T17:45:00",
+            "id": 17202,
+            "proposal_type": "Plenary",
+            "time": "2010-11-15T17:30:00",
+            "day": "Monday, 11/15/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15408",
+            "pretty_time": "5:00pm",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Robin Li is the co-founder, chairman and chief executive officer of Baidu, Inc., and oversees the company’s overall strategy and business operations.</p>\n\n\n\t<p>In the nine years since founding Baidu in January 2000, Robin has turned the company into the largest Chinese search engine, with over 70% market share, and the third largest independent search engine in the world. In 2005, Baidu completed its successful IPO on NASDAQ, and in 2007 became the first Chinese company to be included in the NASDAQ-100 Index.</p>\n\n\n\t<p>Prior to Baidu, Robin was already regarded as one of the world’s top search engine experts. His hyperlink analysis, patented in 1996, is among the inventions that shaped today&#8217;s search engine technology. Robin worked as a staff engineer for Infoseek, a pioneer internet search engine company, from July 1997 to December 1999, and as a senior consultant for IDD Information Services from May 1994 to June 1997.</p>\n\n\n\t<p>Robin received a Bachelor of Science Degree in Information Management from Peking University in 1991, and a Master of Science Degree in Computer Science from the State University of New York at Buffalo in 1994.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Robin Li",
+                    "last_name": "Li",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_93485.jpg",
+                    "icon": null,
+                    "position": "Co-Founder, Chairman and CEO",
+                    "first_name": "Robin",
+                    "id": 93485,
+                    "affiliation": "Baidu, Inc."
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Robin Li, Chairman & CEO, Baidu",
+            "date": "11/15/2010",
+            "end_time": "2010-11-15T17:30:00",
+            "id": 15408,
+            "proposal_type": "Plenary",
+            "time": "2010-11-15T17:00:00",
+            "day": "Monday, 11/15/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15512",
+            "pretty_time": "8:30am",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Shantanu Narayen is president and chief executive officer of Adobe, one of the world’s largest and most diversified software companies. Narayen’s leadership, technology insight and operational expertise have strengthened Adobe’s culture of innovation, expanded the company into new markets, and extended its product portfolio and global reach.  In 2005, Narayen co-led the $3.4 billion acquisition of Macromedia, expanding Adobe’s software platform and solutions, and strengthening the company’s presence in key markets ranging from enterprises and vertical industries to mobile devices and multimedia publishing.</p>\n\n\n\t<p>Prior to his appointment as CEO in December of 2007, Narayen was Adobe’s president and COO, responsible for the company’s day-to-day global operations, product research and development, marketing and corporate development.  Previously, he held key product research and development positions within Adobe, including executive vice president of worldwide products, senior vice president of worldwide product development and vice president and general manager of the engineering technology group.</p>\n\n\n\t<p>Before joining Adobe in 1998, Narayen was co-founder of Pictra, Inc., an early pioneer of digital photo sharing over the Internet. Prior to that, he served as director of desktop and collaboration products at Silicon Graphics, Inc. and held various senior management positions at Apple Computer, Inc.\nNarayen holds five patents and is a frequent speaker at industry and academic events. He serves on the Board of Metavante Technologies, Inc. and the Advisory Board of the Haas School of Business, University of California at Berkeley. Narayen holds a bachelor’s degree in electronics engineering from Osmania University in India, a master’s degree in computer science from Bowling Green State University and a master’s degree in business administration from the Haas School of Business.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Shantanu Narayen",
+                    "last_name": "Narayen",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_64196.jpg",
+                    "icon": null,
+                    "position": "President and CEO",
+                    "first_name": "Shantanu",
+                    "id": 64196,
+                    "affiliation": "Adobe Systems Incorporated"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Shantanu Narayen, CEO, Adobe",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T08:55:00",
+            "id": 15512,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T08:30:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15492",
+            "pretty_time": "12:05pm",
+            "speakers": [
+                {
+                    "bio": "<p>John Battelle is an entrepreneur, journalist, professor, and author. Currently founder and chairman of Federated Media Publishing, he is also a founder and executive producer of conferences in the media, technology, communications, and entertainment industries and &#8220;band manager&#8221; with BoingBoing.net. Previously, Battelle was founder, chairman, and CEO of Standard Media International (SMI), publisher of The Industry Standard and TheStandard.com. Prior to founding The Standard, Battelle was a co-founding editor of <i>Wired</i> magazine and Wired Ventures. He is the author of <a href=\"http://www.amazon.com/Search-Rewrote-Business-Transformed-Culture/dp/1591840880/ref=sr_11_1/104-3315260-3151901?ie=UTF8/\">The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture&#8221; (Portfolio, 2005)</a>.</p>",
+                    "twitter": "",
+                    "url": "http://www.fmpub.net/",
+                    "name": "John  Battelle",
+                    "last_name": "Battelle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_6262.jpg",
+                    "icon": null,
+                    "position": "Program Chair, Web 2.0 Summit; Founder & CEO",
+                    "first_name": "John ",
+                    "id": 6262,
+                    "affiliation": "Federated Media Publishing"
+                },
+                {
+                    "bio": "<p>Yuri Milner is CEO and Founding Partner of DST. At DST, Yuri led the investments in over two dozen leading Internet companies and raised over $1bn in 8 rounds of financing. Currently, Yuri serves on the board of directors of Mail.ru, vKontakte and Forticom. Yuri also serves as a member of the Presidential Commission for Modernisation and Technological Development of Russia&#8217;s Economy.</p>\n\n\n\t<p>Before DST, Yuri held various management positions in Russia, including the CEO of Mail.ru between 2001 and 2003, where he turned the company around operationally and positioned it to become the #1 Russian language website.</p>\n\n\n\t<p>Between 1990 and 1992 Yuri attended Wharton Business School and later joined the World Bank where he was involved in the development of the financial sector in Russia.</p>\n\n\n\t<p>He returned to Russia in 1996 and was responsible for the first tender offer for a public company in post Soviet times. Yuri started investing in the Internet sector in 1999.</p>\n\n\n\t<p>Yuri graduated from Moscow State University in 1985 with an advanced degree in theoretical physics and subsequently conducted research at the Institute of physics in the Russian Academy of Sciences between 1985 and 1989.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Yuri Milner",
+                    "last_name": "Milner",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_95614.jpg",
+                    "icon": null,
+                    "position": "CEO and Founder",
+                    "first_name": "Yuri",
+                    "id": 95614,
+                    "affiliation": "Digital Sky Technologies (DST)"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Conversation"
+            ],
+            "title": "A Conversation with Yuri Milner, CEO, Digital Sky Technologies",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T12:30:00",
+            "id": 15492,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T12:05:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Pacific Heights",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/17209",
+            "pretty_time": "9:00am",
+            "speakers": [
+                {
+                    "bio": "<p>Stefan Weitz is a Director of Search at Microsoft and is charged with working with people and organizations across the industry to promote and improve Search technologies. While focused on Microsoft’s product line, he works across the industry to understand searcher behavior and in his role as an evangelist for Search, gathers and synthesizes feedback to drive product improvements. Prior to Search, Stefan led the strategy to develop the next generation MSN portal platform and developed Microsoft’s muni WiFi strategy, leading the charge to blanket WiFi across metropolitan cities. A 12-year Microsoft veteran, he has worked in various groups including Windows Server, Security, and IT. Stefan is a huge gadget ‘junkie’ and can often be found in electronics shops across the world looking for the elusive perfect piece of tech.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Stefan Weitz",
+                    "last_name": "Weitz",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_67949.jpg",
+                    "icon": null,
+                    "position": "Director of Search",
+                    "first_name": "Stefan",
+                    "id": 67949,
+                    "affiliation": "Microsoft"
+                }
+            ],
+            "description": "As Bing progresses down its path of helping people make more informed decisions, come see the innovations we're introducing in the fall release.  See how we're helping people do things on the go with our mobile updates, enable people to do more than just scan links with our new user experience, and leverage their network of friends to tap into their collective wisdom.",
+            "topics": [],
+            "title": "Bing: A Focus on Decisions  ",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T09:45:00",
+            "id": 17209,
+            "proposal_type": "Sponsored Workshops",
+            "time": "2010-11-17T09:00:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Bently Reserve",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/17061",
+            "pretty_time": "9:00pm",
+            "speakers": [],
+            "description": "Where will you be after dark? Get tangled up in Web After Dark, the official Web 2.0 Summit opening night after-party.",
+            "topics": [],
+            "title": "Canaan's Web After Dark - The Official Opening Night Party",
+            "date": "11/15/2010",
+            "end_time": "2010-11-16T00:00:00",
+            "id": 17061,
+            "proposal_type": "Event",
+            "time": "2010-11-15T21:00:00",
+            "day": "Monday, 11/15/2010"
+        },
+        {
+            "room": "Garden Court",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/17411",
+            "pretty_time": "5:15pm",
+            "speakers": [],
+            "description": "Join us in the Garden Court immediately following the general sessions to celebrate three fantastic days of delving into the Points of Control in the Internet economy. Enjoy a beverage and make those final connections before you depart Web 2.0 Summit for this year.",
+            "topics": [],
+            "title": "Closing Reception, Sponsored by TriNet",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T18:15:00",
+            "id": 17411,
+            "proposal_type": "Event",
+            "time": "2010-11-17T17:15:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Sponsor Gallery",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/17590",
+            "pretty_time": "5:20pm",
+            "speakers": [],
+            "description": "What’s short and sweet...and the hottest new short URL? Join us Tuesday evening in the Sponsor Gallery for a cocktail reception, hosted by .CO, to find out!",
+            "topics": [],
+            "title": "Evening Reception, Sponsored by .CO",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T18:20:00",
+            "id": 17590,
+            "proposal_type": "Event",
+            "time": "2010-11-16T17:20:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/15879",
+            "pretty_time": "10:50am",
+            "speakers": [
+                {
+                    "bio": "<p>Katherine Savitt is the Chief Executive Officer and a director of Lockerz, LLC,  a website offering social network, entertainment and commerce for 13-30 year olds.  Formed in 2009 with 50 members, the invitation-only site has rapidly grown to 14 million members in 195 countries. Before founding Lockerz, Savitt  was Executive Vice President and Chief Marketing Officer at American Eagle Outfitters, Inc. from March 2006 to January 2009, where she led both the global marketing efforts of the company&#8217;s four brands as well as the digital and ecommerce businesses for the Corporation. Prior to joining American Eagle Outfitters, Kathy served as Vice President of Strategic Communications, Content and Entertainment Initiatives of Amazon.com from 2002 to February 2006, and also served on Jeff Bezos&#8217; S-team (senior management committee). From 1993 to 2002, Kathy served as President and co-Founder of MWW/Savitt, an integrated marketing communications and public relations firm.  Kathy has extensive senior leadership experience with retail, e-commerce, content and social media businesses and, in addition to being a Lockerz director, currently is a member of the Board of Directors of Vitamin Shoppe, Inc. and Build-A-Bear Workshop.</p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Katherine Savitt",
+                    "last_name": "Savitt",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_100387.jpg",
+                    "icon": null,
+                    "position": "CEO & Director",
+                    "first_name": "Katherine",
+                    "id": 100387,
+                    "affiliation": "Lockerz, LLC"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "High Order Bit",
+                "Live Stream"
+            ],
+            "title": "Gen Z: The Age of the Curator",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T11:00:00",
+            "id": 15879,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T10:50:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16159",
+            "pretty_time": "10:45am",
+            "speakers": [
+                {
+                    "bio": "<p>Adam is an entrepreneur with experience in a broad range of industry sectors.  He’s been involved in early stages with companies in software, product design, video games, genetics research, and online sales.  The common thread through all of these is that his role has always been helping talented and creative people achieve extraordinary results.  Currently, he&#8217;s the President of Syyn Labs, a collection of extraordinarily talented technology artists all formerly trained in a wide variety of disciplines including robotics, physics, software engineering, and design.  Leading this team, Adam orchestrated the build of the massive Rube Goldberg machine for the OK Go music video &#8220;This Too Shall Pass&#8221;, and the &#8220;organ&#8221; built from 24 automobiles played by Gary Numan in an online commercial for DieHard Battery.</p>\n\n\n\t<p><em>Around the world human experiences are shared through dynamic and engaging talks called Ignite. In exactly five minutes using exactly 20 slides Ignite speakers share personal and professional passions though thought-provoking, and lightening-fast, presentations on life, robots, and beyond. Web 2.0 Summit has scoured the globe to find you the best of the best Ignites, hand-selected by <a href=\"http://igniteshow.com/\">Ignite Show</a> host and co-founder Brady Forrest, and conference chair John Battelle. Enjoy!</em></p>",
+                    "twitter": null,
+                    "url": "http://www.syynlabs.com/",
+                    "name": "Adam Sadowsky",
+                    "last_name": "Sadowsky",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_100923.jpg",
+                    "icon": null,
+                    "position": "President & CEO",
+                    "first_name": "Adam",
+                    "id": 100923,
+                    "affiliation": "Syyn Labs"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Ignite",
+                "Live Stream"
+            ],
+            "title": "Ignite:  OK Go, Rube Goldberg Machine",
+            "date": "11/17/2010",
+            "end_time": "2010-11-17T10:50:00",
+            "id": 16159,
+            "proposal_type": "Plenary",
+            "time": "2010-11-17T10:45:00",
+            "day": "Wednesday, 11/17/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16158",
+            "pretty_time": "3:30pm",
+            "speakers": [
+                {
+                    "bio": "<p>Leila Chirayath Janah is the founder of Samasource, a social business that connects over 550 women, youth, and refugees living in poverty to microwork — small, computer-based tasks that build skills and generate life-changing income. Samasource was a winner in the Stanford Social Enterprise Challenge in 2008 and is a current grantee of the Rockefeller Foundation. In recognition of her work, Leila received the Rainer Arnhold Fellowship and has been invited to serve as a TED and Social Enterprise Institute Fellow. Janah is a frequent speaker on social entrepreneurship, technology, and international development at institutions including MIT, the Stanford Graduate School of Business, UC Berkeley, Columbia, and Harvard. Her work has been profiled by CBS, CNN, The New York Times, The New Scientist, and GOOD, and she is a regular contributor to the Huffington Post and Social Edge.</p>\n\n\n\t<p>Prior to Samasource, Janah was a founding Director of  Incentives for Global Health, an organization formed by Professors Thomas Pogge and Aidan Hollis and advised by Nobel Prize-winning economist Amartya Sen to develop new financing mechanisms for pharmaceutical R&#38;D on diseases of the poor. She has served as a Visiting Scholar with the Stanford Program on Global Justice and a Visiting Researcher at Australian National University’s Center for Applied Philosophy and Public Ethics.</p>\n\n\n\t<p>Leila received her BA from Harvard University in 2005, where she led the Harvard International Development Group and published work on the Rwandan genocide. Earlier in her career, Janah worked for Katzenbach Partners, a management consulting firm based in New York, the World Bank’s Development Research Group, and as a travel writer for Let’s Go guidebooks in Mozambique, Brazil, and Borneo. She resides in San Francisco.</p>\n\n\n\t<p><em>Around the world human experiences are shared through dynamic and engaging talks called Ignite. In exactly five minutes using exactly 20 slides Ignite speakers share personal and professional passions though thought-provoking, and lightening-fast, presentations on life, robots, and beyond. Web 2.0 Summit has scoured the globe to find you the best of the best Ignites, hand-selected by <a href=\"http://igniteshow.com/\">Ignite Show</a> host and co-founder Brady Forrest, and conference chair John Battelle. Enjoy!</em></p>",
+                    "twitter": "leila_c",
+                    "url": "http://www.samasource.org/",
+                    "name": "Leila Chirayath Janah",
+                    "last_name": "Chirayath Janah",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_75524.jpg",
+                    "icon": null,
+                    "position": "CEO",
+                    "first_name": "Leila",
+                    "id": 75524,
+                    "affiliation": "Samasource"
+                }
+            ],
+            "description": "TBD",
+            "topics": [
+                "Ignite"
+            ],
+            "title": "Ignite: Crowdsourced Jobs for Haiti",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T15:35:00",
+            "id": 16158,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T15:30:00",
+            "day": "Tuesday, 11/16/2010"
+        },
+        {
+            "room": "Grand Ballroom",
+            "url": "http://www.web2summit.com/web2010/public/schedule/detail/16192",
+            "pretty_time": "10:20am",
+            "speakers": [
+                {
+                    "bio": "<p>Schuyler Erle has been a Free Software developer and evangelist for over a dozen years. He was a co-author of &#8216;Mapping Hacks&#8217; and &#8216;Google Maps Hacks&#8217;. Schuyler was also a co-founder of the OpenLayers and TileCache projects, and is a charter member of the OSGeo Foundation. Schuyler currently resides in San Francisco, where he designs and builds new and exotic geospatial technology at SimpleGeo.</p>\n\n\n\t<p><em>Around the world human experiences are shared through dynamic and engaging talks called Ignite. In exactly five minutes using exactly 20 slides Ignite speakers share personal and professional passions though thought-provoking, and lightening-fast, presentations on life, robots, and beyond. Web 2.0 Summit has scoured the globe to find you the best of the best Ignites, hand-selected by <a href=\"http://igniteshow.com/\">Ignite Show</a> host</em> <em>and co-founder Brady Forrest, and conference chair John Battelle. Enjoy!</em></p>",
+                    "twitter": "",
+                    "url": "",
+                    "name": "Schuyler Erle",
+                    "last_name": "Erle",
+                    "photo": "http://assets.en.oreilly.com/1/eventprovider/1/_@user_2118.jpg",
+                    "icon": null,
+                    "position": "Troublemaker",
+                    "first_name": "Schuyler",
+                    "id": 2118,
+                    "affiliation": "SimpleGeo"
+                }
+            ],
+            "description": "In the aftermath of the earthquake in Haiti in January 2010, a loosely coordinated group of volunteers accomplished something no one had ever done before: Mapping a country in the midst of a humanitarian crisis... from thousands of miles away.",
+            "topics": [
+                "Ignite"
+            ],
+            "title": "Ignite: How Crowdsourcing Changed Disaster Relief Forever",
+            "date": "11/16/2010",
+            "end_time": "2010-11-16T10:25:00",
+            "id": 16192,
+            "proposal_type": "Plenary",
+            "time": "2010-11-16T10:20:00",
+            "day": "Tuesday, 11/16/2010"
+        }
+    ]
+}
