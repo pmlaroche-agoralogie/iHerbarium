@@ -1,5 +1,7 @@
 <?php
 // export to a xml file a set of observations
+$csv_field_separator = ";";
+$csv_field_border = '"';
 
 include("../bibliotheque/common_functions.php");
 bd_connect();
@@ -47,7 +49,8 @@ $xmlfile = '<?xml version="1.0" encoding="utf-8"?><pma_xml_export version="1.0">
         <database name="typoherbarium">
         <!-- Table indicabio_inventaire -->
         ';
-        
+$csv_file ="";
+
 while($row_obs= mysql_fetch_assoc($result_sure) ){
         $n++;
                 
@@ -64,17 +67,35 @@ while($row_obs= mysql_fetch_assoc($result_sure) ){
             <column name="computed_genus_name">'.$row_obs['genre'].'</column>
             <column name="computed_family_name">'.$row_obs['famille'].'</column>
         </table>';
+        $csv_file .= $csv_field_border.$targetzone.$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['idobs'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['tropicosid'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['deposit_timestamp'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['latitude'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['longitude'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.'0.97.'.$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['id_user'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['nom_scientifique'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['genre'].$csv_field_border.$csv_field_separator;
+        $csv_file .= $csv_field_border.$row_obs['famille'].$csv_field_border;
+        $csv_file .= "\n";
         }
 
 echo "<br>Zone : $myzone ; Nb d'observations : $n ";
 
 $xmlfile .= '    </database> </pma_xml_export>';
 $filename = "export_inventaire_".rand(100,900)."_".$myzone.".xml";
+$filename_csv = "export_inventaire_".rand(100,900)."_".$myzone.".csv";
 file_put_contents($filename,$xmlfile);
+file_put_contents($filename_csv,$csv_file);
 
-echo "<a href=http://www.iherbarium.fr/scripts/".$filename." >Lien vers le fichier</a>"."<br>";
+//you can download the xml file from the web browser
+echo "<a href=http://www.iherbarium.fr/scripts/".$filename." >Lien vers le fichier xml</a>"."<br>";
+echo "<a href=http://www.iherbarium.fr/scripts/".$filename_csv." >Lien vers le fichier csv</a>"."<br>";
 
-$data = base64_encode($xmlfile);
+// we can't manage xml file now because of limitation of mysql server 5.1
+// $data = base64_encode($xmlfile);
+$data = base64_encode($csv_file);
 
 $params = array(
       'http' => array(
@@ -86,6 +107,6 @@ $params = array(
                 )
         );
 $ctx = stream_context_create($params);
-$resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/scripts/manage_matrix.php',false,$ctx);
+$resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/management/receive_data.php',false,$ctx);
 
 ?>
