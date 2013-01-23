@@ -919,47 +919,35 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 		 'ledate' => 'le ',
 		 'nomCommun_forweb'=> 'nom commun : ',
 		 'nomCommun_formail'=> 'nom commun : ',
-		 'nom_scientifique_forweb'=> 'Nom scientifique : ',
-		'nom_scientifique_formail'=> 'Nom scientifique : ',
 		
 		'aboutprecision_formail'=> 'About the precision of this name : ',
 		'aboutcertitude_formail'=> 'About the certitude of this name : ',
 		'aboutcertitude_forweb'=> 'Expert certitude :  ',
 		
 		'note'=> 'Note : ',
-		'expertises_forweb'=> 'Dernières remarques apportées  : ',
-		'expertises_formail'=> 'Dernières remarques apportées  : ',
 		 ),
   'es' => array (
          'ledate' => ' ',
          'nomCommun_forweb'=> 'nombre común: ',
          'nomCommun_formail'=> 'nombre común: ',
-         'nom_scientifique_forweb'=> 'Nombre Científico : ',
-        'nom_scientifique_formail'=> 'Nombre Científico : ',
 
         'aboutprecision_formail'=> 'Acerca de la certeza de este nombre : ',
         'aboutcertitude_formail'=> 'Acerca de la certeza de este nombre : ',
         'aboutcertitude_forweb'=> 'la certeza es experta :  ',
 
         'note'=> 'Notas : ',
-        'expertises_forweb'=> 'Aquí son los últimos comentarios que se han hecho sobre tu observación  : ',
-        'expertises_formail'=> 'Aquí son los últimos comentarios que se han hecho sobre tu observación  : ',
          ),
 
   'pt' => array (
 		 'ledate' => ' ',
 		 'nomCommun_forweb'=> 'Nome comum : ',
 		 'nomCommun_formail'=> 'Nome comum : ',
-		 'nom_scientifique_forweb'=> 'nome científico : ',
-		'nom_scientifique_formail'=> 'nome científico : ',
 		
 		'aboutprecision_formail'=> 'Sobre a precisão deste nome : ',
 		'aboutcertitude_formail'=> 'Sobre o certitude deste nome : ',
 		'aboutcertitude_forweb'=> 'Certitude perito :  ',
 		
 		'note'=> 'Note : ',
-		'expertises_forweb'=> 'Estão aqui as observações as mais atrasadas que foram feitas nesta planta  : ',
-		'expertises_formail'=> 'Estão aqui as observações as mais atrasadas que foram feitas em sua observação  : ',
 		 ),
   
 );
@@ -982,15 +970,11 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   // if text only, probably for sending a mail, only the last one
   if($texteseul!=0)$sql_determination .= " limit 1";
 
-  //echo "<!-- icisql $sql_determination -->";
-
   $result_determination = mysql_query($sql_determination) or die ();
   $num_rows = mysql_num_rows($result_determination); //nombre de lignes rÈsultats
 	
   if($num_rows !=0){
-   // echo "<!-- mylanguage 2: $mylanguage -->";
-    if($texteseul!=2)$content.= get_string_language($expertise_translate,'expertises'.$finchamps,$mylanguage).$finligne;
-   // echo "<!-- mylanguage expert : ".get_string_language($expertise_translate,'expertises'.$finchamps,$mylanguage)." -->";
+    if($texteseul!=2)$content.= get_string_language_sql('expertises'.$finchamps,$mylanguage).$finligne;
   }
 	
   while ($row_determination = mysql_fetch_assoc($result_determination)) {
@@ -1009,7 +993,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	  
     if($nom_scientifique !=""){
 		
-      $content.= get_string_language($expertise_translate,'nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
+      $content.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
 			
       if(($row_determination["famille"]!="")||($row_determination["genre"]!=""))
 	{
@@ -1026,14 +1010,14 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	    if($texteseul==0)
 	      $content.=' <img src="/interface/target_'.$row_determination["precision_level"].'.gif" width=24 title="'.$row_determination["precisioncomment"].'"> ';
 	    else
-	      $content.= $finligne.get_string_language($expertise_translate,'aboutprecision_formail',$mylanguage) .$row_determination["precisioncomment"];
+	      $content.= $finligne.get_string_language_sql('aboutprecision_formail',$mylanguage) .$row_determination["precisioncomment"];
 	  }
 	if($row_determination["certitude_level"]!=0)
 	  {
 	    if($texteseul==0)
 	      $content.=' <img src="/interface/certitude_'.$row_determination["certitude_level"].'.gif"  title="'.get_string_language($expertise_translate,'aboutcertitude'.$finchamps,$mylanguage)." ".$row_determination["certitude_comment"].'"> ';
 	    else
-	      $content.= $finligne.get_string_language($expertise_translate,'aboutcertitude_formail',$mylanguage).$row_determination["certitude_comment"];
+	      $content.= $finligne.get_string_language_sql('aboutcertitude_formail',$mylanguage).$row_determination["certitude_comment"];
 	  }
 	
 	  if($texteseul==0)
