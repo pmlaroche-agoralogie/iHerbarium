@@ -22,6 +22,27 @@ function get_string_language(&$tableau,$identifiant,$chosen_language,$default_la
    return utf8_encode($tableau[$default_language][$identifiant]);
 }
 
+function get_string_language_sql($identifiant,$chosen_language,$default_language='en')
+{
+  bd_connect();
+  
+  $sql_list_translate =
+    "SELECT * FROM  `ih_translation` 
+    WHERE  `label` LIKE  '$identifiant' and lang LIKE '$chosen_language%'";
+    
+  $result_translate=mysql_query ($sql_list_translate) or die ();
+  
+  if(mysql_num_rows($result_translate)==0)
+    {
+      $sql_list_translate =
+      "SELECT * FROM  `ih_translation` 
+      WHERE  `label` LIKE  '$identifiant' and lang LIKE 'en%'";
+      $result_translate=mysql_query ($sql_list_translate) or die ();
+    }
+  $ligne = mysql_fetch_array($result_translate);
+   return $ligne['translated_text'];
+}
+
 function niveau_testeur()
 {
   if(strpos($GLOBALS['TSFE']->fe_user->user['usergroup'],"3")>0)
