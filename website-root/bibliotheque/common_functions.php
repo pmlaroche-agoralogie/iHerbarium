@@ -898,59 +898,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
       if($cetobjet->cObj->data['sys_language_uid']==4)$mylanguage='it';
       if($cetobjet->cObj->data['sys_language_uid']==2)$mylanguage='pt';
       if($cetobjet->cObj->data['sys_language_uid']==5)$mylanguage='es';
-      }
-   //echo "<!-- mylanguage : ".$monobjet->cObj->data['sys_language_uid']." -->";
-  $expertise_translate = array(
-  'en' => array(
-		'ledate' => 'On ',
-		'nomCommun_forweb'=> 'Common name: ',
-		'nomCommun_formail'=> 'Common name: ',
-		'nom_scientifique_forweb'=> 'Scientific name: ',
-		'nom_scientifique_formail'=> 'Scientific name: ',
-		
-		'aboutprecision_formail'=> 'About the precision of this name : ',
-		'aboutcertitude_formail'=> 'About the certitude of this name : ',
-		'aboutcertitude_forweb'=> 'Expert certitude :  ',
-		'note'=> 'Note : ',
-		'expertises_forweb'=> 'Here are the latest remarks that have been made on your observation  : ',
-		'expertises_formail'=> 'Here are the latest remarks that have been made on your observation  : ',
-		),
-  'fr' => array (
-		 'ledate' => 'le ',
-		 'nomCommun_forweb'=> 'nom commun : ',
-		 'nomCommun_formail'=> 'nom commun : ',
-		
-		'aboutprecision_formail'=> 'About the precision of this name : ',
-		'aboutcertitude_formail'=> 'About the certitude of this name : ',
-		'aboutcertitude_forweb'=> 'Expert certitude :  ',
-		
-		'note'=> 'Note : ',
-		 ),
-  'es' => array (
-         'ledate' => ' ',
-         'nomCommun_forweb'=> 'nombre común: ',
-         'nomCommun_formail'=> 'nombre común: ',
-
-        'aboutprecision_formail'=> 'Acerca de la certeza de este nombre : ',
-        'aboutcertitude_formail'=> 'Acerca de la certeza de este nombre : ',
-        'aboutcertitude_forweb'=> 'la certeza es experta :  ',
-
-        'note'=> 'Notas : ',
-         ),
-
-  'pt' => array (
-		 'ledate' => ' ',
-		 'nomCommun_forweb'=> 'Nome comum : ',
-		 'nomCommun_formail'=> 'Nome comum : ',
-		
-		'aboutprecision_formail'=> 'Sobre a precisão deste nome : ',
-		'aboutcertitude_formail'=> 'Sobre o certitude deste nome : ',
-		'aboutcertitude_forweb'=> 'Certitude perito :  ',
-		
-		'note'=> 'Note : ',
-		 ),
-  
-);
+    }
   
   $demandenom =1;
   // define extension for the names of the strings
@@ -985,24 +933,22 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 		
     list( $jour,$mois, $annee,) = explode("-", $date);
     if($texteseul==0)
-      $content.= get_string_language($expertise_translate,'ledate',$mylanguage)." " .$jour."-".$mois."-".$annee." ";
+      $content.= get_string_language_sql('expertise_prefixe_date',$mylanguage)." " .$jour."-".$mois."-".$annee." ";
 		
     if($nom_commun!=""){
-      $content.= get_string_language($expertise_translate,'nomCommun'.$finchamps,$mylanguage) .$nom_commun . " ";
+      $content.= get_string_language_sql('nomCommun'.$finchamps,$mylanguage) .$nom_commun . " ";
     }
 	  
     if($nom_scientifique !=""){
-		
       $content.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
-			
       if(($row_determination["famille"]!="")||($row_determination["genre"]!=""))
 	{
 	  if(($row_determination["famille"]!="")||($row_determination["genre"]!=""))$virgule=", ";else $virgule=" ";
 	  if($texteseul==0)$content.= "&nbsp;&nbsp;";
 	  $content.="[".$row_determination["genre"].$virgule.$row_determination["famille"]."]";
 	}
-			
     }
+    
     if($publication!="liste")
       {
 	if($row_determination["precision_level"]!=0)
@@ -1015,7 +961,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	if($row_determination["certitude_level"]!=0)
 	  {
 	    if($texteseul==0)
-	      $content.=' <img src="/interface/certitude_'.$row_determination["certitude_level"].'.gif"  title="'.get_string_language($expertise_translate,'aboutcertitude'.$finchamps,$mylanguage)." ".$row_determination["certitude_comment"].'"> ';
+	      $content.=' <img src="/interface/certitude_'.$row_determination["certitude_level"].'.gif"  title="'.get_string_language_sql('aboutcertitude'.$finchamps,$mylanguage)." ".$row_determination["certitude_comment"].'"> ';
 	    else
 	      $content.= $finligne.get_string_language_sql('aboutcertitude_formail',$mylanguage).$row_determination["certitude_comment"];
 	  }
@@ -1034,22 +980,21 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	      }
 	}
 
-	
 	if($row_determination["web_comment"]!=""){
 		$content.= $finligne;
-		$content.= get_string_language($expertise_translate,'note',$mylanguage);
+		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);
 		$content.=$row_determination["web_comment"];
 	}
 	if($row_determination["comment"]!=""){
 		$content.= $finligne;
-		$content.= get_string_language($expertise_translate,'note',$mylanguage);;
+		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);;
 		$content.=$row_determination["comment"];
 	}
 	
     if($texteseul!=2)
       {		
-	    $content.= $finligne;
-	    $content.= $finligne;
+      $content.= $finligne;
+      $content.= $finligne;
       }
     else
       $content = utf8_encode($content);		
