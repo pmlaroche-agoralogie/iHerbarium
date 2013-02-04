@@ -1,4 +1,6 @@
 <?php
+// read a pipeline of notification to send, and send the first one
+
 require_once("../bibliotheque/common_functions.php");
 
 function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser,$mylanguage = 'en') {

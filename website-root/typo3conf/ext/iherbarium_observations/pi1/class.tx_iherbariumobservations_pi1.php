@@ -90,16 +90,7 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
 	    }
 	    
         $sql="select idobs from iherba_observations  $sql_where $sql_order $sql_limit ";
-        /*$result = mysql_query($sql) or die ();
-        while ($row = mysql_fetch_assoc($result)) {
-			
-			$content .= affiche_une_observation_dans_liste($this,$row["idobs"],"public");
-        }
         
-	bd_connect();
-	$sql="select idobs,id_user from iherba_observations ;//on sélectionne l'ensemble des observations de l'utilisateur
-	
-	*/
 	$result = mysql_query($sql)or die ();
 	$nb_lignes_resultats=mysql_num_rows($result);
 	if($nb_lignes_resultats==0){

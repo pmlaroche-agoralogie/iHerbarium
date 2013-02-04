@@ -11,7 +11,7 @@ define('repertoire_iphone','./fromiphone/');
 define('template_carte','./fileadmin/template/code_js_cartographie_ent.html');
 define('debut_carto_aff_multi','./fileadmin/template/debut_carto_aff_multi.txt');
 
-function get_string_language(&$tableau,$identifiant,$chosen_language,$default_language='en')
+function get_string_languagex(&$tableau,$identifiant,$chosen_language,$default_language='en')
 {
   if(isset($tableau[$chosen_language][$identifiant]))
     {$key = $tableau[$chosen_language][$identifiant];
@@ -39,8 +39,15 @@ function get_string_language_sql($identifiant,$chosen_language,$default_language
       WHERE  `label` LIKE  '$identifiant' and lang LIKE 'en%'";
       $result_translate=mysql_query ($sql_list_translate) or die ();
     }
-  $ligne = mysql_fetch_array($result_translate);
-   return $ligne['translated_text'];
+  if(mysql_num_rows($result_translate)==0)
+    {//identifiant not found
+    return $identifiant;
+    }
+    else
+    {
+    $ligne = mysql_fetch_array($result_translate);
+    return $ligne['translated_text'];
+    }
 }
 
 function niveau_testeur()
@@ -1002,9 +1009,28 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   return $content;	
 }
 
+function language_iso_from_lang_id($sys_language_uid=0)
+{
+$mylanguage='en';
+if($sys_language_uid==1)$mylanguage='fr';
+if($sys_language_uid==2)$mylanguage='pt';
+if($sys_language_uid==3)$mylanguage='de';
+if($sys_language_uid==4)$mylanguage='it';
+if($sys_language_uid==5)$mylanguage='es';
+return $mylanguage;
+}
 
 function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="public")
 {
+  if($cetobjet!=null)
+    {
+      if($cetobjet->cObj->data['sys_language_uid']==1)$mylanguage='fr';
+      if($cetobjet->cObj->data['sys_language_uid']==3)$mylanguage='de';
+      if($cetobjet->cObj->data['sys_language_uid']==4)$mylanguage='it';
+      if($cetobjet->cObj->data['sys_language_uid']==2)$mylanguage='pt';
+      if($cetobjet->cObj->data['sys_language_uid']==5)$mylanguage='es';
+    }
+    
   $expertise = affiche_expertise($numobs,$cetobjet,"liste",$demandenom,0);
   //echo "<!-- $expertise -->";
   if(isset($_GET['nouveau']))if(strlen($expertise)>5)return "";
@@ -1041,10 +1067,10 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
     $paramlien = array(numero_observation  => $numobs, check=>456789);
     if($compteur==0){
       
-      $entete_content = $cetobjet->pi_getLL('deposele', '', 1).$jour.'-'.$mois.'-'.$annee;
+      $entete_content = get_string_language_sql("ws_observation_send_on",$mylanguage).$jour.'-'.$mois.'-'.$annee;
       if($row_iduser['computed_usable_for_similarity']=="1")$entete_content .= " (Modele) ";
       if (isset($iduser)){
-	  $entete_content.=$cetobjet->pi_getLL('utilisateur', '', 1).$iduser_name;
+	  $entete_content.=get_string_language_sql("ws_observation_author",$mylanguage).$iduser_name;
 	}
       $entete_content.= "<br/><br/> </h1>";
       $content.= $entete_content . '<div id="bloc_contenu_texte">'; 
@@ -1054,20 +1080,18 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
       $content.=affiche_expertise($numobs,$cetobjet,"liste",$demandenom,0);
 	
       if(($publication == "prive") ){
-	$content.=$cetobjet->pi_getLL('obs', '', 1).$numobs."<br/><br/>";
+	$content.=get_string_language_sql("ws_observation_before_number",$mylanguage).$numobs."<br/><br/>";
       }   
 					
       if( $publication=="prive"){
 	$content.="<br/>";
 	if($demandenom>0)
 	  {
-	    $content.=$cetobjet->pi_linkToPage($cetobjet->pi_getLL('DonnerNomPlante', '', 1),31,'',$paramlien);
+	    $content.=$cetobjet->pi_linkToPage(get_string_language_sql("ws_give_a_plant_name",$mylanguage),31,'',$paramlien);
 	    $content.= "<br/>";
 	  }
-	//$content.=$cetobjet->pi_linkToPage($cetobjet->pi_getLL('voirobservationdetail', '', 1),21,'',$paramlien);
-	//$content.="<br/>";
       }
-      $content.= $cetobjet->pi_getLL('voirobservationdetail', '', 1)."<br/>";
+      $content.= get_string_language_sql("ws_list_gotoobservationdetail",$mylanguage)."<br/>";
     }	
     $image=repertoire_vignettes."/$nom_photo_final";
     $linkObservation = $cetobjet->pi_getPageLink(21) . $cetobjet->pi_getLL('detail') . '/';

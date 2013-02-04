@@ -83,7 +83,6 @@ $cibleaction = $cetobjet->pi_getPageLink($GLOBALS['TSFE']->id,'',null);
 		<input type="submit" value="'.$cetobjet->pi_getLL('changerVersSemi', '', 1).'">';
     $content.="</form>";
   }
-	
   return $content;
 }
 
@@ -97,7 +96,6 @@ $cibleaction = $cetobjet->pi_getPageLink($GLOBALS['TSFE']->id,'',array('numero_o
 		<input type="submit" value="'.$cetobjet->pi_getLL('donotshowforall', '', 1).'">';
   $content .= '</form>';
 
-  
   return $content;
 }
 
@@ -109,9 +107,6 @@ function codehtml_demande_morpho($statutdemande,$cetobjet,$numero_obs){
   $content="";
   //$content.=$cetobjet->pi_getLL('visibiliteobs', '', 1);
 	
-
-	
-  //$content.=$cetobjet->pi_getLL('changerStatut', '', 1)."<br/>";
   $checksum=calcul_checksum($numero_observation,1);
   $paramlien = array(numero_observation  => $numero_observation,check=>456789);
   $url = $cetobjet->pi_getPageLink(1,'',$paramlien);
@@ -236,6 +231,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $GLOBALS["TSFE"]->set_no_cache();
     $this->pi_USER_INT_obj=1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
 
+    $mylanguage = language_iso_from_lang_id($this->cObj->data['sys_language_uid']);
     // Kuba ->
 
     // jQuery.                           
@@ -293,16 +289,6 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $content.= $this->pi_getLL('numeroObservation', '', 1)." ".$numero_observation."";
 		
     $content.='</h1><div id="bloc_contenu_texte">';
-		
-    // Commented by Kuba ->
-    /*
-
-      if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
-      $content.=codehtml_statut($visibilite,$this)."<br/>";
-      }
-
-    */
-    // <- Commented by Kuba
 		 
     /* Liste des dernières expertises faites sur la plante */
     $content.= affiche_expertise($numero_observation,$this,"detail",$demandenom);
@@ -319,14 +305,17 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     /*Affichage des informations concernant l'observation */
     bd_connect();
     $sql="select date_depot,idobs,commentaires,longitude,latitude from iherba_observations where idobs=$numero_observation";
-    $result = mysql_query($sql)or die ();
-    if(! ($lobervation = mysql_fetch_assoc($result))) return ; 
-    //$date_depot = $lobervation["date_depot"];
-		
+    $result = mysql_query($sql) or die ();
+    
+    if(! ($lobervation = mysql_fetch_assoc($result)))
+	return ; // no observation with this observation number
+
     if(($demandenom>0) && ($GLOBALS['TSFE']->fe_user->user['uid']!=0))
       {
+	
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
-	$content.= $this->pi_linkToPage($this->pi_getLL('DonnerNomPlante', '', 1),31,'',$paramlien);
+	$link_text = get_string_language_sql("ws_give_a_plant_name",$mylanguage);
+	$content.= $this->pi_linkToPage($link_text,31,'',$paramlien);
 	$content.=" <br/><br/>";
       }
 		
@@ -341,13 +330,13 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$content.=codehtml_moderation($this,$numero_observation)."<br/><br/>";	
       }
 				
-		
+
     if($lobervation["commentaires"] !=""){
-      $content.=$this->pi_getLL('commentairesObservation', '', 1)." ".$lobervation["commentaires"]."<br/><br/>\n";
+      $content.= get_string_language_sql("ws_observation_comment",$mylanguage) ." ".$lobervation["commentaires"]."<br/><br/>\n";
     }
 			 
     $sql2="select id_obs,date_user,nom_photo_final from iherba_photos where id_obs=$numero_observation";
-    $result2 = mysql_query($sql2)or die ();
+    $result2 = mysql_query($sql2) or die ();
 	   
     while ($row2 = mysql_fetch_assoc($result2)) {
       $date_user=$row2["date_user"]; //date de la prise de l'observation
@@ -383,7 +372,6 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       $deleteLink = $this->pi_getPageLink('obssave', '', array('obsId' => $numero_observation, 'obsAction' => 'delete', 'nextAction' => 'show'));
       $content .= '<form id="deleteForm" method="post" action="' . $deleteLink . '">';
       $content .= '<input id="deleteLink" type="submit" value="' . $deleteButtonText . '" />';
-      //$content.= '<script>$("#deleteLink").button({label : "' . $deleteButtonText . '"});</script>';
       $content .= '<script>$("#deleteForm").submit(function(e) { var answer = confirm("' . $areYouSureText . '"); return answer; })</script>';
       $content .= '</form>';
 		
@@ -414,7 +402,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 
     // <- Kuba
 
-    $content.= $this->pi_getLL('imagesObservation', '', 1)."<br/>\n";
+    $content.= get_string_language_sql("ws_observation_list_of_pictures",$mylanguage)."<br/>\n";
     foreach($nom_photo_final as $value){
       //Permet d'afficher l'image en taille réelle lorsque l'on clique dessus
       // si on est le propriétaire, on a l'image en qualité max et sans licence
@@ -424,16 +412,19 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$content.='<a href="/scripts/large.php?name='.$value.'" ><img src="'.repertoire_vignettes."/".$value.'" border=2 width="200"  /></blank></a>';
     }
 		
-    /*Les informations de localisation s'afficheront dans les cas suivants :
-     * L'observation est publique
-     * L'observation est semi-publique ou privée mais l'utilisateur connecté est celui qui a déposé cette observation sur le site */
+    // localisation is shown if public or for the owner 
     if(($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)|| ($visibilite=="oui")){
       if($lobervation["latitude"]!=0 && $lobervation["longitude"]!=0){
-	$content.="<br/><br/>".$this->pi_getLL('latitudeObservation', '', 1)." ".round($lobervation["latitude"],4)." " .$this->pi_getLL('longitudeObservation', '', 1)." ".round($lobervation["longitude"],4)."<br/><br/>\n";
+	$content.="<br/><br/>".get_string_language_sql("ws_observation_was_localized",$mylanguage);
+	$localstring = get_string_language_sql("ws_observation_localized_lat_long",$mylanguage);
+	
+	$localstring = str_replace('%1',round($lobervation["latitude"],4),$localstring) ;
+	$localstring = str_replace('%2',round($lobervation["longitude"],4),$localstring) ;
+	$content.= $localstring."<br/><br/>\n";
 	$content.=fairecarte($lobervation["latitude"],$lobervation["longitude"]);
       }
       else{
-	$content.="<br/><br/>".$this->pi_getLL('pasLocalisation', '', 1);
+	$content.="<br/><br/>".get_string_language_sql("ws_observation_was_not_localized",$mylanguage);
       }
     }
     if(niveau_testeur()>0)
@@ -442,8 +433,10 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	}
 	else
 	$show_delete_button=0;
+	
+	
     $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
-    $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,$this->pi_getLL('roimorphoexplication', '', 1),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
+    $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
 	
 	
     if(niveau_testeur()>0)
@@ -465,7 +458,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       
     if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
-	$content.= "<br>".$this->pi_linkToPage($this->pi_getLL('goqrpage', '', 1),47,'',$paramlien);
+	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode",$mylanguage),47,'',$paramlien);
       }
     //if(niveau_testeur()>0)
       
