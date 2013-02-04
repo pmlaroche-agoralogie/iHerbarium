@@ -104,27 +104,7 @@
 			<label index="mail_notif_body">Un botaniste a repondu au sujet de l'observation </label>
 			<label index="mail_notif_footer">Ce programme est en cours d'experimentation, merci de nous signaler toute anomalie ou de nous proposer toute modification.  \n L'équipe de iherbarium</label>
 		</languageKey>
-		<languageKey index="es" type="array">
-			<label index="demandeInfo">Please indicate us the  'tropicos' identifier of this plant. </label>
-			<label index="explication">More on this here : http://www.iherbarium.org/index.php?id=69 .</label>
-			<label index="explication2">You juste have to enter its name thank to the field "Search".</label>
-			<label index="explication3">You will find an identifier for your plant, it's the number to the right of your page's link.</label>
-			<label index="identifiant">Identifier on the website tropicos : </label>
-			<label index="infoUser">We thank you to have indicate us the common name of the plant.</label>
-			<label index="indicationNom">Common name of the plant : </label>
-			<label index="nomCommun">Common name of this plant indicated : </label>
-			<label index="infoTropicos"> We have gathered that the informations about this plant, with the identifier number : </label> 
-			<label index="sont">, are : </label>
-			<label index="nomScientifique">its scientific name : </label>
-			<label index="famille">its family : </label>
-			<label index="determin_comment">comments : </label>
-			<label index="genre">its genus : </label>
-			<label index="espece">its species : </label>
-			<label index="retourHerbier">Please click here to return to your herbarium.</label>
-			<label index="valider">Validate</label>
-			
-			
-		</languageKey>
+		
 		<languageKey index="pt" type="array">
 			<label index="demandeInfo">Indique-nos por favor o identificador dos “tropicos” desta planta. </label>
 			<label index="explication">mais nisto aqui: http://www.iherbarium.org/index.php?id=69 .</label>

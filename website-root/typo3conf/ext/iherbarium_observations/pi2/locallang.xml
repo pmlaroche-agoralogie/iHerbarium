@@ -11,7 +11,6 @@
 			<label index="deposele">Deposit on : </label>
 			<label index="zonesInteretObservation">You can see the regions of interest which characterize the pictures of your sighting or define them  </label>
 			<label index="DonnerNomPlante">You can specify to us the name of this plant</label>
-			<label index="voirobservationdetail">Click on a picture to see details</label>
 			<label index="utilisateur">, By the user : </label>
 			<label index="nomPlante">Name of the plant : </label>
 			<label index="obs">Observation : </label>
@@ -38,7 +37,6 @@
 		    <label index="numeroObservation">Observation numéro :  </label>
 			<label index="deposele">Déposée le : </label> 
 			<label index="zonesInteretObservation">Vous pouvez voir ici les zones d'intérêt des photos de cet observation ou les définir  </label>
-			<label index="DonnerNomPlante">Vous pouvez nous indiquer ici le nom  de cette plante</label>
 			<label index="voirobservationdetail">Cliquez sur une image pour avoir les détails</label>
 			
 			<label index="utilisateur">, Par l'utilisateur : </label>
@@ -61,25 +59,12 @@
 
 			<label index="detail">data</label>
 		</languageKey>
-		<languageKey index="de" type="array">
-		    <label index="numeroObservation">observation  number : </label>
-			<label index="deposele">Deposit on : </label>
-			<label index="zonesInteretObservation">You can see the regions of interest which characterize the pictures of your sighting or define them  </label>
-			<label index="DonnerNomPlante">You can specify to us the name of this plant</label>
-			<label index="voirobservationdetail">Click on a picture to see details</label>
-			<label index="utilisateur">, By the user : </label>
-			<label index="nomPlante">Name of the plant : </label>
-			<label index="obs">Observation : </label>
-			<label index="le">On </label>
-			<label index="nomCommun">, Gemeinsamer Name : </label>
-			<label index="nomScientifique">, Wissenschaftlicher Name : </label>
-			
-		</languageKey>
+		
 		<languageKey index="es" type="array">
 		    <label index="numeroObservation"> Observación número :  </label>
 			<label index="deposele"> Añadido el : </label> 
 			<label index="zonesInteretObservation"> Aquí usted puede ver las áreas de interés de las fotos de esta observación o usted les puede definir.  </label>
-			<label index="DonnerNomPlante"> Puede indicar aqui el nombre de esta planta </label>
+			
 			<label index="voirobservationdetail"> Haga clic en la imagen para más detalles </label>
 			<label index="utilisateur">, por el usuario : </label>
 			<label index="nomPlante"> Nombre de la planta : </label>
@@ -102,7 +87,7 @@
 		    <label index="numeroObservation">Número de observação :  </label>
 			<label index="deposele">arquivado em : </label> 
 			<label index="zonesInteretObservation">Aqui você pode ver as áreas de interesse ou imagens desta observação para definir </label>
-			<label index="DonnerNomPlante">Você pode inserir o nome desta planta</label>
+			
 			<label index="voirobservationdetail">Clique na imagem para mais detalhes</label>
 			<label index="utilisateur">, pelo usuário : </label>
 			<label index="nomPlante">Nome da planta : </label>

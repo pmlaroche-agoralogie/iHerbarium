@@ -7,14 +7,10 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 		    <label index="numeroObservation">Observation number : </label>
-		    <label index="commentairesObservation">Comment :</label>
 			<label index="dateObservation">This observation has been photographed on : </label>
 			<label index="dateDepotObservation"> and send on :</label>
 			<label index="dateDepot">This observation has been send on :  </label>
-			<label index="imagesObservation">Here are the pictures which compose this observation : </label>   
-			<label index="latitudeObservation">This observation has been located at latitude  : </label>
-			<label index="longitudeObservation">and at longitude : </label>
-			<label index="pasLocalisation">There isn't any localisation associated with this observation </label>
+			<label index="imagesObservation">Here are the pictures which compose this observation : </label>  
 			<label index="DonnerNomPlante">You can specify us the name of this plant</label>
 			<label index="expertises">Here are the latest remarks that have been made on this plant  : </label>
 			<label index="expertises_forweb">Here are the latest remarks that have been made on this plant  : </label>
@@ -29,7 +25,6 @@
 			<label index="changerVersPrivee">Change to private</label>
 			<label index="changerVersPublic">Change to public</label>
 			<label index="changerVersSemi">Change to partially public</label>
-			<label index="goqrpage">Print a page with a label to store the plant</label>
 			<label index="morphoexplication">Regions of interest show the following answers </label>
 			<label index="roimorphoexplication">This part of picture was qualified : </label>
 
@@ -64,14 +59,9 @@
 		
 		<languageKey index="fr" type="array">
 			<label index="numeroObservation">Observation numéro : </label>
-			<label index="commentairesObservation">Commentaires :</label>
 			<label index="dateObservation">Cette observation a été faite le : </label>
 			<label index="dateDepotObservation"> et déposée le :</label>
 			<label index="dateDepot">Cette observation a été déposée le : </label>
-			<label index="imagesObservation">Voici les images constituant cette observation : </label>
-			<label index="latitudeObservation">Cette observation a été localisée à la latitude : </label>
-			<label index="longitudeObservation">et à la longitude : </label>
-			<label index="pasLocalisation">Il n'y a pas de localisation associée à cette observation </label>
 			<label index="DonnerNomPlante">Vous pouvez nous indiquer ici le nom de cette plante</label>
 			<label index="expertises">Voici les dernières remarques qui ont été faites sur cette plante : </label>
 			<label index="expertises_forweb">Voici les dernières remarques qui ont été faites sur cette plante : </label>
@@ -86,7 +76,6 @@
 			<label index="changerVersPrivee">Changer vers privée</label>
 			<label index="changerVersPublic">Changer vers publique</label>
 			<label index="changerVersSemi">Changer vers semi-publique</label>
-			<label index="goqrpage">Obtenir une page à imprimer où vous pourrez fixer votre récolte</label>
 			<label index="morphoexplication">Les zones intéressantes des images ont données les résultats suivants</label>
 			<label index="roimorphoexplication">Cette region d'image apportent ces qualifications : </label>
 			<label index="creerroi">Détailler les régions importantes de vos photos</label>
@@ -116,7 +105,6 @@
 		
 		<languageKey index="de" type="array">
 		    <label index="numeroObservation">Sighting number : </label>
-		    <label index="commentairesObservation">Comment :</label>
 			<label index="dateObservation">This sighting has been photographed on : </label>
 			<label index="dateDepotObservation"> and send on :</label>
 			<label index="dateDepot">This sighting has been send on :  </label>
@@ -144,7 +132,6 @@
 		
 		<languageKey index="es" type="array">
 		    <label index="numeroObservation">Observation numéro : </label>
-		    <label index="commentairesObservation"> Comentarios :</label>
 		    <label index="dateObservation"> Esta observación fue hecha el : </label>
 		    <label index="dateDepotObservation"> y añadido el :</label>
 			<label index="dateDepot"> Esta observación fue añadido el : </label>
@@ -193,7 +180,6 @@
 		</languageKey>
 		<languageKey index="pt" type="array">
 		    <label index="numeroObservation">Número de observação : </label>
-		    <label index="commentairesObservation">comentários :</label>
 		    <label index="dateObservation">Esta observação foi feita em : </label>
 		    <label index="dateDepotObservation"> e arquivado em :</label>
 			<label index="dateDepot">Esse comentário foi apresentada em : </label>
