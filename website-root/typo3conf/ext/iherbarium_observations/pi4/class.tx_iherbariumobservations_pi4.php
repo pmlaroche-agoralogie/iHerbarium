@@ -30,7 +30,7 @@ require_once($balPath . "debug.php");
 require_once($balPath . "config.php");
 require_once($balPath . "logger.php");
 
-require_once($balPath . "transferableModel.php");
+require_once($balPath . "typoherbariumModel.php");
 require_once($balPath . "persistentObject.php");
 
 require_once($balPath . "protocolMessage.php");
@@ -152,7 +152,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return $content;
   }
 
-  private function viewAddFiles(iHerbarium\TransferableObservation $obs, $nextAction) {
+  private function viewAddFiles(iHerbarium\TypoherbariumObservation $obs, $nextAction) {
     
     $lines = array();
   
@@ -209,7 +209,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return $content;
   }
 
-  private function viewObservationShow(iHerbarium\TransferableObservation $obs) {
+  private function viewObservationShow(iHerbarium\TypoherbariumObservation $obs) {
     $lines = array();
 
     // Beginning
@@ -274,7 +274,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     $this->redirect($oldListLink);
   }
 
-  private function viewCommentaryEdit(iHerbarium\TransferableObservation $obs) {
+  private function viewCommentaryEdit(iHerbarium\TypoherbariumObservation $obs) {
     $lines = array();
 
     $lines[] = '<div style="margin-top: 10px">';
@@ -288,7 +288,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return implode("\n", $lines);
   }
 	
-  private function viewPrivacyEdit(iHerbarium\TransferableObservation $obs) {
+  private function viewPrivacyEdit(iHerbarium\TypoherbariumObservation $obs) {
     $lines = array();
 
     $lines[] = '<div style="margin-top: 10px;">';
@@ -313,7 +313,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return implode("\n", $lines);
   }
 
-  private function viewGeolocShowMap(iHerbarium\TransferableObservation $obs) {
+  private function viewGeolocShowMap(iHerbarium\TypoherbariumObservation $obs) {
     $lines = array();
 
     $lines[] = '<div style="margin-top: 10px;">';
@@ -366,7 +366,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return implode("\n", $lines);
   }
 
-  private function viewObservationCreate(iHerbarium\TransferableObservation $obs, 
+  private function viewObservationCreate(iHerbarium\TypoherbariumObservation $obs, 
 					 $addFilesToken = NULL,
 					 $photosToAddRaw = NULL) {
 
@@ -421,7 +421,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
   }
 
 
-  private function viewObservationCreateNoUser(iHerbarium\TransferableObservation $obs, 
+  private function viewObservationCreateNoUser(iHerbarium\TypoherbariumObservation $obs, 
 					       $addFilesToken = NULL,
 					       $photosToAddRaw = NULL) {
 
@@ -494,7 +494,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return $content;
   }
 	
-  private function viewObservationEdit(iHerbarium\TransferableObservation $obs, 
+  private function viewObservationEdit(iHerbarium\TypoherbariumObservation $obs, 
 				   $addFilesToken = NULL,
 				   $photosToAddRaw = NULL) {
 
@@ -598,7 +598,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
   }
 
 
-  private function viewObservationSave(iHerbarium\TransferableObservation $obs, $nextAction) {
+  private function viewObservationSave(iHerbarium\TypoherbariumObservation $obs, $nextAction) {
     $lines = array();
 
     $lines[] = "<h1>" . $this->ll('saveObservationSavedWithId') . $obs->id . "</h1>";
@@ -625,7 +625,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     return $content;
   }
 
-  private function viewObservationDelete(iHerbarium\TransferableObservation $obs, $nextAction) {
+  private function viewObservationDelete(iHerbarium\TypoherbariumObservation $obs, $nextAction) {
     $lines = array();
 
     $lines[] = "<h1>" . $this->ll('deleteObservationDeletedId') . $obs->id . "</h1>";
@@ -692,7 +692,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
 		  // Geoloc
 		  $exif = exif_read_data($photoPath);
-		  $photoGeoloc = iHerbarium\TransferableGeolocation::fromExif($exif);
+		  $photoGeoloc = iHerbarium\TypoherbariumGeolocation::fromExif($exif);
 
 		  // Photo
 		  $photo = new iHerbarium\TypoherbariumPhoto();
@@ -711,7 +711,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 		  return array(
 			       'source' => ($photosDir . $photoFilename),
 			       'thumbnail' => ($thumbnailsDir . $photoFilename),
-			       'transferablePhoto' => $photo
+			       'typoherbariumPhoto' => $photo
 			       );
 		},
 		$photosFilenames
@@ -721,7 +721,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
   }
 
   private function getGeolocFromPhotos($photosToAdd) {
-    // $photos is an array of TransferablePhoto.
+    // $photos is an array of TypoherbariumPhoto.
 
     // Filter only Photos with a Geolocation.
     $photosToAddWithGeoloc =
@@ -732,7 +732,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
       $firstPhoto = iHerbarium\array_first($photosToAddWithGeoloc);
       return $firstPhoto->exifGeolocation;
     } else {
-      return iHerbarium\TransferableGeolocation::unknown();
+      return iHerbarium\TypoherbariumGeolocation::unknown();
     }
     
   }
@@ -741,7 +741,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
   private function actionAddFiles($uid, $obs) {
     // A DIRTY WORKAROUND
     if(! $obs) {
-      $obs = iHerbarium\TransferableObservation::createFresh();
+      $obs = iHerbarium\TypoherbariumObservation::createFresh();
     }
 
     // nextAction
@@ -772,7 +772,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     //$content .= "<h2>ADD FILES TOKEN : $addFilesToken</h2>";
 
     $photosToAddRaw = $this->getPhotosToAdd($addFilesToken);
-    $photosToAdd = array_map(function($photoToAddRaw) { return $photoToAddRaw['transferablePhoto']; }, $photosToAddRaw);
+    $photosToAdd = array_map(function($photoToAddRaw) { return $photoToAddRaw['typoherbariumPhoto']; }, $photosToAddRaw);
     
     /* --- PREPARE THE OBSERVATION --- */
 
@@ -800,7 +800,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
   }
 
 
-  private function actionEdit($uid, iHerbarium\TransferableObservation $obs) {
+  private function actionEdit($uid, iHerbarium\TypoherbariumObservation $obs) {
     
     assert($obs);
 
@@ -812,7 +812,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
   }
 
-  private function actionShow($uid, iHerbarium\TransferableObservation $obs = NULL) {
+  private function actionShow($uid, iHerbarium\TypoherbariumObservation $obs = NULL) {
 
     if($obs) {
     
@@ -854,7 +854,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
       //$content .= "<h2>ADD FILES TOKEN : $addFilesToken</h2>";
 
       $photosToAddRaw = $this->getPhotosToAdd($addFilesToken);
-      $photosToAdd = array_map(function($photoToAddRaw) { return $photoToAddRaw['transferablePhoto']; }, $photosToAddRaw);
+      $photosToAdd = array_map(function($photoToAddRaw) { return $photoToAddRaw['typoherbariumPhoto']; }, $photosToAddRaw);
       assert(count($photosToAddRaw) == count($photosToAdd));
     }
     
@@ -863,7 +863,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     // If there is no Observation given.
     if(! $obs) {
       // Prepare a fresh Observation.
-      $obs = iHerbarium\TransferableObservation::createFresh();
+      $obs = iHerbarium\TypoherbariumObservation::createFresh();
     } 
     
     // Update it's Geolocation from Photos.
@@ -891,7 +891,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     if(isset($_POST['obsGeolocLatitude']) && isset($_POST['obsGeolocLongitude'])) {
       $latitude = $_POST['obsGeolocLatitude'];
       $longitude = $_POST['obsGeolocLongitude'];
-      $geoloc = iHerbarium\TransferableGeolocation::fromLatitudeAndLongitude($latitude, $longitude);
+      $geoloc = iHerbarium\TypoherbariumGeolocation::fromLatitudeAndLongitude($latitude, $longitude);
       $obs->geoloc = $geoloc;
     }
     //$content .= "<h2>geoloc :" . ($geoloc ? $geoloc->__toString() : "NULL") . "</h2>";

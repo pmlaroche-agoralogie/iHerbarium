@@ -15,7 +15,7 @@ error_reporting(E_ALL | E_STRICT);
 $balPath = "../../../../boiteauxlettres/"; // Why does it work? No clue :)
 
 require_once($balPath . "myPhpLib.php");
-require_once($balPath . "transferableModel.php");
+require_once($balPath . "typoherbariumModel.php");
 
 class UploadHandler
 {
@@ -213,11 +213,11 @@ class UploadHandler
 	$exif = exif_read_data($file_path);
 	
 	// Geoloc
-	$transferableGeoloc = iHerbarium\TransferableGeolocation::fromExif($exif);
+	$typoherbariumGeoloc = iHerbarium\TypoherbariumGeolocation::fromExif($exif);
 
 	$geoloc = new StdClass();
-	$geoloc->latitude  = $transferableGeoloc->latitude;
-	$geoloc->longitude = $transferableGeoloc->longitude;
+	$geoloc->latitude  = $typoherbariumGeoloc->latitude;
+	$geoloc->longitude = $typoherbariumGeoloc->longitude;
 
 	$file->exifGeoloc = $geoloc;
 	
