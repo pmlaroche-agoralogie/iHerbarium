@@ -62,7 +62,7 @@
 		
 		<languageKey index="es" type="array">
 		    <label index="numeroObservation"> Observación número :  </label>
-			<label index="deposele"> Añadido el : </label> 
+			<label index="deposele"> Añadida el : </label> 
 			<label index="zonesInteretObservation"> Aquí usted puede ver las áreas de interés de las fotos de esta observación o usted les puede definir.  </label>
 			
 			<label index="voirobservationdetail"> Haga clic en la imagen para más detalles </label>
