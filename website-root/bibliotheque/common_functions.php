@@ -899,14 +899,8 @@ function remplir_tables($monobjet){
 function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$demandenom,$texteseul=0,$mylanguage='en')
 { //echo "<!-- mylanguage : $mylanguage -->";
   if($cetobjet!=null)
-    {
-      if($cetobjet->cObj->data['sys_language_uid']==1)$mylanguage='fr';
-      if($cetobjet->cObj->data['sys_language_uid']==3)$mylanguage='de';
-      if($cetobjet->cObj->data['sys_language_uid']==4)$mylanguage='it';
-      if($cetobjet->cObj->data['sys_language_uid']==2)$mylanguage='pt';
-      if($cetobjet->cObj->data['sys_language_uid']==5)$mylanguage='es';
-    }
-  
+      $mylanguage = language_iso_from_lang_id($cetobjet->cObj->data['sys_language_uid']);
+
   $demandenom =1;
   // define extension for the names of the strings
   if($texteseul==0){$finchamps ="_forweb"; $finligne = "<br/>";} else {$finchamps ="_formail";$finligne = " \n";}
@@ -1016,21 +1010,15 @@ if($sys_language_uid==1)$mylanguage='fr';
 if($sys_language_uid==2)$mylanguage='pt';
 if($sys_language_uid==3)$mylanguage='de';
 if($sys_language_uid==4)$mylanguage='it';
-if($sys_language_uid==5)$mylanguage='es';
+if($sys_language_uid==5)$mylanguage='sp';
 return $mylanguage;
 }
 
 function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="public")
 {
   if($cetobjet!=null)
-    {
-      if($cetobjet->cObj->data['sys_language_uid']==1)$mylanguage='fr';
-      if($cetobjet->cObj->data['sys_language_uid']==3)$mylanguage='de';
-      if($cetobjet->cObj->data['sys_language_uid']==4)$mylanguage='it';
-      if($cetobjet->cObj->data['sys_language_uid']==2)$mylanguage='pt';
-      if($cetobjet->cObj->data['sys_language_uid']==5)$mylanguage='es';
-    }
-    
+      $mylanguage = language_iso_from_lang_id($cetobjet->cObj->data['sys_language_uid']);
+
   $expertise = affiche_expertise($numobs,$cetobjet,"liste",$demandenom,0);
   //echo "<!-- $expertise -->";
   if(isset($_GET['nouveau']))if(strlen($expertise)>5)return "";
