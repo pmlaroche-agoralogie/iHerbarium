@@ -18,7 +18,7 @@ function study_chorologie($lat,$long)
   $result_determ= mysql_query($sql_mydet) or die ("Pb");
      while($row_quest= mysql_fetch_assoc($result_determ) ){
 	echo $row_quest['idobs']." - ".$row_quest['poids']." - ".$row_quest['url_rewriting_fr']."<br>";
-	$proche[] = array('id'=>$row_quest['idobs'] , 'weight' => $row_quest['poids']);
+	$proche[] = array('id'=>$row_quest['idobs'] , 'weight' => 1);// nota : i insert a weigth of 1 instead of  $row_quest['poids']
 	}
   return $proche;
 }
@@ -54,7 +54,6 @@ if(!is_numeric($_GET['observationid']))
 
 $observation_etudiee = desamorcer($_GET['observationid']);
 bd_connect();
-
 
 $sql_ref = "SELECT * FROM iherba_observations WHERE idobs = $observation_etudiee ";
 $result_ref = mysql_query($sql_ref)or die ('select');
