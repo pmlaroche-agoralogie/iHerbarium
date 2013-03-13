@@ -21,7 +21,8 @@ function taxon_link_list($taxonref,$taxon,$mylanguage)
  $linkResult = mysql_query($obsQuery) or dieanddebug ();
  $link_message = "";
  while($current_link = mysql_fetch_assoc($linkResult)){
-  $link_message .= "<a href=".$current_link['link'].">".$current_link['legend_link']."</a>\n";
+  //$link_message .= "<a href=".$current_link['link'].">".$current_link['legend_link']."</a>\n";
+  $link_message .= $current_link['legend_link'] ." : ".$current_link['link']."\n";
  }
  return $link_message;
 }
@@ -70,49 +71,52 @@ function expertise_very_close_to($topibsid,$mylanguage)
 
 function expertise_list_close_to($result,$mylanguage)
 {
- 
+ $nbmax_taxon = 3;
  $expertise_message_global =  get_string_language_sql('mail_notif_expert_system_expertise_list_may',$mylanguage) ;
  
  $list_probable = "";
  
+ $nbtaxon_displayed = 0;
  foreach($result as $obs)
  {
-  print_r($obs);
-  $obsQuery =
-    " SELECT *" .
-    " FROM iherba_observations" .
-    " WHERE idobs = '".$obs->obsId."'";
-  
-  $obsResult = mysql_query($obsQuery) or dieanddebug ();
-  assert(mysql_num_rows($obsResult) == 1);
-  $current_observation = mysql_fetch_assoc($obsResult);
-  
-  $url_the_observation = "http://".language_url_observation_from_lang_iso($mylanguage).$current_observation['idobs'];
-  
-  $expertise_message = get_string_language_sql('mail_notif_expert_system_one_proposal',$mylanguage) ."\n";
-  
-  $nameQuery =
-    " SELECT *" .
-    " FROM iherba_determination" .
-    " WHERE tropicosid = '".$current_observation['computed_best_tropicos_id']."'";
-   $nameResult = mysql_query($nameQuery) or dieanddebug ();
-  $current_determination = mysql_fetch_assoc($nameResult);
-  
-  $expertise = $current_determination['nom_scientifique']. " (".$current_determination['genre']." , ".$current_determination['famille'].")";
-  
-  $expertise_message = str_replace("%s$1",$url_the_observation,$expertise_message);
-  $expertise_message = str_replace("%s$2",$expertise,$expertise_message);
-  
-  $links = taxon_link_list('tropicos',$current_observation['computed_best_tropicos_id'],$mylanguage);
- if($links!="")
-  {
-   $links_intro = get_string_language_sql('more_info_list_taxon_link',$mylanguage) ;
-   $expertise_message .= "\n".str_replace("%s$1",$links,$links_intro);
+  if($nbtaxon_displayed<$nbmax_taxon)
+   {
+   $obsQuery =
+     " SELECT *" .
+     " FROM iherba_observations" .
+     " WHERE idobs = '".$obs->obsId."'";
+   
+   $obsResult = mysql_query($obsQuery) or dieanddebug ();
+   assert(mysql_num_rows($obsResult) == 1);
+   $current_observation = mysql_fetch_assoc($obsResult);
+   
+   $url_the_observation = "http://".language_url_observation_from_lang_iso($mylanguage).$current_observation['idobs'];
+   
+   $expertise_message = get_string_language_sql('mail_notif_expert_system_one_proposal',$mylanguage) ."\n";
+   
+   $nameQuery =
+     " SELECT *" .
+     " FROM iherba_determination" .
+     " WHERE tropicosid = '".$current_observation['computed_best_tropicos_id']."'";
+    $nameResult = mysql_query($nameQuery) or dieanddebug ();
+   $current_determination = mysql_fetch_assoc($nameResult);
+   
+   $expertise = $current_determination['nom_scientifique']. " (".$current_determination['genre']." , ".$current_determination['famille'].")";
+   
+   $expertise_message = str_replace("%s$1",$url_the_observation,$expertise_message);
+   $expertise_message = str_replace("%s$2",$expertise,$expertise_message);
+   
+   $links = taxon_link_list('tropicos',$current_observation['computed_best_tropicos_id'],$mylanguage);
+  if($links!="")
+   {
+    $links_intro = get_string_language_sql('more_info_list_taxon_link',$mylanguage) ;
+    $expertise_message .= "\n".str_replace("%s$1",$links,$links_intro);
+   }
+   
+   $list_probable .= $expertise_message;
+   $nbtaxon_displayed++;
   }
-  
-  $list_probable .= $expertise_message;
  }
- 
  $expertise_message_global = "\n".str_replace("%s$1",$list_probable,$expertise_message_global);
  return $expertise_message_global;
 }
