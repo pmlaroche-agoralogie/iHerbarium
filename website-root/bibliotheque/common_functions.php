@@ -1003,6 +1003,39 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   return $content;	
 }
 
+function language_domainename_mail_from_lang_iso($iso2c="en")
+{
+  $mydomain="";
+  $iso2c = strtolower(substr($iso2c,0,2));
+  if($iso2c=="")$iso2c='en';
+  
+  if($iso2c=="en")$mydomain="iherbarium.org";
+  if($iso2c=="fr")$mydomain="iherbarium.fr";
+  if($iso2c=="pt")$mydomain="iherbarium.com.br";
+  if($iso2c=="it")$mydomain="iherbarium.it";
+  if($iso2c=="de")$mydomain="iherbarium.de";
+  
+  if($mydomain=="")$mydomain="iherbarium.org";
+  return $mydomain;
+}
+
+function language_url_observation_from_lang_iso($iso2c="en")
+{
+  $mydomain="";
+  $iso2c = strtolower(substr($iso2c,0,2));
+  if($iso2c=="")$iso2c='en';
+  
+  if($iso2c=="en")$mydomain="www.iherbarium.org/observation/data/";
+  if($iso2c=="fr")$mydomain="www.iherbarium.fr/observation/data/";
+  if($iso2c=="pt")$mydomain="www.iherbarium.com.br/observation/data/";
+  if($iso2c=="it")$mydomain="www.iherbarium.it/observation/data/";
+  if($iso2c=="de")$mydomain="www.iherbarium.de/observation/data/";
+  
+  if($mydomain=="")$mydomain="www.iherbarium.org/observation/data/";
+  return $mydomain;
+}
+
+
 function language_iso_from_lang_id($sys_language_uid=0)
 {
 $mylanguage='en';

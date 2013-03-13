@@ -41,6 +41,22 @@ function insert_similarity_set($id,$proche){
   $result_insert = mysql_query($sql_insert) or die ('insert'); 
 }
 
+$observation_etudiee = -1;
+
+//verify if tasks are waiting for sets
+bd_connect();
+
+$sql_ref = "SELECT * FROM iherba_task WHERE Type='AddObservationToDeterminationFlow' and ContextType ='Observation' order by id ASC";
+$result_ref = mysql_query($sql_ref)or die ('select');
+if(mysql_num_rows($result_ref)>0)
+{
+  $row_quest= mysql_fetch_assoc($result_ref) ;
+  $observation_etudiee = $row_quest['Context'];
+}
+else {
+  
+
+//if not, search for a parameter
 //verify the quality of the parameters
 if(!isset($_GET['observationid']))
   {
@@ -50,9 +66,16 @@ if(!is_numeric($_GET['observationid']))
   {
     die('observationid must be an integer');
   }
-
-
 $observation_etudiee = desamorcer($_GET['observationid']);
+}
+
+if($observation_etudiee== -1)die();// no observation need to be computed , nothing to do
+
+$sql_set_exists = "SELECT *  FROM  `iherba_similarity_set`  WHERE  `observation_id` = $observation_etudiee";
+$result_ref = mysql_query($sql_set_exists)or die ('exists');
+if(mysql_num_rows($result_ref)>0)die(); // good set already computed
+
+//echo $observation_etudiee;die();
 bd_connect();
 
 $sql_ref = "SELECT * FROM iherba_observations WHERE idobs = $observation_etudiee ";
