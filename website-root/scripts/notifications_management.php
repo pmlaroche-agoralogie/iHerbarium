@@ -11,57 +11,57 @@ function dieanddebug()
 
 function taxon_link_list($taxonref,$taxon,$mylanguage)
 { 
- $obsQuery =
-   " SELECT * 
-   FROM  `iherba_taxon_links` 
-   WHERE  `taxon_api` LIKE  '$taxonref'
-   AND  `taxon` LIKE  '$taxon'
-   AND lng = '$mylanguage' ";
- 
- $linkResult = mysql_query($obsQuery) or dieanddebug ();
- $link_message = "";
- while($current_link = mysql_fetch_assoc($linkResult)){
-  //$link_message .= "<a href=".$current_link['link'].">".$current_link['legend_link']."</a>\n";
-  $link_message .= $current_link['legend_link'] ." : ".$current_link['link']."\n";
- }
- return $link_message;
+    $obsQuery =
+      " SELECT * 
+      FROM  `iherba_taxon_links` 
+      WHERE  `taxon_api` LIKE  '$taxonref'
+      AND  `taxon` LIKE  '$taxon'
+      AND lng = '$mylanguage' ";
+    
+    $linkResult = mysql_query($obsQuery) or dieanddebug ();
+    $link_message = "";
+    while($current_link = mysql_fetch_assoc($linkResult)){
+	//$link_message .= "<a href=".$current_link['link'].">".$current_link['legend_link']."</a>\n";
+	$link_message .= $current_link['legend_link'] ." : ".$current_link['link']."\n";
+    }
+    return $link_message;
 }
 
 function expertise_very_close_to($topibsid,$mylanguage)
 {
- $obsQuery =
-   " SELECT *" .
-   " FROM iherba_observations" .
-   " WHERE idobs = '$topibsid'";
- 
- $obsResult = mysql_query($obsQuery) or dieanddebug ();
- assert(mysql_num_rows($obsResult) == 1);
- $current_observation = mysql_fetch_assoc($obsResult);
- 
- $url_top_observation = "http://".language_url_observation_from_lang_iso($mylanguage).$current_observation['idobs'];
-  
- $expertise_message = get_string_language_sql('mail_notif_expert_system_expertise_sure_one',$mylanguage) ;
- 
- 
- $nameQuery =
-   " SELECT *" .
-   " FROM iherba_determination" .
-   " WHERE tropicosid = '".$current_observation['computed_best_tropicos_id']."'";
-  $nameResult = mysql_query($nameQuery) or dieanddebug ();
- $current_determination = mysql_fetch_assoc($nameResult);
- 
- $expertise = $current_determination['nom_scientifique']. " (".$current_determination['genre']." , ".$current_determination['famille'].")";
- 
- $expertise_message = str_replace("%s$1",$url_top_observation,$expertise_message);
- $expertise_message = str_replace("%s$2",$expertise,$expertise_message);
- 
- $links = taxon_link_list('tropicos',$current_observation['computed_best_tropicos_id'],$mylanguage);
- if($links!="")
-  {
-   $links_intro = get_string_language_sql('more_info_list_taxon_link',$mylanguage) ;
-   $expertise_message .= "\n".str_replace("%s$1",$links,$links_intro);
-  }
- return $expertise_message;
+    $obsQuery =
+      " SELECT *" .
+      " FROM iherba_observations" .
+      " WHERE idobs = '$topibsid'";
+    
+    $obsResult = mysql_query($obsQuery) or dieanddebug ();
+    assert(mysql_num_rows($obsResult) == 1);
+    $current_observation = mysql_fetch_assoc($obsResult);
+    
+    $url_top_observation = "http://".language_url_observation_from_lang_iso($mylanguage).$current_observation['idobs'];
+     
+    $expertise_message = get_string_language_sql('mail_notif_expert_system_expertise_sure_one',$mylanguage) ;
+    
+    
+    $nameQuery =
+      " SELECT *" .
+      " FROM iherba_determination" .
+      " WHERE tropicosid = '".$current_observation['computed_best_tropicos_id']."'";
+    $nameResult = mysql_query($nameQuery) or dieanddebug ();
+    $current_determination = mysql_fetch_assoc($nameResult);
+    
+    $expertise = $current_determination['nom_scientifique']. " (".$current_determination['genre']." , ".$current_determination['famille'].")";
+    
+    $expertise_message = str_replace("%s$1",$url_top_observation,$expertise_message);
+    $expertise_message = str_replace("%s$2",$expertise,$expertise_message);
+    
+    $links = taxon_link_list('tropicos',$current_observation['computed_best_tropicos_id'],$mylanguage);
+    if($links!="")
+    {
+       $links_intro = get_string_language_sql('more_info_list_taxon_link',$mylanguage) ;
+       $expertise_message .= "\n".str_replace("%s$1",$links,$links_intro);
+    }
+    return $expertise_message;
 }
 
 
