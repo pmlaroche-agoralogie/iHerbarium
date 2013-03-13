@@ -188,6 +188,7 @@ function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser
 
 function notifyUserAbout_expert_system_say_Determination($parameters,$mylanguage) {
  $send_notify=1; //not all notification are interesting people, we can decide to unable some
+ $expertise=""; // conclusion if any
  // Obs
  $obsQuery =
    " SELECT *" .
@@ -238,6 +239,12 @@ function notifyUserAbout_expert_system_say_Determination($parameters,$mylanguage
    $message = get_string_language_sql('mail_notif_expert_system_say_geoloc_notenough',$mylanguage);
   }
   else
+  if(($parameters->verdict == 'TooMuchComparisonsNedded') ||($parameters->verdict == 'TooMuchComparisonsNeeded'))
+  {
+   $message = get_string_language_sql('mail_notif_expert_system_say_too_much_close',$mylanguage);
+  }
+  else
+  
   {
    $message = get_string_language_sql('mail_notif_expert_system_say_message',$mylanguage);
   if($parameters->verdict == 'NoComparisonsNeeded')
@@ -261,7 +268,7 @@ function notifyUserAbout_expert_system_say_Determination($parameters,$mylanguage
   // Send mail
  if($send_notify==1)
   {
-   mail($to, $subject, $message, $headers);*/
+   mail($to, $subject, $message, $headers);
   }
  return  "send_notify = $send_notify to = \n$to \n Subject = \n".$subject." \n Message = \n".$message." \n Header =".$headers;
 }
