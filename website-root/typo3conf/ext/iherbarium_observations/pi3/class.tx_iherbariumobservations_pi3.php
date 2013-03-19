@@ -286,7 +286,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $visibilite=$row_visibilite["public"];
     $iduser=$row_visibilite["id_user"];//utilisateur qui a déposé cette observation
 	    
-    $content.= $this->pi_getLL('numeroObservation', '', 1)." ".$numero_observation."";
+    $content.= get_string_language_sql("ws_observation_before_number",$mylanguage).$numero_observation."";
 		
     $content.='</h1><div id="bloc_contenu_texte">';
 		 
@@ -304,7 +304,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 
     /*Affichage des informations concernant l'observation */
     bd_connect();
-    $sql="select date_depot,idobs,commentaires,longitude,latitude from iherba_observations where idobs=$numero_observation";
+    $sql="select date_depot,idobs,commentaires,longitude,latitude,computed_date_seen_exif_or_smartphone from iherba_observations where idobs=$numero_observation";
     $result = mysql_query($sql) or die ();
     
     if(! ($lobervation = mysql_fetch_assoc($result)))
@@ -323,7 +323,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     if(niveau_testeur($this)>0)
       {
 	$content.="<br/>";
-	$content.=$this->pi_linkToPage($this->pi_getLL('zonesInteretObservation', '', 1),29,'',$paramlien);
+	$content.=$this->pi_linkToPage(get_string_language_sql("ws_edit_roi_image",$mylanguage),29,'',$paramlien);
 	$content.="<br/><br/>";
 	
 	// allow to "moderate" this observation
@@ -334,24 +334,31 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     if($lobervation["commentaires"] !=""){
       $content.= get_string_language_sql("ws_observation_comment",$mylanguage) ." ".$lobervation["commentaires"]."<br/><br/>\n";
     }
-			 
-    $sql2="select id_obs,date_user,nom_photo_final from iherba_photos where id_obs=$numero_observation";
-    $result2 = mysql_query($sql2) or die ();
-	   
-    while ($row2 = mysql_fetch_assoc($result2)) {
+    
+    $nom_photo_final = array();
+    $sql_photos="select id_obs,date_user,nom_photo_final from iherba_photos where id_obs=$numero_observation";
+    $result_photos = mysql_query($sql_photos) or die ();
+    while ($row2 = mysql_fetch_assoc($result_photos)) {
       $date_user=$row2["date_user"]; //date de la prise de l'observation
       $nom_photo_final[]=$row2["nom_photo_final"];
     }
-	   
-	   
-    $dateaffichage = str_replace("-","/",$lobervation["date_depot"]) ; //list($annee, $mois, $jour) = explode("-",$date_depot);
-    if($date_user !=""){
-      $content.=$this->pi_getLL('dateObservation', '', 1)." ".str_replace("-","/",$date_user).$this->pi_getLL('dateDepotObservation', '', 1)." ".$dateaffichage."<br/>\n";
+    
+    //eventually, some medias video or sound
+    $nom_media_final=array();
+    $sql_media="select id_observation, date_depot, nom_media_final from iherba_medias where id_observation=$numero_observation ";
+    $result_media = mysql_query($sql_media) or die ($sql_media);
+    while ($row_media = mysql_fetch_assoc($result_media)) {
+      $nom_media_final[]=$row_media["nom_media_final"];
     }
-    else{
-      $content.=$this->pi_getLL('dateDepot', '', 1)." ".$dateaffichage."<br/>\n";
-    }
+    
+    $date_uploaded = str_replace("-","/",$lobervation["date_depot"]) ;
+    $date_seen = $lobervation["computed_date_seen_exif_or_smartphone"];
 
+    if(($date_seen !="0000-00-00 00:00:00")&&($date_seen !="")&&($date_seen !="0")){
+      $content.= "<br>".get_string_language_sql("ws_seen_date_observation",$mylanguage)." ".str_replace("-","/",$date_seen)."\n";
+    }
+    
+    $content.= "<br>".get_string_language_sql("ws_upload_date_observation",$mylanguage)." ".$date_uploaded."<br/>\n";
     // Kuba ->
 
     if($GLOBALS['TSFE']->fe_user->user['uid'] == $iduser) {    
@@ -411,7 +418,15 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       else
 	$content.='<a href="/scripts/large.php?name='.$value.'" ><img src="'.repertoire_vignettes."/".$value.'" border=2 width="200"  /></blank></a>';
     }
-		
+    
+    if(!empty($nom_media_final)){
+      $content.= "<br>".get_string_language_sql("ws_observation_list_of_media",$mylanguage)."<br/>\n";
+      foreach($nom_media_final as $value){
+	$content.='<a href='.repertoire_vignettes."/../medias/".$value.' >Video </a>';
+      }
+      $content.= "<br>";
+    }
+    
     // localisation is shown if public or for the owner 
     if(($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)|| ($visibilite=="oui")){
       if($lobervation["latitude"]!=0 && $lobervation["longitude"]!=0){

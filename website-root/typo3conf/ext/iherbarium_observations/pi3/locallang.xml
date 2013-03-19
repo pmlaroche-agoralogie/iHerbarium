@@ -7,10 +7,14 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 		    <label index="numeroObservation">Observation number : </label>
+		    <label index="commentairesObservation">Comment :</label>
 			<label index="dateObservation">This observation has been photographed on : </label>
 			<label index="dateDepotObservation"> and send on :</label>
 			<label index="dateDepot">This observation has been send on :  </label>
-			<label index="imagesObservation">Here are the pictures which compose this observation : </label>  
+			<label index="imagesObservation">Here are the pictures which compose this observation : </label>   
+			<label index="latitudeObservation">This observation has been located at latitude  : </label>
+			<label index="longitudeObservation">and at longitude : </label>
+			<label index="pasLocalisation">There isn't any localisation associated with this observation </label>
 			<label index="DonnerNomPlante">You can specify us the name of this plant</label>
 			<label index="expertises">Here are the latest remarks that have been made on this plant  : </label>
 			<label index="expertises_forweb">Here are the latest remarks that have been made on this plant  : </label>
@@ -25,6 +29,7 @@
 			<label index="changerVersPrivee">Change to private</label>
 			<label index="changerVersPublic">Change to public</label>
 			<label index="changerVersSemi">Change to partially public</label>
+			<label index="goqrpage">Print a page with a label to store the plant</label>
 			<label index="morphoexplication">Regions of interest show the following answers </label>
 			<label index="roimorphoexplication">This part of picture was qualified : </label>
 
@@ -59,15 +64,17 @@
 		
 		<languageKey index="fr" type="array">
 			<label index="numeroObservation">Observation numéro : </label>
-			<label index="dateObservation">Cette observation a été faite le : </label>
-			<label index="dateDepotObservation"> et déposée le :</label>
-			<label index="dateDepot">Cette observation a été déposée le : </label>
+			<label index="commentairesObservation">Commentaires :</label>
+			
+			<label index="imagesObservation">Voici les images constituant cette observation : </label>
+			<label index="latitudeObservation">Cette observation a été localisée à la latitude : </label>
+			<label index="longitudeObservation">et à la longitude : </label>
+			<label index="pasLocalisation">Il n'y a pas de localisation associée à cette observation </label>
 			<label index="DonnerNomPlante">Vous pouvez nous indiquer ici le nom de cette plante</label>
 			<label index="expertises">Voici les dernières remarques qui ont été faites sur cette plante : </label>
 			<label index="expertises_forweb">Voici les dernières remarques qui ont été faites sur cette plante : </label>
 			<label index="expertises_formail">Notes et remarques saisies : </label>
 			<label index="seeproximity">Cliquer ici pour voir des observations proches</label>
-			<label index="zonesInteretObservation">Editer les regions d'interest des images</label>
 			<label index="visibiliteobs">Votre observation est : </label>			
 			<label index="semi">partiellement publique, c'est-à-dire que toutes les informations sur votre observation peuvent être consultées par les autres membres du site,sauf sa localisation qui reste privée.</label>
 			<label index="public">publique. Toutes les informations sur votre observation peuvent être consultées par les autres membres du site.</label>
@@ -76,6 +83,7 @@
 			<label index="changerVersPrivee">Changer vers privée</label>
 			<label index="changerVersPublic">Changer vers publique</label>
 			<label index="changerVersSemi">Changer vers semi-publique</label>
+			<label index="goqrpage">Obtenir une page à imprimer où vous pourrez fixer votre récolte</label>
 			<label index="morphoexplication">Les zones intéressantes des images ont données les résultats suivants</label>
 			<label index="roimorphoexplication">Cette region d'image apportent ces qualifications : </label>
 			<label index="creerroi">Détailler les régions importantes de vos photos</label>
@@ -103,38 +111,10 @@
 		</languageKey>
 		
 		
-		<languageKey index="de" type="array">
-		    <label index="numeroObservation">Sighting number : </label>
-			<label index="dateObservation">This sighting has been photographed on : </label>
-			<label index="dateDepotObservation"> and send on :</label>
-			<label index="dateDepot">This sighting has been send on :  </label>
-			<label index="imagesObservation">Hier die Bilder, die diese Beobachtung darstellen: </label>   
-			<label index="latitudeObservation">This sighting has been located at laltitude  : </label>
-			<label index="longitudeObservation">and at longitude : </label>
-			<label index="pasLocalisation">nicht eine assoziierte Lokalisierung</label>
-			<label index="DonnerNomPlante">Sie können uns den Namen dieser Pflanze hier angeben</label>
-			<label index="expertises">Sind hier die spätesten Sachkenntnisse, die auf dieser Anlage gebildet worden sind:  </label>
-			<label index="le">On </label>
-			<label index="nomCommun">, Gemeinsamer Name : </label>
-			<label index="nomScientifique">, Wissenschaftlicher Name : </label>
-			<label index="visibiliteobs">Your sighting is : </label>
-			<label index="semi">partially public, its localisation can't be visible by other members of the site. </label>
-			<label index="public">public. Information about your sighting can be seen by other members of the site</label>
-			<label index="prive">private. Information about your sighting can only be seen by you.</label>
-			<label index="changerStatut">You can change the status of your sighting, you just have to select the new status that you want for your sighting</label>
-			<label index="changerVersPrivee">Change to private</label>
-			<label index="changerVersPublic">Change to public</label>
-			<label index="changerVersSemi">Change to partially public</label>
-			
-			<label index="back">Back</label>
-			<label index="submit_button_label">Click here to submit value</label>
-		</languageKey>
-		
 		<languageKey index="es" type="array">
 		    <label index="numeroObservation">Observation numéro : </label>
-		    <label index="dateObservation"> Esta observación fue hecha el : </label>
-		    <label index="dateDepotObservation"> y añadido el :</label>
-			<label index="dateDepot"> Esta observación fue añadido el : </label>
+		    <label index="commentairesObservation"> Comentarios :</label>
+		    
 		    <label index="imagesObservation"> Aquí están las imágenes que constituyen esta observación : </label>
 		    <label index="latitudeObservation"> Esta observación se encuentra en la latitud : </label>
 		    <label index="longitudeObservation"> y la longitud : </label>
@@ -180,10 +160,8 @@
 		</languageKey>
 		<languageKey index="pt" type="array">
 		    <label index="numeroObservation">Número de observação : </label>
-		    <label index="dateObservation">Esta observação foi feita em : </label>
-		    <label index="dateDepotObservation"> e arquivado em :</label>
+		    <label index="commentairesObservation">comentários :</label>
 			<label index="dateDepot">Esse comentário foi apresentada em : </label>
-		    <label index="imagesObservation">Aqui estão as imagens que compõem esta observação : </label>
 		    <label index="latitudeObservation">Esta observação foi localizado na latitude : </label>
 		    <label index="longitudeObservation">e longitude : </label>
 		    <label index="pasLocalisation">Não há local GPS associado com esta observação </label>
@@ -192,7 +170,6 @@
 			<label index="expertises_forweb">Aqui estão os últimos comentários que foram feitos sobre esta planta: </label>
 			<label index="expertises_formail">Notas e comentários inseridos: </label>
 			<label index="seeproximity">Clique aqui para ver os comentários fechar</label>
-			<label index="zonesInteretObservation">Editar as regiões d' interest das imagens</label>
 			<label index="visibiliteobs">Sua observação é : </label>			
 			<label index="semi">parte do público, que quer dizer que todas as informações sobre a sua observação pode ser visualizada por outros membros do site, exceto sua localização GPS continua a ser privada.</label>
 			<label index="public">público. Todas as informações sobre a sua observação pode ser visto por outros membros do site.</label>
