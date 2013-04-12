@@ -121,6 +121,48 @@ function expertise_list_close_to($result,$mylanguage)
  return $expertise_message_global;
 }
 
+function notifyUserAbout_Account_Open($parameters,$mylanguage) {
+ $send_notify=1; //not all notification are interesting people, we can decide to unable some
+
+ // User
+ $userQuery =
+   " SELECT *" .
+   " FROM fe_users" .
+   " WHERE uid = '" . $parameters->user . "'";
+ 
+ $userResult = mysql_query($userQuery) or dieanddebug();
+ assert(mysql_num_rows($userResult) == 1);
+ $user = mysql_fetch_assoc($userResult);
+ $language_user = strtolower($user['language']);
+ if($mylanguage=='')
+  {
+   //if no prefered language for the notification, use the owner language
+   $mylanguage=strtolower($language_user);
+  }
+
+ // Prepare Mail
+  $agoralogieAddress = "notification@".language_domainename_mail_from_lang_iso($mylanguage);
+  $bccagoralogieAddress = 'agoralogie@gmail.com';
+
+  $to = $user['email'];
+  
+  $subject = get_string_language_sql('mail_notif_open_account_title',$mylanguage) ;
+  $message = get_string_language_sql('mail_notif_open_account_message',$mylanguage);
+  //$url_observation = $obs['idobs']." : \n".'http://www.iherbarium.fr/index.php?id=detail&numero_observation='.$obs['idobs'];
+  $message = str_replace("%s$1",language_domainename_mail_from_lang_iso($mylanguage),$message);
+  $message = str_replace("%s$2",$user['password'],$message);
+  $message .= get_string_language_sql('mail_notif_footer',$mylanguage) ;
+
+  $headers = 
+    "From: " . $agoralogieAddress . "\r\n" .
+    "Bcc: " . $bccagoralogieAddress . "\r\n";
+  
+  // Send mail
+ mail($to, $subject, $message, $headers);
+ return  "to = \n$to \n Subject = \n".$subject." \n Message = \n".$message." \n Header =".$headers;
+}
+
+
 
 function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser,$mylanguage ) {
  $monobjet=NULL;
@@ -142,6 +184,7 @@ function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser
  
  $obsResult = mysql_query($obsQuery) or dieanddebug ();
 
+ 
  assert(mysql_num_rows($obsResult) == 1);
  $obs = mysql_fetch_assoc($obsResult);
  
@@ -163,6 +206,17 @@ function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser
    $mylanguage=strtolower($language_user);
   }
   
+  $links_intro="";
+  if($determination['tropicosid']>0)
+    {
+	$links = taxon_link_list('tropicos',$determination['tropicosid'],$mylanguage);
+	if($links!="")
+	{
+	   $plus = get_string_language_sql('more_info_list_taxon_link',$mylanguage) ;
+	   $links_intro = str_replace('%s$1',$links,$plus);
+	}
+    }
+    
  // Prepare Mail
   $agoralogieAddress = "notification@".language_domainename_mail_from_lang_iso($mylanguage);
   $bccagoralogieAddress = 'agoralogie@gmail.com';
@@ -172,12 +226,14 @@ function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser
   $subject = get_string_language_sql('mail_notif_somebody_say_title',$mylanguage) . " ".$obs['idobs'];
   $message = get_string_language_sql('mail_notif_somebody_say_message',$mylanguage);
   //$url_observation = $obs['idobs']." : \n".'http://www.iherbarium.fr/index.php?id=detail&numero_observation='.$obs['idobs'];
-  $url_observation = $current_observation['idobs']." : \n"."http://".language_url_observation_from_lang_iso($mylanguage)."numero_observation=".$current_observation['idobs'];
-  
+  //$url_observation = " \n"."http://".language_url_observation_from_lang_iso($mylanguage)."numero_observation=".$obs['idobs'];
+  $url_the_observation = "http://".language_url_observation_from_lang_iso($mylanguage).$obs['idobs'];
+   
   
   $expertise = affiche_expertise($obs['idobs'],$monobjet,"courte",$x,1,$mylanguage);
-  $message = str_replace("%s$1",$url_observation,$message);
+  $message = str_replace("%s$1",$url_the_observation,$message);
   $message = str_replace("%s$2",$expertise,$message);
+  $message = str_replace("%s$3",$links_intro,$message);
   
   $message .= get_string_language_sql('mail_notif_footer',$mylanguage) ;
 
@@ -305,6 +361,14 @@ if($thenotification['message_type'] == 'expert-system-say')
  $messagetexte = notifyUserAbout_expert_system_say_Determination($parameters,$thenotification['preferred_language']);
   }
 
+if($thenotification['message_type'] == 'account-open')
+ {
+ $id_current_notification = $thenotification['id_notification'];
+ $parameters = json_decode($thenotification['parameters']);
+ $messagetexte = notifyUserAbout_Account_Open($parameters,$thenotification['preferred_language']);
+  }
+
+  
 $messagetexte =  str_replace("\n",'\n ', $messagetexte);
 $messagetexte =  str_replace("\r",'', $messagetexte);
 $messagetexte =  str_replace("'",'``', $messagetexte);
