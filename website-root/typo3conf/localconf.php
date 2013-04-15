@@ -97,8 +97,6 @@ if(($left != "www")&&($left != "localname"))
 	$_SERVER['REDIRECT_URL'] .= 'zone/'.$left;
 	}
 */
-//$GLOBALS['TSFE']->config['config']['baseURL']="http://www.iherbarium.es/"; // Setzt config.baseURL  
-
 
 require_once(PATH_tslib.'../../../../bibliotheque/common_functions.php');
 require_once(PATH_tslib.'../../../../bibliotheque/init_fonctions_sousdomaine.php');
