@@ -25,8 +25,18 @@ function moderation(){
 VALUES (".$row_obs['idobs'].",".$row_obs['idphotos'].",".$id_roi.", -1,'".$_SERVER['REMOTE_ADDR']."')";
 	$enregistre_log_question= mysql_query($sql_log_rapport) or die ();
 	
-	//$sql_exit_observation = "update `iherba_observations` set `moderation` = 1 where idobs = ".$row_obs['idobs']." ";
-	$enregistre_log_question= mysql_query($sql_exit_observation) or die ();
+	$sql_nb_pesonnes_moderent = "SELECT distinct id_user_ou_ip  FROM `iherba_moderation` WHERE `id_observation` = ".$row_obs['idobs'];
+	$resultat_nb_personne =  mysql_query($sql_nb_pesonnes_moderent) or die ();
+	
+	$limite_min = 3;
+	if(mysql_num_rows($resultat_nb_personne)>$limite_min)
+	{
+		$sql_exit_observation = "update `iherba_observations` set `moderation` = 1 where idobs = ".$row_obs['idobs']." ;";
+		$enregistre_moderation= mysql_query($sql_exit_observation) or die ();
+		mail("philippe.laroche@agoralogie.fr","moderation sup".$limite_min,"observation : ".$row_obs['idobs']);
+	}
+
+	
 	
 }
 
