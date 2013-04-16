@@ -235,7 +235,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     // Kuba ->
 
     // jQuery.                           
-    $content .= file_get_contents('/typo3conf/ext/iherbarium_observations/pi4/scripts.html');
+    $content .= file_get_contents('typo3conf/ext/iherbarium_observations/pi4/scripts.html');
 
     // <- Kuba
 		
