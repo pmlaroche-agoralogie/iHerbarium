@@ -90,6 +90,9 @@ html>body #main {
 /* ------------------------------------------------------------------------- */
 /* Les onglets dans le menu                                                  */
 /* ------------------------------------------------------------------------- */
+#picto_home{
+	display:none;
+}
 #picto_home a{
 	margin: 0 10px 0 30px;
 	padding: 0;
@@ -103,7 +106,7 @@ html>body #main {
 }
 #barre_nav {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 20px;
 	float:left;
 	width: 630px;
 }
@@ -271,7 +274,7 @@ html>body #main {
 /* ------------------------------------------------------------------------- */
 #main #contenu_droite #bloc_contenu {
 	padding: 0;
-	margin: 0;
+	margin: 0 0 20px 0;
 	float: left;
 	width: 207px;
 	background-image:url(../medias/interface/droite_bloc_contenu_bas.jpg);
@@ -381,6 +384,7 @@ html>body #main {
 	margin: 0;
 	padding: 0 0 12px 0;
 	color: #4B4B4B;
+	line-height: 18px;
 }
 #main a {
 	color: #4B4B4B;
@@ -542,7 +546,7 @@ DIV.csc-textpic-intext-left img{ padding-right: 20px; }
 DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap{ padding-right: 8px; padding-bottom: 12px; }
 /* photo a droite, txt autour */
 DIV.csc-textpic-intext-right img{ padding-left: 20px; } 
-DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { padding-left: 8px; padding-bottom: 12px; }
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { padding-left: 8px; padding-bottom: 12px; margin-right: 20px; }
 /* photo a gauche, txt a droite */
 DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-text{ padding-left: 8px; padding-bottom: 12px; }  
 /* photo a droite, txt a gauche */
