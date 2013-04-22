@@ -75,8 +75,8 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 			       $content.=afficher_carte_observations($this,$GLOBALS['TSFE']->fe_user->user['uid']);  //page "carte des observations"
 			else
 			       $content.=afficher_carte_observations($this,0);  //page "carte des observations publiques"
-			
-			if(!is_sousdomaine_www())$content.= "<br><br>".liste_espece($this,0);  //inventaire publique
+			$mylanguage = language_iso_from_lang_id($this->cObj->data['sys_language_uid']);
+			if(!is_sousdomaine_www())$content.= "<br><br>".liste_espece($this,0,$mylanguage);  //inventaire publique
 		}
 			
 	return $this->pi_wrapInBaseClass($content);

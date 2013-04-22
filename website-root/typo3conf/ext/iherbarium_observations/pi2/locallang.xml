@@ -49,13 +49,7 @@
 			<label index="lastzoneobservation">Observations  (limitées aux 75 dernières) de la zone : </label>
 			<label index="lastwebsiteobservation">Dernières observations (limitées à 75) déposées sur le site</label>
 			<label index="noobservation">Pas d'observation dans cette zone </label>
-			
-			<label index="speciesinventory">Inventaires des especes déterminées</label>
-			<label index="nospeciesobservation">Pas d'observations déterminées dans cette zone</label>
-			<label index="numberdistinctfamily">Nombre de famille différentes dans cette zone </label>
-			<label index="numberdistinctgenus">Nombre de genre différents dans cette zone </label>
-			<label index="numberdistinctspecies">Nombre d'especes différentes dans cette zone </label>
- <label index="number_total_observation">Nombre d'observations dans cette zone : </label>
+
 
 			<label index="detail">data</label>
 		</languageKey>
@@ -76,7 +70,7 @@
 			<label index="lastzoneobservation"> Las últimas observaciones (limitado a 75) presentado en el sitio : </label>
 			<label index="lastwebsiteobservation"> Las últimas observaciones (limitado a 75) </label>
 			<label index="noobservation"> No hay comentarios </label>
-			<label index="speciesinventory"> El inventario de las especies (para la observación indicado ) </label>
+
 			<label index="nospeciesobservation"> Ninguna observación con un nombre en esta zona </label>
 			<label index="numberdistinctfamily"> Número de familias distintas en esta área : </label>
 			<label index="numberdistinctgenus"> Número de géneros distintos en esta área : </label>
@@ -99,7 +93,6 @@
 			<label index="lastzoneobservation">Observações na zona (limitados aos 75 últimos) : </label>
 			<label index="lastwebsiteobservation">Últimas observações (limitados à 75) depositadas sobre o sítio</label>
 			<label index="noobservation">Não d' observação nesta zona</label>
-			<label index="speciesinventory">Inventários das espécies determinadas</label>
 			<label index="nospeciesobservation">Não d' observações determinadas nesta zona</label>
 			<label index="numberdistinctfamily">Número de família diferente nesta zona </label>
 			<label index="numberdistinctgenus">Número de tipo diferente nesta zona </label>

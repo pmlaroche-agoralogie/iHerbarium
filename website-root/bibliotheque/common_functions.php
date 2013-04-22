@@ -327,15 +327,15 @@ function fairecarte($latitude,$longitude){
 
 
 /* fonction qui permet d'afficher toutes les observations  determinées */
-function liste_espece($monobjet,$numuser = 0){
+function liste_espece($monobjet,$numuser = 0,$mylanguage='en'){
     $content= "";
     bd_connect();
     if($numuser==0){  
-      $limitnb = "limit 0,75";
+      $limitnb = "";//"limit 0,75";
       $where = "iherba_observations.public='oui' ";
       }
       else {
-      $limitnb = "limit 0,175";
+      $limitnb = "";//"limit 0,175";
       $where = "iherba_observations.id_user=".$numuser;
       }
     $where .= " AND " . get_requete_where_sousdomaine() ; 
@@ -378,18 +378,18 @@ function liste_espece($monobjet,$numuser = 0){
     $content .= "<h3>";
     if (!is_sousdomaine_www())
 	  {
-	  $content .= $monobjet->pi_getLL('speciesinventory', '', 1)."&nbsp;".get_description_sousdomaine()."<br/>";
+	  $content .= get_string_language_sql("ws_speciesinventory_title",$mylanguage)."&nbsp;".get_description_sousdomaine()."<br/>";
 	  }
 	  else
-	  $content .= $monobjet->pi_getLL('speciesinventory', '', 1) ."</br>";
+	  $content .= get_string_language_sql("ws_speciesinventory_title",$mylanguage)."</br>";
     $content .= "</h3>";
     if($nb_lignes_resultats ==0)
-	  $content.= "<h3>".$monobjet->pi_getLL('nospeciesobservation', '', 1)."</h3>";
-    $content.= "<h2>".$monobjet->pi_getLL('number_total_observation', '', 1)." $nb_lignes_nb_obs </h2>";
+	  $content.= "<h3>".get_string_language_sql("ws_nospeciesobservation",$mylanguage)."</h3>";
+    $content.= "<h2>".get_string_language_sql("ws_inventory_number_total_observation",$mylanguage)." $nb_lignes_nb_obs </h2>";
 
-    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctfamily', '', 1)." $nb_lignes_family </h2>";
-    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctgenus', '', 1)." $nb_lignes_genre </h2>";
-    $content.= "<h2>".$monobjet->pi_getLL('numberdistinctspecies', '', 1)." $nb_lignes_especes </h2>";
+    $content.= "<h2>".get_string_language_sql("ws_inventory_number_distinctfamily",$mylanguage)." $nb_lignes_family </h2>";
+    $content.= "<h2>".get_string_language_sql("ws_inventory_number_distinctgenus",$mylanguage)." $nb_lignes_genre </h2>";
+    $content.= "<h2>".get_string_language_sql("ws_inventory_number_distinctspecies",$mylanguage)." $nb_lignes_especes </h2>";
 
 
     $repertoire=repertoire_vignettes;
