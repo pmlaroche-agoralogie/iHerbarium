@@ -54,50 +54,6 @@
 			<label index="detail">data</label>
 		</languageKey>
 		
-		<languageKey index="es" type="array">
-		    <label index="numeroObservation"> Observación número :  </label>
-			<label index="deposele"> Añadida el : </label> 
-			<label index="zonesInteretObservation"> Aquí usted puede ver las áreas de interés de las fotos de esta observación o usted les puede definir.  </label>
-			
-			<label index="voirobservationdetail"> Haga clic en la imagen para más detalles </label>
-			<label index="utilisateur">, por el usuario : </label>
-			<label index="nomPlante"> Nombre de la planta : </label>
-			<label index="obs"> Observación : </label>
-			<label index="le"> El </label>
-			<label index="nomCommun">, Nombre común : </label>
-			<label index="nomScientifique">, Nombre científico : </label>
-			
-			<label index="lastzoneobservation"> Las últimas observaciones (limitado a 75) presentado en el sitio : </label>
-			<label index="lastwebsiteobservation"> Las últimas observaciones (limitado a 75) </label>
-			<label index="noobservation"> No hay comentarios </label>
-
-			<label index="nospeciesobservation"> Ninguna observación con un nombre en esta zona </label>
-			<label index="numberdistinctfamily"> Número de familias distintas en esta área : </label>
-			<label index="numberdistinctgenus"> Número de géneros distintos en esta área : </label>
-			<label index="numberdistinctspecies"> Número de especies distintas en esta área : </label>
-			
-		</languageKey>
-		<languageKey index="pt" type="array">
-		    <label index="numeroObservation">Número de observação :  </label>
-			<label index="deposele">arquivado em : </label> 
-			<label index="zonesInteretObservation">Aqui você pode ver as áreas de interesse ou imagens desta observação para definir </label>
-			
-			<label index="voirobservationdetail">Clique na imagem para mais detalhes</label>
-			<label index="utilisateur">, pelo usuário : </label>
-			<label index="nomPlante">Nome da planta : </label>
-			<label index="obs">Observação : </label>
-			<label index="le">Le </label>
-			<label index="nomCommun">, Nome comum : </label>
-			<label index="nomScientifique">, Nome científico : </label>
-			
-			<label index="lastzoneobservation">Observações na zona (limitados aos 75 últimos) : </label>
-			<label index="lastwebsiteobservation">Últimas observações (limitados à 75) depositadas sobre o sítio</label>
-			<label index="noobservation">Não d' observação nesta zona</label>
-			<label index="nospeciesobservation">Não d' observações determinadas nesta zona</label>
-			<label index="numberdistinctfamily">Número de família diferente nesta zona </label>
-			<label index="numberdistinctgenus">Número de tipo diferente nesta zona </label>
-			<label index="numberdistinctspecies">Número d' espécies diferentes nesta zona </label>
-			
-		</languageKey>
+		
 	</data>
 </T3locallang>

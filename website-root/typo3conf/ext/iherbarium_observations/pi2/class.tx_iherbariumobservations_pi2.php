@@ -54,7 +54,7 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 		$content="";
 		
 		if($GLOBALS['TSFE']->page["uid"]==52)
-		{
+		{ // page 52 : plus utilisŽ (affiche un calcul direct)
 			$numero_observation = desamorcer($_GET['numero_observation']);
 			$content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,"Morphologie:");
 			$desc = charge_description($numero_observation);
