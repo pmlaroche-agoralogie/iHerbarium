@@ -41,59 +41,74 @@ function insert_similarity_set($id,$proche){
   $result_insert = mysql_query($sql_insert) or die ('insert'); 
 }
 
-$observation_etudiee = -1;
+function add_good_set($observation_etudiee,$idtask)
+{
+  bd_connect();
+  $sql_set_exists = "SELECT *  FROM  `iherba_similarity_set`  WHERE  `observation_id` = $observation_etudiee";
+  $result_ref = mysql_query($sql_set_exists)or die ('exists');
+  if(mysql_num_rows($result_ref)<1)
+    {
+    $sql_obs = "SELECT * FROM iherba_observations WHERE idobs = $observation_etudiee ";
+    $result_ref = mysql_query($sql_obs) or die ('select');
+    if(mysql_num_rows($result_ref)<1)
+      {
+	//missing observation, deleted ?
+	$sql_del_task = "delete FROM iherba_task WHERE Id = $id_task ";
+	$result_del = mysql_query($sql_del_task)or die ('sql_del_task');
+      }
+      else
+      {
+      
+	$row_quest= mysql_fetch_assoc($result_ref) ;
+	if($row_quest['latitude']==0)
+	  {
+	    //if the observation is not localized, we can't help
+	    $proche = array(); //insert_no_good_set($observation_etudiee);
+	  }
+	  else 
+	  {
+	    // we search what we know about the place where the observation was done
+	    $proche = study_chorologie($row_quest['latitude'],$row_quest['longitude']);
+	  }
+		
+	// we store the result ; if the $proche array is empty, we will send an "unknown place" message
+	insert_similarity_set($observation_etudiee,$proche);
+      }
+    }
+}
 
+$observation_etudiee = -1;
+$id_task = -1;
 //verify if tasks are waiting for sets
 bd_connect();
 
 $sql_ref = "SELECT * FROM iherba_task WHERE Type='AddObservationToDeterminationFlow' and ContextType ='Observation' order by id ASC";
 $result_ref = mysql_query($sql_ref)or die ('select');
-if(mysql_num_rows($result_ref)>0)
-{
-  $row_quest= mysql_fetch_assoc($result_ref) ;
-  $observation_etudiee = $row_quest['Context'];
-}
-else {
-  
+while($row_quest= mysql_fetch_assoc($result_ref) )
+  {
+    add_good_set($row_quest['Context'],$row_quest['Id']);
+  }
 
-//if not, search for a parameter
+
+//if nothing to do, search for a parameter
 //verify the quality of the parameters
-if(!isset($_GET['observationid']))
-  {
-    die('observationid not set');
-  }
-if(!is_numeric($_GET['observationid']))
-  {
-    die('observationid must be an integer');
-  }
-$observation_etudiee = desamorcer($_GET['observationid']);
-}
+    if(!isset($_GET['observationid']))
+      {
+	die('observationid not set');
+      }
+    if(!is_numeric($_GET['observationid']))
+      {
+	die('observationid must be an integer');
+      }
+    $observation_etudiee = desamorcer($_GET['observationid']);
 
-if($observation_etudiee== -1)die();// no observation need to be computed , nothing to do
+echo "obs : $observation_etudiee";
 
-$sql_set_exists = "SELECT *  FROM  `iherba_similarity_set`  WHERE  `observation_id` = $observation_etudiee";
-$result_ref = mysql_query($sql_set_exists)or die ('exists');
-if(mysql_num_rows($result_ref)>0)die(); // good set already computed
+if($observation_etudiee == -1)
+  die("no obs");// no observation need to be computed , nothing to do
 
-//echo $observation_etudiee;die();
-bd_connect();
+add_good_set($observation_etudiee,-1);
 
-$sql_ref = "SELECT * FROM iherba_observations WHERE idobs = $observation_etudiee ";
-$result_ref = mysql_query($sql_ref)or die ('select');
-$row_quest= mysql_fetch_assoc($result_ref) ;
+echo "obs : $observation_etudiee";
 
-
-if($row_quest['latitude']==0)
-	{
-	  //if the observation is not localized, we can't help
-	  $proche = array(); //insert_no_good_set($observation_etudiee);
-	}
-	else 
-	{
-	  // we search what we know about the place where the observation was done
-	  $proche = study_chorologie($row_quest['latitude'],$row_quest['longitude']);
-	}
-	
-// we store the result ; if the $proche array is empty, we will send an "unknown place" message
-insert_similarity_set($observation_etudiee,$proche)
 ?>
