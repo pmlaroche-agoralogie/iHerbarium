@@ -41,9 +41,20 @@ function insert_similarity_set($id,$proche){
   $result_insert = mysql_query($sql_insert) or die ('insert'); 
 }
 
-function add_good_set($observation_etudiee,$idtask)
+function add_good_set($observation_etudiee,$id_task)
 {
   bd_connect();
+  
+  $sql_obs = "SELECT * FROM iherba_observations WHERE idobs = $observation_etudiee ";
+  $result_ref = mysql_query($sql_obs) or die ('select');
+  if(mysql_num_rows($result_ref)<1)
+    {
+      //missing observation, deleted ?
+      $sql_del_task = "delete FROM iherba_task WHERE Id = $id_task ";
+      $result_del = mysql_query($sql_del_task)or die ('sql_del_task');
+    }
+      
+      
   $sql_set_exists = "SELECT *  FROM  `iherba_similarity_set`  WHERE  `observation_id` = $observation_etudiee";
   $result_ref = mysql_query($sql_set_exists)or die ('exists');
   if(mysql_num_rows($result_ref)<1)
@@ -86,6 +97,7 @@ $sql_ref = "SELECT * FROM iherba_task WHERE Type='AddObservationToDeterminationF
 $result_ref = mysql_query($sql_ref)or die ('select');
 while($row_quest= mysql_fetch_assoc($result_ref) )
   {
+    echo "obs task : ".$row_quest['Context']." task :".$row_quest['Id']."<br>";
     add_good_set($row_quest['Context'],$row_quest['Id']);
   }
 
