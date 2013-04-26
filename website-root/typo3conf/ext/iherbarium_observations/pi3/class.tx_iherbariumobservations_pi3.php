@@ -422,7 +422,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     if(!empty($nom_media_final)){
       $content.= "<br>".get_string_language_sql("ws_observation_list_of_media",$mylanguage)."<br/>\n";
       foreach($nom_media_final as $value){
-	$content.='<a href='.repertoire_vignettes."/../medias/".$value.' >Video </a>';
+	$content.='<a href='.repertoire_sources."/".$value.' >Video </a>';
       }
       $content.= "<br>";
     }
