@@ -1,7 +1,10 @@
-iHerbarium est une application de collecte de photos et videos d'une plante que vous observez dans la nature, elle vous aidera à les identifier.
+iHerbarium est une application de collecte de photos et videos de plantes que vous observez dans la nature, elle vous aidera à les identifier.
 
-Les données collectées sur le terrain, sans doute loin d'un réseau internet, seront envoyées sur nos serveurs. Là elle sont stockées afin de vous fournir un
+Les données collectées sur le terrain, sans doute loin d'un réseau internet, seront envoyées sur nos serveurs quand une conenxion est disponble. Là elle sont stockées afin de vous fournir un
 "herbier vituel", et un outil automatique fonctionnant à base d'analyse morphologique des photos va vous proposer des identifications probables.
 Vous recevrez, quelques heures après votre dépot, un mail vous proposont les meilleurs choix du programme, agrémentés de liens permettant de vérifier ou d'approfondir la détermination.
 
-Le système d'identification fonctionne mieuxdans les zones pour lesquelles nous disposons du plus de données, actuellement (avril 2013) c'est la France, l'Espagne et l'Allemagne.
+Le système d'identification fonctionne mieux dans les zones pour lesquelles nous disposons du plus de données, actuellement (avril 2013) c'est la France, l'Espagne et l'Allemagne.
+Nous créons gratuitement et immédiatement un compte associé à votre email, pour que vous gardiez le controle de vos photos, mais vous ne recevrez aucune sollicitation.
+
+Le site web iherbarium vous propose un espace collaboratif où vouspouvez aider d'autres personnes, et des informations sur vos propres observations pourront y être ajoutées.
