@@ -1,10 +1,18 @@
 iHerbarium est une application de collecte de photos et videos de plantes que vous observez dans la nature, elle vous aidera à les identifier.
 
-Les données collectées sur le terrain, sans doute loin d'un réseau internet, seront envoyées sur nos serveurs quand une conenxion est disponble. Là elle sont stockées afin de vous fournir un
+Les données collectées sur le terrain, sans doute loin d'un réseau internet, seront envoyées sur nos serveurs quand une connexion est disponble. Là elle sont stockées afin de vous fournir un
 "herbier vituel", et un outil automatique fonctionnant à base d'analyse morphologique des photos va vous proposer des identifications probables.
 Vous recevrez, quelques heures après votre dépot, un mail vous proposont les meilleurs choix du programme, agrémentés de liens permettant de vérifier ou d'approfondir la détermination.
 
 Le système d'identification fonctionne mieux dans les zones pour lesquelles nous disposons du plus de données, actuellement (avril 2013) c'est la France, l'Espagne et l'Allemagne.
 Nous créons gratuitement et immédiatement un compte associé à votre email, pour que vous gardiez le controle de vos photos, mais vous ne recevrez aucune sollicitation.
 
-Le site web iherbarium vous propose un espace collaboratif où vouspouvez aider d'autres personnes, et des informations sur vos propres observations pourront y être ajoutées.
+Le site web iherbarium vous propose un espace collaboratif où vous pouvez aider d'autres personnes, et des informations sur vos propres observations pourront y être ajoutées.
+
+iOSacquisition
+
+Review Notes : 
+this app collect (grouped and tagged) pictures and videos, so we need an email to give people options to manage and delete picture afterwards on our servers
+we have create a review account for you, you can test the complete proces of collecting and sending medias. please shoot something green ! as the picture are public by default (there is a moderation option which is "a posteriori")
+we will send emails to give people some feedback about their flowers, and links which are intented to be open on a big screen
+
