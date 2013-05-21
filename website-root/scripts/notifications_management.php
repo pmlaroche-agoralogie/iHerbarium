@@ -164,27 +164,33 @@ function notifyUserAbout_Account_Open($parameters,$mylanguage) {
 
 
 
-function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser,$mylanguage ) {
- $monobjet=NULL;
- // Determination
- $determinationQuery =
-   " SELECT *" .
-   " FROM iherba_determination" .
-   " WHERE id = '" . $determinationId . "'";
- $determinationResult = mysql_query($determinationQuery) or dieanddebug ();
-
- assert(mysql_num_rows($determinationResult) == 1);
- $determination = mysql_fetch_assoc($determinationResult);
- 
- // Obs
- $obsQuery =
-   " SELECT *" .
-   " FROM iherba_observations" .
-   " WHERE idobs = '" . $determination["id_obs"] . "'";
- 
- $obsResult = mysql_query($obsQuery) or dieanddebug ();
-
- 
+function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser,$mylanguage,$id_notification ) {
+    $monobjet=NULL;
+    // Determination
+    $determinationQuery =
+      " SELECT *" .
+      " FROM iherba_determination" .
+      " WHERE id = '" . $determinationId . "'";
+    $determinationResult = mysql_query($determinationQuery) or dieanddebug ();
+   
+    assert(mysql_num_rows($determinationResult) == 1);
+    $determination = mysql_fetch_assoc($determinationResult);
+    
+    // Obs
+    $obsQuery =
+      " SELECT *" .
+      " FROM iherba_observations" .
+      " WHERE idobs = '" . $determination["id_obs"] . "'";
+    
+    $obsResult = mysql_query($obsQuery) or dieanddebug ();
+    if(mysql_num_rows($obsResult)==0)
+	{
+	    // notification on non existing observation
+	    $sql_delete = " delete from iherba_notification WHERE  `id_notification` = $id_notification ";
+	    $obsResult2 = mysql_query($sql_delete) or dieanddebug ();
+	    mail("philippe.laroche@agoralogie.fr","delete from notification",$sql_delete);
+	}
+     
  assert(mysql_num_rows($obsResult) == 1);
  $obs = mysql_fetch_assoc($obsResult);
  
@@ -352,7 +358,7 @@ if($thenotification['message_type'] == 'somebody-say')
  {
  $id_current_notification = $thenotification['id_notification'];
  $parameters = json_decode($thenotification['parameters']);
- $messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$parameters->owner,$thenotification['preferred_language']);
+ $messagetexte = notifyUserAbout_somebody_say_Determination($parameters->determination,$parameters->owner,$thenotification['preferred_language'],$id_current_notification);
   }
 if($thenotification['message_type'] == 'expert-system-say')
  {
