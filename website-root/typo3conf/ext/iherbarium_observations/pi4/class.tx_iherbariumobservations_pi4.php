@@ -459,27 +459,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     $lines[] = '<div style="padding: 10px;"><input type="text" name="noUserEmail" id="noUserEmail" value=""/></input></div>';
     $lines[] = '</fieldset>';
     $lines[] = '</div>';
-    
-    // Anonymous
-    $lines[] = '<div style="margin-top: 10px;">';
-    $lines[] = '<h2>' . $this->ll('anonymousLabel') . '</h2>';
-    $lines[] = '<fieldset id="anonymous">';
-    $lines[] = '<legend>' . $this->ll('anonymousInput') . '</legend>';
-    $lines[] = '<div style="overflow : hidden;" id="anonymousRadio">' ;
-    $lines[] = '<div>';
-    $lines[] = '<input id="anonymousNo" name="anonymous" value="no" type="radio" checked="checked" />';
-    $lines[] = '<label style="display: inline; float: none;" for="anonymousNo">' . $this->ll('anonymousOptionNo') . '</label>';
-    $lines[] = '</div>';
-    $lines[] = '<div>';
-    $lines[] = '<input id="anonymousYes" name="anonymous" value="yes" type="radio" />';
-    $lines[] = '<label style="display: inline; float: none;" for="anonymousYes" style="white-space: nowrap;">' . $this->ll('anonymousOptionYes') . '</label>';
-    $lines[] = '</div>';
-    $lines[] = '</div>';
-    $lines[] = '</fieldset>';
-    //      $lines[] = '<script>$("#anonymousNo").button();</script>';
-    //      $lines[] = '<script>$("#anonymousYes").button();</script>';
-    $lines[] = '</div>';      
-    
+        
     // Submit
     $lines[] = '<div style="margin: 10px;">';
     $lines[] = '<input id="obsSubmit" name="obsSubmit" type="submit"></input>';
@@ -923,12 +903,6 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 	$noUserEmail = $_POST['noUserEmail'];
       }
       
-      // Anonymous
-      $anonymous = NULL;
-      if(isset($_POST['anonymous'])) {
-	$anonymous = $_POST['anonymous'];
-      }
-	
       if($noUserEmail) {
 	// But he has filled in his e-mail.
 	  
@@ -946,16 +920,6 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 	  // Generate a cool password.
 	  //$password = "oompaloompas";
 	  $password = substr(md5($username), 0, 6);
-	    
-	  // Does he want to be anonymous?
-	  if($anonymous && $anonymous == 'yes') {
-	    // He wants to be anonymous.
-	    $name = $this->ll("anonymousUserName");
-
-	  } else {
-	    // He doesn't care about anonymity.
-	    $name = NULL;
-	  }
 
 	  // Two-letter language.
 	  $lang = $GLOBALS['TSFE']->config['config']['language'];
