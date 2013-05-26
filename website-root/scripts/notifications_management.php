@@ -163,6 +163,47 @@ function notifyUserAbout_Account_Open($parameters,$mylanguage) {
 }
 
 
+function notifyUserAbout_password_send_back($parameters,$mylanguage) {
+ $send_notify=1; //not all notification are interesting people, we can decide to unable some
+
+ // User
+ $userQuery =
+   " SELECT *" .
+   " FROM fe_users" .
+   " WHERE uid = '" . $parameters->user . "'";
+ 
+ $userResult = mysql_query($userQuery) or dieanddebug();
+ assert(mysql_num_rows($userResult) == 1);
+ $user = mysql_fetch_assoc($userResult);
+ $language_user = strtolower($user['language']);
+ if($mylanguage=='')
+  {
+   //if no prefered language for the notification, use the owner language
+   $mylanguage=strtolower($language_user);
+  }
+
+ // Prepare Mail
+  $agoralogieAddress = "notification@".language_domainename_mail_from_lang_iso($mylanguage);
+  $bccagoralogieAddress = 'agoralogie@gmail.com';
+
+  $to = $user['email'];
+  
+  $subject = get_string_language_sql('mail_ask_for_password_title',$mylanguage) ;
+  $message = get_string_language_sql('mail_ask_for_password_body',$mylanguage);
+  //$message = str_replace("%s$1",language_domainename_mail_from_lang_iso($mylanguage),$message);
+  $message = str_replace("%s$1",$user['password'],$message);
+  $message .= get_string_language_sql('mail_notif_footer',$mylanguage) ;
+
+  $headers = 
+    "From: " . $agoralogieAddress . "\r\n" .
+    "Bcc: " . $bccagoralogieAddress . "\r\n";
+  
+  // Send mail
+ mail($to, $subject, $message, $headers);
+ return  "to = \n$to \n Subject = \n".$subject." \n Message = \n".$message." \n Header =".$headers;
+}
+
+
 
 function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser,$mylanguage,$id_notification ) {
     $monobjet=NULL;
@@ -316,9 +357,10 @@ function notifyUserAbout_expert_system_say_Determination($parameters,$mylanguage
   if($parameters->verdict == 'NoComparisonsNeeded')
     $expertise =  expertise_very_close_to($parameters->topObsId,$mylanguage);
  if($parameters->verdict == 'ComparisonsFinished')
+    {
     $expertise =  expertise_list_close_to($parameters->results,$mylanguage);
     if($parameters->results[0]->similarity <50)    $send_notify = 0; // if very low similarity, no tagged image was given, or only one very ininteresting
-
+    }
   }
   
   $url_observation = 'http://'.language_url_observation_from_lang_iso($mylanguage).$current_observation['idobs'];
@@ -373,6 +415,12 @@ if($thenotification['message_type'] == 'account-open')
  $parameters = json_decode($thenotification['parameters']);
  $messagetexte = notifyUserAbout_Account_Open($parameters,$thenotification['preferred_language']);
   }
+
+if($thenotification['message_type'] == 'send_password')
+ {
+ $parameters = json_decode($thenotification['parameters']);
+ $messagetexte = notifyUserAbout_password_send_back($parameters,$thenotification['preferred_language']);
+}
 
   
 $messagetexte =  str_replace("\n",'\n ', $messagetexte);
