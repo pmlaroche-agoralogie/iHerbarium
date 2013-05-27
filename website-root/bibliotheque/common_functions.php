@@ -113,18 +113,17 @@ function build_response($ligne,$cibleaction = "#",$show_delete_button=0)
   $reponsespossibles = explode("!",$ligne['choice_detail']);
 
   if($ligne[prob_most_common]>90)
-    $content = $ligne[choice_explicitation_one];
+    $textexplication = $ligne['choice_explicitation_one'];
   else
     {
       if($ligne[prob_most_common]>80)
-	$content = $ligne['choice_explicitation_two_seldom'];
+	$textexplication = $ligne['choice_explicitation_two_seldom'];
       else
-	$content = $ligne['choice_explicitation_two_often'];
+	$textexplication = $ligne['choice_explicitation_two_often'];
     }
 
-  $content = str_replace("#1",$reponsespossibles[$ligne['id_answer_most_common']],$content);
-  $textexplication = str_replace("#2",$reponsespossibles[$ligne['id_just_less_common']],$content);
-
+  $textexplication = str_replace("#1",$reponsespossibles[$ligne['id_answer_most_common']],$textexplication);
+  $textexplication = str_replace("#2",$reponsespossibles[$ligne['id_just_less_common']],$textexplication);
   // Kuba ->
 if($show_delete_button==1)
 	{
@@ -239,6 +238,7 @@ function charge_description($id_obs)
   return $description;
 }
 
+/*
 function calcule_liste_proche($description,$id_a_exclure=0)
 {
   if( count($description)==0)return ; // pas de caractere defini
@@ -246,10 +246,10 @@ function calcule_liste_proche($description,$id_a_exclure=0)
   $sql="";
   foreach ($description as $pattern) {   
 
-    /*requete qui permet de s»lectioner pour chacun des patterns de l'observation consid»r»e les 
-     * pattern des observations des experts qui ont les memes valeurs id_question et id_most_answer_common 
-     * que l'observation "non expert" (celle que l'on cherche ? identifier)
-     */
+    //requete qui permet de s»lectioner pour chacun des patterns de l'observation consid»r»e les 
+    // pattern des observations des experts qui ont les memes valeurs id_question et id_most_answer_common 
+    // que l'observation "non expert" (celle que l'on cherche ? identifier)
+    //
     $sql=$sql."(select iherba_observations.idobs,iherba_roi_answers_pattern.id_roi,
 		iherba_roi_answers_pattern.id_question,
 		iherba_roi_answers_pattern.id_answer_most_common
@@ -283,7 +283,7 @@ function calcule_liste_proche($description,$id_a_exclure=0)
     //echo "idobs : ".$idobs_expertisees." id roi : ".$id_roi." id question : ".$id_question." id answer most common : ".$id_answer_most_common."<br/>";
   }
   if(isset ($idobs_expertisees)){
-    /*la fonction array_count_values retourne un tableau contenant les valeurs du tableau $idobs comme cl»s et leur fr»quence comme valeurs. */
+    //la fonction array_count_values retourne un tableau contenant les valeurs du tableau $idobs comme cl»s et leur fr»quence comme valeurs. 
     $occurencesIDOBSpartiel=array_count_values($idobs_expertisees); 
     //echo " tableau des idobservations et leurs occurences : <br/>";
     $maxcommun =0;
@@ -295,8 +295,8 @@ function calcule_liste_proche($description,$id_a_exclure=0)
     //print_r($occurencesIDOBS);
     //echo "<br/><br/>";
 		
-    /*on r»cupÀre le nombre d'»l»ments du tableau $occurencesIDOBS
-     * c'est ? dire le nombre d'observations expertis»es qui correspondent ? l'observation idobs que l'on cherche ? identifier*/
+    //on r»cupÀre le nombre d'»l»ments du tableau $occurencesIDOBS
+    // c'est ? dire le nombre d'observations expertis»es qui correspondent ? l'observation idobs que l'on cherche ? identifier
     $nb_elements=count($occurencesIDOBS);
 		
     $pourcentage=100/$nb_elements;
@@ -309,12 +309,12 @@ function calcule_liste_proche($description,$id_a_exclure=0)
     //print_r($obs_prob);
   }
   else{
-    /* si il n'existe pas de tableau $idobs_expertisees c'est ? dire s'il n'y a pas de plantes qui correspond */
+    //si il n'existe pas de tableau $idobs_expertisees c'est ? dire s'il n'y a pas de plantes qui correspond 
     return ;
   }
   return $obs_prob;
 }
-
+*/
 
 /*fonction qui permet d'afficher la carte avec la longitude et la latitude de la table observations*/
 // dans le cas de l'affciahe du detail d"une observation
