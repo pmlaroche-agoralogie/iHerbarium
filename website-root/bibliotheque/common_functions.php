@@ -711,10 +711,11 @@ function selectionner_zones_image($monobjet){
   return $content;
 }
 
-function redimensionner_roi($nom,$target_size = "vignettes"){
+function redimensionner_roi($nom,$target_size = "vignettes")
+{
   $inclusive_square=130;
-if($target_size == "vignettes")$inclusive_square=130;
-if($target_size == "medium")$inclusive_square=320;
+  if($target_size == "vignettes")$inclusive_square=130;
+  if($target_size == "medium")$inclusive_square=320;
 
   $image=roi_sources."/$nom";
   $dim=getimagesize($image);  //la variable dim contiendra la taille de l'image pass»e en paramÀtre 
@@ -841,6 +842,7 @@ function detailler_zone($monobjet){
   return $content;
 
 }
+
 function decoupe_roi($fichier_image,$couple,$id_roi) // couple contient les coordonnes des 2 coins
 {			
   $largeur_affichage =1;$hauteur_affichage=1;
@@ -1139,7 +1141,8 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
 
 /*Les fonctions qui suivent permettent d'afficher le r»sultat d'une recherche d'un utilisateur */
 
-function type_recherche(){
+function type_recherche()
+{
   return 1;
 }
 
