@@ -453,7 +453,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
     $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
 	
-	
+    /*
     if(niveau_testeur()>0)
       //if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)
       {
@@ -470,7 +470,8 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	    $content.= "<!-- no proximity -->";
 	  }
       }
-      
+     */
+    
     if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
 	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode",$mylanguage),47,'',$paramlien);

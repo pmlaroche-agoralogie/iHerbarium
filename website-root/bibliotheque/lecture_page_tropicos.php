@@ -414,12 +414,20 @@ function preciser_determination_comment($monobjet){
   $reaction_comment = desamorcer($_POST['remarque']);
   $numdet = desamorcer($_GET['numdet']);
   $iduser = $_SERVER['REMOTE_ADDR'];
+  
+  //if empty return
+  if(($reaction_case =="") && ($reaction_comment==""))
+     return $content;
+  
+  //
+  $disabled = 0;
+  if(strpos($reaction_comment,"http")!== false)$disabled = 1;
+  if(strpos($reaction_comment,"www")!== false)$disabled = 1;
   bd_connect();
- 
   $sql_insertion_determination =
     " INSERT INTO iherba_determination_reaction " .
-    " (id_determination, id_user, comment, reactioncase )" . 
-    " VALUES ('$numdet','$iduser','$reaction_comment','$reaction_case' )"; // ADDED certitudeLevel & precisionLevel
+    " (id_determination, id_user, comment, reactioncase ,disabled)" . 
+    " VALUES ('$numdet','$iduser','$reaction_comment','$reaction_case' ,$disabled)"; // ADDED certitudeLevel & precisionLevel
 	 
 
   $result_insertion_determination = mysql_query($sql_insertion_determination) or die ('Erreur SQL !'.$sql_insertion_determination.'<br />'.mysql_error());	 

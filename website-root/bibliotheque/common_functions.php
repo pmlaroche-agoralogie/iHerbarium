@@ -899,7 +899,15 @@ function remplir_tables($monobjet){
 }
 
 function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$demandenom,$texteseul=0,$mylanguage='en')
-{ //echo "<!-- mylanguage : $mylanguage -->";
+{
+  $display_reaction = array(
+			    "sure" => "+++",
+			    "probalyyes"=>"++",
+			    "difficult"=>"??",
+			    "probablynot"=>"--",
+			    "no"=>"---"
+			    );
+  $content = "";
   if($cetobjet!=null)
       $mylanguage = language_iso_from_lang_id($cetobjet->cObj->data['sys_language_uid']);
 
@@ -908,7 +916,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   if($texteseul==0){$finchamps ="_forweb"; $finligne = "<br/>";} else {$finchamps ="_formail";$finligne = " \n";}
   if($texteseul==0)$champscomment = 'web_comment'; else $champscomment = 'email_comment';
   //$sql_determination="select nom_commun,nom_scientifique,date,famille,genre,comment from iherba_determination where (nom_commun !='' OR nom_scientifique != '') AND id_obs=$numero_observation ";
-  $sql_determination.="select iherba_determination.id , nom_commun,nom_scientifique,date, famille,genre ,id_cases, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
+  $sql_determination.="select iherba_determination.id , nom_commun,nom_scientifique,date, famille,genre ,id_cases,tag_for_translation, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
   
   $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
@@ -922,7 +930,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   if($texteseul!=0)$sql_determination .= " limit 1";
 
   $result_determination = mysql_query($sql_determination) or die ();
-  $num_rows = mysql_num_rows($result_determination); //nombre de lignes rÈsultats
+  $num_rows = mysql_num_rows($result_determination);
 	
   if($num_rows !=0){
     if($texteseul!=2)$content.= get_string_language_sql('expertises'.$finchamps,$mylanguage).$finligne;
@@ -933,7 +941,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
     $nom_commun=$row_determination["nom_commun"];
     $nom_scientifique=$row_determination["nom_scientifique"];
     $date=$row_determination["date"];
-		
+    
     list( $jour,$mois, $annee,) = explode("-", $date);
     if($texteseul==0)
       $content.= get_string_language_sql('expertise_prefixe_date',$mylanguage)." " .$jour."-".$mois."-".$annee." ";
@@ -972,21 +980,49 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	  if($texteseul==0)
 	    if($publication!="liste")
 	      {
-		$numero_id_determination = $row_determination["id"];
-	    $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "minus", etape => 'comment',check=>456789);
-	    $lien_minus=$cetobjet->pi_linkToPage('<img alt="je ne suis pas d\'accord avec ce nom" title="je ne suis pas d\'accord avec ce nom" src="/interface/minus16.png">',87,'',$paramlien);
-	    $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "plus", etape => 'comment', check=>456789);
-	    $lien_plus=$cetobjet->pi_linkToPage('<img src="/interface/plus16.png" alt="je suis d\'accord avec ce nom" title="je suis d\'accord avec ce nom">',87,'',$paramlien);
+	      $numero_id_determination = $row_determination["id"];
+	      $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "minus", etape => 'comment',check=>456789);
+	      $lien_minus=$cetobjet->pi_linkToPage('<img alt="je ne suis pas d\'accord avec ce nom" title="je ne suis pas d\'accord avec ce nom" src="/interface/minus16.png">',87,'',$paramlien);
+	      $paramlien = array(numero_observation  => $numero_observation,numero_det  => $numero_id_determination, sens => "plus", etape => 'comment', check=>456789);
+	      $lien_plus=$cetobjet->pi_linkToPage('<img src="/interface/plus16.png" alt="je suis d\'accord avec ce nom" title="je suis d\'accord avec ce nom">',87,'',$paramlien);
 
 	      $content.='&nbsp;'.$lien_minus.$lien_plus;
-
+	      
+	      $sql_reaction = "select * from  iherba_determination_reaction where id_determination = $numero_id_determination and disabled = 0 ";
+	      $result_reaction = mysql_query($sql_reaction) or die ();
+	      if( mysql_num_rows($result_reaction)>0)
+		{
+		$content.= " ( ";
+		$first_iteration = 1;
+		while ($row_reaction = mysql_fetch_assoc($result_reaction)) {
+		  if($row_reaction['reactioncase']!="")
+		    {
+		    if($first_iteration==0)$content.= ",";
+		     $content.=  "&nbsp;".$display_reaction[$row_reaction['reactioncase']];
+		     $onecomment = desamorcer($row_reaction['comment']);
+		     if(strlen($onecomment)>35)$onecomment="";
+		     if($onecomment!="")
+			$content .= " :" . $onecomment;
+		     $content .= "&nbsp;";
+		     $first_iteration = 0;
+		    }
+		  }
+		$content.= " ) ";
+		}
+	      
 	      }
 	}
 
-	if($row_determination["web_comment"]!=""){
+	/*if($row_determination["web_comment"]!=""){
 		$content.= $finligne;
 		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);
 		$content.=$row_determination["web_comment"];
+	}*/
+	if($row_determination["id_cases"]!=0){
+		$content.= $finligne;
+		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);
+		//$content.= " = ";
+		$content.= get_string_language_sql('expertise_legend_case_'.$row_determination["tag_for_translation"].$finchamps,$mylanguage); 
 	}
 	if($row_determination["comment"]!=""){
 		$content.= $finligne;
