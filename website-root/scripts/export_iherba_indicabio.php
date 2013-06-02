@@ -6,10 +6,10 @@ $csv_field_border = '"';
 include("../bibliotheque/common_functions.php");
 bd_connect();
 
-$myzone = 3;
+$myzone = 4;
 if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$myzone=desamorcer($_GET['numerozone']);
 
-$targetzone = 33;
+$targetzone = 55;
 if(isset($_GET['targetzone']))if(is_numeric($_GET['targetzone']))$targetzone=desamorcer($_GET['targetzone']);
 
 
@@ -108,5 +108,7 @@ $params = array(
         );
 $ctx = stream_context_create($params);
 $resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/management/receive_data.php',false,$ctx);
-
+// import sous php my admin avec
+//set_id,origin_uid,taxon,observation_ts,latitude,longitude,quality,user_ref,computed_species_name,computed_genus_name,computed_family_name
+// comme filed list
 ?>
