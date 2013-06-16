@@ -49,7 +49,7 @@ include("../bibliotheque/common_functions.php");
 
 bd_connect();
 	$sql_determ="
-        SELECT distinct idobs ,  iherba_determination.nom_scientifique,iherba_determination.nom_commun,tropicosid
+        SELECT distinct idobs ,  iherba_determination.nom_scientifique,iherba_determination.nom_commun,tropicosid,tropicosgenusid,tropicosfamilyid
             FROM iherba_observations, iherba_determination
                 WHERE  iherba_observations.idobs =  iherba_determination.id_obs and tropicosid != ''
 	 ORDER BY nom_scientifique "; 
@@ -76,7 +76,10 @@ bd_connect();
 					$result_z= mysql_query($sqlmajurl) or die ("Pb");
 					$sqlmajurl = "UPDATE  `typoherbarium`.`iherba_observations` SET  `computed_best_tropicos_id` =  '".$row_quest['tropicosid']."' WHERE  `iherba_observations`.`idobs` =".$row_quest['idobs'];
                                         $result_z= mysql_query($sqlmajurl) or die ("Pb");
-
+					$sqlmajurl = "UPDATE  `typoherbarium`.`iherba_observations` SET  `computed_best_genus_id` =  '".$row_quest['tropicosgenusid']."' WHERE  `iherba_observations`.`idobs` =".$row_quest['idobs'];
+                                        $result_z= mysql_query($sqlmajurl) or die ("Pb");
+					$sqlmajurl = "UPDATE  `typoherbarium`.`iherba_observations` SET  `computed_best_family_id` =  '".$row_quest['tropicosfamilyid']."' WHERE  `iherba_observations`.`idobs` =".$row_quest['idobs'];
+                                        $result_z= mysql_query($sqlmajurl) or die ("Pb");
 						
 				 }
 				$nb_ident++;

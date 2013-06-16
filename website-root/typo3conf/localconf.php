@@ -112,5 +112,9 @@ if( ! exists_sousdomaine($left,$data) && ($left != "www")&& ($left != "wwwtest")
   else {
     set_sousdomaine($left,$data);
   }
+  
+test_limitation_parameters();
+if(!is_sousdomaine_www())set_view_limitation();
+
 // Updated by TYPO3 Extension Manager 14-05-12 18:21:46
 ?>
