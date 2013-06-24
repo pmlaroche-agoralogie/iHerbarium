@@ -176,10 +176,10 @@ function notifyUserAbout_password_send_back($parameters,$mylanguage) {
  assert(mysql_num_rows($userResult) == 1);
  $user = mysql_fetch_assoc($userResult);
  $language_user = strtolower($user['language']);
- if($mylanguage=='')
+ if($language_user!='')
   {
-   //if no prefered language for the notification, use the owner language
-   $mylanguage=strtolower($language_user);
+   //if a prefered language is chosen, use the owner language
+   $mylanguage=$language_user;
   }
 
  // Prepare Mail
@@ -247,10 +247,10 @@ function notifyUserAbout_somebody_say_Determination($determinationId,$targetuser
  $user = mysql_fetch_assoc($userResult);
  
  $language_user = strtolower($user['language']);
- if($mylanguage=='')
+ if($language_user!='')
   {
-   //if no prefered language for the notification, use the owner language
-   $mylanguage=strtolower($language_user);
+   //if a prefered language is chosen, use the owner language
+   $mylanguage=$language_user;
   }
   
   $links_intro="";
@@ -319,10 +319,10 @@ function notifyUserAbout_expert_system_say_Determination($parameters,$mylanguage
  $user = mysql_fetch_assoc($userResult);
  
  $language_user = strtolower($user['language']);
- if($mylanguage=='')
+ if($language_user!='')
   {
-   //if no prefered language for the notification, use the owner language
-   $mylanguage=strtolower($language_user);
+   //if a prefered language is chosen, use the owner language
+   $mylanguage=$language_user;
   }
 
  
