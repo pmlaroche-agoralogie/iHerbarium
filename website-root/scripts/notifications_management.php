@@ -134,10 +134,10 @@ function notifyUserAbout_Account_Open($parameters,$mylanguage) {
  assert(mysql_num_rows($userResult) == 1);
  $user = mysql_fetch_assoc($userResult);
  $language_user = strtolower($user['language']);
- if($mylanguage=='')
+ if($language_user!='')
   {
    //if no prefered language for the notification, use the owner language
-   $mylanguage=strtolower($language_user);
+   $mylanguage=$language_user;
   }
 
  // Prepare Mail
