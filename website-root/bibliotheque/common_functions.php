@@ -512,7 +512,7 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 					      position:point
 				  });
 			    infowindow.open(map, this);
-			    infowindow.setContent(\' <img src="'.$image.'" border="2" width="100"  /><br/><a href=//'.$linkObservation . $link.'>'.
+			    infowindow.setContent(\' <img src="'.$image.'" border="2" width="100"  /><br/><a target=_blank href=//'.$linkObservation . $link.'>'.
 		$monobjet->pi_getLL('numeroObservation', '', 1).$donnees['idobs'].' </a>'.$donnees['nom_commun'].$donnees['nom_scientifique'].'<br/> Transmise le : '.$donnees['deposit_timestamp'] .' <br/> Note : '.str_replace("\n"," ",str_replace('"'," ",str_replace("\r"," ",str_replace("'"," ",$donnees['commentaires'])))).'  \');
 					    })';
 		//$i++;
@@ -898,8 +898,10 @@ function remplir_tables($monobjet){
   return $content;
 }
 
+
+
 function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$demandenom,$texteseul=0,$mylanguage='en')
-{
+{ 
   $display_reaction = array(
 			    "sure" => "+++",
 			    "probalyyes"=>"++",
@@ -916,7 +918,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   if($texteseul==0){$finchamps ="_forweb"; $finligne = "<br/>";} else {$finchamps ="_formail";$finligne = " \n";}
   if($texteseul==0)$champscomment = 'web_comment'; else $champscomment = 'email_comment';
   //$sql_determination="select nom_commun,nom_scientifique,date,famille,genre,comment from iherba_determination where (nom_commun !='' OR nom_scientifique != '') AND id_obs=$numero_observation ";
-  $sql_determination.="select iherba_determination.id , nom_commun,nom_scientifique,date, famille,genre ,id_cases,tag_for_translation, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
+  $sql_determination.="select iherba_determination.id , tropicosid, tropicosgenusid, tropicosfamilyid, nom_commun,nom_scientifique,date, famille,genre ,id_cases,tag_for_translation, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
   
   $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
@@ -945,20 +947,42 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
     list( $jour,$mois, $annee,) = explode("-", $date);
     if($texteseul==0)
       $content.= get_string_language_sql('expertise_prefixe_date',$mylanguage)." " .$jour."-".$mois."-".$annee." ";
-		
+    
+    
     if($nom_commun!=""){
       $content.= get_string_language_sql('nomCommun'.$finchamps,$mylanguage) .$nom_commun . " ";
     }
+    
+    $naming_string = "";
+    $current_url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
+    if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
 	  
+    $title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
     if($nom_scientifique !=""){
-      $content.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
+       $naming_string.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
+      if(($row_determination["tropicosid"]!="")&&($texteseul==0))
+	{
+	  $url=$current_url."&species_limitation=species:".$row_determination["tropicosid"];
+	  $naming_string.=  "<a  href=$url $title_link >&gt;&gt;</a>";
+	}
+	else
+	$naming_string.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
       if(($row_determination["famille"]!="")||($row_determination["genre"]!=""))
 	{
 	  if(($row_determination["famille"]!="")||($row_determination["genre"]!=""))$virgule=", ";else $virgule=" ";
-	  if($texteseul==0)$content.= "&nbsp;&nbsp;";
-	  $content.="[".$row_determination["genre"].$virgule.$row_determination["famille"]."]";
+	  if($texteseul==0)$naming_string.= "&nbsp;&nbsp;";
+	  if(($row_determination["tropicosgenusid"]!="")&&($row_determination["tropicosfamilyid"]!="")&&($texteseul==0))
+	    {
+	      $urlgenus=$current_url."&species_limitation=genus:".$row_determination["tropicosgenusid"];
+	      $urlfamily=$current_url."&species_limitation=family:".$row_determination["tropicosfamilyid"];
+	      $naming_string.=  "[".$row_determination["genre"]."<a  href=$urlgenus $title_link >&gt;&gt;</a>".$virgule.$row_determination["famille"]."<a  href=$urlfamily $title_link >&gt;&gt;</a>"."]";
+	    }
+	    else
+	    $naming_string.="[".$row_determination["genre"].$virgule.$row_determination["famille"]."]";
 	}
     }
+    
+    $content.= $naming_string;
     
     if($publication!="liste")
       {
@@ -1013,11 +1037,6 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	      }
 	}
 
-	/*if($row_determination["web_comment"]!=""){
-		$content.= $finligne;
-		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);
-		$content.=$row_determination["web_comment"];
-	}*/
 	if($row_determination["id_cases"]!=0){
 		$content.= $finligne;
 		$content.= get_string_language_sql('expertise_abstract_note',$mylanguage);
@@ -1097,6 +1116,8 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
   $rewriting = getRewritingObservation();
 	
   $content ='<div id="bloc_contenu"><h1>';
+  
+  
   $aumoinsunnom=0;
   $limitsqlphoto ="";
   if($publication == "public"){
@@ -1130,6 +1151,13 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
       if($row_iduser['computed_usable_for_similarity']=="1")$entete_content .= " (Modele) ";
       if (isset($iduser)){
 	  $entete_content.=get_string_language_sql("ws_observation_author",$mylanguage).$iduser_name;
+
+	  $title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
+	  $current_url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
+	  if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
+	  $urluser = $current_url."&user_limitation=".$iduser;
+	  $entete_content.=  "<a  href=$urluser $title_link >&gt;</a> \n";
+	    
 	}
       $entete_content.= "<br/><br/> </h1>";
       $content.= $entete_content . '<div id="bloc_contenu_texte">'; 
@@ -1197,7 +1225,9 @@ function rechercher_plantes_par_criteres($cetobjet){
   return $content;
 }
 
-function resultat_recherche_plantes($type_recherche,$critere,$cetobjet){
+function resultat_recherche_plantes($type_recherche,$critere,$cetobjet)
+{
+  
   $content="";
   $sql_recherche_critere="select distinct iherba_observations.idobs 
 	from iherba_observations,iherba_determination

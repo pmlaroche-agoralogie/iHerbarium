@@ -54,20 +54,27 @@ class tx_iherbaqr_pi2 extends tslib_pibase {
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
 		$this->pi_USER_INT_obj = 1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
-	
+		
+		global $control_remove_limitation ;
+		//rien ˆ voir avec qr code, mais evite de creer un plugin
+		
+		if($control_remove_limitation=="")return ;
+		
+		// case of a limitation
 		$content='
-			<strong>This is a few paragraphs:</strong><br />
-			<p>This is line 1</p>
-			<p>This is line 2</p>
-	
-			<h3>This is a form:</h3>
-			<form action="'.$this->pi_getPageLink($GLOBALS['TSFE']->id).'" method="POST">
-				<input type="text" name="'.$this->prefixId.'[input_field]" value="'.htmlspecialchars($this->piVars['input_field']).'">
-				<input type="submit" name="'.$this->prefixId.'[submit_button]" value="'.htmlspecialchars($this->pi_getLL('submit_button_label')).'">
-			</form>
-			<br />
-			<p>You can click here to '.$this->pi_linkToPage('get to this page again',$GLOBALS['TSFE']->id).'</p>
+			<div id="bloc_contenu"><h1> ##title##</h1>
+			<div id="bloc_contenu_texte">
+			##maincontent##<p>
+			</p></div></div>
 		';
+		
+		$mytitle = get_string_language_sql("ws_view_limitation_rightbordertitle",language_iso_from_lang_id($this->cObj->data['sys_language_uid']));
+		$content = str_replace("##title##",$mytitle,$content);
+		$content = str_replace("##maincontent##",$control_remove_limitation,$content);
+		
+		$paramlien = array(remove  => 1);
+		$linksamepage =$this->pi_getPageLink($GLOBALS['TSFE']->id,'',$paramlien);
+		$content = str_replace("###samepage###",$linksamepage,$content);
 	
 		return $this->pi_wrapInBaseClass($content);
 	}

@@ -93,7 +93,7 @@ function exists_sousdomaine($sousdomaine,&$data)
    }
 }
 
-function set_view_limitation()
+function set_view_limitation($mylanguage="fr")
   {
   global $etat_description_limitation ;
   global $control_remove_limitation ;
@@ -104,40 +104,45 @@ function set_view_limitation()
   //default value
   $etat_requete_where = " 1 ";
   $etat_description_sousdomaine = "";
+  $control_remove_limitation  = "";
+  
+  $alt_text = ' class="drilldown" title="'.get_string_language_sql("ws_view_limitation_alt_remove",$mylanguage).'" ' ;
+  
   //limition to an area  
   if(isset($searchlimitation->area_limitation)){
+    
     $detail_limitation = explode(":",$searchlimitation->area_limitation);
     if($detail_limitation[0]=="areaname")
-      {
-      $sql="select * from iherba_area where name='".$detail_limitation[1]."'";
-      $result = mysql_query($sql) or die ();
-      $nb_lignes_resultats=mysql_num_rows($result);
-      if($nb_lignes_resultats>0){
-	      $area = mysql_fetch_assoc($result);
-       }
-       else die();//area unknown
-       
+	{
+	$sql="select * from iherba_area where name='".$detail_limitation[1]."'";
+	$result = mysql_query($sql) or die ();
+	$nb_lignes_resultats=mysql_num_rows($result);
+	if($nb_lignes_resultats>0){
+		$area = mysql_fetch_assoc($result);
+	 }
+	 else die();//area unknown
+	 
 	$etat_requete_where .= " AND iherba_observations.latitude >".($area['center_lat']-$area['radius']). "";
 	$etat_requete_where .= " AND iherba_observations.latitude < ".($area['center_lat']+$area['radius']). "";
 	$etat_requete_where .= " AND iherba_observations.longitude > ".($area['center_long']-$area['radius']). "";
 	$etat_requete_where .= " AND iherba_observations.longitude < ".($area['center_long']+$area['radius']). "";
 	
-	$etat_description_sousdomaine .= " Area : ". $area['areaname'];
-	$control_remove_limitation .= "<a href=###samepage###&area_limitation=null>Area : ". $area['areaname']."</a><br>";
-      }
+	$etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname'];
+	$control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&area_limitation=null>".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname']."</a><br>";
+	}
       if($detail_limitation[0]=="circle")
-      {
-	$area=explode(",",$detail_limitation[1]);
-       print_r($area);
-	$etat_requete_where .= " AND iherba_observations.latitude >".($area[0]-$area[2]). "";
-	$etat_requete_where .= " AND iherba_observations.latitude < ".($area[0]+$area[2]). "";
-	$etat_requete_where .= " AND iherba_observations.longitude > ".($area[1]-$area[2]). "";
-	$etat_requete_where .= " AND iherba_observations.longitude < ".($area[1]+$area[2]). "";
-	
-	$area['areaname'] = "Circle ".$area[0]." ".$area[1]." R : ".$area[2];
-	$etat_description_sousdomaine .= " Area : ". $area['areaname'];
-	$control_remove_limitation .= "<a href=###samepage###&area_limitation=null>Area : ". $area['areaname']."</a><br>";
-      }
+	{
+	  $area=explode(",",$detail_limitation[1]);
+	  print_r($area);
+	  $etat_requete_where .= " AND iherba_observations.latitude >".($area[0]-$area[2]). "";
+	  $etat_requete_where .= " AND iherba_observations.latitude < ".($area[0]+$area[2]). "";
+	  $etat_requete_where .= " AND iherba_observations.longitude > ".($area[1]-$area[2]). "";
+	  $etat_requete_where .= " AND iherba_observations.longitude < ".($area[1]+$area[2]). "";
+	  
+	  $area['areaname'] = get_string_language_sql("ws_view_limitation_area_circle",$mylanguage)." ".$area[0]." ".$area[1]." R : ".$area[2];
+	  $etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname'];
+	  $control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&area_limitation=null>".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname']."</a><br>";
+	}
     }
     
  //limitation to a user 
@@ -152,21 +157,27 @@ function set_view_limitation()
      }
      else die();//user unknown
      
-    $etat_description_sousdomaine .= " User : ".$monuser['name'];
-    $control_remove_limitation .= "<a href=###samepage###&user_limitation=null>User : ". $monuser['name']."</a><br>";
+    $etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_user",$mylanguage)."  : ".$monuser['name'];
+    $control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&user_limitation=null>".get_string_language_sql("ws_view_limitation_user",$mylanguage)." : ". $monuser['name']."</a><br>";
   }
 
  //limitation to a species
   if(isset($searchlimitation->species_limitation)){
-    $field_names = array("species"=>"computed_best_tropicos_id","genus"=>"computed_best_genus_id","family"=>"computed_best_family_id");
-    $field_text_names = array("species"=>"nom_scientifique","genus"=>"genre","family"=>"famille");
     $detail_limitation = explode(":",$searchlimitation->species_limitation);
+    $field_names = array("species"=>"computed_best_tropicos_id","genus"=>"computed_best_genus_id","family"=>"computed_best_family_id");
+    if(!isset($field_names[$detail_limitation[0]]))
+      {
+	print_r($searchlimitation->species_limitation);
+	die(" error ; loggued");
+      }
+    $field_text_names = array("species"=>"nom_scientifique","genus"=>"genre","family"=>"famille");
+    
     $etat_requete_where .=  " AND `iherba_observations`.".$field_names[$detail_limitation[0]]." = '".$detail_limitation[1]."' " ;
     
     $field_det_names = array("species"=>"tropicosid","genus"=>"tropicosgenusid","family"=>"tropicosfamilyid");
     
     $sql_species="select * from iherba_determination where ".$field_det_names[$detail_limitation[0]]." = '".$detail_limitation[1]."' limit 1" ;
-    $result_species = mysql_query($sql_species) or die ("zz".$sql_species);
+    $result_species = mysql_query($sql_species) or die ();
     $nb_lignes_resultats=mysql_num_rows($result_species);
     if($nb_lignes_resultats>0){
 	    $ma_description= mysql_fetch_assoc($result_species);
@@ -174,8 +185,8 @@ function set_view_limitation()
      else die();//user unknown
       
       
-      $etat_description_sousdomaine .= " Species : ".$ma_description[$field_text_names[$detail_limitation[0]]];
-      $control_remove_limitation .= "<a href=###samepage###&species_limitation=null> Species : ".$ma_description[$field_text_names[$detail_limitation[0]]]."</a><br>";
+      $etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_phylum_".$detail_limitation[0],$mylanguage)."  : ".$ma_description[$field_text_names[$detail_limitation[0]]];
+      $control_remove_limitation .= "<a $alt_text  href=###samepage###&species_limitation=null> ".get_string_language_sql("ws_view_limitation_phylum_".$detail_limitation[0],$mylanguage)." : ".$ma_description[$field_text_names[$detail_limitation[0]]]."</a><br>";
   }
 
 }
