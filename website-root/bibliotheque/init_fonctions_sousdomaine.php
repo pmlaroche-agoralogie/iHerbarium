@@ -133,7 +133,7 @@ function set_view_limitation($mylanguage="fr")
       if($detail_limitation[0]=="circle")
 	{
 	  $area=explode(",",$detail_limitation[1]);
-	  print_r($area);
+	  
 	  $etat_requete_where .= " AND iherba_observations.latitude >".($area[0]-$area[2]). "";
 	  $etat_requete_where .= " AND iherba_observations.latitude < ".($area[0]+$area[2]). "";
 	  $etat_requete_where .= " AND iherba_observations.longitude > ".($area[1]-$area[2]). "";
@@ -142,6 +142,7 @@ function set_view_limitation($mylanguage="fr")
 	  $area['areaname'] = get_string_language_sql("ws_view_limitation_area_circle",$mylanguage)." ".$area[0]." ".$area[1]." R : ".$area[2];
 	  $etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname'];
 	  $control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&area_limitation=null>".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname']."</a><br>";
+	  
 	}
     }
     

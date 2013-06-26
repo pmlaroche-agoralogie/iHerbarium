@@ -51,6 +51,7 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 		$this->pi_loadLL();
 		$this->pi_USER_INT_obj=1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
 		
+		global $control_remove_limitation;
 		$content="";
 		
 		if($GLOBALS['TSFE']->page["uid"]==52)
@@ -76,7 +77,8 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 			else
 			       $content.=afficher_carte_observations($this,0);  //page "carte des observations publiques"
 			$mylanguage = language_iso_from_lang_id($this->cObj->data['sys_language_uid']);
-			if(!is_sousdomaine_www())$content.= "<br><br>".liste_espece($this,0,$mylanguage);  //inventaire publique
+			if((!is_sousdomaine_www())||($control_remove_limitation!=""))
+				$content.= "<br><br>".liste_espece($this,0,$mylanguage);  //inventaire publique
 		}
 			
 	return $this->pi_wrapInBaseClass($content);

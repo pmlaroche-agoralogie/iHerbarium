@@ -73,14 +73,15 @@ class tx_iherbasubdomain_pi2 extends tslib_pibase {
 			mysql_query ($creation_area) or die ('');
 		}
 		$content='<!-- $creation_area -->';
-		$sql_liste_area = "SELECT * FROM  `iherba_area`  ORDER BY  `iherba_area`.`creation_timestamp` DESC LIMIT 0 , 16";
+		$sql_liste_area = "SELECT * FROM  `iherba_area`  ORDER BY  `iherba_area`.`creation_timestamp` DESC LIMIT 0 , 60";
 		$result=mysql_query ($sql_liste_area) or die ();
 		$nb_lignes_resultats=mysql_num_rows($result);
 		if($nb_lignes_resultats>0)$content='<table>';
 		while ($donnees = mysql_fetch_array($result)){
 		
 		
-			$content.='<tr><td><a href=http://'.$donnees['name'].substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0)).'>'.$donnees['name'].'</a></td>';
+			//$content.='<tr><td><a href=http://'.$donnees['name'].substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0)).'>'.$donnees['name'].'</a></td>';
+			$content.='<tr><td><a href=http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0))."?area_limitation=areaname:".$donnees['name'].'>'.$donnees['name'].'</a></td>';
 			$content.='<td>'.$donnees['areaname'].'</td></tr>';
 		}
 		if($nb_lignes_resultats>0)$content.='</table>';

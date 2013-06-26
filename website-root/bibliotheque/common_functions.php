@@ -963,7 +963,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
       if(($row_determination["tropicosid"]!="")&&($texteseul==0))
 	{
 	  $url=$current_url."&species_limitation=species:".$row_determination["tropicosid"];
-	  $naming_string.=  "<a  href=$url $title_link >&gt;&gt;</a>";
+	  $naming_string.=  "<a  href=$url $title_link >&nbsp;&gt;</a>";
 	}
 	else
 	$naming_string.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
@@ -975,7 +975,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
 	    {
 	      $urlgenus=$current_url."&species_limitation=genus:".$row_determination["tropicosgenusid"];
 	      $urlfamily=$current_url."&species_limitation=family:".$row_determination["tropicosfamilyid"];
-	      $naming_string.=  "[".$row_determination["genre"]."<a  href=$urlgenus $title_link >&gt;&gt;</a>".$virgule.$row_determination["famille"]."<a  href=$urlfamily $title_link >&gt;&gt;</a>"."]";
+	      $naming_string.=  "[".$row_determination["genre"]."<a  href=$urlgenus $title_link >&nbsp;&gt;</a>".$virgule.$row_determination["famille"]."<a  href=$urlfamily $title_link >&nbsp;&gt;</a>"."]";
 	    }
 	    else
 	    $naming_string.="[".$row_determination["genre"].$virgule.$row_determination["famille"]."]";
@@ -1156,7 +1156,7 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
 	  $current_url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
 	  if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
 	  $urluser = $current_url."&user_limitation=".$iduser;
-	  $entete_content.=  "<a  href=$urluser $title_link >&gt;</a> \n";
+	  $entete_content.=  "<a  href=$urluser $title_link >&nbsp;&gt;</a> \n";
 	    
 	}
       $entete_content.= "<br/><br/> </h1>";
@@ -1227,7 +1227,6 @@ function rechercher_plantes_par_criteres($cetobjet){
 
 function resultat_recherche_plantes($type_recherche,$critere,$cetobjet)
 {
-  
   $content="";
   $sql_recherche_critere="select distinct iherba_observations.idobs 
 	from iherba_observations,iherba_determination

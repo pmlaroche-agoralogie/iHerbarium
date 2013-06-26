@@ -271,7 +271,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       }
     }
 
-    if(!(ctype_digit($numero_observation)))die(); // anti sql injection
+    if(!(ctype_digit($numero_observation)))die(""); // anti sql injection
 		
     $content.='<div id="bloc_contenu"><h1>';
  $content.='<a href="https://twitter.com/share" class="twitter-share-button " data-lang="en" data-count="none" data-related="iHerbarium : Un botaniste dans votre smartphone">Tweet</a>
@@ -437,6 +437,12 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$localstring = str_replace('%2',round($lobervation["longitude"],4),$localstring) ;
 	$content.= $localstring."<br/><br/>\n";
 	$content.=fairecarte($lobervation["latitude"],$lobervation["longitude"]);
+	
+	$current_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
+	if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
+	$title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
+	$url=$current_url."&area_limitation=circle:".$lobervation["latitude"].','.$lobervation["longitude"].',0.2';
+	$content.="<br/>".  "<a  href=$url $title_link >".get_string_language_sql("ws_set_limitation_circle",$mylanguage)."</a><br><br/>";
       }
       else{
 	$content.="<br/><br/>".get_string_language_sql("ws_observation_was_not_localized",$mylanguage);
