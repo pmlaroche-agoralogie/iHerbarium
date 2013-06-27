@@ -139,9 +139,15 @@ function set_view_limitation($mylanguage="fr")
 	  $etat_requete_where .= " AND iherba_observations.longitude > ".($area[1]-$area[2]). "";
 	  $etat_requete_where .= " AND iherba_observations.longitude < ".($area[1]+$area[2]). "";
 	  
-	  $area['areaname'] = get_string_language_sql("ws_view_limitation_area_circle",$mylanguage)." ".$area[0]." ".$area[1]." R : ".$area[2];
+	  $area['areaname'] = get_string_language_sql("ws_view_limitation_area_circle",$mylanguage)." ".round($area[0],5)." , ".round($area[1],5)." R : ".$area[2];
 	  $etat_description_sousdomaine .= " ".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname'];
-	  $control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&area_limitation=null>".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname']."</a><br>";
+	  
+	  $current_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
+	  if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
+	  $title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
+	  $url_zoomout=$current_url."&area_limitation=circle:".$area[0].','.$area[1].','.$area[2]*3;
+	  
+	  $control_remove_limitation .= "<a $alt_text class=drilldown href=###samepage###&area_limitation=null>".get_string_language_sql("ws_view_limitation_area",$mylanguage)." : ". $area['areaname']."</a>(<a href=$url_zoomout>Zoom Out</a>)<br>";
 	  
 	}
     }

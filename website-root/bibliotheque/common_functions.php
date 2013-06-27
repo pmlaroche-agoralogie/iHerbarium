@@ -349,28 +349,41 @@ function liste_espece($monobjet,$numuser = 0,$mylanguage='en'){
     $sql_list_carto_select_nbobs = "SELECT distinct iherba_observations.idobs ";	
 
     $sql_list_carto_from = " FROM iherba_photos,iherba_observations ,iherba_determination where iherba_observations.latitude !=0 AND iherba_observations.idobs=iherba_photos.id_obs ";
-    $sql_list_carto_from .= " AND iherba_determination.`tropicosfamilyid` != '' AND iherba_observations.idobs=iherba_determination.id_obs and $where group by iherba_determination.tropicosid ".$order;
+    $sql_list_carto_from .= " AND iherba_determination.`tropicosfamilyid` != '' AND iherba_observations.idobs=iherba_determination.id_obs and $where ";
+    //$sql_list_carto_from .= " group by iherba_determination.tropicosid ".$order;
     
-    $sql_family = "$sql_list_carto_select_family $sql_list_carto_from";
-    $result = mysql_query ($sql_family) or die ();
+    $sql_family = "$sql_list_carto_select_family  , count(iherba_observations.idobs) $sql_list_carto_from "." group by iherba_determination.tropicosid ".$order;
+    $result = mysql_query ($sql_family) or die ($sql_family);
     $nb_lignes_family=mysql_num_rows($result);
-    
-    $sql_genre = "$sql_list_carto_select_genre $sql_list_carto_from";
+
+   while( $ligne= mysql_fetch_array($result))
+      {
+	$nb_obs_famile[] = $ligne;
+      }
+  //echo  "<!-- sql_family $sql_family  -->";
+  
+    $sql_genre = "$sql_list_carto_select_genre   $sql_list_carto_from "." group by iherba_determination.genre ".$order;
     $result = mysql_query ($sql_genre) or die ();
     $nb_lignes_genre = mysql_num_rows($result);
     
-    $sql_espece = "$sql_list_carto_select_espece $sql_list_carto_from";
+    $sql_espece = "$sql_list_carto_select_espece  , count(iherba_observations.idobs)  $sql_list_carto_from "." group by iherba_determination.tropicosid  ".$order;
     $result_species_list = mysql_query ($sql_espece) or die ();
     $nb_lignes_especes = mysql_num_rows($result_species_list);
+    while( $ligne= mysql_fetch_array($result_species_list))
+      {
+	$nb_obs_espece[] = $ligne;
+      }
     
     $sql_nb_obs = "$sql_list_carto_select_nbobs from iherba_observations where $where";
     $result = mysql_query ($sql_nb_obs) or die ();
     $nb_lignes_nb_obs = mysql_num_rows($result);
     //echo "<!-- $nb_lignes_nb_obs $sql_nb_obs -->";
     
-    $sql_list_carto = "$sql_list_carto_select $sql_list_carto_from $limitnb";
+    $sql_list_carto = "$sql_list_carto_select $sql_list_carto_from "." group by iherba_determination.tropicosid ".$order." $limitnb";
     
-    echo  "<!-- sqlcarto $sql_list_carto  -->";
+    echo  "<!-- sql_espece $sql_espece  -->";
+    echo  "<!-- nb obs esp ". print_r($nb_obs_espece,true) ." -->";
+    
     $result=mysql_query ($sql_list_carto) or die ();
     $nb_lignes_resultats=mysql_num_rows($result);
     

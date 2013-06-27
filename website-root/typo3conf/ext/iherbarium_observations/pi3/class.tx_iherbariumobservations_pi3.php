@@ -441,7 +441,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$current_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
 	if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
 	$title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
-	$url=$current_url."&area_limitation=circle:".$lobervation["latitude"].','.$lobervation["longitude"].',0.2';
+	$url=$current_url."&area_limitation=circle:".$lobervation["latitude"].','.$lobervation["longitude"].',0.04';
 	$content.="<br/>".  "<a  href=$url $title_link >".get_string_language_sql("ws_set_limitation_circle",$mylanguage)."</a><br><br/>";
       }
       else{
