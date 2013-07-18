@@ -67,7 +67,7 @@ bd_connect();
 			if( $xml !=1)
 				$content .=  '<td>  <a href="/observation/data/'.$row_quest['idobs'].'" target=_blanck >'.$row_quest['nom_scientifique']."</a></td>";
 				else
-				$content .= '<loc>http://www.iherbarium.fr/observation/data/'.$row_quest['idobs'].'</loc><priority>1.00</priority>';
+				$content .= '<loc>http://www.iherbarium.fr/observation/data/'.cleanForShortURL($row_quest['nom_scientifique'])."-".$row_quest['idobs'].'</loc><priority>1.00</priority>';
 				if(($update==1)&&($row_quest['nom_scientifique'] !=''))
 				 {
 					$sqlmajurl = "UPDATE  `typoherbarium`.`iherba_observations` SET  `url_rewriting_fr` =  '".cleanForShortURL($row_quest['nom_scientifique'])."' WHERE  `iherba_observations`.`idobs` =".$row_quest['idobs'];
@@ -103,4 +103,7 @@ if( $xml !=1)
        else
        $content .=  "  </urlset>";//nb_nonident $nb_nonident
 echo $content;
+file_put_contents("sitemap_fr.xml",$content);
+$content = str_replace("www.iherbarium.fr","www.iherbarium.org",$content);
+file_put_contents("sitemap_en.xml",$content);
 ?>
