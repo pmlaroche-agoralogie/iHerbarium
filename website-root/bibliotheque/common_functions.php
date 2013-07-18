@@ -967,9 +967,11 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
     }
     
     $naming_string = "";
+if($texteseul==0)
+{
     $current_url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
     if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
-	  
+}	  
     $title_link = " title='".get_string_language_sql('ws_view_limitation_alt_add_limit',$mylanguage)."' class=drillzoom ";
     if($nom_scientifique !=""){
        $naming_string.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
