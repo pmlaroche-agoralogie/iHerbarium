@@ -46,10 +46,6 @@ page.headerData.325.wrap = <link rel="canonical" href="http://www.iherbarium.fr|
 page.10.subparts.MENU_HAUT.excludeUidList =
 config.baseURL = http://www.iherbarium.fr
 [global]
-[globalVar = IENV:TYPO3_HOST_ONLY = api-test.iherbarium.net]
-page.10.subparts.MENU_HAUT.excludeUidList =
-config.baseURL = http://api-test.iherbarium.net
-[global]
 
 
 [globalVar = GP:L = 2]

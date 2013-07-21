@@ -13,10 +13,12 @@ plugin.tx_newloginbox_pi1 {
   email_from =
   email_fromName =
 }
+#tt_content.stdWrap.dataWrap =  <A name="{field:uid}"></a>
 
 page = PAGE
 page.typeNum = 0
 page.stylesheet = fileadmin/template/style.css
+#page.bodyTag = <body background="fileadmin/imagestemplate/tile_bkgrnd.gif">
 
 page.headerData.10 = TEXT
 page.headerData.10.value = <script type="text/javascript" src="fileadmin/scripts/fonctions.js"></script>
@@ -102,5 +104,7 @@ plugin.tx_indexedsearch.show.rules = 0
 plugin.tx_macinasearchbox_pi1.pidSearchpage = 11
 lib.searchbox < plugin.tx_macinasearchbox_pi1
 
+
 # pour la mise en place de realurl
 config.simulateStaticDocuments = 0
+

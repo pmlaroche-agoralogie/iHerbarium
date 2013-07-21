@@ -31,6 +31,7 @@ plugin.tx_newloginbox_pi1 {
   email_from =
   email_fromName =
 }
+#tt_content.stdWrap.dataWrap =  <A name="{field:uid}"></a>
 
 page = PAGE
 page.typeNum = 0

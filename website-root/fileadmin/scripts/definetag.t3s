@@ -1,3 +1,11 @@
+#page.includeCSS.file2 = typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-ui.css
+#page.includeCSS.file3 = typo3conf/ext/iherbarium_roi/pi2/zone_tool_head.css
+
+#page.headerData.10 = TEXT
+#page.headerData.10.value = <script type="text/javascript" src="typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-1.6.min.js"></script>
+#page.headerData.20 = TEXT
+#page.headerData.20.value = <script type="text/javascript" src="typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-ui.js"></script>
+
 page.headerData.13 = HTML
 page.headerData.13.value = \n "\n"
 
@@ -19,3 +27,4 @@ page.headerData.140 = TEXT
 page.headerData.140.value = <script type="text/javascript" src="/typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-1.6.min.js"></script>
 page.headerData.150 = TEXT
 page.headerData.150.value = <script type="text/javascript" src="/typo3conf/ext/iherbarium_roi/pi2/aqowa_fichiers/jquery-ui.js"></script>
+
