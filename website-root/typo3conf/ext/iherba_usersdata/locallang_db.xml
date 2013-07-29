@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'iherba_usersdata'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">uf1</label>
+			<label index="tt_content.list_type_pi2">preferences</label>
+			<label index="tt_content.list_type_pi3">history</label>
+			<label index="tt_content.list_type_pi4">add_remove_pref</label>
+		</languageKey>
+	</data>
+</T3locallang>
