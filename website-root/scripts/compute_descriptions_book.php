@@ -1,8 +1,10 @@
 <?php
+// alimente la table iherbarium_book_specimen qui decrit une micro-flore
 include("../bibliotheque/common_functions.php");
 //truncate `iherbarium_book_specimen`
-$project_name = "fdc";
-
+$project_name = 'cimetiere-du-pere-lachaise';
+//$project_name = '30960';
+$debug = 1;
   function clean_text($chaine)
   {
     return str_replace("'",'`',$chaine);
@@ -10,12 +12,12 @@ $project_name = "fdc";
   
   function look_at($id_obs)
   {
-    global $project_name;
-  bd_connect();
-  
+  global $project_name;
+  global $debug;
   $requete_owner="select  name,url_rewriting_fr,computed_best_tropicos_id
 	from iherba_observations,fe_users
 	    where iherba_observations.idobs=$id_obs and iherba_observations.id_user = fe_users.uid";
+  if($debug==2)echo $requete_owner;echo "<br>";
   $lignes_reponse = mysql_query($requete_owner);
   $ligne = mysql_fetch_array($lignes_reponse);
   $taxonid = $ligne['computed_best_tropicos_id'];
@@ -29,6 +31,7 @@ $project_name = "fdc";
 
   $requete_owner="select  * from `iherba_determination` WHERE  `tropicosid` =  $taxonid order by id desc";
   $lignes_reponse = mysql_query($requete_owner);
+  if(!$lignes_reponse){echo $requete_owner; die();}
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
@@ -225,17 +228,50 @@ $project_name = "fdc";
   //echo "<br>question tag $requete_owner";
   if(mysql_num_rows($lignes_reponse)>0)
     { $ligne = mysql_fetch_array($lignes_reponse);
-      $jsontag = $ligne['description']; //echo "XXXXXXXX $jsontag YYY";
+      $jsontag = $ligne['description']; 
     }
     
 
   $sql_insert = "INSERT INTO `iherbarium_book_specimen` (`project_name`, `taxonref`, `langue`, `commonname`, `scientificname`, `pictures_with_legends`, `description`, `morphology`)
   VALUES ('$project_name', '$besttropicos', 'fr', '$commonname', '$scname', '$jsonphoto', '$texte_descriptif', '$jsontag');";
-  echo $id_obs;//."-".$commonname;echo "<br>.$sql_insert.<br>";
+  echo $id_obs. " nom commun $commonname nom scientifique $scname <br>";//."-".$commonname;echo "<br>.$sql_insert.<br>";
   
  $lignes_reponse = mysql_query($sql_insert); 
 }
-// recherche liste plante fdc 
+
+bd_connect();
+ 
+$vide_table = "delete from iherbarium_book_specimen where project_name='$project_name' ";
+$lignes_reponse = mysql_query($vide_table);
+  
+$requete_project="select  *
+	    from  iherbarium_book_project_list_taxon
+	    where observation_modele >0  and exclusion_remarques = '' AND project_name = '$project_name'";
+$lignes_reponse = mysql_query($requete_project);
+if($debug)echo $requete_project;
+while ($ligne = mysql_fetch_array($lignes_reponse)) {
+  if($debug==2)
+    echo $ligne['observation_modele']."<br>";
+  else
+    look_at($ligne['observation_modele']);
+  }
+  
+$requete_project="select  *
+		from  iherbarium_book_project_list_taxon
+		where observation_modele = 0  and exclusion_remarques = '' AND project_name = '$project_name'";
+$lignes_reponse = mysql_query($requete_project);
+ echo "<br> Modele absent <br>";
+  while ($ligne = mysql_fetch_array($lignes_reponse)) {
+    echo "pas de modele : ". $ligne['api_taxon'];
+    $requete_tax = "select * from iherba_observations where computed_best_tropicos_id = '".$ligne['api_taxon']."';";//echo $requete_tax;
+    $lignes_tax = mysql_query($requete_tax);
+    $lignetax = mysql_fetch_array($lignes_tax);
+    echo "<a href=http://www.iherbarium.fr/observation/data/". $lignetax['idobs']." > ".$lignetax['url_rewriting_fr']."</a><br>";
+  }
+ 
+ 
+// recherche liste plante fdc
+/*
  bd_connect();
   $couleur_f = array("blanche","jaune" ,"rose-mauve" ,"rouge" ,"verte","violette-bleue","mauve-rose","bleue-violette","noncodee");
   $port_plante = array("port_dresse","port_nondresse","port_nondresse","port_noncode");
@@ -329,40 +365,10 @@ $project_name = "fdc";
 		  VALUES ('$taxon', 'tropicos', 'fr', 'tag_systeme', '', '$jsontag', 'fdc', CURRENT_TIMESTAMP);";
 		  $lignes_insert = mysql_query($insert_text);
 		
-		look_at($ligne['id_obs']);
+		//look_at($ligne['id_obs']);
 		//$cpt++;if($cpt>12)die();
 	    }
-	    
-/* pere lachaise
-look_at(210);
-look_at(356);
-look_at(810);
-look_at(378);
-look_at(293);
-look_at(374);
-look_at(330);
-look_at(158);
-look_at(359);
-look_at(107);
-look_at(466);
-look_at(813);
-look_at(1467);
-look_at(866);
-look_at(589);
-look_at(443);
-look_at(870);
-look_at(242);
-look_at(357);
-look_at(221);
-look_at(1029);
-look_at(1558);
-look_at(444);
-look_at(950);
-look_at(294);
-look_at(291);
-look_at(168);
-look_at(207);
-look_at(441);
-
 */
+
+
 ?>

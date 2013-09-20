@@ -56,6 +56,7 @@ class tx_iherbausersdata_pi1 extends tslib_pibase {
 		$this->pi_loadLL();
 		$this->pi_USER_INT_obj = 1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
 	
+		$mylanguage = language_iso_from_lang_id($this->cObj->data['sys_language_uid']);
 		
 		$current_user=$GLOBALS['TSFE']->fe_user->user['uid'];
 		$history_user = $_GET['account'];
@@ -64,8 +65,10 @@ class tx_iherbausersdata_pi1 extends tslib_pibase {
 			$is_owner=1;
 			else
 			$is_owner=0;
-		$content = history_list_obs($history_user,$is_owner);
-		$content .= history_list_determination_reaction($history_user);
+			
+			
+		$content = history_list_obs($history_user,$mylanguage,$is_owner);
+		$content .= history_list_determination_reaction($history_user,$mylanguage);
 		return $this->pi_wrapInBaseClass($content);
 	}
 }

@@ -978,7 +978,7 @@ if($texteseul==0)
       if(($row_determination["tropicosid"]!="")&&($texteseul==0))
 	{
 	  $url=$current_url."&species_limitation=species:".$row_determination["tropicosid"];
-	  $naming_string.=  "<a  href=$url $title_link >&nbsp;&gt;</a>";
+	  $naming_string.=  "<a  rel=\"nofollow,noindex\"  href=$url $title_link >&nbsp;&gt;</a>";
 	}
 	else
 	$naming_string.= get_string_language_sql('nom_scientifique'.$finchamps,$mylanguage) .$nom_scientifique." ";
@@ -990,7 +990,7 @@ if($texteseul==0)
 	    {
 	      $urlgenus=$current_url."&species_limitation=genus:".$row_determination["tropicosgenusid"];
 	      $urlfamily=$current_url."&species_limitation=family:".$row_determination["tropicosfamilyid"];
-	      $naming_string.=  "[".$row_determination["genre"]."<a  href=$urlgenus $title_link >&nbsp;&gt;</a>".$virgule.$row_determination["famille"]."<a  href=$urlfamily $title_link >&nbsp;&gt;</a>"."]";
+	      $naming_string.=  "[".$row_determination["genre"]."<a  rel=\"nofollow,noindex\" href=$urlgenus $title_link >&nbsp;&gt;</a>".$virgule.$row_determination["famille"]."<a  href=$urlfamily $title_link >&nbsp;&gt;</a>"."]";
 	    }
 	    else
 	    $naming_string.="[".$row_determination["genre"].$virgule.$row_determination["famille"]."]";
@@ -1171,7 +1171,7 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
 	  $current_url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
 	  if(strpos($current_url,'?')===false)$current_url .= '?addzoom=1';
 	  $urluser = $current_url."&user_limitation=".$iduser;
-	  $entete_content.=  "<a  href=$urluser $title_link >&nbsp;&gt;</a> \n";
+	  $entete_content.=  "<a rel=\"nofollow,noindex\"  href=$urluser $title_link >&nbsp;&gt;</a> \n";
 	    
 	}
       $entete_content.= "<br/><br/> </h1>";

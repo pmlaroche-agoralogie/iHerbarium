@@ -456,8 +456,8 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$show_delete_button=0;
 	
 	
-    $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
-    $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
+    //$destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
+    //$content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
 	
     /*
     if(niveau_testeur()>0)
