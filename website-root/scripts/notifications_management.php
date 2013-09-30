@@ -24,6 +24,8 @@ function taxon_link_list($taxonref,$taxon,$mylanguage)
 	//$link_message .= "<a href=".$current_link['link'].">".$current_link['legend_link']."</a>\n";
 	$link_message .= $current_link['legend_link'] ." : ".$current_link['link']."\n";
     }
+    if($taxonref=="tropicos")
+	$link_message .= "Tropicos database (english only) : http://www.tropicos.org/Name/".$taxon."\n";
     return $link_message;
 }
 
