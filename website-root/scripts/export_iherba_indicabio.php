@@ -6,47 +6,62 @@ $csv_field_border = '"';
 include("../bibliotheque/common_functions.php");
 bd_connect();
 
-$area_of_interest = 4;
+$list_zones = "select * from iherba_area where auto_export_to_indicateur=1 and uid_set=1;";
+$result_ref = mysql_query($list_zones) or die ('Erreur SQL !'.$list_zones.'<br />'.mysql_error());
+while($area= mysql_fetch_assoc($result_ref))
+        {
+                $myzone = $area['uid_set'];
+                $targetzone = $myzone;
+        
+       
+       
+/*$area_of_interest = 4;
 $myzone = 4;
 if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$area_of_interest=desamorcer($_GET['numerozone']);
 
 $targetzone = 55;
 if(isset($_GET['targetzone']))if(is_numeric($_GET['targetzone']))$targetzone=desamorcer($_GET['targetzone']);
+*/
 
-
-$list_zones = "select * from iherba_indicateurs_zones where uid=$area_of_interest ";
-$result_ref = mysql_query($list_zones)or die ('Erreur SQL !'.$list_zones.'<br />'.mysql_error());
-$row_zone= mysql_fetch_assoc($result_ref) ;
-
-$fieldname_lat = "latitude";
-$fieldname_long = "longitude";
-
-$nb_square_lat = $row_zone['nb_square_lat'];
-$nb_square_long = $row_zone['nb_square_long'];
-$startlat = $row_zone['startlat'];
-$startlong=  $row_zone['startlong'];
-    
-$deltalat = $row_zone['deltalat'];
-$deltalong = $row_zone['deltalong'];
-
+//$list_zones = "select * from iherba_indicateurs_zones where uid=$area_of_interest ";
+//$result_ref = mysql_query($list_zones)or die ('Erreur SQL !'.$list_zones.'<br />'.mysql_error());
+//$row_zone= mysql_fetch_assoc($result_ref) ;
+//
+//$fieldname_lat = "latitude";
+//$fieldname_long = "longitude";
+//
+//$nb_square_lat = $row_zone['nb_square_lat'];
+//$nb_square_long = $row_zone['nb_square_long'];
+//$startlat = $row_zone['startlat'];
+//$startlong=  $row_zone['startlong'];
+//    
+//$deltalat = $row_zone['deltalat'];
+//$deltalong = $row_zone['deltalong'];
+        $etat_requete_where = "";
+        $etat_requete_where .= " AND iherba_observations.latitude >".($area['center_lat']-$area['radius']). "";
+	$etat_requete_where .= " AND iherba_observations.latitude < ".($area['center_lat']+$area['radius']). "";
+	$etat_requete_where .= " AND iherba_observations.longitude > ".($area['center_long']-$area['radius']). "";
+	$etat_requete_where .= " AND iherba_observations.longitude < ".($area['center_long']+$area['radius']). "";
+	
+        
 // modify this when list of quadrat is used
-$wheresql = " AND $fieldname_lat > ".$startlat. " AND $fieldname_lat <= ".($startlat+(($nb_square_lat + 1)* $deltalat)). " ";
-$wheresql .=  " AND $fieldname_long > ".$startlong. " AND $fieldname_long <= ".($startlong+(($nb_square_long + 1)* $deltalong));
+//$wheresql = " AND $fieldname_lat > ".$startlat. " AND $fieldname_lat <= ".($startlat+(($nb_square_lat + 1)* $deltalat)). " ";
+//$wheresql .=  " AND $fieldname_long > ".$startlong. " AND $fieldname_long <= ".($startlong+(($nb_square_long + 1)* $deltalong));
     
 
-$base_request = "
-SELECT * 
-FROM  `iherba_observations` , iherba_determination, fe_users
-WHERE iherba_observations.id_user = fe_users.uid
-AND id_obs = idobs
-AND iherba_determination.tropicosid !=''
-" . $wheresql;
+//$base_request = "
+//SELECT * 
+//FROM  `iherba_observations` , iherba_determination, fe_users
+//WHERE iherba_observations.id_user = fe_users.uid
+//AND id_obs = idobs
+//AND iherba_determination.tropicosid !=''
+//" . $wheresql;
 
 $base_request = "
 SELECT * 
 FROM  `iherba_observations` 
 WHERE   computed_best_tropicos_id !='' AND computed_best_tropicos_id !='0'
-" . $wheresql;
+" . $etat_requete_where;
 
 bd_connect();
 $result_sure = mysql_query($base_request)or die ('Erreur SQL !'.$base_request.'<br />'.mysql_error());
@@ -118,11 +133,11 @@ while($row_obs= mysql_fetch_assoc($result_sure) ){
         $csv_file .= "\n";
         }
         
-echo "<br>Area_of_interest : $area_of_interest ; Nb d'observations : $n ";
+echo "<br>Area_of_interest : $targetzone ; Nb d'observations : $n ";
 
 $xmlfile .= '    </database> </pma_xml_export>';
-$filename = "export_inventaire_".rand(100,900)."_".$area_of_interest.".xml";
-$filename_csv = "export_inventaire_".rand(100,900)."_".$area_of_interest.".csv";
+$filename = "export_inventaire_".rand(100,900)."_".$targetzone.".xml";
+$filename_csv = "export_inventaire_".rand(100,900)."_".$targetzone.".csv";
 file_put_contents($filename,$xmlfile);
 file_put_contents($filename_csv,$csv_file);
 
@@ -145,8 +160,9 @@ $params = array(
         );
 $ctx = stream_context_create($params);
 $resultat = file_get_contents('http://calcul.indicateurs-biodiversite.com/management/receive_data.php',false,$ctx);
+
 // import sous php my admin avec
 //set_id,origin_uid,taxon,observation_ts,latitude,longitude,quality,user_ref,computed_species_name,computed_genus_name,computed_family_name
 // comme filed list
-
+ }
 ?>
