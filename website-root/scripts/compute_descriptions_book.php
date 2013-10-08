@@ -1,26 +1,28 @@
 <?php
+
 // alimente la table iherbarium_book_specimen qui decrit une micro-flore
 include("../bibliotheque/common_functions.php");
-//truncate `iherbarium_book_specimen`
-$project_name = 'cimetiere-du-pere-lachaise';
-//$project_name = '30960';
 $debug = 1;
-  function clean_text($chaine)
+
+function clean_text($chaine)
   {
     return str_replace("'",'`',$chaine);
   }
   
-  function look_at($id_obs)
+function look_at($id_obs)
   {
   global $project_name;
   global $debug;
+  
   $requete_owner="select  name,url_rewriting_fr,computed_best_tropicos_id
 	from iherba_observations,fe_users
 	    where iherba_observations.idobs=$id_obs and iherba_observations.id_user = fe_users.uid";
-  if($debug==2)echo $requete_owner;echo "<br>";
+  if($debug)echo $requete_owner;echo "<br>";
   $lignes_reponse = mysql_query($requete_owner);
   $ligne = mysql_fetch_array($lignes_reponse);
   $taxonid = $ligne['computed_best_tropicos_id'];
+  
+  if($debug){print_r($taxonid);die();}
   $owner = $ligne['name'];
   $scname = $ligne['url_rewriting_fr'];
   $besttropicos = $ligne['computed_best_tropicos_id'];
@@ -164,7 +166,7 @@ $debug = 1;
   }
   
   $requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,iherba_photos.nom_photo_final,
-	  iherba_roi_answers_pattern.id_question,
+	  iherba_roi_answers_pattern.id_question, 
 	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
 	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail ,tag ,texte as legendtag"    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
       "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question,iherba_tags,iherba_roi_tag,iherba_tags_translation
@@ -235,32 +237,39 @@ $debug = 1;
   $sql_insert = "INSERT INTO `iherbarium_book_specimen` (`project_name`, `taxonref`, `langue`, `commonname`, `scientificname`, `pictures_with_legends`, `description`, `morphology`)
   VALUES ('$project_name', '$besttropicos', 'fr', '$commonname', '$scname', '$jsonphoto', '$texte_descriptif', '$jsontag');";
   echo $id_obs. " nom commun $commonname nom scientifique $scname <br>";//."-".$commonname;echo "<br>.$sql_insert.<br>";
-  
+  if($debug)echo $sql_insert;
  $lignes_reponse = mysql_query($sql_insert); 
 }
 
 bd_connect();
- 
-$vide_table = "delete from iherbarium_book_specimen where project_name='$project_name' ";
-$lignes_reponse = mysql_query($vide_table);
-  
-$requete_project="select  *
-	    from  iherbarium_book_project_list_taxon
-	    where observation_modele >0  and exclusion_remarques = '' AND project_name = '$project_name'";
-$lignes_reponse = mysql_query($requete_project);
-if($debug)echo $requete_project;
-while ($ligne = mysql_fetch_array($lignes_reponse)) {
-  if($debug==2)
-    echo $ligne['observation_modele']."<br>";
-  else
-    look_at($ligne['observation_modele']);
-  }
-  
-$requete_project="select  *
-		from  iherbarium_book_project_list_taxon
-		where observation_modele = 0  and exclusion_remarques = '' AND project_name = '$project_name'";
-$lignes_reponse = mysql_query($requete_project);
- echo "<br> Modele absent <br>";
+
+//truncate `iherbarium_book_specimen`
+//$liste_projet = array('cimetiere-du-pere-lachaise', '30960');
+$liste_projet = array('cimetiere-du-pere-lachaise');
+foreach ($liste_projet as $project_name)
+{
+  echo "<br> <br> <br> Debut projet : $project_name <br>";
+  $vide_table = "delete from iherbarium_book_specimen where project_name='$project_name' ";
+  $lignes_reponse = mysql_query($vide_table);
+    
+  $requete_project="select  *
+	      from  iherbarium_book_project_list_taxon
+	      where observation_modele >0  and exclusion_remarques = '' AND project_name = '$project_name'";
+  $lignes_reponse = mysql_query($requete_project);
+  if($debug)echo $requete_project;
+  while ($ligne = mysql_fetch_array($lignes_reponse)) {
+    if($debug)
+      echo "<br>".$ligne['observation_modele']."<br>";
+    if(!($debug==2))
+      look_at($ligne['observation_modele']);
+      die();
+    }
+
+  $requete_project="select  *
+		  from  iherbarium_book_project_list_taxon
+		  where observation_modele = 0  and exclusion_remarques = '' AND project_name = '$project_name'";
+  $lignes_reponse = mysql_query($requete_project);
+  echo "<br> Modele absent <br>";
   while ($ligne = mysql_fetch_array($lignes_reponse)) {
     echo "pas de modele : ". $ligne['api_taxon'];
     $requete_tax = "select * from iherba_observations where computed_best_tropicos_id = '".$ligne['api_taxon']."';";//echo $requete_tax;
@@ -269,6 +278,7 @@ $lignes_reponse = mysql_query($requete_project);
     echo "<a href=http://www.iherbarium.fr/observation/data/". $lignetax['idobs']." > ".$lignetax['url_rewriting_fr']."</a><br>";
   }
  
+}
  
 // recherche liste plante fdc
 /*

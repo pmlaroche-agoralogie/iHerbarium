@@ -326,6 +326,16 @@ function fairecarte($latitude,$longitude){
 }
 
 
+function voir_indicateurs_area($idarea){
+  $content = "";
+  $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_4_10repetitions_setid_$idarea.png>";
+  $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_3_10repetitions_setid_$idarea.png>";
+  $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_5_10repetitions_setid_$idarea.png>";
+  $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_2_setid_$idarea.png>";
+  $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_1_setid_$idarea.png>";
+  return $content ;
+}
+
 /* fonction qui permet d'afficher toutes les observations  determinées */
 function liste_espece($monobjet,$numuser = 0,$mylanguage='en'){
     $content= "";

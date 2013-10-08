@@ -61,7 +61,7 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
         /* Requête qui permet de sélectionner les dernières observations (si elles sont publiques ou partiellement publiques)*/
         $sql_order =" order by deposit_timestamp desc";
 	
-	if(is_sousdomaine_www())	$sql_limit = " limit 0,20 "; else $sql_limit = " limit 0,200 ";
+	if(is_sousdomaine_www())	$sql_limit = " limit 0,19 "; else $sql_limit = " limit 0,200 ";
 	
 	$display_type = "public";
 	bd_connect();
@@ -79,20 +79,32 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
 	if($GLOBALS['TSFE']->page["uid"]==81)
 	    {
 		$sql_where .= ' AND idobs not in (select id_obs from  iherba_determination where iherba_observations.idobs =  iherba_determination.id_obs ) ';
-	if(!exists_sousdomaine())   	$sql_limit = " limit 0,19 ";
+		if(!exists_sousdomaine())   	$sql_limit = " limit 0,120 ";
+		$sql_limit = " limit 0,90 ";
 	    }
 	
 	// plant with no scientif name
 	if($GLOBALS['TSFE']->page["uid"]==82)
 	    {
 		$sql_where .= " AND idobs not in (select id_obs from  iherba_determination where iherba_observations.idobs =  iherba_determination.id_obs and `tropicosid` !=  '' ) ";
-		if(!exists_sousdomaine())    $sql_limit = " limit 0,19 ";
+		if(!exists_sousdomaine())    $sql_limit = " limit 0,80 ";
 	    }
 	    
         $sql="select idobs from iherba_observations  $sql_where $sql_order $sql_limit ";
+        /*$result = mysql_query($sql) or die ();
+        while ($row = mysql_fetch_assoc($result)) {
+			
+			$content .= affiche_une_observation_dans_liste($this,$row["idobs"],"public");
+        }
         
+	bd_connect();
+	$sql="select idobs,id_user from iherba_observations ;//on sélectionne l'ensemble des observations de l'utilisateur
+	
+	*/
 	$result = mysql_query($sql)or die ();
 	$nb_lignes_resultats=mysql_num_rows($result);
+	$liste_idobs = array();
+	
 	if($nb_lignes_resultats==0){
 		 /*on est dans le cas où l'utilisateur n'a pas encore constitué son herbier virtuel */
 		 $content.=$this->pi_getLL('herbierVide', '', 1)."<br/>\n";
@@ -101,10 +113,12 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
 	 }
 	//si il y a au moins une observation, on commence la liste
 	while ($row = mysql_fetch_assoc($result)) {
-			$content .= affiche_une_observation_dans_liste($this,$row["idobs"],$display_type);
+		    $liste_idobs[] = $row["idobs"];
 		}
-		
-                     
+	foreach($liste_idobs as $thisidobs)
+	    {
+		$content .= affiche_une_observation_dans_liste($this,$thisidobs,$display_type);     
+	    }
         return $this->pi_wrapInBaseClass($content);
     }
 }

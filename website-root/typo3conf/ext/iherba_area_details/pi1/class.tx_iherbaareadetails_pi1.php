@@ -28,7 +28,7 @@
  */
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
-
+require_once(PATH_tslib.'../../../../bibliotheque/common_functions.php');
 
 /**
  * Plugin 'voir_indicateurs' for the 'iherba_area_details' extension.
@@ -55,19 +55,13 @@ class tx_iherbaareadetails_pi1 extends tslib_pibase {
 		$this->pi_loadLL();
 		$this->pi_USER_INT_obj = 1;	// Configuring so caching is not expected. This value means that no cHash params are ever set. We do this, because it's a USER_INT object!
 	
-		$content='
-			<strong>This is a few paragraphs:</strong><br />
-			<p>This is line 1</p>
-			<p>This is line 2</p>
-	
-			<h3>This is a form:</h3>
-			<form action="'.$this->pi_getPageLink($GLOBALS['TSFE']->id).'" method="POST">
-				<input type="text" name="'.$this->prefixId.'[input_field]" value="'.htmlspecialchars($this->piVars['input_field']).'">
-				<input type="submit" name="'.$this->prefixId.'[submit_button]" value="'.htmlspecialchars($this->pi_getLL('submit_button_label')).'">
-			</form>
-			<br />
-			<p>You can click here to '.$this->pi_linkToPage('get to this page again',$GLOBALS['TSFE']->id).'</p>
-		';
+		$setid = 1;
+		if(isset($_GET['setid']))if(is_numeric($_GET['setid']))$setid=desamorcer($_GET['setid']);
+		if(isset($_POST['setid']))if(is_numeric($_POST['setid']))$setid=desamorcer($_POST['setid']);
+		//if ($setid == -1)die("-");
+
+
+		$content= voir_indicateurs_area($setid);
 	
 		return $this->pi_wrapInBaseClass($content);
 	}
