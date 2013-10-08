@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'iherba_area_details'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">voir_indicateurs</label>
+			<label index="tt_content.list_type_pi2">voir_regroupements</label>
+			<label index="tt_content.list_type_pi3">voir_synthese</label>
+			<label index="tt_content.list_type_pi4">voir_ebooks</label>
+			<label index="tt_content.list_type_pi5">voir_uf1</label>
+			<label index="tt_content.list_type_pi6">voir_uf2</label>
+		</languageKey>
+	</data>
+</T3locallang>
