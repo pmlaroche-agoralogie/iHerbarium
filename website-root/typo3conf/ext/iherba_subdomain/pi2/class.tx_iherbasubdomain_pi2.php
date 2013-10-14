@@ -82,7 +82,13 @@ class tx_iherbasubdomain_pi2 extends tslib_pibase {
 		
 			//$content.='<tr><td><a href=http://'.$donnees['name'].substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0)).'>'.$donnees['name'].'</a></td>';
 			$content.='<tr><td><a href=http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0))."?area_limitation=areaname:".$donnees['name'].'>'.$donnees['name'].'</a></td>';
-			$content.='<td>'.$donnees['areaname'].'</td></tr>';
+			$content.='<td>'.$donnees['areaname'].'</td>';
+			
+			if($donnees['auto_export_to_indicateur']==1)
+				{
+					$content.='<td><a href=http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0))."?id=indicators&setid=".$donnees['uid_set'].'>'."estimateurs".'</a></td>';
+				}
+			$content.='</tr>';
 		}
 		if($nb_lignes_resultats>0)$content.='</table>';
 		
