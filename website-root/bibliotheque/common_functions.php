@@ -162,23 +162,17 @@ function information_analyse($id_obs,$idlangue,$explication="Region of interest 
     break;
   }
   $content = "";	
- // $langue = "fr";$show_delete_button=1;
+ //$langue = "fr";$show_delete_button=0;
   bd_connect();
   //same request as the following one, but group by id of roi
-  $requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,
-	  iherba_roi_answers_pattern.id_question,
-	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
-	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail ,tag ,texte as legendtag"    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
-      "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question,iherba_tags,iherba_roi_tag,iherba_tags_translation
+  $requete_lignes_pattern="select distinct iherba_roi.id,iherba_tags.tag,
+	 iherba_roi_answers_pattern.id AS lineid " . 
+      "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_tags,iherba_roi_tag
 	  where iherba_photos.id_obs=$id_obs and
 	  iherba_photos.idphotos=iherba_roi.id_photo and
-	  iherba_roi.id=iherba_roi_answers_pattern.id_roi and iherba_question.id_langue='$langue'
+	  iherba_roi.id=iherba_roi_answers_pattern.id_roi 
 	  and
-	  iherba_tags.id_tag = iherba_roi_tag.id_tag and iherba_roi_tag.id_roi = iherba_roi.id
-	  and
-	  iherba_tags_translation.id_tag = iherba_tags.id_tag and iherba_tags_translation.id_langue = '$langue'
-	  and
-	  iherba_roi_answers_pattern.id_question = iherba_question.id_question  group by iherba_roi.id";
+	  iherba_tags.id_tag = iherba_roi_tag.id_tag and iherba_roi_tag.id_roi = iherba_roi.id group by iherba_roi.id";
 
   $lignes_reponse = mysql_query($requete_lignes_pattern);
 
@@ -188,9 +182,10 @@ function information_analyse($id_obs,$idlangue,$explication="Region of interest 
     {
       while ($ligne = mysql_fetch_array($lignes_reponse)) {
 		$liste_roi[] = $ligne['id'];
-		$liste_roi_tag[] = $ligne['legendtag'];
+		$liste_roi_tag[] = $ligne['tag'];
 	    }
     }
+    
 
   foreach($liste_roi as $key => $value)
     {
@@ -199,7 +194,9 @@ function information_analyse($id_obs,$idlangue,$explication="Region of interest 
 	  iherba_roi_answers_pattern.id_question,
 	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,	iherba_roi_answers_pattern.id_just_less_common,	iherba_roi_answers_pattern.prob_just_less,
 	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail" 
-      /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
+     
+      . " , iherba_roi_answers_pattern.id AS lineid " .
+      
       "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question
 	  where iherba_roi.id = $value and iherba_photos.id_obs=$id_obs and
 	  iherba_photos.idphotos=iherba_roi.id_photo and
@@ -215,10 +212,11 @@ function information_analyse($id_obs,$idlangue,$explication="Region of interest 
 	  $content .= build_response($ligne,$cibleaction,$show_delete_button)."<br>";
 	}
       }
-}
+    }
+  
   return $content;
 }
-
+/*
 //charge un tableau decrivant les caracteres de l'observation en parametre
 function charge_description($id_obs)
 {	
@@ -236,83 +234,6 @@ function charge_description($id_obs)
     $description[] = $v; 
   }
   return $description;
-}
-
-/*
-function calcule_liste_proche($description,$id_a_exclure=0)
-{
-  if( count($description)==0)return ; // pas de caractere defini
-  $i = 1;
-  $sql="";
-  foreach ($description as $pattern) {   
-
-    //requete qui permet de s»lectioner pour chacun des patterns de l'observation consid»r»e les 
-    // pattern des observations des experts qui ont les memes valeurs id_question et id_most_answer_common 
-    // que l'observation "non expert" (celle que l'on cherche ? identifier)
-    //
-    $sql=$sql."(select iherba_observations.idobs,iherba_roi_answers_pattern.id_roi,
-		iherba_roi_answers_pattern.id_question,
-		iherba_roi_answers_pattern.id_answer_most_common
-		from iherba_roi,iherba_photos,iherba_determination,iherba_roi_answers_pattern,iherba_observations
-		where iherba_photos.idphotos=iherba_roi.id_photo and
-		iherba_roi.id=iherba_roi_answers_pattern.id_roi and
-		iherba_photos.id_obs=iherba_observations.idobs and
-		iherba_observations.idobs=iherba_determination.id_obs 
-		and iherba_roi_answers_pattern.id_question=".$pattern["id_question"];
-    $sql=$sql." and iherba_roi_answers_pattern.id_answer_most_common=".$pattern["id_answer_most_common"];
-    $sql=$sql." and iherba_determination.probabilite >50 )";
-		
-    if ($i < count($description)) { 
-      $sql = $sql . " UNION "; 
-				
-    }		
-    $i++;
-  }   
-	 
-  $requete_obs_proche= mysql_query($sql);
-  $nb_enregistrements=mysql_num_rows($requete_obs_proche); //mysql_num_rows Retourne le nombre de lignes r»sultats de la requÕte
-  //echo "nombre de lignes r»sultats : ".$nb_enregistrements."<br/>";
-  while($row_proche= mysql_fetch_assoc($requete_obs_proche) ){
-    if($id_a_exclure !=$row_proche['idobs'])
-      {
-	$idobs_expertisees[]=$row_proche['idobs']; //on r»cupÀre les num»ro d'observation des experts dans un tableau
-	$id_roi=$row_proche['id_roi'];
-	$id_question=$row_proche['id_question'];
-	$id_answer_most_common=$row_proche['id_answer_most_common'];
-      }
-    //echo "idobs : ".$idobs_expertisees." id roi : ".$id_roi." id question : ".$id_question." id answer most common : ".$id_answer_most_common."<br/>";
-  }
-  if(isset ($idobs_expertisees)){
-    //la fonction array_count_values retourne un tableau contenant les valeurs du tableau $idobs comme cl»s et leur fr»quence comme valeurs. 
-    $occurencesIDOBSpartiel=array_count_values($idobs_expertisees); 
-    //echo " tableau des idobservations et leurs occurences : <br/>";
-    $maxcommun =0;
-    foreach ( $occurencesIDOBSpartiel as $no => $max)
-      if($max > $maxcommun)$maxcommun=$max;
-		
-    foreach ( $occurencesIDOBSpartiel as $no => $nb)
-      if($nb ==  $maxcommun)$occurencesIDOBS[] = $no;
-    //print_r($occurencesIDOBS);
-    //echo "<br/><br/>";
-		
-    //on r»cupÀre le nombre d'»l»ments du tableau $occurencesIDOBS
-    // c'est ? dire le nombre d'observations expertis»es qui correspondent ? l'observation idobs que l'on cherche ? identifier
-    $nb_elements=count($occurencesIDOBS);
-		
-    $pourcentage=100/$nb_elements;
-    foreach ( $occurencesIDOBS as $no )
-      {
-	$vecteur['numobs'] = $no;
-	$vecteur['proba'] = $pourcentage;
-	$obs_prob[] = $vecteur;
-      }
-    //print_r($obs_prob);
-  }
-  else{
-    //si il n'existe pas de tableau $idobs_expertisees c'est ? dire s'il n'y a pas de plantes qui correspond 
-    return ;
-  }
-  return $obs_prob;
 }
 */
 
@@ -1332,5 +1253,19 @@ function queryToRowsArray($query, $connect = false) {
 }
 
 // <- Kuba
-			
+
+function relocate_observation($numobs,$localisation,$id_user)
+{ // record a new localisation
+  
+  $sql_list_carto = "SELECT * from iherba_observations where iherba_observations.idobs = $numobs";
+  bd_connect();
+  $result=mysql_query ($sql_list_carto) or die ("");
+  $ligne = mysql_fetch_array($result);
+  //if($ligne['id_user']!=$id_user)die("h");// tentative de hack
+  
+  $gps = explode(',',$localisation);
+  $sql_carto = "update iherba_observations set latitude = '$gps[0]' , longitude = '$gps[1]'  where iherba_observations.idobs = $numobs";
+  $result=mysql_query ($sql_carto) or die ("");
+  //echo "<!-- $sql_carto  -->";
+}
 ?>

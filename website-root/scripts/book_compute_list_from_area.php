@@ -3,7 +3,7 @@
 include("../bibliotheque/common_functions.php");
 bd_connect();
 
-$myzone = '30960';
+$myzone = 'jardin-breton';
 //if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$myzone=desamorcer($_GET['numerozone']);
 
 $sql="select * from iherba_area where name='".$myzone."'";

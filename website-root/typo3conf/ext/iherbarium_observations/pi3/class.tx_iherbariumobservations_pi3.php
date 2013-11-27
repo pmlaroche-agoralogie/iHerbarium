@@ -446,37 +446,30 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       }
       else{
 	$content.="<br/><br/>".get_string_language_sql("ws_observation_was_not_localized",$mylanguage);
+	if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)
+	    {
+	      $paramlien = array(numero_observation  => $numero_observation,check=>456789);
+	      $content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_observation_add_localization",$mylanguage),97,'',$paramlien);//ws_observation_add_localization
+	    }
+	
+	    
       }
     }
-    if(niveau_testeur()>0)
+    //if(niveau_testeur()>0)
+    if($GLOBALS['TSFE']->fe_user->user['uid']==1)
 	{
 	$show_delete_button=1;
 	}
 	else
 	$show_delete_button=0;
 	
-	
-    //$destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
-    //$content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
-	
-    /*
-    if(niveau_testeur()>0)
-      //if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)
-      {
-	$desc = charge_description($numero_observation);
-	$obs_prob = calcule_liste_proche ($desc);
-	if(count($obs_prob) >0)
-	  {
-	    $paramlien = array(numero_observation  => $numero_observation,check=>456789);
-	    $content.= $this->pi_linkToPage($this->pi_getLL('seeproximity', '', 1),52,'',$paramlien);
-	    $content.= "</br>";
-	  }
-	else
-	  {
-	    $content.= "<!-- no proximity -->";
-	  }
-      }
-     */
+    //if($GLOBALS['TSFE']->fe_user->user['uid']==1)
+    //{
+    
+    $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
+    $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
+    //}
+    
     
     if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);

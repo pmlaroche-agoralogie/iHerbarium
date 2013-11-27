@@ -54,21 +54,37 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 		global $control_remove_limitation;
 		$content="";
 		
-		if($GLOBALS['TSFE']->page["uid"]==52)
-		{ // page 52 : plus utilisé (affiche un calcul direct)
-			$numero_observation = desamorcer($_GET['numero_observation']);
-			$content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,"Morphologie:");
-			$desc = charge_description($numero_observation);
-			$obs_prob = calcule_liste_proche ($desc);
-			if(count($obs_prob) >0)
+		if($GLOBALS['TSFE']->page["uid"]==97)
+		{ // page 97 formulaire pour saisir geoloc
+			$numero_observation = -1;
+			if(isset($_GET['numero_observation']))$numero_observation = desamorcer($_GET['numero_observation']);
+			if(isset($_POST['numero_observation']))$numero_observation = desamorcer($_POST['numero_observation']);
+			
+			if(!is_numeric($numero_observation))
+				die();
+			
+			if(!isset($_POST['typaction'])||$_POST['typaction']!="store_localisation")
 				{
-				asort($obs_prob); // vérifier que ça trie sur la probabilité !
-				foreach($obs_prob as $ligne)
-					{
-					$content .= affiche_une_observation_dans_liste($this,$ligne['numobs'],"public");
-					}
+					$form = 'Placez votre observation <br> <form method="post" action="">';
+					$form.='<input type="hidden" name="typaction" value="store_localisation">';
+					$form.='<input type="hidden" name="numero_observation" value="'.$numero_observation.'">';
+					$form.='<input  name="localisation" value="">
+						    <input type="submit" alt="'."x".'"value="Envoyer">';
+					$form.="</form>";
+					
+					$content = $form;
+				}
+				
+			if(isset($_POST['typaction'])&& $_POST['typaction']=="store_localisation")
+				{
+				// a user must be logged
+				if(!isset($GLOBALS['TSFE']->fe_user->user['uid'] ))die();
+				
+				relocate_observation($numero_observation,$_POST['localisation'],$GLOBALS['TSFE']->fe_user->user['uid']);
+				$content = "Localisation enregistrée";
 				}
 			
+    
 		}
 		else
 		{  
@@ -76,6 +92,8 @@ class tx_iherbariumobservations_pi2 extends tslib_pibase {
 			       $content.=afficher_carte_observations($this,$GLOBALS['TSFE']->fe_user->user['uid']);  //page "carte des observations"
 			else
 			       $content.=afficher_carte_observations($this,0);  //page "carte des observations publiques"
+			       
+			       
 			$mylanguage = language_iso_from_lang_id($this->cObj->data['sys_language_uid']);
 			if((!is_sousdomaine_www())||($control_remove_limitation!=""))
 				$content.= "<br><br>".liste_espece($this,0,$mylanguage);  //inventaire publique

@@ -79,15 +79,15 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
 	if($GLOBALS['TSFE']->page["uid"]==81)
 	    {
 		$sql_where .= ' AND idobs not in (select id_obs from  iherba_determination where iherba_observations.idobs =  iherba_determination.id_obs ) ';
-		if(!exists_sousdomaine())   	$sql_limit = " limit 0,120 ";
-		$sql_limit = " limit 0,90 ";
+		if(!exists_sousdomaine())   	$sql_limit = " limit 0,210 ";
+		$sql_limit = " limit 0,150 ";
 	    }
 	
 	// plant with no scientif name
 	if($GLOBALS['TSFE']->page["uid"]==82)
 	    {
 		$sql_where .= " AND idobs not in (select id_obs from  iherba_determination where iherba_observations.idobs =  iherba_determination.id_obs and `tropicosid` !=  '' ) ";
-		if(!exists_sousdomaine())    $sql_limit = " limit 0,80 ";
+		if(!exists_sousdomaine())    $sql_limit = " limit 0,190 ";
 	    }
 	    
         $sql="select idobs from iherba_observations  $sql_where $sql_order $sql_limit ";
