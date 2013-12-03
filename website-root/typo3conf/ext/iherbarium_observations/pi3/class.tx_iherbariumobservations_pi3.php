@@ -446,7 +446,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       }
       else{
 	$content.="<br/><br/>".get_string_language_sql("ws_observation_was_not_localized",$mylanguage);
-	if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser)
+	if(($GLOBALS['TSFE']->fe_user->user['uid']==$iduser) ||(niveau_testeur()>0))
 	    {
 	      $paramlien = array(numero_observation  => $numero_observation,check=>456789);
 	      $content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_observation_add_localization",$mylanguage),97,'',$paramlien);//ws_observation_add_localization

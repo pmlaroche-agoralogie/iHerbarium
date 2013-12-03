@@ -63,7 +63,7 @@ class tx_iherbaareadetails_pi1 extends tslib_pibase {
 
 		$content= voir_indicateurs_area($setid);
 	
-		return $this->pi_wrapInBaseClass($content);
+		return $content;
 	}
 }
 

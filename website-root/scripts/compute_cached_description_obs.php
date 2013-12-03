@@ -17,7 +17,7 @@ function decrire_observation($id_obs)
   $langue='fr';
     
   $requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,
-	    iherba_roi_answers_pattern.id_question,iherba_question.choice_detail
+	    iherba_roi_answers_pattern.id_question,
 	    iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
 	   tag     from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_tags,iherba_roi_tag, iherba_question
 	    where iherba_photos.id_obs=$id_obs and
@@ -94,7 +94,7 @@ foreach ($liste_projet as $project_name)
       {
 	decrire_observation($ligne['observation_modele']);
       }
-      die();
+     
     }
  
 }

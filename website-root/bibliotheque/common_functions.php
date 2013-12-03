@@ -248,7 +248,12 @@ function fairecarte($latitude,$longitude){
 
 
 function voir_indicateurs_area($idarea){
-  $content = "";
+  
+  $sql_area = "SELECT * from iherba_area  where uid_set = $idarea ";	
+  $result = mysql_query ($sql_area) or die ();
+  $ligne= mysql_fetch_array($result);
+ 
+  $content = ' <div style="text-align: center;"> <h1><strong>'. $ligne[areaname]." </strong></h1><br></div>";
   $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_4_10repetitions_setid_$idarea.png>";
   $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_3_10repetitions_setid_$idarea.png>";
   $content .= "<br><img width=800 src=http://calcul.indicateurs-biodiversite.com/upload_files/GRAPH_5_10repetitions_setid_$idarea.png>";

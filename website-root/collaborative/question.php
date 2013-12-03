@@ -14,8 +14,11 @@ if ( isset($_COOKIE[$cookieName] )) {
   $internautId = time(). "-" .rand(1000, 9900); // value
 
   $domains = array(
-		   ".iherbarium.fr",
-		   ".iherbarium.org"
+		  ".iherbarium.fr",
+		  ".iherbarium.de",
+		  ".iherbarium.com.br",
+		  ".iherbarium.it",
+		  ".iherbarium.org"
 		   );
 
   foreach($domains as $domain) {
@@ -100,8 +103,15 @@ case 'HandleAnswer':
   $p->answerReceived($answer);
 
 case 'NextTask':
+  
+  if( isset($_GET['obsId']) ||  isset($_POST['obsId'])  )
+    {
+      if(isset($_GET['obsId']))$obsId = $_GET['obsId'];else $obsId = $_POST['obsId'];
+      $task = $local->loadNextTask("Answerable",$obsId);
+    }
+    else
     
-  $task = $local->loadNextTask();
+    $task = $local->loadNextTask();
 
   if($task == NULL) {
     //echo "<p>No Tasks left!</p>";
