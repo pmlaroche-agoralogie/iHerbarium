@@ -6,12 +6,14 @@ $csv_field_border = '"';
 include("../bibliotheque/common_functions.php");
 bd_connect();
 
-$list_zones = "select * from iherba_area where auto_export_to_indicateur=1 ;";
+$list_zones = "select * from iherba_area where auto_export_to_indicateur=1 order by uid_set ;";
 $result_ref = mysql_query($list_zones) or die ('Erreur SQL !'.$list_zones.'<br />'.mysql_error());
 while($area= mysql_fetch_assoc($result_ref))
         {
                 $myzone = $area['uid_set'];
                 $targetzone = $myzone;
+                $nomduset = mysql_real_escape_string(utf8_encode($area['areaname']));
+                
         /*$area_of_interest = 4;
         $myzone = 4;
         if(isset($_GET['numerozone']))if(is_numeric($_GET['numerozone']))$area_of_interest=desamorcer($_GET['numerozone']);
@@ -145,14 +147,14 @@ while($area= mysql_fetch_assoc($result_ref))
         // we can't manage xml file now because of limitation of mysql server 5.1
         // $data = base64_encode($xmlfile);
         $data = base64_encode($csv_file);
-        
+
         $params = array(
               'http' => array(
                         'method' => 'POST',
                         'header'=>
                         "Accept-language: en\r\n".
                         "Content-type: application/x-www-form-urlencoded\r\n",
-                        'content'=>http_build_query(array('setid'=>$targetzone ,'zone_center_lat'=>$area['center_lat'],'zone_center_long'=>$area['center_long'],'zone_radius'=>$area['radius'],'data'=>$data ))
+                        'content'=>http_build_query(array('nomduset'=>$nomduset ,'setid'=>$targetzone ,'zone_center_lat'=>$area['center_lat'],'zone_center_long'=>$area['center_long'],'zone_radius'=>$area['radius'],'data'=>$data ))
                         )
                 );
         $ctx = stream_context_create($params);
