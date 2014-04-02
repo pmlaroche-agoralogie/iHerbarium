@@ -86,7 +86,10 @@ class tx_iherbasubdomain_pi2 extends tslib_pibase {
 			
 			if($donnees['auto_export_to_indicateur']==1)
 				{
-					$content.='<td><a href=http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0))."?id=indicators&setid=".$donnees['uid_set'].'>'."estimateurs".'</a></td>';
+					$content.='<td><a href=http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0))."?id=indicators&setid=".$donnees['uid_set'].'>'."estimateurs".'</a>
+					<br><a href=http://calcul.indicateurs-biodiversite.com/upload_files/set_'.$donnees['uid_set'].'.kml>'."group in KML for Google Earth".'</a>
+					<br><a href=http://calcul.indicateurs-biodiversite.com/management/import_r_computing.php?numeroset='.$donnees['uid_set'].'>'."group in google map".'</a>
+					</td>';
 				}
 			$content.='</tr>';
 		}

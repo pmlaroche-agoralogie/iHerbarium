@@ -1,0 +1,70 @@
+# pour la mise en place de realurl
+config.tx_realurl_enable = 1
+//config.no_cache = 1
+
+page.headerData.1 = TEXT
+page.headerData.1.data=getIndpEnv:TYPO3_HOST_ONLY
+page.headerData.1.wrap = <base href="http://|" />
+
+//page.headerData.5 = TEXT
+//page.headerData.5.data = getenv:HTTP_HOST
+//page.headerData.5.wrap = <base href="http:// | /" />
+
+
+config.sys_language_uid = 1
+config.language=fr
+config.locale_all= fr_FR
+page.config.language = fr
+
+//config.linkVars=L
+
+
+#config.sys_language_overlay = 1
+
+[globalVar = GP:L = 0]
+config.sys_language_uid = 0
+config.language = en
+config.locale_all = en_EN
+page.config.language = en
+config.baseURL = http://www.iherbarium.org
+page.config.htmlTag_langKey = en
+[global]
+
+
+[globalVar = GP:L = 1]
+config.sys_language_uid = 1
+config.language = fr
+config.locale_all = fr_FR
+page.config.language = fr
+page.config.doctype = xhtml_trans
+page.config.htmlTag_langKey = fr
+config.baseURL = http://www.iherbarium.fr
+[global]
+
+[globalVar = GP:L = 2]
+config.sys_language_uid = 2
+config.language = pt
+config.locale_all = pt_PT
+page.config.language = pt
+[global]
+
+[globalVar = GP:L = 3]
+config.sys_language_uid = 3
+config.language = de
+config.locale_all = de_DE
+page.config.language = de
+[global]
+
+[globalVar = GP:L = 4]
+config.sys_language_uid = 4
+config.language = it
+config.locale_all = it_IT
+page.config.language = it
+[global]
+
+[globalVar = GP:L = 5]
+config.sys_language_uid = 5
+config.language = pt
+config.locale_all = pt_PT
+page.config.language = pt
+[global]
