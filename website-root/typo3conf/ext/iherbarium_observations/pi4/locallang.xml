@@ -51,6 +51,11 @@
 			<label index="commentaryLabel">Commentary</label>
 			<label index="addressLabel">Address</label>
 			<label index="commentaryInput">You can write a commentary for this observation here : </label>
+			
+			<label index="personnalRefLabel">Personnal reference</label>
+			<label index="personnalRefInput">You can write a personnal reference to this observation : </label>
+			
+			
 			<label index="addressInput">You can write the address where the plant was seen here : </label>
 			<label index="privacyLabel">Privacy</label>
 			<label index="privacyInput">Do you want your observation to be visible by others internauts?</label>
@@ -122,6 +127,10 @@
 			<label index="addressLabel">Adresse de récolte</label>
 			<label index="commentaryInput">Vous pouvez saisir des commentaires concernant cette observation ici, le département et l'altitude sont tres utiles :</label>
 			<label index="addressInput">Vous pouvez saisir l'adresse de recolte :</label>
+			
+			<label index="personnalRefLabel">Réference de votre herbier personnel</label>
+			<label index="personnalRefInput">Précisez la référence unique de votre cahier de récolte, elle sera imprimé sur les étiquettes : </label>
+			
 			<label index="privacyLabel">Respect de la vie privée</label>
 			<label index="privacyInput">Souhaitez-vous que votre observation soit visible par tous les internautes ?</label>
 			<label index="privacyOptionPublic">Oui</label>
