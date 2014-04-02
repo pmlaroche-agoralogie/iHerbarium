@@ -304,7 +304,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 
     /*Affichage des informations concernant l'observation */
     bd_connect();
-    $sql="select date_depot,idobs,commentaires,longitude,latitude,computed_date_seen_exif_or_smartphone from iherba_observations where idobs=$numero_observation";
+    $sql="select date_depot,idobs,commentaires,address,longitude,latitude,computed_date_seen_exif_or_smartphone from iherba_observations where idobs=$numero_observation";
     $result = mysql_query($sql) or die ();
     
     if(! ($lobervation = mysql_fetch_assoc($result)))
@@ -334,7 +334,9 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     if($lobervation["commentaires"] !=""){
       $content.= get_string_language_sql("ws_observation_comment",$mylanguage) ." ".$lobervation["commentaires"]."<br/><br/>\n";
     }
-    
+    if($lobervation["address"] !=""){
+      $content.= get_string_language_sql("ws_observation_address",$mylanguage) ." ".$lobervation["address"]."<br/><br/>\n";
+    }
     $nom_photo_final = array();
     $sql_photos="select id_obs,date_user,nom_photo_final from iherba_photos where id_obs=$numero_observation";
     $result_photos = mysql_query($sql_photos) or die ();

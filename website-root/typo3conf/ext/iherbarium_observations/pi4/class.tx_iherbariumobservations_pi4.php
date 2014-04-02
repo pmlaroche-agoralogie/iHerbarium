@@ -287,7 +287,22 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
     return implode("\n", $lines);
   }
-	
+  
+  
+ private function viewAddressEdit(iHerbarium\TypoherbariumObservation $obs) {
+    $lines = array();
+
+    $lines[] = '<div style="margin-top: 10px">';
+    $lines[] = '<h2>' . $this->ll('addressLabel') . '</h2>';
+    $lines[] = '<fieldset>';
+    $lines[] = '<legend>' . $this->ll('addressInput','',1) . '</legend>';
+    $lines[] = '<div style="padding: 10px;"><textarea style="width: 100%;" name="obsAddress" id="com" value="" cols="30" rows="2"/>' . $obs->address . '</textarea></div>';
+    $lines[] = '</fieldset>';
+    $lines[] = '</div>';
+
+    return implode("\n", $lines);
+  }
+  
   private function viewPrivacyEdit(iHerbarium\TypoherbariumObservation $obs) {
     $lines = array();
 
@@ -395,6 +410,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
     // Commentary (EDIT)
     $lines[] = $this->viewCommentaryEdit($obs);
+    $lines[] = $this->viewAddressEdit($obs);
     
     // Submit
     $lines[] = '<div style="margin: 30px;">';
@@ -450,6 +466,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
     // Commentary (EDIT)
     $lines[] = $this->viewCommentaryEdit($obs);
+    $lines[] = $this->viewAddressEdit($obs);
 
     // E-mail
     $lines[] = '<div style="margin-top: 10px">';
@@ -539,6 +556,7 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
 
     // Commentary (EDIT)
     $lines[] = $this->viewCommentaryEdit($obs);
+    $lines[] = $this->viewAddressEdit($obs);
         
     // Geoloc
     if($obs->geolocation && $obs->geolocation->isKnown()) {
@@ -857,6 +875,11 @@ class tx_iherbariumobservations_pi4 extends tslib_pibase {
     if(isset($_POST['obsCommentary'])) {
       $commentary = $_POST['obsCommentary'];
       $obs->commentary  = $commentary;    
+    }
+    
+     if(isset($_POST['obsAddress'])) {
+      $commentary = $_POST['obsAddress'];
+      $obs->address  = $commentary;    
     }
     //$content .= "<h2>commentary : $commentary</h2>";
     

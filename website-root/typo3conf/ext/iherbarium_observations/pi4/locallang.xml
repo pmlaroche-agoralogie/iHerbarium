@@ -49,7 +49,9 @@
 			<label index="addFilesAddButton">Add...</label>
 			<label index="addFilesDoneButton">Done</label>
 			<label index="commentaryLabel">Commentary</label>
+			<label index="addressLabel">Address</label>
 			<label index="commentaryInput">You can write a commentary for this observation here : </label>
+			<label index="addressInput">You can write the address where the plant was seen here : </label>
 			<label index="privacyLabel">Privacy</label>
 			<label index="privacyInput">Do you want your observation to be visible by others internauts?</label>
 			<label index="privacyOptionPublic">Yes</label>
@@ -117,7 +119,9 @@
 			<label index="addFilesAddButton">Ajouter...</label>
 			<label index="addFilesDoneButton">Fini</label>
 			<label index="commentaryLabel">Commentaires</label>
+			<label index="addressLabel">Adresse de récolte</label>
 			<label index="commentaryInput">Vous pouvez saisir des commentaires concernant cette observation ici, le département et l'altitude sont tres utiles :</label>
+			<label index="addressInput">Vous pouvez saisir l'adresse de recolte :</label>
 			<label index="privacyLabel">Respect de la vie privée</label>
 			<label index="privacyInput">Souhaitez-vous que votre observation soit visible par tous les internautes ?</label>
 			<label index="privacyOptionPublic">Oui</label>
