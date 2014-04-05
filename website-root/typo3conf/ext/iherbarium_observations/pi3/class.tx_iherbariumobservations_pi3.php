@@ -471,12 +471,23 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
     $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
     //}
-    
-    
+     
     if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
-	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
-	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode",$mylanguage),47,'',$paramlien);
-      }
+	$content.= "<br><strong>".get_string_language_sql("ws_about_label_herbarium",$mylanguage)."</strong><br>";
+    
+   
+	$content.=get_string_language_sql("ws_go_page_with_qrcode",$mylanguage);
+	$paramlien = array(numero_observation  => $numero_observation,check=>456789,template=>'compact');
+	$content.= "&nbsp;&nbsp;&nbsp;&nbsp;".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode_compact",$mylanguage),47,'',$paramlien);
+	$paramlien = array(numero_observation  => $numero_observation,check=>456789,template=>'classic');
+	$content.= "&nbsp;&nbsp;&nbsp;&nbsp;".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode_classic",$mylanguage),47,'',$paramlien);
+	$paramlien = array(numero_observation  => $numero_observation,check=>456789,template=>'complete');
+	$content.= "&nbsp;&nbsp;&nbsp;&nbsp;".$this->pi_linkToPage(get_string_language_sql("ws_go_page_with_qrcode_complete",$mylanguage),47,'',$paramlien);
+	
+	$paramlien = array();
+	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_choose_label",$mylanguage),98,'',$paramlien);
+
+     }
     //if(niveau_testeur()>0)
       
 
