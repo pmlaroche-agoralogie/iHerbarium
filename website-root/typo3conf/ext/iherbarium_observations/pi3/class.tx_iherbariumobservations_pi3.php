@@ -472,7 +472,8 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
     //}
      
-    if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
+   // if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
+   if($lobervation["latitude"]!=0 && $lobervation["longitude"]!=0){
 	$content.= "<br><strong>".get_string_language_sql("ws_about_label_herbarium",$mylanguage)."</strong><br>";
     
    
@@ -487,7 +488,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$paramlien = array();
 	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_choose_label",$mylanguage),98,'',$paramlien);
 
-     }
+    }
     //if(niveau_testeur()>0)
       
 
