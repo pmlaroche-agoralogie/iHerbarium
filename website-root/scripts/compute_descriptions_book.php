@@ -65,7 +65,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Habitat :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>Habitat :</span>".$ligne['description'];
     }
     
   $requete_owner="select  * from iherba_taxon_texts
@@ -74,7 +74,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Origine du nom :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>Origine du nom :</span>".$ligne['description'];
     }
   
   $requete_owner="select  * from iherba_taxon_texts
@@ -83,7 +83,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Cycle :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>Cycle :</span>".$ligne['description'];
     }
   $requete_owner="select  * from iherba_taxon_texts
 	    where taxon = $taxonid AND  `taxon_api` =  'tropicos' AND  `lng` LIKE  'fr' and categorie = 'medecine' ";
@@ -91,7 +91,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Medecine :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>MŽecine :</span>".$ligne['description'];
     }
   
   $requete_owner="select  * from iherba_taxon_texts
@@ -100,7 +100,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Culinaire :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>Culinaire :</span>".$ligne['description'];
     }
   $requete_owner="select  * from iherba_taxon_texts
 	    where taxon = $taxonid AND  `taxon_api` =  'tropicos' AND  `lng` LIKE  'fr' and categorie = 'usage' ";
@@ -108,7 +108,7 @@ function look_at($id_obs)
   if(mysql_num_rows($lignes_reponse)>0)
     {
       $ligne = mysql_fetch_array($lignes_reponse);
-      $texte_descriptif .= "<br>Usage :<br>".$ligne['description'];
+      $texte_descriptif .= "<span style='soustitre'>Usage :</span>".$ligne['description'];
     }
     
   $texte_descriptif = str_replace("'",'`',$texte_descriptif);
@@ -166,7 +166,7 @@ function look_at($id_obs)
   }
   
   $requete_lignes_pattern="select distinct iherba_roi.id,iherba_roi_answers_pattern.id_roi,iherba_photos.nom_photo_final,
-	  iherba_roi_answers_pattern.id_question, 
+	  iherba_roi_answers_pattern.id_question,
 	  iherba_roi_answers_pattern.id_answer_most_common,iherba_roi_answers_pattern.prob_most_common,   iherba_roi_answers_pattern.id_just_less_common, iherba_roi_answers_pattern.prob_just_less,
 	  iherba_question.choice_explicitation_one , iherba_question.choice_explicitation_two_seldom , iherba_question.choice_explicitation_two_often , iherba_question.choice_detail ,tag ,texte as legendtag"    /* Kuba -> */  . " , iherba_roi_answers_pattern.id AS lineid " . /* <- Kuba */
       "from iherba_roi_answers_pattern,iherba_roi,iherba_photos,iherba_question,iherba_tags,iherba_roi_tag,iherba_tags_translation

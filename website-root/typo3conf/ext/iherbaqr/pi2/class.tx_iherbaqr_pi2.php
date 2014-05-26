@@ -64,12 +64,15 @@ class tx_iherbaqr_pi2 extends tslib_pibase {
 		$content='
 			<div id="bloc_contenu"><h1> ##title##</h1>
 			<div id="bloc_contenu_texte">
+			<p>##explanation##</p>
 			##maincontent##<p>
 			</p></div></div>
 		';
 		
 		$mytitle = get_string_language_sql("ws_view_limitation_rightbordertitle",language_iso_from_lang_id($this->cObj->data['sys_language_uid']));
+		$mylegend = get_string_language_sql("ws_view_limitation_explanation",language_iso_from_lang_id($this->cObj->data['sys_language_uid']));
 		$content = str_replace("##title##",$mytitle,$content);
+		$content = str_replace("##explanation##",$mylegend,$content);
 		$content = str_replace("##maincontent##",$control_remove_limitation,$content);
 		
 		$paramlien = array(remove  => 1);
