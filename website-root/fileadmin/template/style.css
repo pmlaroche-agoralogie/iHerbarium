@@ -16,6 +16,10 @@ body {
 	background-repeat:repeat-x;
 	background-position:top left;
 }
+.gm-style-iw{
+    height: 100% !important;
+    overflow: hidden !important;
+}
 
 /* ***************************************************************************************** */
 /* definition des blocs qui structurent les contenus des pages                               */

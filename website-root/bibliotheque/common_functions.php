@@ -409,35 +409,37 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 	if($numuser==0){
 		$limitnb = " order by iherba_observations.idobs DESC limit 0,250"; 
 		$where = "iherba_observations.public='oui' ";
+	}else {
+		$limitnb = ""; 
+		$where = "iherba_observations.id_user=".$numuser;
 		
-	}
-	else {
-	$limitnb = ""; 
-	$where = "iherba_observations.id_user=".$numuser;
 	}
 	$where .= " AND " . get_requete_where_sousdomaine() ; 
 	
 	$sql_list_carto = "SELECT iherba_observations.idobs,iherba_observations.longitude,iherba_observations.latitude,iherba_observations.commentaires,iherba_photos.nom_photo_final,iherba_observations.deposit_timestamp, iherba_observations.url_rewriting_fr, iherba_observations.url_rewriting_en ";
 	$sql_list_carto .= " FROM iherba_photos,iherba_observations  where iherba_observations.latitude !=0 AND iherba_observations.idobs=iherba_photos.id_obs ";
 	$sql_list_carto .= "  and $where group by iherba_observations.idobs ".$limitnb;
-	//echo $sql_list_carto;die();
-	//$content .= "<!-- sqlcarto $sql_list_carto  -->";
+
+
 	$result=mysql_query ($sql_list_carto) or die ();
 	$nb_lignes_resultats=mysql_num_rows($result);
 	
 	$content .= "<h3>";
-	if (!is_sousdomaine_www())
-	      {
-	      $content .= $monobjet->pi_getLL('lastzoneobservation', '', 1).get_description_sousdomaine()."<br/>";
-	      }
-	      else
-	      $content .= $monobjet->pi_getLL('lastwebsiteobservation', '', 1) ."</br>";
-	$content .= "</h3>";
-	if($nb_lignes_resultats >0)
-	      $content.=file_get_contents(debut_carto_aff_multi);
-	      else
-	      $content.= "<h3>".$monobjet->pi_getLL('noobservation', '', 1)."</h3>";
+	if (!is_sousdomaine_www()){
+		$titre_page = $monobjet->pi_getLL('lastzoneobservation', '', 1).get_description_sousdomaine();
+     }else{
+	 	$titre_page = $monobjet->pi_getLL('lastwebsiteobservation', '', 1);
+	 }
 
+    $content .= $titre_page."<br />";
+	$content .= "</h3>";
+    $nom_fichier_kml = 'liste_observation_'.time();
+	if($nb_lignes_resultats >0){
+	      //$content.=file_get_contents(debut_carto_aff_multi);
+  		$content .= ecrit_fonction_initialize($nom_fichier_kml);
+	}else{
+	      $content.= "<h3>".$monobjet->pi_getLL('noobservation', '', 1)."</h3>";
+	}
 	
 	$i=0;
 	$repertoire=repertoire_vignettes;
@@ -449,7 +451,13 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 	$linkObservation = $_SERVER['HTTP_HOST'] . $monobjet->pi_getPageLink(21) . $monobjet->pi_getLL('detail') . '/';
 
 	$rewriting = getRewritingObservation();
-		       
+	
+	if($nb_lignes_resultats >0){
+		$retour = genere_fichier_kml($monobjet,$titre_page,$result,$rewriting,$linkObservation,$nom_fichier_kml);		
+	}
+	
+	
+	/*	       
 	while ($donnees = mysql_fetch_array($result)){
 		//$photo[$i]=$donnees['nom_photo_final'];
 		//$image="$repertoire/$photo[$i]";
@@ -485,21 +493,132 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 		$monobjet->pi_getLL('numeroObservation', '', 1).$donnees['idobs'].' </a>'.$donnees['nom_commun'].$donnees['nom_scientifique'].'<br/> Transmise le : '.$donnees['deposit_timestamp'] .' <br/> Note : '.str_replace("\n"," ",str_replace('"'," ",str_replace("\r"," ",str_replace("'"," ",$donnees['commentaires'])))).'  \');
 					    })';
 		//$i++;
-	}
-	      
-	if($nb_lignes_resultats >0)
+
+	}*/
+
+	/*if($nb_lignes_resultats >0)
 		$content.='
 	      //la fonction fitBounds est utilis» pour trouver automatiquement le niveau de zoom optimum afin que le rectangle s\'int»gre dans la carte
 	      map.fitBounds(bounds);
 	      } //fin initialize
 	      </script>
 	      <script type="text/javascript"> window.onload = function() { initialize();     }</script>
-	      <center><div id="map_canvas" style="width:500px; height:400px"></div></center> ';
-	
+	      <center><div id="map_canvas" style="width:500px; height:400px"></div></center> ';*/
+		  
+	if($nb_lignes_resultats >0){
+		$content .= '<script type="text/javascript">google.maps.event.addDomListener( window, "load", initialisation );</script>';
+        $content .= '<center><div id="map_canvas" style="width:600px; height:600px"></div></center>';
+	}
 	
 	return $content;
 }
 
+
+function genere_fichier_kml($monobjet,$titre_page,$result,$rewriting,$linkObservation,$nom_fichier_kml){
+
+	$fichier_style = '';
+	$fichier_placemark = '';
+	
+	$i = 10;
+	
+	while ($donnees = mysql_fetch_array($result)){
+
+		$image='/medias/vignettes/'.$donnees['nom_photo_final'];
+
+		$tab_noms = recup_dernier_nom($donnees['idobs']);
+		$nc = $tab_noms['nc'];
+		$ns = $tab_noms['ns'];
+		
+		if(empty($donnees[$rewriting])) {
+			$link = $donnees['idobs'];
+		} else {
+			$link = $donnees[$rewriting] . '-' . $donnees['idobs'];
+		}
+		$latitude = $donnees['latitude'];
+		$longitude = $donnees['longitude'];
+		$description = '<img src="'.$image.'" border="2" width="100"  /><br />';
+		$description .= '<p><a target="_blank" href="//'.$linkObservation.$link.'">'.$monobjet->pi_getLL('numeroObservation', '', 1).$donnees['idobs'].'</a><br />';
+		if ($nc != ''){
+			$description .= '<strong>'.$nc.'</strong><br />';
+		}
+		if ($ns != ''){
+			$description .= '<strong>'.$ns.'</strong><br />';
+		}
+		$description .= 'Transmise le : '.$donnees['deposit_timestamp'] .'<br />';
+		$description .= 'Note : '.str_replace("\n"," ",str_replace('"'," ",str_replace("\r"," ",str_replace("'"," ",$donnees['commentaires'])))).'</p>';
+
+
+		$fichier_style .= '<Style id="style'.$i.'">'."\r\n";
+		$fichier_style .= '<IconStyle>'."\r\n";
+		$fichier_style .= '<Icon>'."\r\n";
+		$fichier_style .= '<href>http://www.iherbarium.fr/fileadmin/medias/interface/map_curseur.png</href>'."\r\n";
+		$fichier_style .= '</Icon>'."\r\n";
+		$fichier_style .= '</IconStyle>'."\r\n";
+		$fichier_style .= '</Style>'."\r\n";
+
+		$fichier_placemark .= '<Placemark>'."\r\n";
+		$fichier_placemark .= '<name></name>'."\r\n";
+		$fichier_placemark .= '<description><![CDATA['.$description.']]></description>'."\r\n";
+		$fichier_placemark .= '<styleUrl>#style'.$i.'</styleUrl>'."\r\n";
+		$fichier_placemark .= '<Point>'."\r\n";
+		$fichier_placemark .= '<coordinates>'.$longitude.','.$latitude.'</coordinates>'."\r\n";
+		$fichier_placemark .= '</Point>'."\r\n";
+		$fichier_placemark .= '</Placemark>'."\r\n";
+  
+		$i++;
+	}
+
+	$fichier_entete = '<?xml version="1.0" encoding="UTF-8"?>'."\r\n";
+	$fichier_entete .= '<kml xmlns="http://earth.google.com/kml/2.2">'."\r\n";
+	$fichier_entete .= '<Document>'."\r\n";
+	$fichier_entete .= '<name>'.$titre_page.'</name>'."\r\n";
+	$fichier_entete .= '<description><![CDATA[]]></description>'."\r\n";
+
+	$fichier_fin = '</Document>'."\r\n";
+	$fichier_fin .= '</kml>'."\r\n";
+
+	$contenu_fichier = $fichier_entete.$fichier_style.$fichier_placemark.$fichier_fin;
+
+	$retour = file_put_contents('typo3temp/fichiers_kml/'.$nom_fichier_kml.'.kml',$contenu_fichier);
+	
+	return $retour;
+
+}
+
+function recup_dernier_nom($id_obs){
+	$nc = '';
+	$ns = '';
+	
+	$sql = "SELECT nom_commun,nom_scientifique FROM iherba_determination WHERE id_obs = ".$id_obs." ORDER BY date ASC";
+	$result=mysql_query($sql);
+	$nb_lignes=mysql_num_rows($result);
+	if ($nb_lignes > 0){
+		while ($donnees = mysql_fetch_array($result)){
+			$nc = $donnees['nom_commun'];
+			$ns = $donnees['nom_scientifique'];
+		}
+	}
+	
+	$tab_retour = array("nc"=>$nc,"ns"=>$ns);
+	
+	return $tab_retour;
+}  
+function ecrit_fonction_initialize($nom_fichier_kml){
+	$contenu = '<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />'."\r\n";
+	$contenu .= '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>'."\r\n";
+	$contenu .= '<script type="text/javascript">'."\r\n";
+	$contenu .= 'function initialisation() {'."\r\n";
+	$contenu .= 'var optionsCarte = {zoom: 14,mapTypeId: google.maps.MapTypeId.ROADMAP};'."\r\n";
+	$contenu .= 'var maCarte = new google.maps.Map(document.getElementById("map_canvas"), optionsCarte);'."\r\n";
+	$contenu .= 'var urlKML = "http://www.iherbarium.fr/typo3temp/fichiers_kml/'.$nom_fichier_kml.'.kml";'."\r\n";
+	$contenu .= 'var coucheKML = new google.maps.KmlLayer({'."\r\n";
+	$contenu .= 'map: maCarte,'."\r\n";
+	$contenu .= 'url: urlKML'."\r\n";
+	$contenu .= '});'."\r\n";
+	$contenu .= '}'."\r\n";
+	$contenu .= '</script>'."\r\n";
+	return $contenu;
+}
 
 /*Cette fonction permet de s»lectionner des zones de l'image */
 function selectionner_zones_image($monobjet){
