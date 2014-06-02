@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>D&eacute;tail d'une plante</title>
+<meta name="ROBOTS" content="follow,index">
+<meta name="keywords" lang="fr"  content="{nc}, {ns}, {newfam}, fleur, arbre, nature, plante, photographie, illustration">
+<meta name="Description" content="Une photo de {nc} ({ns})">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+
+<script language="JavaScript" src="templates/fctsfleurs.js"></script>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={apigeoloc}"
+      type="text/javascript"></script>
+<script language="JavaScript" src="templates/fctsgeolocsaisie.js"></script>
+</head>
+
+<body class="{gamme}">
+<div id="{gamme}">
+
+      <div id="header"><a href="index.php">
+        <div id="header_gauche"></div>
+        <div id="header_droit"></div>
+		</a>
+      </div>
+	  
+	<div id="decran">
+		  <div id="dgauche">
+		    {vignettes}
+		  </div>
+		  <div id="ddroite">
+			   <div id="ddroitepub">
+				{pub_droite}
+				</div> 
+		  	  <div id="ddroite_marge">
+			  <table class="presentation" border="0" cellspacing="5" cellpadding="0">
+				<tr> 
+				  <td width="120" align="right">Nom commun</td>
+				  <td><span class="nomcommun">{nc}</span></td>
+				  <td align="right"><a class="retour" href="fiche_{racinenomfic}.html">&lt;&lt; retour à la fiche</a></td>
+				</tr>
+				<tr> 
+				  <td align="right">Nom scientifique</td>
+				  <td><span class="nomautre">{ns}</span></td>
+				  <td>&nbsp;</td>
+				</tr>
+			  	{famille_plante}
+			  </table>
+              <p>Veuillez saisir l'adresse approximative &agrave; laquelle vous souhaitez g&eacute;olocaliser votre observation. Ensuite, vous pouvez affiner votre g&eacute;olocalisation en d&eacute;pla&ccedil;ant le marker affich&eacute; sur la carte.</p>
+    		  <form id="formcarte" name="formcarte" action="#" onSubmit="zoomAdresse(this.adresse.value); return false">
+      			<p><span class="indication">ex. : rue Lacuée, paris</span><br />
+       			<input type="text" size="60" name="adresse" value="" />
+        		<input type="submit" value="OK" /></p>
+      			<div id="map" style="width: 500px; height: 300px"></div>
+                </form>
+                <form id="formgeoloc" name="formgeoloc" method="post" action="geoloc_saisie.php?etat=valider&ns={racinenomfic}" onSubmit="return verifSaisieGeoloc()">
+                <input type="hidden" name="vlatitude" id="vlatitude" value="" />
+                <input type="hidden" name="vlongitude" id="vlongitude" value="" />
+<p>    <label>
+    <strong>Date de l'observation * </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="vdate" id="vdate" value="" /> <span class="indication">(jj/mm/aaaa)</span>
+  </label>
+</p>
+<p><strong>Etes-vous certain qu'il s'agit bien de cette plante ?</strong> *<br />
+  <label>  
+  <input type="radio" name="vcertitude" value="1" />
+    oui</label>
+  <br>
+  <label>
+  <input type="radio" name="vcertitude" value="0" />
+    non</label></p>
+<p><strong>En quelle quantit&eacute; avez-vous fait cette observation ?</strong> *<br />
+  <label>
+  <input type="radio" name="vsurface" value="1" />
+    une seule pr&eacute;sence</label><br />
+  <label>
+  <input type="radio" name="vsurface" value="10" />
+  quelques pr&eacute;sences</label><br />
+  <label>
+<input type="radio" name="vsurface" value="50" />
+    pr&eacute;sence sur plusieurs m2</label><br />
+  <label>
+<input type="radio" name="vsurface" value="100" />
+    pr&eacute;sence partout</label></p>
+    <p><strong>Souhaitez-vous que votre observation soit visible par les autres internautes ?</strong> *<br />
+  <label>
+  <input type="radio" name="vvisible" value="1" />
+    oui</label>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si oui, souhaitez-vous en masquer la pr&eacute;cision ? <label><input type="radio" name="vprecision" value="1" />oui</label> <label><input name="vprecision" type="radio" value="0" checked />
+  non</label><br />
+  <label>
+  <input type="radio" name="vvisible" value="0" />
+    non</label></p>
+
+    <p><strong>Veuillez nous indiquer :</strong> *<br />
+     <label>
+   Votre prénom et nom
+    <input type="text" name="vnomprenom" id="vnomprenom" />
+  </label><br />
+    <label>
+    Votre email
+    <input type="text" name="vemail" id="vemail" />
+  </label>
+  </p>
+<p>
+      <label><strong>Votre commentaire public (visible par tous les internautes)</strong><br />
+      <textarea name="vcommentairepublic" id="vcommentairepublic" cols="60" rows="3"></textarea>
+      </label>
+      </p>
+      <p>
+      <label><strong>Votre commentaire priv&eacute; (invisible pour les autres internautes)</strong><br />
+      <textarea name="vcommentaireprive" id="vcommentaireprive" cols="60" rows="3"></textarea>
+      </label>
+</p>
+<p><input type="submit" name="button" id="button" value="Envoyer" /></p>
+    		  </form>
+				  <div id="bottom">
+					{msgdroitsreserves}
+					{scriptsbaspage}
+				  </div>
+
+			  </div> 
+			</div> 
+
+		</div> 
+
+	</div>
+</div> 
+</body>
+</html>
+

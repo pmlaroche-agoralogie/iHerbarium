@@ -1,0 +1,249 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	background-color: #73739B;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+/* ***************************************************************************************** */
+/* definition des blocs qui structurent les contenus des pages                               */
+/* ***************************************************************************************** */
+
+#centrer {
+	width: 600px;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	position: relative;
+}
+#site {
+	width: 600px;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#header {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 110px;
+	float: left;	
+	border: 1px solid #FFFFFF;
+	background-color:#5F5F81;
+}
+#header_gauche{
+	width: 111px;
+	height: 110px;
+	text-align:left;
+	border-right: 1px solid #FFFFFF;
+	background-image: url(image/martagon110.jpg);
+	background-repeat:no-repeat;
+	float:left;
+}
+#header_droit{
+	width: 484px;
+	height: 110px;
+	background-image: url(image/bandeau_haut.jpg);
+	background-repeat:no-repeat;
+	float:left;
+}
+/* contient col_centre et col_droite */
+#main {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#main #infos{
+clear:both;
+	padding: 50px 0 0 0;
+	font-size: 14px;
+}
+#main_gauche{
+	width: 500px;
+	float: left;
+	text-align:left;
+}
+#main_droite2{
+	width: 368px;
+	float: left;
+	text-align:left;
+}
+#main_droite {
+	width: 100px;
+	float: left;
+	background-color: #5F5F80;
+	text-align:center;
+		margin: 15px 0 0 0;
+	padding: 0 0 15px 0;
+}
+#main_gauche2{
+	width: 100px;
+	float: left;
+	background-color: #5F5F80;
+	text-align:center;
+	padding: 0 0 15px 0;
+}
+#main_droite img, #main_gauche2 img{
+	margin: 10px 0 0 0;
+}
+#main_gauche #contact{
+	font-size: 10px;
+}
+#main_gauche #contact a{
+	font-size: 10px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#main_gauche #contact a:hover{
+	text-decoration: underline;
+}
+#main_gauche #titre{
+	padding: 30px 0 0 0;
+}
+#main_gauche #titre a{
+	font-size: 28px;
+	font-style:italic;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+#main_gauche #titre a:hover{
+	text-decoration: underline;
+}
+#main_droite2 #titre{
+	padding: 30px 0 0 30px;
+}
+#main_droite2 #titre a{
+	font-size: 24px;
+	font-style:italic;
+	text-decoration:none;
+	color: #FFFFFF;
+}
+#main_droite2 #titre a:hover{
+	text-decoration: underline;
+}
+#main_gauche #sous_titre{
+	font-size: 12px;
+	font-style:italic;
+	font-weight:bolder;
+	color: #AEAEEB;
+	text-align:right;
+	padding: 0 10px 0 0;
+}
+#main_droite2 #sous_titre{
+	font-size: 11px;
+	font-style:italic;
+	font-weight:bolder;
+	color: #AEAEEB;
+	text-align:right;
+	padding: 0 10px 0 25px;
+}
+#main_gauche #trait{
+	padding: 30px 75px 0 0;
+	text-align:right;
+}
+#main_florajet{
+	float: right;
+	background-image:  url(interface/fond-florajet.jpg);
+	background-position:bottom;
+	background-repeat:no-repeat;
+	height:130;
+	width:132;
+	margin: 100px 0 0 0;
+}
+#main_florajet p.ligne1 {
+	padding-bottom: 5px;
+	margin: 0;
+	text-align: center;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #681873;
+}
+#main_florajet p.ligne1 a {
+font-size: 10px;
+	text-decoration: none;
+	color: #681873;
+}
+/*******************************************/
+#separation{
+	color: #20202B;
+}
+#bottom{
+	margin: 5px 0 0 0;
+	float: left;
+	width:100%;
+	text-align: center;
+}
+#bottom .bleu_fonce{
+	color: #20202B;
+	font-size: 9px;
+	font-weight:bold;
+}
+#bottom .bleu_fonce a{
+	color: #20202B;
+	font-size: 9px;
+	font-weight:bold;
+	text-decoration:underline;
+}
+#formulaire .libel{
+	font-size: 9px;
+	color: #20202B;
+		font-weight:bold;
+}
+#bottom .merci{
+	color: #20202B;
+	font-size: 9px;
+
+}
+#bottom .bleu_clair{
+	font-size: 9px;
+	color: #AFAFEC;
+}
+
+
+.fond {
+	background-image:  url(interface/fond-florajet.jpg);
+	height:130;
+	width:132;
+}
+.ligne1 {
+	padding-top: 35;
+	padding-bottom: 5;
+	margin: 0;
+	text-align: center;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #681873;
+}
+.ligne1 a {
+font-size: 10px;
+	text-decoration: none;
+	color: #681873;
+}
+.ligne2 {
+	font-size: 10px;
+	padding: 0 0 0 10;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #006699;
+}
+.ligne2 a {
+font-size: 10px;
+	text-decoration: none;
+	color: #006699;
+}
+.ligne3 {
+	font-size: 9px;
+	padding: 6 0 0 0;
+	margin: 0;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #681873;
+}
+.ligne3 a {
+font-size: 9px;
+	text-decoration: none;
+	color: #681873;
+}

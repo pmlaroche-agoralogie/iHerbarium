@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "*//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Fiche {nc}</title>
+<meta http*equiv="Content*Type" content="text/html; charset=iso*8859*1">
+<meta name="ROBOTS" content="follow,index">
+<meta name="keywords" lang="fr"  content="{nc},{ns},{newfam}, fleur, arbre, nature, plante, fiche, photo, nom commun">
+<meta name="Description" content="{nc}, ({ns}) description et habitat , illustré par notre phototheque">
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="templates/fctsfleurs.js"></script>
+<style type="text/css">
+<!**
+.style1 {color: #FF0033}
+.style3 {
+	font*size: 24px;
+	color: #CC0000;
+}
+**>
+</style>
+</head>
+
+<body class="{gamme}">
+<div id="{gamme}">
+      <div id="header">
+	  	<a href="index.php">
+        <div id="header_gauche"></div>
+        <div id="header_droit"></div>
+		</a>
+      </div>
+ <div id="decran">
+
+    <div id="dgauche">
+      {vignettes}
+    </div>   
+    <div id="ddroite">
+		<div id="ddroitepub">
+		 <iframe src=http://www.iherbarium.fr/collaborative/question.php width=135 height=800 frameborder="0" scrolling="no"> </iframe>
+
+   		</div>
+        <div id="ddroite_marge">
+			  <table class="presentation" border="0" cellspacing="5" cellpadding="0">
+				<tr> 
+				  <td width="120" align="right">Nom commun</td>
+				  <td><span class="nomcommun">{nc}</span></td>
+				  <td align="right"><a class="retour" href="liste.php">&lt;&lt; retour à la liste</a></td>
+				</tr>
+				<tr> 
+				  <td align="right">Nom scientifique</td>
+				  <td><span class="nomautre">{ns}</span></td>
+				  <td>&nbsp;</td>
+				</tr>
+			  	{famille_plante}
+			  </table>
+			  {msg_rappel}
+				  <span class="nouveau_titre">~~~ Nouveau ~~~</span><br /><br />
+   			      <strong><a href="geoloc_saisie.php?ns={racinenomfic}" class="nouveau_contenu">{libelle_geoloc}</a></strong> <a class="nouveau_contenu" href="notice_geolocalisation.php">(En savoir plus sur cette fonction)</a><br /><br />
+		        {lien_vers_carte}   			    
+			     {rubriques}
+   			    <p align="center"><input type="submit" name="Submit" value="Ajouter un commentaire" onClick="saisieCommentaires({numId},'{ns}')"><br /><br /><br /></p>
+   			      <span class="style1"><br /></span>
+   			    <div id="bottom">
+					{msgdroitsreserves}
+		  </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+{scriptsbaspage}
+</body>
+</html>

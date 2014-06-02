@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="ROBOTS" content="follow,index">
+<meta name="Identifier-URL" content="http://phototheque.fleurs-des-champs.com/">
+<meta name="keywords" content="plantes,fleur, fiche, photo, video, nom commun, image,illustration">
+<meta name="Description" content="Liste de notre phototheque, presente une ou plusieurs photos">
+<meta name="revisit-after" content="30 days">
+<meta name="GENERATOR" content="Mozilla/4.7 [fr] (Win98; I) [Netscape]">
+<title>Phototh&egrave;que</title>
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+</head>
+<body class="{gamme}">
+<div id="{gamme}">
+  <div id="centrer">
+    <div id="site">
+      <div id="header"><a href="index.php">
+        <div id="header_gauche"></div>
+        <div id="header_droit"></div>
+		</a>
+      </div>
+	  <div id="main">
+      <p align="right"><a href="index.php" class="retour">&lt;&lt; retour à l'accueil</a></p>
+	  <p>Pour consulter la liste des plantes dans l'<strong>ordre alphab&eacute;tique</strong> des noms communs ou noms scientifiques, <strong>cliquez sur les libell&eacute;s</strong> des colonnes.</p>
+      <p><a href="liste.php?lettre=a&tri={ordretri}">A</a> <a href="liste.php?lettre=b&tri={ordretri}">B</a> <a href="liste.php?lettre=c&tri={ordretri}">C</a> <a href="liste.php?lettre=d&tri={ordretri}">D</a> <a href="liste.php?lettre=e&tri={ordretri}">E</a> <a href="liste.php?lettre=f&tri={ordretri}">F</a> <a href="liste.php?lettre=g&tri={ordretri}">G</a> <a href="liste.php?lettre=h&tri={ordretri}">H</a> <a href="liste.php?lettre=i&tri={ordretri}">I</a> <a href="liste.php?lettre=j&tri={ordretri}">J</a> <a href="liste.php?lettre=k&tri={ordretri}">K</a> <a href="liste.php?lettre=l&tri={ordretri}">L</a> <a href="liste.php?lettre=m&tri={ordretri}">M</a> <a href="liste.php?lettre=n&tri={ordretri}">N</a> <a href="liste.php?lettre=o&tri={ordretri}">O</a> <a href="liste.php?lettre=p&tri={ordretri}">P</a> <a href="liste.php?lettre=q&tri={ordretri}">Q</a> <a href="liste.php?lettre=r&tri={ordretri}">R</a> <a href="liste.php?lettre=s&tri={ordretri}">S</a> <a href="liste.php?lettre=t&tri={ordretri}">T</a> <a href="liste.php?lettre=u&tri={ordretri}">U</a> <a href="liste.php?lettre=v&tri={ordretri}">V</a> <a href="liste.php?lettre=w&tri={ordretri}">W</a> <a href="liste.php?lettre=x&tri={ordretri}">X</a> <a href="liste.php?lettre=y&tri={ordretri}">Y</a> <a href="liste.php?lettre=z&tri={ordretri}">Z</a> </p>
+		  <table border="0" cellpadding="3" cellspacing="1" class="tabindex">
+			<tr>
+			  <td width="50%" class="titre"><a href="liste.php?tri=nc&lettre={premierelettre}">Nom commun</a></td>
+			  <td class="titre"><a href="liste.php?tri=ns&lettre={premierelettre}">Nom scientifique</a></td>
+			</tr>
+			{plantes}
+		  </table>
+  </div>
+				  <div id="bottom">
+					{msgdroitsreserves}
+				  </div>
+</div>
+  </div>
+</div>
+{scriptsbaspage}
+
+</body>
+</html>

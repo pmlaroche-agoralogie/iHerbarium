@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>D&eacute;tail d'une plante {nc}</title>
+<meta name="ROBOTS" content="follow,index">
+<meta name="keywords" lang="fr"  content="{nc}, {ns}, {newfam}, fleur, arbre, nature, plante, photographie, illustration">
+<meta name="Description" content="{nc} ({ns}), illustration photo">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+
+<script language="JavaScript" src="templates/fctsfleurs.js"></script>
+</head>
+
+<body class="{gamme}">
+<div id="{gamme}">
+
+      <div id="header"><a href="index.php">
+        <div id="header_gauche"></div>
+        <div id="header_droit"></div>
+		</a>
+      </div>
+	  
+	<div id="decran">
+		  <div id="dgauche">
+		    {vignettes}
+		  </div>
+		  <div id="ddroite">
+			   <div id="ddroitepub">
+<!--			 <iframe src=http://www.iherbarium.org/collaborative/question.php width=135 height=800 frameborder="0" scrolling="no"> </iframe> -->
+				</div> 
+		  	  <div id="ddroite_marge">
+			  <table class="presentation" border="0" cellspacing="5" cellpadding="0">
+				<tr> 
+				  <td width="120" align="right">Nom commun</td>
+				  <td><span class="nomcommun">{nc}</span></td>
+				  <td align="right"><a class="retour" href="fiche_{racinenomfic}.html">&lt;&lt; retour à la fiche</a></td>
+				</tr>
+				<tr> 
+				  <td align="right">Nom scientifique</td>
+				  <td><span class="nomautre">{ns}</span></td>
+				  <td>&nbsp;</td>
+				</tr>
+			  	{famille_plante}
+			  </table>
+    <p class="detail"><img src="phototheque/detail_{gamme}/{refdetail}" alt="{ns}" title="{nc}" ><br /><br />
+
+    Auteur : {nom}</p>
+			 
+
+				  <div id="bottom">
+					{msgdroitsreserves}
+					{scriptsbaspage}
+				  </div>
+
+			  </div> 
+			</div> 
+
+		</div> 
+
+	</div>
+</div> 
+</body>
+</html>
+

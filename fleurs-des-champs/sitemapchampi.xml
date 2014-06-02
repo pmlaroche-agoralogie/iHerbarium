@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>http://www.champignons-de-france.com/</loc>
+      <lastmod>2008-03-01</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://www.champignons-de-france.com/liste.php</loc>
+      <changefreq>monthly</changefreq>
+   </url>
+<url>
+      <loc>http://www.champignons-de-france.com/liste.php?lettre=b&amp;tri=nc</loc>
+      <changefreq>monthly</changefreq>
+  </url>
+  <url>
+        <loc>http://www.champignons-de-france.com/liste.php?lettre=c&amp;tri=nc</loc>
+	      <changefreq>monthly</changefreq>
+	        </url>
+
+
+</urlset>

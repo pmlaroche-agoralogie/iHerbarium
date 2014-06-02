@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Commentaire</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="templates/fctsfleurs.js"></script>
+</head>
+
+<body class="{gamme}">
+<div id="{gamme}">
+  <div id="dcommentaires">
+    <p class="titrecomment">{ns}</p><br>
+    <form name="formulaire">
+    <table class="txtcomment" width="416" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td width="250">Nom, pr&eacute;nom *</td>
+        <td>
+<input name="nom" type="text" id="nom" size="32">
+        </td>
+      </tr>
+      <tr> 
+        <td>Email</td>
+        <td><input name="email" type="text" id="email" size="32"></td>
+      </tr>
+      <tr> 
+        <td><br>
+          Au sujet de</td>
+        <td><br> <select name="sujet" style="width: 120 px;" id="sujet">
+            {rubriques}
+          </select> </td>
+      </tr>
+      <tr> 
+        <td valign="top"><br>
+          Commentaire *</td>
+        <td><br> 
+          <textarea name="commentaire" cols="35" rows="12" id="commentaire"></textarea></td>
+      </tr>
+      <tr> 
+        <td valign="top">&nbsp;</td>
+        <td align="right"><br> <input type="button" id="annuler" name="annuler" value="Annuler" onClick="javascript:window.close();"> 
+          <input type="button" name="envoyer" value="Envoyer" onClick="controleVide({code},'{mode}','{ns}')"></td>
+      </tr>
+    </table>
+    <p class="txtcomment">* <em>saisie obligatoire</em></p>
+  </form>
+  </div>
+</div>
+</body>
+</html>

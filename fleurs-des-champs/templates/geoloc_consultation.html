@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="ROBOTS" content="follow,index">
+<meta name="Identifier-URL" content="http://phototheque.fleurs-des-champs.com/">
+<meta name="keywords" content="plantes,fleur, fiche, photo, video, nom commun, image,illustration">
+<meta name="Description" content="Liste de notre phototheque, presente une ou plusieurs photos">
+<meta name="revisit-after" content="30 days">
+<meta name="GENERATOR" content="Mozilla/4.7 [fr] (Win98; I) [Netscape]">
+<title>Phototh&egrave;que</title>
+<link href="templates/stylesfleurs.css" rel="stylesheet" type="text/css">
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={apigeoloc}"
+      type="text/javascript"></script>
+      <script language="javascript">
+      {geoloc}
+      </script>
+<script language="JavaScript" src="templates/fctsgeolocconsultation.js"></script>
+</head>
+<body class="{gamme}">
+<div id="{gamme}">
+  <div id="centrer">
+    <div id="site">
+      <div id="header"><a href="index.php">
+        <div id="header_gauche"></div>
+        <div id="header_droit"></div>
+		</a>
+      </div>
+	  <div id="main">
+      <p align="right"><a href="index.php" class="retour">&lt;&lt; retour à l'accueil</a></p>
+	  <h1>{titregeoloc}</h1>
+      {msgperso}
+      <p>Pour obtenir le d&eacute;tail d'une observation, cliquez sur son icone.</p>
+      			<div align="center"><div id="map" style="width: 580px; height: 380px"></div></div>
+  </div>
+				  <div id="bottom">
+					{msgdroitsreserves}
+				  </div>
+</div>
+  </div>
+</div>
+{scriptsbaspage}
+
+</body>
+</html>

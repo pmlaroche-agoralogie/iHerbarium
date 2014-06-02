@@ -1,0 +1,771 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	color:#FFFFFF;
+}
+body.fleurs {
+	background-color: #73739B;
+}
+body.champi {
+	background-color: #A76F5C;
+}
+body.arbre {
+	background-color: #6C9E61;
+}
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles des blocs ------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#centrer {
+	width: 600px;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	position: relative;
+}
+#site {
+	width: 600px;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#header {
+	margin: 10px auto 0 auto;
+	padding: 0;
+	width: 600px;
+	height: 110px;
+	border: 1px solid #FFFFFF;
+}
+#header a{
+	display: block;
+	width: 598px;
+	height: 110px;
+}
+#main {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#bottom{
+	margin: 30px 0 0 0;
+	padding: 10px 0 0 0;
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: 9px;
+}
+#sysrecherche { /* systeme expert */
+	text-align: left;
+	float: left;
+	clear: both;
+	border-top: 6px solid #FFFFFF;
+	border-bottom: 6px solid #FFFFFF;
+	width: 100%;
+}
+#sysfleurs {
+	margin-top: 20px;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles header ---------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#fleurs #header {
+	background-color:#5F5F81;
+}
+#champi #header {
+	background-color:#795142;
+}
+#arbre #header {
+	background-color:#58804F;
+}
+#header_gauche{
+	width: 111px;
+	height: 110px;
+	text-align:left;
+	border-right: 1px solid #FFFFFF;
+	float:left;
+}
+#fleurs #header_gauche{
+	background-image: url(../interface/home_fleurs.jpg);
+	background-repeat:no-repeat;
+}
+#champi #header_gauche{
+	background-image: url(../interface/home_champi.jpg);
+	background-repeat:no-repeat;
+}
+#arbre #header_gauche{
+	background-image: url(../interface/home_arbre.jpg);
+	background-repeat:no-repeat;
+}
+#header_droit{
+	width: 484px;
+	height: 110px;
+	float:left;
+}
+#fleurs #header_droit {
+	background-image: url(../interface/bandeau_haut_fleurs.jpg);
+	background-repeat:no-repeat;
+}
+#champi #header_droit {
+	background-image: url(../interface/bandeau_haut_champi.jpg);
+	background-repeat:no-repeat;
+}
+#arbre #header_droit {
+	background-image: url(../interface/bandeau_haut_arbre.jpg);
+	background-repeat:no-repeat;
+}
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles main -----------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles main droite et gauche dans index -------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#main_gauche{
+	width: 500px;
+	float: left;
+	text-align:left;
+}
+#main_droite {
+	width: 100px;
+	float: left;
+	text-align:center;
+	margin: 15px 0 0 0;
+	padding: 0 0 15px 0;
+}
+#fleurs #main_droite {
+	background-color: #5F5F80;
+}
+#champi #main_droite {
+	background-color: #795142;
+}
+#arbre #main_droite {
+	background-color: #58804F;
+}
+#main_droite img{
+	margin: 10px 0 0 0;
+}
+#main_gauche #contact{
+	font-size: 10px;
+}
+#main_gauche #contact a{
+	font-size: 10px;
+	text-decoration:none;
+}
+#fleurs #main_gauche #contact, #fleurs #main_gauche #contact a, #fleurs #bottom .conditions{
+	color: #C9DBEA;
+}
+#champi #main_gauche #contact, #champi #main_gauche #contact a, #champi #bottom .conditions{
+	color: #F4CFA3;
+}
+#arbre #main_gauche #contact, #arbre #main_gauche #contact a, #arbre #bottom .conditions{
+	color: #E5EBCC;
+}
+#main_gauche #contact a:hover{
+	text-decoration: underline;
+}
+#main_gauche #titre{
+	padding: 50px 0 0 0;
+}
+#main_gauche #titre2 {
+	padding: 30px 0 0 0;
+}
+#main_gauche #titre a, #main_gauche #titre2 a{
+	font-style:italic;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+#main_gauche #titre a {
+	font-size: 28px;
+}
+#main_gauche #titre2 a {
+	font-size: 20px;
+}
+#main_gauche #titre a:hover, #main_gauche #titre2 a:hover{
+	text-decoration: underline;
+}
+#main_gauche #sous_titre, #main_gauche #sous_titre2{
+	font-style:italic;
+	font-weight:bolder;	
+	padding: 0 0 0 30px;
+}
+#main_gauche #sous_titre{
+	font-size: 12px;
+}
+#main_gauche #sous_titre2{
+	font-size: 10px;
+}
+#fleurs #main_gauche #sous_titre, #fleurs #main_gauche #sous_titre2{
+	color: #38384C;
+}
+#champi #main_gauche #sous_titre, #champi #main_gauche #sous_titre2{
+	color: #52372D;
+}
+#arbre #main_gauche #sous_titre, #arbre #main_gauche #sous_titre2{
+	color: #415E3A;
+}
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles du bottom dans index -------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#bottom .credits{
+	font-weight:bold;
+}
+#bottom .credits a{
+	font-weight:bold;
+	text-decoration:underline;
+	font-size: 9px;
+}
+#bottom .merci{
+
+}
+#formulaire .libel{
+	font-weight:bold;
+}
+#fleurs #bottom {
+	border-top: 1px solid #38384C;
+}
+#champi #bottom {
+	border-top: 1px solid #593C31;
+}
+#arbre #bottom {
+	border-top: 1px solid #2D4128;
+}
+#fleurs #bottom .credits, #fleurs #bottom .credits a, #fleurs #bottom .merci, #fleurs #formulaire .libel{
+	color: #38384C;
+}
+#champi #bottom .credits, #champi #bottom .credits a, #champi #bottom .merci, #champi #formulaire .libel{
+	color: #593C31;
+}
+#arbre #bottom .credits, #arbre #bottom .credits a, #arbre #bottom .merci, #arbre #formulaire .libel{
+	color: #2D4128;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles pour florajet --------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#main_florajet{
+	background-position:bottom;
+	background-repeat:no-repeat;
+	height:130px;
+	width:132px;
+	margin: 80px 0 0 0;
+}
+#fleurs #main_florajet{
+	background-image:  url(../interface/fond-florajet_fleurs.jpg);
+}
+#champi #main_florajet{
+	background-image:  url(../interface/fond-florajet_champi.jpg);
+}
+#main_florajet p.ligne1 {
+	padding-bottom: 5px;
+	margin: 0;
+	text-align: center;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #681873;
+	padding-top: 35px;
+}
+#main_florajet p.ligne1 a {
+	font-size: 10px;
+	text-decoration: none;
+	color: #681873;
+}
+#main_florajet p.ligne2 {
+	font-size: 10px;
+	padding: 0 0 0 10px;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #006699;
+}
+#main_florajet p.ligne2 a {
+	font-size: 10px;
+	text-decoration: none;
+	color: #006699;
+}
+#main_florajet p.ligne3 {
+	font-size: 9px;
+	padding: 6px 0 0 0;
+	margin: 0;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #681873;
+}
+#main_florajet p.ligne3 a {
+	font-size: 9px;
+	text-decoration: none;
+	color: #681873;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles pour la page Liste ---------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#arbre a.retour, #arbre a{
+	color: #A5F900;
+}
+#fleurs a.retour, #fleurs a{
+	color: #CCCC00;
+}
+#champi a.retour, #champi a{
+	color: #FFB22D;
+}
+#fleurs a.retour:hover, #fleurs .tabindex td.titre a:hover, #fleurs a:hover{
+	color: #FFFF00;
+}
+#champi a.retour:hover, #champi .tabindex td.titre a:hover, #champi a:hover{
+	color: #FFED6B;
+}
+#arbre a.retour:hover, #arbre .tabindex td.titre a:hover, #arbre a:hover {
+	color: #CDFF06;
+}
+
+/* titres des colonnes dans liste */
+#fleurs .tabindex td.titre a, #champi .tabindex td.titre a, #arbre .tabindex td.titre a {
+    color: #1D1D26;
+	font-size: 12px;
+    font-weight: bold;
+}
+/* table dans liste */
+.tabindex {
+	margin: 0;
+	width: 100%;
+	color: #313151;
+	font-size: 12px;
+}
+#fleurs .tabindex{
+	border: 1px solid #515171;
+}
+#champi .tabindex {
+	border: 1px solid #785142;
+}
+#arbre .tabindex {
+	border: 1px solid #58804F;
+}
+a {
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#fleurs .tabindex tr.ligne_fonce{
+	background-color:#515171;
+}
+#champi .tabindex tr.ligne_fonce{
+	background-color: #785142;
+}
+#arbre .tabindex tr.ligne_fonce{
+	background-color: #58804F;
+}
+
+#fleurs .tabindex tr.ligne_claire{
+	background-color:#64648B;
+}
+#champi .tabindex tr.ligne_claire{
+	background-color: #8B5E4C;
+}
+#arbre .tabindex tr.ligne_claire{
+	background-color: #66955C;
+}
+#fleurs .tabindex td a.libellens {
+	color:#C4C4E1;
+}
+#fleurs .tabindex td a.libellens:hover {
+	color:#FAF9FE;
+}
+#champi .tabindex td a.libellens{
+	color:#FFDDC7;
+}
+#champi .tabindex td a.libellens:hover{
+	color:#FEFDFD;
+}
+#arbre .tabindex td a.libellens{
+	color:#E5EBCC;
+}
+#arbre .tabindex td a.libellens:hover{
+	color:#FEFFFB;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles pour la page liens utiles --------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#fleurs table.liens {
+	background-color: #5F5F80;
+	border-collapse:collapse;
+}
+#fleurs table.liens tr td {
+	border: 1px solid #AEAEEB;
+	border-collapse:collapse;
+}
+#champi table.liens {
+	background-color: #795142;
+	border-collapse:collapse;
+}
+#champi table.liens tr td {
+	border: 1px solid #CB8770;
+	border-collapse:collapse;
+}
+#arbre table.liens {
+	background-color: #58804F;
+	border-collapse:collapse;
+}
+#arbre table.liens tr td {
+	border: 1px solid #8DCE7E;
+	border-collapse:collapse;
+}
+p.liens{
+	color: #FFFFFF;
+	padding: 30px 0 0 0;
+}
+span.titre_tab {
+	font-size:18px;
+	font-weight:bold;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*------------------Styles pour la page fiche ---------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+#decran {
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 30px;
+	text-align: left;
+	height: 100%;
+	color: #000028;
+}
+#champi #decran, #champi #dgauche {
+	background-color: #795142;
+}
+#fleurs #decran, #fleurs #dgauche {
+	background-color: #5F5F81;
+}
+#arbre #decran, #arbre #dgauche {
+	background-color: #58804F;
+}
+#dgauche {
+	width: 150px;
+	height: 100%;
+	padding-top: 80px;
+	text-align: center;
+	float: left;
+}
+#ddroite {
+    width: 750px;
+	height: 100%;
+	text-align: left;
+	float: left;
+}
+#champi #ddroite, #champi #ddroitepub {
+	background-color: #A76F5C;
+}
+#fleurs #ddroite, #fleurs #ddroitepub{
+	background-color: #73739B;
+}
+#arbre #ddroite, #arbre #ddroitepub{
+	background-color: #6C9E61;
+}
+#ddroite_marge {
+	width: 560px;
+	margin-left: 20px;
+	margin-right: 20px;	
+}
+#ddroitepub {
+    width: 150px;
+    height: 100%;
+    text-align: left;
+    float: right;
+}
+.detail {
+	text-align:center;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+.presentation {
+	font-size: 14px;
+	margin: 0 0 20px 0;
+	width: 100%;
+}
+#fleurs .presentation {
+   color: #2D2D40;
+	background-color: #5F5F81;
+}
+#champi .presentation {
+	color: #000028;
+	background-color: #795142;
+}
+#arbre .presentation {
+	color: #334A2E;
+	background-color: #58804F;
+}
+.nomautre {
+	color: #1D1D26;
+	font-size: 14px;
+    font-weight: bold;
+}
+.nomcommun {
+	font-size: 14px;
+    font-weight: bold;
+}
+.rubrique {
+  font-weight: normal;
+}
+#fleurs .nomcommun, #fleurs .rubrique{
+    color: #D4D4F1;
+}
+#champi .nomcommun, #champi .rubrique{
+	color: #FFDDC7;
+}
+#arbre .nomcommun, #arbre .rubrique{
+	color: #AEFF9D;
+}
+.commentaire {
+	padding: 10px 0 10px 20px;
+	margin: 0;
+}
+#fleurs .rubcommentaire {
+    color: #3D3D56;
+}
+#champi .rubcommentaire {
+    color: #5A3D32;
+}
+#arbre .rubcommentaire {
+    color: #2A3D26;
+}
+.rappel {
+	margin: 0 0 20px 0;
+	padding: 0;
+	text-align: center;
+	font-weight:bold;
+	font-size: 12px;
+}
+#fleurs .rappel{
+
+}
+#champi .rappel{
+	color:#FFB22D;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------ Styles pour le texte "NOUVEAU : geolocalisation" dans fiche_plante--------------*/
+/*---------------------------------------------------------------------------------------------------*/
+#fleurs .nouveau_titre {
+	color: #EFEF00;
+	font-weight:bold;
+}
+#fleurs a.nouveau_contenu {
+	color : #E0E0FF;
+	font-size: 10px;
+	text-decoration: none;
+	margin: 0 0 0 15px;
+	padding: 0 0 0 13px;
+	background-image: url(../interface/fleche_fleurs.gif);
+	background-repeat:no-repeat;
+}
+#fleurs a.nouveau_contenu:hover {
+	text-decoration: underline;
+}
+#champi .nouveau_titre {
+	color: #EFEF00;
+	font-weight:bold;
+}
+#champi a.nouveau_contenu {
+	color : #FFDDC7;
+	font-size: 10px;
+	text-decoration: none;
+	margin: 0 0 0 15px;
+	padding: 0 0 0 13px;
+	background-image: url(../interface/fleche_champi.gif);
+	background-repeat:no-repeat;
+}
+#champi a.nouveau_contenu:hover {
+	text-decoration: underline;
+}
+#arbre .nouveau_titre {
+	color: #EFEF00;
+	font-weight:bold;
+}
+#arbre a.nouveau_contenu {
+	color : #AEFF9D;
+	font-size: 10px;
+	text-decoration: none;
+	margin: 0 0 0 15px;
+	padding: 0 0 0 13px;
+	background-image: url(../interface/fleche_arbre.gif);
+	background-repeat:no-repeat;
+}
+#arbre a.nouveau_contenu:hover {
+	text-decoration: underline;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------Styles pour la page ajout de commentaires ---------------------------------------*/
+/*---------------------------------------------------------------------------------------------------*/
+#dcommentaires {
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	float: left;
+}
+#fleurs #dcommentaires {
+	background-color: #73739B;
+}
+#champi #dcommentaires {
+	background-color: #A76F5C;
+}
+#arbre #dcommentaires {
+	background-color: #6C9E61;
+}
+.txtcomment {
+   color: #FFFFFF;
+ 	font-size: 12px;
+	padding-left: 10px;
+}
+.titrecomment {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+#fleurs .titrecomment {
+	background-color: #5F5F80;
+	color: #C4C4E1;
+}
+#champi .titrecomment {
+	background-color: #795142;
+	color: #FFDDC7;
+}
+#arbre .titrecomment {
+	background-color: #59814F;
+	color: #A5F295;
+}
+.msgvalidation {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding: 60px;
+}
+#fleurs .msgvalidation{
+	color: #515171;
+	background-color: #C4C4E1;
+}
+#champi .msgvalidation{
+	background-color: #A76F5C;
+	color: #52372D;
+}
+#arbre .msgvalidation{
+	background-color: #6C9E61;
+	color: #364F31;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------Styles pour la page ajout de commentaires ---------------------------------------*/
+/*---------------------------------------------------------------------------------------------------*/
+.indication {
+	color: #CCCCCC;
+	font-size: 10px;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------Styles pour la geoloc -----------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------*/
+p.marker_geoloc {
+	margin: 10px 0 0 0;
+	padding: 0;
+	color: #333333;
+	text-align: left;
+	font-size: 10px;
+}
+#fleurs a.lien_vers_geoloc {
+	font-size: 10px;
+	color: #9999CC;
+	text-decoration: none;
+}
+#arbre a.lien_vers_geoloc {
+	font-size: 10px;
+	color: #83B179;
+	text-decoration: none;
+}
+#champi a.lien_vers_geoloc {
+	font-size: 10px;
+	color: #BD8674;
+	text-decoration: none;
+}
+#fleurs a.lien_vers_geoloc:hover, #arbre a.lien_vers_geoloc:hover, #champi a.lien_vers_geoloc:hover {
+	text-decoration: underline;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------Styles pour la notice geoloc ----------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------*/
+#notice_geoloc {
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 30px;
+	text-align: left;
+	height: 100%;
+	color: #000028;
+}
+#notice_geoloc p{
+	line-height:16px;
+}
+#notice_geoloc ul li{
+	line-height:16px;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*------------------Styles pour le systeme expert ---------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------*/
+#sysrecherche ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	clear: both;
+	float: left;
+	border-bottom: 1px solid #FFFFFF;
+}
+#sysrecherche li {
+	margin: 0 22px 0 0;
+	list-style-type: none;
+	float: left;
+	line-height: 18px;
+}
+#sysrecherche li.libelle {
+	padding: 0 4px 0 0;
+	display: block;
+	width: 64px;
+	_width: 68px;
+	text-align: right
+}
+#sysrecherche ul.feuille li.libelle {
+	padding-top: 78px;
+}
+#sysrecherche ul.feuille li {
+	margin: 0 16px 0 0;
+}
+#sysrecherche ul.fleur li.libelle {
+	padding-top: 8px;
+}
+#sysrecherche ul.fleur li {
+	margin: 0 18px 0 0;
+}
+#sysrecherche li.criselect a {
+	color: #FA761F;
+}
+#sysrecherche li.criselect a:hover {
+	color: #FA761F;
+}
+#sysfleurs div.unefleur {
+	float: left;
+	margin: 0 5px 0 5px;
+	width: 188px;
+}
+#sysfleurs div.lignefleurs {
+	margin-top: 12px;
+	float: left;
+}
+#sysfleurs a {
+	color: #C9DBEA;
+}
