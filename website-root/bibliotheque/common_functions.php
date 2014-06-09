@@ -71,7 +71,7 @@ function verification_checksum($lechecksum,$param1,$param2="")
   if($lechecksum != $bonchecksum)die();
 }
 
-/*fonction qui permet d'obtenir la langue utilis»e de pr»f»rence par le navigateur, sur deux caracteres */
+/*fonction qui permet d'obtenir la langue utilis?e de pr?f?rence par le navigateur, sur deux caracteres */
 function choisir_langue(){
   $langues = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
   $langue_selectionnee=$langues[0];
@@ -103,7 +103,7 @@ function desamorcer($chaine)
 }
 
 function convertSexa1coord($var, $pos)
-{ // Décimal vers sexagésimal
+{ // D?cimal vers sexag?simal
     
    if ($pos == 'lat')
        {
@@ -120,11 +120,11 @@ function convertSexa1coord($var, $pos)
    $deg = intval($var);
    $min = ($var - $deg)*60;
    $sec = ($min - intval($min))*60;
-   return str_pad($deg, 2, '0', STR_PAD_LEFT).'°'.intval($min)."'".number_format($sec, 2).'"'.$card;
+   return str_pad($deg, 2, '0', STR_PAD_LEFT).'?'.intval($min)."'".number_format($sec, 2).'"'.$card;
 }
 
 
-// construit une chaine de caracteres decrivant la r»gion observ»e et dont le pattern de r»ponse a »t» enregistr»
+// construit une chaine de caracteres decrivant la r?gion observ?e et dont le pattern de r?ponse a ?t? enregistr?
 function build_response($ligne,$cibleaction = "#",$show_delete_button=0)
 {
   $content = "";
@@ -282,7 +282,7 @@ function voir_indicateurs_area($idarea){
   return $content ;
 }
 
-/* fonction qui permet d'afficher toutes les observations  determinÈes */
+/* fonction qui permet d'afficher toutes les observations  determin?es */
 function liste_espece($monobjet,$numuser = 0,$mylanguage='en'){
     $content= "";
     bd_connect();
@@ -385,13 +385,13 @@ function liste_espece($monobjet,$numuser = 0,$mylanguage='en'){
 
 function getRewritingObservation() {
 	switch($GLOBALS['TSFE']->sys_language_uid) {
-      case 1: // Fran¡ais
+      case 1: // Fran?ais
         $rewriting = "url_rewriting_fr";
         break;
       case 2: // Anglais
         $rewriting = "url_rewriting_en";
         break;
-      default: // Par d»faut
+      default: // Par d?faut
         $rewriting = "url_rewriting_en";
     }
 
@@ -400,7 +400,7 @@ function getRewritingObservation() {
 
 
 /* fonction qui permet d'afficher toutes les observations publiques de tous les utilisateurs sur la carte ? l'aide de marqueurs.
- * Lorsqu'on clique sur le marqueur, une bulle appara”t avec la longitude et la latitude du lieu ainsi qu'une des photos
+ * Lorsqu'on clique sur le marqueur, une bulle appara?t avec la longitude et la latitude du lieu ainsi qu'une des photos
  * constituant l'observation*/
 function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 	$content= "";
@@ -447,7 +447,7 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 	// Pid de la page Observation
 	$pid = $GLOBALS['TSFE']->tmpl->setup['plugin.']['observation.']['pid'];
 
-	// On g»nere un lien vers la page Observation
+	// On g?nere un lien vers la page Observation
 	$linkObservation = $_SERVER['HTTP_HOST'] . $monobjet->pi_getPageLink(21) . $monobjet->pi_getLL('detail') . '/';
 
 	$rewriting = getRewritingObservation();
@@ -463,7 +463,7 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 		//$image="$repertoire/$photo[$i]";
 		$image=repertoire_vignettes."/".$donnees['nom_photo_final'];
 
-		// On g»nÀre le lien
+		// On g?n?re le lien
 		if(empty($donnees[$rewriting])) {
 			$link = $donnees['idobs'];
 		} else {
@@ -479,7 +479,7 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 				    map: map
 			    });  //fin marker
 			    
-			    //on ajoute ? chaque fois la position du marqueur nouvellement cr»e
+			    //on ajoute ? chaque fois la position du marqueur nouvellement cr?e
 			    bounds.extend(marker.getPosition());;
 			    
 			    google.maps.event.addListener(marker, \'click\', function() {
@@ -498,7 +498,7 @@ function afficher_carte_observations($monobjet,$numuser = 0,$area = null){
 
 	/*if($nb_lignes_resultats >0)
 		$content.='
-	      //la fonction fitBounds est utilis» pour trouver automatiquement le niveau de zoom optimum afin que le rectangle s\'int»gre dans la carte
+	      //la fonction fitBounds est utilis? pour trouver automatiquement le niveau de zoom optimum afin que le rectangle s\'int?gre dans la carte
 	      map.fitBounds(bounds);
 	      } //fin initialize
 	      </script>
@@ -620,14 +620,14 @@ function ecrit_fonction_initialize($nom_fichier_kml){
 	return $contenu;
 }
 
-/*Cette fonction permet de s»lectionner des zones de l'image */
+/*Cette fonction permet de s?lectionner des zones de l'image */
 function selectionner_zones_image($monobjet){
   $content="";
   $numero_observation=desamorcer($_GET['numero_observation']);
   $identifiant_photo=desamorcer($_GET['identifiant_photo']);
 	
   bd_connect();
-  /* On s»lectionne la photo sur laquelle l'utilisateur souhaite d»finir une zone d'int»rÕt */
+  /* On s?lectionne la photo sur laquelle l'utilisateur souhaite d?finir une zone d'int?r?t */
   $sql="select nom_photo_final from iherba_photos where id_obs=$numero_observation and idphotos=$identifiant_photo";
   $result = mysql_query($sql)or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
   $row = mysql_fetch_assoc($result);
@@ -637,12 +637,12 @@ function selectionner_zones_image($monobjet){
 	
   $dim=getimagesize($image);
   $largeur_source=$dim[0];
-  $hauteur_source=$dim[1]; //dimensions de l'image affich»e
+  $hauteur_source=$dim[1]; //dimensions de l'image affich?e
  
     
-  /* on souhaite que les dimensions de l'image ne d»passe pas 500.
-   * On fixe donc la taille de la largeur ? 500, on calcule le facteur de r»duction appliqu»e ? la largeur de l'image initiale, puis on 
-   * applique ce facteur de r»duction ? la hauteur de l'image.*/
+  /* on souhaite que les dimensions de l'image ne d?passe pas 500.
+   * On fixe donc la taille de la largeur ? 500, on calcule le facteur de r?duction appliqu?e ? la largeur de l'image initiale, puis on 
+   * applique ce facteur de r?duction ? la hauteur de l'image.*/
   $largeur_affichage=500;
   $facteur_reduction_image=$largeur_source/500;
   $hauteur_affichage=$hauteur_source/$facteur_reduction_image."<br/>";
@@ -655,28 +655,28 @@ function selectionner_zones_image($monobjet){
 	  activate(\'mon_image\');
 	};
 
-	// Fonction principale, qui prend en paramÀtre l\'id de l\'image concern»e
+	// Fonction principale, qui prend en param?tre l\'id de l\'image concern?e
 	function activate(id) {
-		  // On r»cupÀre l\'»l»ment <img> par son id.
+		  // On r?cup?re l\'?l?ment <img> par son id.
 		  var el = document.getElementById(id),
 	      // On stocke les dimensions de l\'image 
 		  width = el.offsetWidth, height = el.offsetHeight,
-	      // et on d»clare plusieurs autres variables
-		  // down repr»sente l\'action du tra¡age. Actuellement on ne trace rien.
+	      // et on d?clare plusieurs autres variables
+		  // down repr?sente l\'action du tra?age. Actuellement on ne trace rien.
 		  oX, oY, down = false,
 		  div, s;
 		  
 		  
           // Lors du mousedown sur l\'image
 		     el.onmousedown = function(e) {
-			    // On stocke les coordonn»es X et Y
+			    // On stocke les coordonn?es X et Y
 			    /*Sauvegarde la position horizontale en pixels (offsetX) et la position verticale en pixels
-			   (offsetY) du curseur par rapport au coin sup»rieur gauche de l\'»l»ment qui a d»clench» un »v»nement.*/
+			   (offsetY) du curseur par rapport au coin sup?rieur gauche de l\'?l?ment qui a d?clench? un ?v?nement.*/
 			    oX = offset_X(el,e);
 			    oY = offset_Y(el,e);
-			    // On active le bool»en de tra¡age
+			    // On active le bool?en de tra?age
 			    down = true;
-			    // On cr»e un »l»ment <div>
+			    // On cr?e un ?l?ment <div>
 			    div = document.createElement(\'div\');
 			    // On modifie son style
 			    s = div.style;
@@ -690,13 +690,13 @@ function selectionner_zones_image($monobjet){
 			    // Et on lui mets une bordure
 			    s.border = \'2px solid #666666\';
 		        s.background=\'rgba(150,150,256,0.3)\';
-		        // Puis on l\'insÀre r»ellement dans le <div> contenant l\'image
+		        // Puis on l\'ins?re r?ellement dans le <div> contenant l\'image
 			    this.parentNode.appendChild(div);
 		        C = document.forms[\'carte\'][\'coordonnee\'];
 		        C.value=\'\';
-		        // Ces trois lignes permettent d\'empÕcher le comportement
-			    // par d»faut lors du mousedown, autrement dit un drag\'n\'drop (glisser-d»poser)
-			    // de l\'image totalement ind»sir»
+		        // Ces trois lignes permettent d\'emp?cher le comportement
+			    // par d?faut lors du mousedown, autrement dit un drag\'n\'drop (glisser-d?poser)
+			    // de l\'image totalement ind?sir?
 			    if(e.preventDefault) { e.preventDefault(); }
 			    else { e.returnValue = false; }
 			    return false;
@@ -707,7 +707,7 @@ function selectionner_zones_image($monobjet){
 			    // Si on est en train de tracer
 				    if(down) {
 					      // On stocke la position du curseur
-					      // En consid»rant les deux bornes minimale et maximale
+					      // En consid?rant les deux bornes minimale et maximale
 					      var newX = Math.max(Math.min(offset_X(el,e),width),0),
 					      newY = Math.max(Math.min(offset_Y(el,e),height),0);
 					      // On affiche le <div>
@@ -722,10 +722,10 @@ function selectionner_zones_image($monobjet){
 
 			  // Lorsqu\'on rel?che le clic
 			  document.body.onmouseup = function(e) {
-				    // Si on »tait en train de tracer
+				    // Si on ?tait en train de tracer
 				    if(down) {
 					      // On stocke la position du curseur
-					      // En consid»rant les deux bornes minimale et maximale
+					      // En consid?rant les deux bornes minimale et maximale
 					      var newX = Math.max(Math.min(offset_X(el,e),width),0),
 					      newY =  Math.max(Math.min(offset_Y(el,e),height),0);
 					      // On affiche le <div>
@@ -736,8 +736,8 @@ function selectionner_zones_image($monobjet){
 					      s.width = Math.abs(newX-oX)+\'px\';
 					      s.height = Math.abs(newY-oY)+\'px\';
 				
-					      // On affiche les coordonn»es de d»part et d\'arriv»e du rectangle
-					      //alert(\'D»part : (\'+oX+\',\'+oY+\')\nArriv»e : (\'+newX+\',\'+newY+\')\');
+					      // On affiche les coordonn?es de d?part et d\'arriv?e du rectangle
+					      //alert(\'D?part : (\'+oX+\',\'+oY+\')\nArriv?e : (\'+newX+\',\'+newY+\')\');
 				          nbre = \'(\'+oX+\',\'+oY+\')\'+\' - \'+\'(\'+newX+\',\'+newY+\')\' ;
 						  C.value = nbre;
 				          document.getElementById("nombres").value +=  \'\'+oX+\',\'+oY+\',\'+newX+\',\'+newY+\' ;  \';
@@ -750,9 +750,9 @@ function selectionner_zones_image($monobjet){
 	}
 
 
-            // On  utilise ces deux fonctions ici pour r»cup»rer la position du curseur
-			// relative ? l\'image lors des »v»nements
-			// Permet de tenir compte des offsets des »l»ments parents,
+            // On  utilise ces deux fonctions ici pour r?cup?rer la position du curseur
+			// relative ? l\'image lors des ?v?nements
+			// Permet de tenir compte des offsets des ?l?ments parents,
 			// du scroll de la page
 			function offset_X(el,event){
 			  if(event.offsetX) return event.offsetX;
@@ -769,10 +769,10 @@ function selectionner_zones_image($monobjet){
 			}
 		
 		
-			/* fonction de remise ? z»ro des champs du formulaire
+			/* fonction de remise ? z?ro des champs du formulaire
 			 * void window.location.reload() recharge la page en oours
-			 *L\'appel ? cette fonction »quivalent ? l\'action du bouton Actualiser ou ? la touche F5 du navigateur.
-			 *On remet la valeur du champ envoy» au formulaire ? z»ro */
+			 *L\'appel ? cette fonction ?quivalent ? l\'action du bouton Actualiser ou ? la touche F5 du navigateur.
+			 *On remet la valeur du champ envoy? au formulaire ? z?ro */
 			function raz() {
 				//window.location.reload();
 				document.getElementById("nombres").value ="";
@@ -806,7 +806,7 @@ function redimensionner_roi($nom,$target_size = "vignettes")
   if($target_size == "medium")$inclusive_square=320;
 
   $image=roi_sources."/$nom";
-  $dim=getimagesize($image);  //la variable dim contiendra la taille de l'image pass»e en paramÀtre 
+  $dim=getimagesize($image);  //la variable dim contiendra la taille de l'image pass?e en param?tre 
   $largeur=$dim[0];
   $hauteur=$dim[1];
 	
@@ -826,26 +826,26 @@ function redimensionner_roi($nom,$target_size = "vignettes")
   $image_cree = imagecreatefromjpeg($image);
   imagecopyresampled($image_p, $image_cree, 0, 0, 0, 0, $new_largeur, $new_hauteur, $largeur, $hauteur);
 	
-  // on place l'image redimensionn»e dans le r»pertoire roi_vignettes
+  // on place l'image redimensionn?e dans le r?pertoire roi_vignettes
   imagejpeg($image_p,roi_sources."_$target_size/$nom", 100);
 }
 
 
 function detailler_zone($monobjet){
-  $langue=$GLOBALS['TSFE']->config[config][language];//variable qui va nous permettre de conna”tre la langue de la page et donc de s»lectionner par la suite des champs dans la table iherba_tags_translation
+  $langue=$GLOBALS['TSFE']->config[config][language];//variable qui va nous permettre de conna?tre la langue de la page et donc de s?lectionner par la suite des champs dans la table iherba_tags_translation
 
-  //$rep_roi=roi_sources; //r»pertoire o? l'on va stocker les zones d'int»rÕts
+  //$rep_roi=roi_sources; //r?pertoire o? l'on va stocker les zones d'int?r?ts
   $identifiant_photo=$_POST['identifiant_photo'];
   $fichier_image=$_POST['fichier'];
   $nom_photo_final=$_POST['nom_photo_final'];
   $largeur_affichage=$_POST['largeur_affichage'];
   $hauteur_affichage=$_POST['hauteur_affichage'];
   $facteur_reduction_image=$_POST['facteur_reduction_image'];
-  $coordonnees_points=$_POST['nb']; //coordonn»es des zones d'int»rÕt
+  $coordonnees_points=$_POST['nb']; //coordonn?es des zones d'int?r?t
   $tab=explode(";",$coordonnees_points);
 	
   for($i=0;$i<count($tab);$i++){
-    $couple[$i]=explode(',',$tab[$i]); //couple contient les coordonn»es des couples des points des zones d'int»rÕt
+    $couple[$i]=explode(',',$tab[$i]); //couple contient les coordonn?es des couples des points des zones d'int?r?t
   } 
    
   $compteur=1;
@@ -871,16 +871,16 @@ function detailler_zone($monobjet){
       $haut1_pourcentage=$haut1/$hauteur_affichage;
       $larg2_pourcentage=$larg2/$largeur_affichage;
       $haut2_pourcentage=$haut2/$hauteur_affichage;
-      $date_decoupe=date("d-m-Y");/* La date de d»coupe est la date du jour */
+      $date_decoupe=date("d-m-Y");/* La date de d?coupe est la date du jour */
 		   
-      /*remplissage de la table iherba_roi qui contient les champs id, id_photo, date_decoupe, ainsi que les coordonn»es en pourcentage
-       * (x1,y1,x2,y2) des deux points qui ont servi ? la d»finition de le zone d'int»rÕt */
+      /*remplissage de la table iherba_roi qui contient les champs id, id_photo, date_decoupe, ainsi que les coordonn?es en pourcentage
+       * (x1,y1,x2,y2) des deux points qui ont servi ? la d?finition de le zone d'int?r?t */
       $sql_roi="insert into iherba_roi(id_photo,date_decoupe,x1,y1,x2,y2) values('$identifiant_photo','$date_decoupe','$larg1_pourcentage','$haut1_pourcentage','$larg2_pourcentage','$haut2_pourcentage')";
       $result_roi = mysql_query($sql_roi)or die ();
-      $id_roi=mysql_insert_id(); /* On r»cupÀre l'identifiant de l'image*/
+      $id_roi=mysql_insert_id(); /* On r?cup?re l'identifiant de l'image*/
 	  
 			
-      //calcul de la largeur et de la hauteur des zones s»lectionn»es
+      //calcul de la largeur et de la hauteur des zones s?lectionn?es
       $largeur=$larg2-$larg1;
       $largeur_pourcentage=$largeur/$largeur_affichage;
       $hauteur=$haut2-$haut1;
@@ -892,7 +892,7 @@ function detailler_zone($monobjet){
       imagecopy($image_d, $image, 0, 0, $larg1*$facteur_reduction_image,$haut1*$facteur_reduction_image, $largeur*$facteur_reduction_image,$hauteur*$facteur_reduction_image);
       $montest ="roi_".$id_roi.".jpg";
       imagejpeg($image_d,roi_sources."/$montest", 95);
-      $content.=redimensionner_roi($montest);/*on redimensionne la zone d'int»rÕt et on va placer la nouvelle image dans le r»pertoire
+      $content.=redimensionner_roi($montest);/*on redimensionne la zone d'int?r?t et on va placer la nouvelle image dans le r?pertoire
 					       roi_vignettes*/
 			
       if($compteur==1){
@@ -905,9 +905,9 @@ function detailler_zone($monobjet){
       $num_roi="num_roi$compteur";
       $content.='<input type="hidden" name="'.$num_roi.'" value="'.$id_roi.'"> ';
 		 
-      /* Pour chacune des zones d'int»rÕt s»lectionn»e par l'utilisateur, on va lui demander sa nature, c'est-?-dire est ce qu'il s'agit 
-       * de la fleur, de la feuille, de la plante entiÀre ou du fruit.
-       * Les valeurs de ces diff»rents choix proviennent de la table iherba_tags et plus pr»cis»ment du champ id_tag (associ» au champ tag)*/
+      /* Pour chacune des zones d'int?r?t s?lectionn?e par l'utilisateur, on va lui demander sa nature, c'est-?-dire est ce qu'il s'agit 
+       * de la fleur, de la feuille, de la plante enti?re ou du fruit.
+       * Les valeurs de ces diff?rents choix proviennent de la table iherba_tags et plus pr?cis?ment du champ id_tag (associ? au champ tag)*/
       bd_connect();
       $sql="select iherba_tags_translation.texte_question,iherba_tags.id_tag,iherba_tags.tag from iherba_tags,iherba_tags_translation 
 			where iherba_tags.pid=0 and iherba_tags.id_genre=1 and iherba_tags_translation.id_tag=iherba_tags.id_tag and iherba_tags_translation.id_langue='$langue'";
@@ -945,7 +945,7 @@ function decoupe_roi($fichier_image,$couple,$id_roi) // couple contient les coor
   $larg2_pourcentage=$larg2/$largeur_affichage;
   $haut2_pourcentage=$haut2/$hauteur_affichage;
 			
-  //calcul de la largeur et de la hauteur des zones s»lectionn»es
+  //calcul de la largeur et de la hauteur des zones s?lectionn?es
   $largeur=$larg2-$larg1;
   $largeur_pourcentage=$largeur/$largeur_affichage;
   $hauteur=$haut2-$haut1;
@@ -961,17 +961,17 @@ function decoupe_roi($fichier_image,$couple,$id_roi) // couple contient les coor
 			
   $fichierroi ="roi_".$id_roi.".jpg";
   imagejpeg($image_d,roi_sources."/$fichierroi", 95);
-  redimensionner_roi($fichierroi);/*on redimensionne la zone d'int»rÕt et on va placer la nouvelle image dans le r»pertoire roi_vignettes*/
+  redimensionner_roi($fichierroi);/*on redimensionne la zone d'int?r?t et on va placer la nouvelle image dans le r?pertoire roi_vignettes*/
 			
 }
 
 function remplir_tables($monobjet){
   $content="";
   $idutilisateur=$GLOBALS['TSFE']->fe_user->user['uid'];
-  $compteur=$_POST['compteur']; /* nombres de zones d'int»rets localis»es par l'utilisateur */
+  $compteur=$_POST['compteur']; /* nombres de zones d'int?rets localis?es par l'utilisateur */
 	
   for($i=0;$i<=$compteur;$i++){
-    $nature_roi[]=$_POST["question$i"]; /*le tableau nature_roi contiendra les valeurs des boutons radio,c'est-?-dire la nature de la zone d»finie*/
+    $nature_roi[]=$_POST["question$i"]; /*le tableau nature_roi contiendra les valeurs des boutons radio,c'est-?-dire la nature de la zone d?finie*/
     $numero_roi[]=$_POST["num_roi$i"];
   }
 	
@@ -1008,8 +1008,9 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   //$sql_determination="select nom_commun,nom_scientifique,date,famille,genre,comment from iherba_determination where (nom_commun !='' OR nom_scientifique != '') AND id_obs=$numero_observation ";
   $sql_determination.="select iherba_determination.id , tropicosid, tropicosgenusid, tropicosfamilyid, nom_commun,nom_scientifique,date, famille,genre ,id_cases,tag_for_translation, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
+  $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.probabilite != 0 AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
   
-  $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
+  //$sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
   $sql_determination.=" AND iherba_determination.id_obs=$numero_observation ";
   $sql_determination.= " order by creation_timestamp desc";
   
@@ -1027,7 +1028,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   }
 	
   while ($row_determination = mysql_fetch_assoc($result_determination)) {
-    //$demandenom = 0; //si un nom deja donn» on ne demande plus
+    //$demandenom = 0; //si un nom deja donn? on ne demande plus
     $nom_commun=$row_determination["nom_commun"];
     $nom_scientifique=$row_determination["nom_scientifique"];
     $date=$row_determination["date"];
@@ -1293,7 +1294,7 @@ function affiche_une_observation_dans_liste($cetobjet,$numobs,$publication="publ
   return $content;
 }
 
-/*Les fonctions qui suivent permettent d'afficher le r»sultat d'une recherche d'un utilisateur */
+/*Les fonctions qui suivent permettent d'afficher le r?sultat d'une recherche d'un utilisateur */
 
 function type_recherche()
 {

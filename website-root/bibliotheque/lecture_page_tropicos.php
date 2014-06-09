@@ -70,7 +70,7 @@ function affichage_formulaire($monobjet){
   foreach($list_vignette as $v)
   {
     //$content.= '<img src="http://www.iherbarium.fr/medias/vignettes/'.$v.'" width=100px >';
-    $content.= '<img src="/medias/vignettes/'.$v.'" width=100px >';
+    $content.= '<img src="/medias/vignettes/'.$v.'" width=150px >';
   }
 
 
@@ -203,12 +203,17 @@ function affichage_formulaire($monobjet){
   }
 
   // <- Kuba
+ if(isset($GLOBALS['TSFE']->fe_user->user['uid']))
+  {
+   
 
   $content.=$monobjet->pi_getLL('demandeInfo', '', 1)."<br/>";
   $content.=$monobjet->pi_getLL('explication', '', 1)." ";
   $content.=$monobjet->pi_getLL('explication2', '', 1)." ";
   $content.=$monobjet->pi_getLL('explication3', '', 1)." ";
+  
   $content.=''.$monobjet->pi_getLL('identifiant', '', 1)." ".' <INPUT NAME="id_tropicos" TYPE="TEXT"   SIZE="15" > ';
+    }
   $content.='<input type="hidden" name="retour_suite_form" value="1"><input type="submit" value="'.$monobjet->pi_getLL('valider','',1).'"></form></br></br>';
   
   $proche = liste_obs_determine_proche($numobs);
@@ -239,7 +244,7 @@ $content .= "<font size=-2>(".$p['expertise'].")</font><br>";
       foreach($list_vignette as $v)
       {
 	//$content.= '<img src="http://www.iherbarium.fr/medias/vignettes/'.$v.'" width=100px >';
-	$content.= '<img src="/medias/vignettes/'.$v.'" width=100px >';
+	$content.= '<img src="/medias/vignettes/'.$v.'" width=150px >';
       }
       $content.='</a>';
       $content.='<input type="submit" value="'.$monobjet->pi_getLL('near_plants_choose','',1).' -> '.$p['expertise'].'">'."</form><br><br><br>";
@@ -329,13 +334,14 @@ function remplir_table_determination($nom_commun,$nom_plante,$famille_plante,$ge
   $id_obs=desamorcer($_GET['numero_observation']);
 
   bd_connect();
- 
+ $probabilite=100;
+ if($refuser == $GLOBALS['TSFE']->fe_user->user['uid'])$probabilite=0;
   $sql_insertion_determination =
     " INSERT INTO iherba_determination" .
     " (id_obs, nom_commun, nom_scientifique, famille, genre, espece, tropicosid, probabilite, date, id_user" .
     " , comment, comment_case" . // ADDED comment & commentCase
     " , certitude_level, precision_level, tropicosfamilyid,tropicosgenusid,instanciation )" . // ADDED certitudeLevel & precisionLevel
-    " VALUES('$id_obs','$nom_commun','$nom_plante','$famille_plante','$genre_plante','$espece_plante','$id_tropicos','100',now(),'$iduserident'" .
+    " VALUES('$id_obs','$nom_commun','$nom_plante','$famille_plante','$genre_plante','$espece_plante','$id_tropicos','$probabilite',now(),'$iduserident'" .
     " , '" . $comment . "' , '" . $commentCase . "'" . // ADDED comment & commentCase
     " , '" . $certitudeLevel . "' , '" . $precisionLevel . "' , '" . $familyid . "' , '" . $genusid ."', $instanciation )"; // ADDED certitudeLevel & precisionLevel
 	 
@@ -531,7 +537,10 @@ function preciser_determination($monobjet){
 				$arrayhighertaxa['genusid'],
 				$instanciation_observation);
 
-  notifyUserAboutDetermination($determinationId,$monobjet);
+  if($refuser == $GLOBALS['TSFE']->fe_user->user['uid'])
+   notifyUserAboutDetermination($determinationId,$monobjet);
+   else
+   mail('agoralogie@gmail.com','commentaire anonyme'," observation : ".desamorcer($_GET['numero_observation'])." commentaire $nom_commun $comment determination $determinationId");
 	
   // <- Kuba
 

@@ -222,7 +222,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
    * @return	The content that is displayed on the website
    */
 	
-  /* Ce programme affiche le détail d'une observation lorsque l'on clique sur le lien situé à la page définit dans 'pi1'*/
+  /* detail fiche obervation*/
   function main($content,$conf)	{
     $this->conf=$conf;
     $this->pi_setPiVarDefaults();
@@ -310,7 +310,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     if(! ($lobervation = mysql_fetch_assoc($result)))
 	return ; // no observation with this observation number
 
-    if(($demandenom>0) && ($GLOBALS['TSFE']->fe_user->user['uid']!=0))
+    if($demandenom>0)/// && ($GLOBALS['TSFE']->fe_user->user['uid']!=0)) everybody can give a name
       {
 	
 	$paramlien = array(numero_observation  => $numero_observation,check=>456789);
