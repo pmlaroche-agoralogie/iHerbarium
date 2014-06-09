@@ -61,7 +61,7 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
         /* Requête qui permet de sélectionner les dernières observations (si elles sont publiques ou partiellement publiques)*/
         $sql_order =" order by deposit_timestamp desc";
 	
-	if(is_sousdomaine_www())	$sql_limit = " limit 0,19 "; else $sql_limit = " limit 0,200 ";
+	if(is_sousdomaine_www())	$sql_limit = " limit 0,19 "; else $sql_limit = " limit 0,150 ";
 	
 	$display_type = "public";
 	bd_connect();
@@ -75,6 +75,13 @@ class tx_iherbariumobservations_pi1 extends tslib_pibase {
 	else
 	    $sql_where = "where ( public='oui' or public='semi' ) AND ".get_requete_where_sousdomaine();
 	
+	// legitims plants on home page
+	if($GLOBALS['TSFE']->page["uid"]==6)
+	    {
+		$sql_where .= ' AND  computed_flux < 2 ';
+		
+	    }
+	    
 	// plant with no name at all
 	if($GLOBALS['TSFE']->page["uid"]==81)
 	    {
