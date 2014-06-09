@@ -62,7 +62,6 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$template_name = "complete";
 		if($_GET['template']=='classic')$template_name="classic";
 		if($_GET['template']=='compact')$template_name="compact";
-		
 		$currentobs = desamorcer($_GET['numero_observation']);
 		$base_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
 		$urlqrencode = $base_url."/observation/data/".$currentobs;
@@ -74,14 +73,14 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		';
 		$param_label['img_qr_code']= 'http://chart.apis.google.com/chart?chs=380x380&cht=qr&chld=H&chl='.$urlgoogle;
 		
-	/*Affichage des informations concernant l'observation */
+		/*Affichage des informations concernant l'observation */
 		bd_connect();
 		$sql="select date_depot,idobs,id_user,commentaires,address,personnal_ref,longitude,latitude from iherba_observations where idobs=".$currentobs." ";
-		$result = mysql_query($sql)or die ();
-		if(!($lobervation = mysql_fetch_assoc($result))) return ; 
+		$result = mysql_query($sql)or die ('error fetching the observation');
+		if(!($lobervation = mysql_fetch_assoc($result)))
+			return 'error fetching the observation'; 
 		$date_depot = $lobervation["date_depot"];
 		$dateaffichage = str_replace("-","/",$date_depot) ;
-		
 		$param_label['legend_obs_number']= get_string_language_sql("label_legend_observation_number",$mylanguage);
 		$param_label['value_obs_number']= $currentobs;
 		
@@ -92,7 +91,6 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		
 		
 		$content.= $this->pi_getLL('text_before_date', '', 1)." ".$dateaffichage."<br/>\n";
-		
 		$param_label['legend_localisation']=get_string_language_sql("label_legend_observation_localisation",$mylanguage);;
 		$param_label['value_localisation']="-";
 		
@@ -110,11 +108,10 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$param_label['legend_notes']=get_string_language_sql("label_legend_comment",$mylanguage);;
 		$param_label['value_notes']=$lobervation["commentaires"];
 		
-		
 
 		$sql_recolteur = "SELECT *  FROM  `fe_users`  WHERE  `uid` = ".$lobervation["id_user"];
-		$result_recolteur = mysql_query($sql_recolteur) or die ();
-		if(!($lerecolteur = mysql_fetch_assoc($result_recolteur))) return ;
+		$result_recolteur = mysql_query($sql_recolteur) or die ('no fe_users');
+		if(!($lerecolteur = mysql_fetch_assoc($result_recolteur))) return "unknown recolteur";
 		$param_label['legend_recolteur']=get_string_language_sql("label_legend_recolteur",$mylanguage);
 		$param_label['value_recolteur']=$lerecolteur['name'];
 		
@@ -127,30 +124,41 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$sql_determination.= " order by creation_timestamp desc";
 		$sql_determination .= " limit 1";
 		
-		 // echo "<!-- sql $sql_determination -->";
-		
-		$result_determination = mysql_query($sql_determination) or die ($sql_determination);
+		$result_determination = mysql_query($sql_determination) or die ("det:".$sql_determination);
 		$num_rows = mysql_num_rows($result_determination); //nombre de lignes r»sultats
 			
 		if ($row_determination = mysql_fetch_assoc($result_determination)) {
-		    $nom_commun=$row_determination["nom_commun"];
-		    $nom_scientifique=$row_determination["nom_scientifique"];
-		    $date_determination=$row_determination["date"];
-		    
-		    $param_label['legend_determinavit']=get_string_language_sql("label_legend_determinavit",$mylanguage);
-		    $param_label['value_determinavit']= $nom_scientifique ."(".$nom_commun. ") ";
-		    
-		    $param_label['legend_determinavit_famille']=get_string_language_sql("label_legend_determinavit_famille",$mylanguage);
-		    $param_label['value_determinavit_famille']= $row_determination["famille"];
-		  }
+			$nom_commun=$row_determination["nom_commun"];
+			$nom_scientifique=$row_determination["nom_scientifique"];
+			$date_determination=$row_determination["date"];
+			
+			$param_label['legend_determinavit']=get_string_language_sql("label_legend_determinavit",$mylanguage);
+			$param_label['value_determinavit']= $nom_scientifique ."(".$nom_commun. ") ";
+			
+			$param_label['legend_determinavit_famille']=get_string_language_sql("label_legend_determinavit_famille",$mylanguage);
+			$param_label['value_determinavit_famille']= $row_determination["famille"];
+		      }
+			else
+			{
+			$param_label['legend_determinavit']='Nom ';
+			$param_label['value_determinavit']='';
+			$param_label['legend_determinavit_famille']='Famille ';
+			$param_label['value_determinavit_famille']='';
+			}
 		  
-		
-		$sql_determineur = "SELECT *  FROM  `fe_users`  WHERE  `uid` = ".$row_determination["id_user"];
-		$result_determineur = mysql_query($sql_determineur) or die ();
-		if(!($ledetermineur = mysql_fetch_assoc($result_determineur))) return ;
-		$param_label['legend_determinavit_author']=get_string_language_sql("label_legend_determineur",$mylanguage);
-		$param_label['value_determinavit_author']=$ledetermineur['name']." ( ".$date_determination." )";
-		
+		if(isset($row_determination["id_user"]))
+			{
+			$sql_determineur = "SELECT *  FROM  `fe_users`  WHERE  `uid` = ".$row_determination["id_user"];
+			$result_determineur = mysql_query($sql_determineur) or die ();
+			if(!($ledetermineur = mysql_fetch_assoc($result_determineur))) return "Unknown determineur";
+			$param_label['legend_determinavit_author']=get_string_language_sql("label_legend_determineur",$mylanguage);
+			$param_label['value_determinavit_author']=$ledetermineur['name']." ( ".$date_determination." )";
+			}	
+			else
+			{
+			$param_label['legend_determinavit_author']='Auteur d&eacutetermination';
+			$param_label['value_determinavit_author']='';
+			}
 		//display pictures
 		$sql="select nom_photo_final from iherba_photos where id_obs=".$currentobs;
 		$result = mysql_query($sql)or die ();
@@ -161,8 +169,8 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$repertoire = "/medias/big/";
 	    	while ($row = mysql_fetch_assoc($result)) {
 			$image="$repertoire/".$row["nom_photo_final"];
-			$content.='<img src="'.$image.'" border=0 height="65"  /></blank>&nbsp;';
-			$param_label['pictures_list'] .= '<img src="'.$image.'" border=0 height="65"  /></blank>&nbsp;';
+			$content.='<img src="'.$image.'" border=0 height="85"  /></blank>&nbsp;';
+			$param_label['pictures_list'] .= '<img src="'.$image.'" border=0 height="85"  /></blank>&nbsp;';
 			}
 	
 		
@@ -170,7 +178,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$modele = file_get_contents(PATH_tslib.'../../../../fileadmin/template/label_'.$template_name.'.tmpl');
 		foreach ($param_label as $key => $value)
 			{
-				$modele = str_replace('{'.$key.'}', $param_label[$key],$modele);
+			$modele = str_replace('{'.$key.'}', $param_label[$key],$modele);
 			}
 		
 		return $this->pi_wrapInBaseClass($modele);
