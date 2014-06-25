@@ -125,7 +125,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		//display last given name
 		$champscomment = 'email_comment';
 		$sql_determination.="select iherba_determination.id ,iherba_determination.id_user , nom_commun,nom_scientifique,date, famille,genre ,id_cases, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
-		$sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
+		$sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment,scientificname_html from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
 		$sql_determination.="where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value ";
 		$sql_determination.= " AND iherba_determination.certitude_level = iherba_certitude_level.value AND iherba_determination.id_obs=$currentobs ";
 		$sql_determination.= " order by creation_timestamp desc";
@@ -136,11 +136,12 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 			
 		if ($row_determination = mysql_fetch_assoc($result_determination)) {
 			$nom_commun=$row_determination["nom_commun"];
-			$nom_scientifique=$row_determination["nom_scientifique"];
+			$nom_scientifique=$row_determination["scientificname_html"];
 			$date_determination=$row_determination["date"];
 			
 			$param_label['legend_determinavit']=get_string_language_sql("label_legend_determinavit",$mylanguage);
-			$param_label['value_determinavit']= $nom_scientifique ."(".$nom_commun. ") ";
+			$param_label['value_determinavit']= $nom_scientifique ;
+			if($nom_commun !='')$param_label['value_determinavit'] .= "(".$nom_commun. ") ";
 			
 			$param_label['legend_determinavit_famille']=get_string_language_sql("label_legend_determinavit_famille",$mylanguage);
 			$param_label['value_determinavit_famille']= $row_determination["famille"];

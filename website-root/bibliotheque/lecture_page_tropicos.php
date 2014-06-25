@@ -1,6 +1,9 @@
 <?php
 require_once("common_functions.php");
 
+bd_connect();
+mysql_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
+  
 function liste_obs_determine_proche($numobs){
   
  $liste_proche = array();
@@ -300,11 +303,28 @@ function affichage_formulaire_comment($monobjet){
 }
 
 
-/*Cette fonction nous permet de rechercher le nom de la plante sur le site tropicos.org */
+//extract scientific name with authors
 function rechercher_nom_plante($value_name){
   $value = json_decode($value_name);
   return desarmorcer($value->ScientificNameWithAuthors);
 }
+//extract scientific name without authors
+function rechercher_nom_plante_sans_auteur($value_name){
+  $value = json_decode($value_name);
+  return desarmorcer($value->ScientificName);
+}
+
+//extract scientific name without authors
+function nom_enrichi_html($value_name){
+  $value = json_decode($value_name);
+  $firstpart = $value->ScientificName ;
+  $longname = $value->ScientificNameWithAuthors;
+  $endfirstpart = mb_strlen($firstpart);
+  $authors= mb_substr($longname,$endfirstpart);
+  $htmlname = "<em>".$firstpart."</em>".$authors;
+  return desarmorcer($htmlname);
+}
+
 
 /* parse data from the data that tropicos api returns */
 function rechercher_famille_plante($value_taxa,&$highertaxa){
@@ -313,12 +333,16 @@ function rechercher_famille_plante($value_taxa,&$highertaxa){
   foreach ($list_taxa as $value)
       {
       if ($value->Rank=="family")
-	{ $highertaxa['familyname'] =  $value->ScientificName; $highertaxa['familyid'] =  $value->NameId;}
+	{
+	 $highertaxa['familyname'] =  $value->ScientificName;
+	 $highertaxa['familyid'] =  $value->NameId;
+	}
       if ($value->Rank=="genus")
-	{ $highertaxa['genusname'] =  $value->ScientificName; $highertaxa['genusid'] =  $value->NameId;}
-      }
+	{
+	 $highertaxa['genusname'] =  $value->ScientificName;
+	 $highertaxa['genusid'] =  $value->NameId;}
+	}
 }
-
 
 /* insert data on determination */
 function remplir_table_determination($nom_commun,$nom_plante,$famille_plante,$genre_plante,$espece_plante,$iduserident, 
@@ -329,29 +353,29 @@ function remplir_table_determination($nom_commun,$nom_plante,$famille_plante,$ge
 				     $precisionLevel = 0
 				     /* <- Kuba */
 					,$id_tropicos, $familyid,$genusid,
-				      $instanciation
+				      $instanciation,
+				$reftaxonomiqueplusid,
+				$scientificname_wo_authors,
+				$scientificname_html
 				     ){
   $id_obs=desamorcer($_GET['numero_observation']);
 
-  bd_connect();
+  
  $probabilite=100;
  if($refuser == $GLOBALS['TSFE']->fe_user->user['uid'])$probabilite=0;
   $sql_insertion_determination =
     " INSERT INTO iherba_determination" .
     " (id_obs, nom_commun, nom_scientifique, famille, genre, espece, tropicosid, probabilite, date, id_user" .
     " , comment, comment_case" . // ADDED comment & commentCase
-    " , certitude_level, precision_level, tropicosfamilyid,tropicosgenusid,instanciation )" . // ADDED certitudeLevel & precisionLevel
+    " , certitude_level, precision_level, tropicosfamilyid,tropicosgenusid,instanciation,`reftaxonomiqueplusid`, `scientificname_wo_authors`, `scientificname_html` )" . // ADDED certitudeLevel & precisionLevel
     " VALUES('$id_obs','$nom_commun','$nom_plante','$famille_plante','$genre_plante','$espece_plante','$id_tropicos','$probabilite',now(),'$iduserident'" .
     " , '" . $comment . "' , '" . $commentCase . "'" . // ADDED comment & commentCase
-    " , '" . $certitudeLevel . "' , '" . $precisionLevel . "' , '" . $familyid . "' , '" . $genusid ."', $instanciation )"; // ADDED certitudeLevel & precisionLevel
-	 
+    " , '" . $certitudeLevel . "' , '" . $precisionLevel . "' , '" . $familyid . "' , '" . $genusid ."', $instanciation,'$reftaxonomiqueplusid', '$scientificname_wo_authors','$scientificname_html')"; // ADDED certitudeLevel & precisionLevel
 
   $result_insertion_determination = mysql_query($sql_insertion_determination)or die ('Erreur SQL !'.$sql_insertion_determination.'<br />'.mysql_error());	 
-	 
   $determinationId = mysql_insert_id();
   return $determinationId;
 }
-
 
 function notifyUserAboutDetermination($determinationId,$monobjet=null) {
  
@@ -455,11 +479,10 @@ function preciser_determination($monobjet){
     $name_url= "http://services.tropicos.org/Name/"."$id_tropicos"."?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
     $highertaxa_url= "http://services.tropicos.org/Name/"."$id_tropicos"."/HigherTaxa?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
   }
-	
 
   if(isset($_POST['nom_commun'])){
     $nom_commun=desamorcer($_POST ['nom_commun']);
-    $nom_commun= desarmorcer($nom_commun);
+    $nom_commun= utf8_encode($nom_commun);
   }
 
   // Kuba ->
@@ -486,7 +509,11 @@ function preciser_determination($monobjet){
   $value_name_url = file_get_contents($name_url);
   $value_highertaxa = file_get_contents($highertaxa_url);
   $nom_plante=rechercher_nom_plante($value_name_url);
-
+  $scientificname_wo_authors = rechercher_nom_plante_sans_auteur($value_name_url);
+  
+  $scientificname_html= nom_enrichi_html($value_name_url) ;
+  
+  $reftaxonomiqueplusid = "tropicos:".$id_tropicos;
   rechercher_famille_plante($value_highertaxa,$arrayhighertaxa);
 	
   if($_POST['id_tropicos'] !=""){
@@ -535,12 +562,15 @@ function preciser_determination($monobjet){
 				,$id_tropicos,
 				$arrayhighertaxa['familyid'],
 				$arrayhighertaxa['genusid'],
-				$instanciation_observation);
+				$instanciation_observation,
+				$reftaxonomiqueplusid,
+				$scientificname_wo_authors,
+				$scientificname_html);
 
   if($refuser == $GLOBALS['TSFE']->fe_user->user['uid'])
-   notifyUserAboutDetermination($determinationId,$monobjet);
+    notifyUserAboutDetermination($determinationId,$monobjet);
    else
-   mail('agoralogie@gmail.com','commentaire anonyme'," observation : ".desamorcer($_GET['numero_observation'])." commentaire $nom_commun $comment determination $determinationId");
+    mail('agoralogie@gmail.com','commentaire anonyme'," observation : ".desamorcer($_GET['numero_observation'])." commentaire $nom_commun $comment determination $determinationId");
 	
   // <- Kuba
 

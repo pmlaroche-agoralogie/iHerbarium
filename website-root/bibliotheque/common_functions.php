@@ -85,8 +85,8 @@ function choisir_langue(){
 // empeche les injections sql
 function desarmorcer($chaine)
 {
-  $chaine = str_replace("'","?",$chaine);
-  $chaine = str_replace('"',"?",$chaine);
+  $chaine = str_replace("'","`",$chaine);
+  $chaine = str_replace('"',"`",$chaine);
   $chaine = str_replace(';',",",$chaine);
   $chaine = str_replace('://',"---",$chaine);
   return $chaine;
@@ -94,8 +94,8 @@ function desarmorcer($chaine)
 // empeche les injections sql, sans faute de frappe
 function desamorcer($chaine)
 {
-  $chaine = str_replace("'","?",$chaine);
-  $chaine = str_replace('"',"?",$chaine);
+  $chaine = str_replace("'","`",$chaine);
+  $chaine = str_replace('"',"`",$chaine);
   $chaine = str_replace(';',",",$chaine);
   $chaine = str_replace('/',"-",$chaine);
   $chaine = str_replace('\\',"-",$chaine);
@@ -1009,7 +1009,7 @@ function affiche_expertise($numero_observation,$cetobjet,$publication="liste",&$
   $sql_determination.="select iherba_determination.id , tropicosid, tropicosgenusid, tropicosfamilyid, nom_commun,nom_scientifique,date, famille,genre ,id_cases,tag_for_translation, iherba_determination_cases.$champscomment ,iherba_certitude_level.value as certitude_level, iherba_certitude_level.comment as certitude_comment,";
   $sql_determination.=" iherba_determination.comment,iherba_precision_level.value as precision_level,iherba_precision_level.$champscomment as precisioncomment from iherba_determination,iherba_determination_cases,iherba_certitude_level, iherba_precision_level ";
   $sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.probabilite != 0 AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
-  
+
   //$sql_determination.=" where  iherba_determination_cases.language = 'fr' and iherba_determination_cases.id_cases = iherba_determination.comment_case AND iherba_determination.precision_level = iherba_precision_level.value AND iherba_determination.certitude_level = iherba_certitude_level.value ";
   $sql_determination.=" AND iherba_determination.id_obs=$numero_observation ";
   $sql_determination.= " order by creation_timestamp desc";
