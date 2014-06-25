@@ -304,7 +304,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 
     /*Affichage des informations concernant l'observation */
     bd_connect();
-    $sql="select date_depot,idobs,commentaires,address,longitude,latitude,computed_date_seen_exif_or_smartphone from iherba_observations where idobs=$numero_observation";
+    $sql="select date_depot,idobs,commentaires,address,longitude,latitude,uuid_observation,uuid_specimen,computed_date_seen_exif_or_smartphone from iherba_observations where idobs=$numero_observation";
     $result = mysql_query($sql) or die ();
     
     if(! ($lobervation = mysql_fetch_assoc($result)))
@@ -330,7 +330,6 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	$content.=codehtml_moderation($this,$numero_observation)."<br/><br/>";	
       }
 				
-
     if($lobervation["commentaires"] !=""){
       $content.= get_string_language_sql("ws_observation_comment",$mylanguage) ." ".$lobervation["commentaires"]."<br/><br/>\n";
     }
@@ -457,6 +456,7 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	    
       }
     }
+    
     //if(niveau_testeur()>0)
     if($GLOBALS['TSFE']->fe_user->user['uid']==1)
 	{
@@ -471,7 +471,8 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     $destination_morpho = $this->pi_getPageLink($GLOBALS['TSFE']->id);
     $content.=information_analyse($numero_observation,$GLOBALS['TSFE']->sys_language_uid,get_string_language_sql("ws_roi_morpho_explanation",$mylanguage),$destination_morpho,$show_delete_button,$libelle_roi_morphoexplication);
     //}
-     
+    $content.= get_string_language_sql("ws_uuid_observation",$mylanguage)  ." : ".$lobervation["uuid_observation"]."<br/><br/>\n";
+    
    // if($GLOBALS['TSFE']->fe_user->user['uid']==$iduser){
    if($lobervation["latitude"]!=0 && $lobervation["longitude"]!=0){
 	$content.= "<br><strong>".get_string_language_sql("ws_about_label_herbarium",$mylanguage)."</strong><br>";
@@ -487,7 +488,8 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
 	
 	$paramlien = array();
 	$content.= "<br>".$this->pi_linkToPage(get_string_language_sql("ws_go_page_choose_label",$mylanguage),98,'',$paramlien);
-
+	$content.= "<br>".get_string_language_sql("ws_uuid_specimen",$mylanguage)  ." : ".$lobervation["uuid_specimen"]."<br/><br/>\n";
+    
     }
     //if(niveau_testeur()>0)
       

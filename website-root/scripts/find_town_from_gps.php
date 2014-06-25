@@ -74,7 +74,17 @@ $update_flux =
       " set  computed_flux = $legitime where  idobs = $numobs ;";
 $updatefluxresult = mysql_query($update_flux) or  dieanddebug();
 
- 
+$update_uuid =
+      " update iherba_observations" .
+      " set `uuid_observation` = uuid() WHERE `idobs`= $numobs ;";
+$updateuuidresult = mysql_query($update_uuid) or  dieanddebug();
+
+$update_uuid =
+      " update iherba_observations" .
+      " set `uuid_specimen` = uuid() WHERE `idobs`= $numobs ;";
+$updateuuidresult = mysql_query($update_uuid) or  dieanddebug();
+
+
  
  
 $deletesql = " DELETE FROM  iherba_new_observations where idobservation = $numobs";
