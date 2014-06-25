@@ -1,35 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html
-     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="fr" lang="fr" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-
-
-<base href="http://www.iherbarium.fr" />
-
-<title>Label</title>
-
-</head>
-<body>
-
-<div class="tx-iherbaqr-pi1">
-     <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2"> <tbody> <tr> <td style="width: 100px;">
-	     <img src={img_qr_code} width=100><br>	
-	     </td>
-	     <td> 
-     {legend_obs_number} : {value_obs_number}<br/>
-     {legend_recolteur} : {value_recolteur}<br/>
-    {legend_date} : {value_date}<br/>
-     {legend_localisation} : {value_localisation}<br/>
-     {legend_determinavit_author} : {value_determinavit_author}<br/>
-     {legend_determinavit} : {value_determinavit}
-     
-    
-     </td>
-     </tr>
-     </table>
-</div>
-
-</body>
-</html>
+<table border="0" cellpadding="2" cellspacing="2" class="etiquette"> 
+	<tr> 
+	 	<td style="width:100px;text-align:center;">	
+	    	<img src={img_qr_code} width=100>
+		</td>
+	    <td style="padding-top:13px;">	  
+			<span class="important">{legend_obs_number}</span> : {value_obs_number}<br/>
+			<span class="important">UUID Specimen</span> : {uuid_specimen}<br/>
+			<span class="important">UUID Observation</span> : {uuid_observation}<br/>
+			<span class="important">{legend_recolteur}</span> : {value_recolteur}<br/>
+			<span class="important">{legend_date}</span> : {value_date}<br/>
+			<span class="important">{legend_localisation}</span> : {value_localisation}<br/>
+			<span class="important">{legend_determinavit_author}</span> : {value_determinavit_author}<br/>
+			<span class="important">{legend_determinavit}</span> : <em>{value_determinavit}</em>
+		</td>
+	</tr>
+</table>

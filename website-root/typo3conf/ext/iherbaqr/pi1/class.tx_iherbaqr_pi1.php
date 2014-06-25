@@ -62,23 +62,30 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$template_name = "complete";
 		if($_GET['template']=='classic')$template_name="classic";
 		if($_GET['template']=='compact')$template_name="compact";
+		
 		$currentobs = desamorcer($_GET['numero_observation']);
-		$base_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
-		$urlqrencode = $base_url."/observation/data/".$currentobs;
 		
-		$urlgoogle =  urlencode($urlqrencode);
-		$content='<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2"> <tbody> <tr> <td style="width: 100px;">
-			<img src=http://chart.apis.google.com/chart?chs=380x380&cht=qr&chld=H&chl='.$urlgoogle.' width=100><br>	
-			</td> <td> 
-		';
-		$param_label['img_qr_code']= 'http://chart.apis.google.com/chart?chs=380x380&cht=qr&chld=H&chl='.$urlgoogle;
 		
-		/*Affichage des informations concernant l'observation */
+		/*get observation date */
 		bd_connect();
-		$sql="select date_depot,idobs,id_user,commentaires,address,personnal_ref,longitude,latitude from iherba_observations where idobs=".$currentobs." ";
+		$sql="select date_depot,idobs,id_user,commentaires,address,personnal_ref,longitude,latitude,uuid_observation,uuid_specimen from iherba_observations where idobs=".$currentobs." ";
 		$result = mysql_query($sql)or die ('error fetching the observation');
 		if(!($lobervation = mysql_fetch_assoc($result)))
-			return 'error fetching the observation'; 
+			return 'error fetching the observation';
+		
+		// build QR code
+		$base_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
+		$urlqrencode = $base_url."/observation/data/".$currentobs."?uuid_specimen=".$lobervation['uuid_specimen']."&uuid_observation=".$lobervation['uuid_observation'];
+		$urlgoogle =  urlencode($urlqrencode);
+		$content='<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2"> <tbody> <tr> <td style="width: 100px;">
+			<img src=http://chart.apis.google.com/chart?chs=420x420&cht=qr&chld=H&chl='.$urlgoogle.' width=100><br>	
+			</td> <td> 
+		';
+		$param_label['img_qr_code']= 'http://chart.apis.google.com/chart?chs=420x420&cht=qr&chld=H&chl='.$urlgoogle;
+		
+		// compute an array to fill the template
+		$param_label['uuid_specimen']=$lobervation['uuid_specimen'];
+		$param_label['uuid_observation']=$lobervation['uuid_observation'];
 		$date_depot = $lobervation["date_depot"];
 		$dateaffichage = str_replace("-","/",$date_depot) ;
 		$param_label['legend_obs_number']= get_string_language_sql("label_legend_observation_number",$mylanguage);
