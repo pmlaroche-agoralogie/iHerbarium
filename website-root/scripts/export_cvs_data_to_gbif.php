@@ -41,7 +41,7 @@ $export_csv .= '"basisOfRecord"'.$csv_end_of_line;
 while($row_obs= mysql_fetch_assoc($result_sure) ){
         $export_csv .= '"agoralogie"'. $csv_separator_field ;
         $export_csv .= '"iherbarium"'. $csv_separator_field ;
-        $export_csv .= '"'.$row_obs['idobs'].'"'. $csv_separator_field ;
+        $export_csv .= '"'.$row_obs['uuid_observation'].'"'. $csv_separator_field ;
         $export_csv .= '"'.$row_obs['nom_scientifique'].'"'. $csv_separator_field ;
         
         $export_csv .= '"'.$row_obs['latitude'].'"'. $csv_separator_field ;

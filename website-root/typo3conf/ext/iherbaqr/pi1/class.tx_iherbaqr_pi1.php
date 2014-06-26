@@ -104,6 +104,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		if($lobervation["latitude"]!='0' && $lobervation["longitude"]!=0)
 			{
 				$param_label['value_localisation']=$lobervation["latitude"]." , ".$lobervation["longitude"];
+				$param_label['value_localisation']=convertSexa2coord($lobervation["latitude"],$lobervation["longitude"]);
 			}
 		
 		$param_label['legend_address_detail']=get_string_language_sql("label_legend_address_detail",$mylanguage);;

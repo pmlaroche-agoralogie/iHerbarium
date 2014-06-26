@@ -120,10 +120,13 @@ function convertSexa1coord($var, $pos)
    $deg = intval($var);
    $min = ($var - $deg)*60;
    $sec = ($min - intval($min))*60;
-   return str_pad($deg, 2, '0', STR_PAD_LEFT).'?'.intval($min)."'".number_format($sec, 2).'"'.$card;
+   return str_pad($deg, 2, '0', STR_PAD_LEFT).'&deg;'.intval($min)."'".number_format($sec, 2).'"'.$card;
 }
 
-
+function convertSexa2coord($lat, $long)
+{
+  return convertSexa1coord($lat,'lat'). " , ".convertSexa1coord($long,'long');
+}
 // construit une chaine de caracteres decrivant la r?gion observ?e et dont le pattern de r?ponse a ?t? enregistr?
 function build_response($ligne,$cibleaction = "#",$show_delete_button=0)
 {
