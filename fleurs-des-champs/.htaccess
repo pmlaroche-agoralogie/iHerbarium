@@ -1,0 +1,15 @@
+rewriteEngine on
+rewriteCond %{REQUEST_URI} ^/localisation 
+rewriteRule ^localisation_(.*).kml$ /phototheque/genxml.php?ref=$1 [L] 
+rewriteCond %{REQUEST_URI} ^/fiche_
+rewriteRule ^fiche_(.*).html$ /fiche.php?ns=$1 [L]
+rewriteCond %{REQUEST_URI} ^/detail_
+rewriteRule ^detail_(.*).html$ /fiche.php?nsn=$1 [L]
+rewriteCond %{REQUEST_URI} ^/arbres_
+rewriteRule ^arbres_(.*).html$ /arbresystexpert.php?originalurl=$1 [L]
+rewriteCond %{REQUEST_URI} ^/reconnaitre-un-arbre.html
+rewriteRule ^reconnaitre-un-arbre.html$ /arbresystexpert.php?originalurl= [L]
+rewriteCond %{REQUEST_URI} ^/fleurs_
+rewriteRule ^fleurs_(.*).html$ /systexpert.php?originalurl=$1 [L]
+rewriteCond %{REQUEST_URI} ^/reconnaitre-une-fleur.html
+rewriteRule ^reconnaitre-une-fleur.html$ /systexpert.php?originalurl= [L]

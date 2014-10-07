@@ -13,6 +13,8 @@ $legitime=3;
 
 //test if notification are still waiting
 bd_connect();
+mysql_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
+
 $sql_new_addition =
     " SELECT *" .
     " FROM  iherba_new_observations" .
@@ -44,10 +46,13 @@ if(mysql_num_rows($obsResult)!=0)
   $adressobj = json_decode(join($reversegeocoding));
   print_r($adressobj);
   $array_address = $adressobj->address;
-  $town = "";
-  if(isset($array_address->city))$town=$array_address->city;
-  if(isset($array_address->county))
-   if($town != $array_address->county)$town .= ' - '.$array_address->county;
+  $useful_adress = array();
+  
+  if(isset($array_address->village))$useful_adress[]=$array_address->village;
+   if(isset($array_address->suburb))if(!in_array($array_address->suburb,$useful_adress))$useful_adress[]=$array_address->suburb;
+  if(isset($array_address->city))if(!in_array($array_address->city,$useful_adress))$useful_adress[]=$array_address->city;
+  if(isset($array_address->county))if(!in_array($array_address->county,$useful_adress))$useful_adress[]=$array_address->county;
+  $town = implode(' - ',$useful_adress);
   $town = mysql_escape_string($town);
   //echo $town;
  
