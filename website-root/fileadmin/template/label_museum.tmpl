@@ -1,19 +1,25 @@
 <table border="0" cellpadding="2" cellspacing="2" class="etiquette"> 
 </tr>
+
 	<tr> 
-	 	<td style="width:100px;text-align:center;">	
+	 	<td style="width:100px;text-align:center;">
+		<br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/>
 	    	<img src={img_qr_code} width=100>
 		</td>
-	    <td style="padding-top:13px;">	  
+	    <td style="padding-top:13px;">
+	    <img src=http://upload.wikimedia.org/wikipedia/fr/f/f4/Logo_mnhn.jpg width=100>ex HERBARIO MUSEI PARISIENSIS(P)<br>
 			<span class="important">{legend_obs_number}</span> : {value_obs_number}<br/>
 			<span class="important">{legend_recolteur}</span> : {value_recolteur}<br/>
 			<span class="important">{legend_date}</span> : {value_date}<br/>
 			<span class="important">{legend_localisation}</span> : {value_localisation}<br/>
-			<span class="important">{legend_determinavit_author}</span> : {value_determinavit_author}<br/>
+			
+			<div style="font-size: 18pt;text-align: center;align:center;"> {value_determinavit_famille}<br/></div>
+			<br/>
 			<span class="important">{legend_determinavit}</span> : {value_determinavit}<br/>
-			Identifiants uniques :<br/>
-			 <span class="important">UUID Specimen</span> : {uuid_specimen}<br/>
-                        <span class="important">UUID Observation</span> : {uuid_observation}<br/>
+			<div style="text-align:right">{value_determinavit_author}</div><br/>
+			
+			 <span style="font-size: 7pt;">UUID Specimen : {uuid_specimen}</span><br/>
 		</td>
 	</tr>
 </table>

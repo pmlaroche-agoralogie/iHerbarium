@@ -202,6 +202,15 @@ function traite_action(){
   // <- Kuba
 }
 
+function isUUID($str)
+	{
+		if(preg_match('/^(urn:uuid:)?\{?[a-f0-9]{8}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{12}\}?$/i', $str))
+		{
+			return $str;
+		}
+		return null;
+	}
+	
 /**
  * Plugin 'page d'une observation' for the 'iherbarium_observations' extension.
  *
@@ -240,13 +249,13 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
     // <- Kuba
 		
     traite_action();
-
+  
     $numero_observation = desamorcer($_GET['numero_observation']);
-		
+   
     if($this->piVars['detail']) {
       $observation = explode('-', $this->piVars['detail']);
       $numero_observation = $observation[count($observation) - 1];
-      if(intval($numero_observation)) {
+      if(intval($numero_observation)&&(!isUUID($this->piVars['detail']))) { // verify the parameter is not a uuid with last part as a good integer (but would not be a valid id)
         $rewriting = getRewriting($numero_observation, $language);
         if($rewriting) {
           $rewriting .= "-" . $numero_observation;
@@ -267,12 +276,28 @@ class tx_iherbariumobservations_pi3 extends tslib_pibase {
       }
       // Numéro observation n'est pas un int
       else {
-        header('Location: ' . t3lib_div::locationHeaderUrl($this->pi_getPageLink(1)));
+	$numero_ref = desamorcer($this->piVars['detail']);
+	$sql_uuid="select idobs from iherba_observations where uuid_observation='$numero_ref' or uuid_specimen='$numero_ref'";
+	$result_uuid = mysql_query($sql_uuid) or die ('pb uuid');
+	
+	if(mysql_num_rows($result_uuid)>0)
+	  { // the uuid exist in the database
+	    $rowuid = mysql_fetch_assoc($result_uuid) ;
+	    $numero_observation = $rowuid[idobs];
+	  }
+	  else
+	  { //pas un int et pas un uuid existant
+	    header('Location: ' . t3lib_div::locationHeaderUrl($this->pi_getPageLink(1)));
+	  }
+	  
       }
     }
 
-    if(!(ctype_digit($numero_observation)))die(""); // anti sql injection
-		
+    if(!(ctype_digit($numero_observation)))
+      { die();
+      }
+      
+
     $content.='<div id="bloc_contenu"><h1>';
  $content.='<a href="https://twitter.com/share" class="twitter-share-button " data-lang="en" data-count="none" data-related="iHerbarium : Un botaniste dans votre smartphone">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';

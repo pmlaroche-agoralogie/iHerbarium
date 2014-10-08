@@ -62,6 +62,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		$template_name = "complete";
 		if($_GET['template']=='classic')$template_name="classic";
 		if($_GET['template']=='compact')$template_name="compact";
+		if($_GET['template']=='museum')$template_name="museum";
 		
 		$currentobs = desamorcer($_GET['numero_observation']);
 		
@@ -76,6 +77,7 @@ class tx_iherbaqr_pi1 extends tslib_pibase {
 		// build QR code
 		$base_url = 'http://www'.substr(t3lib_div::getIndpEnv('HTTP_HOST'),strpos(t3lib_div::getIndpEnv('HTTP_HOST'),".",0));
 		$urlqrencode = $base_url."/observation/data/".$currentobs."?uuid_specimen=".$lobervation['uuid_specimen']."&uuid_observation=".$lobervation['uuid_observation'];
+		$urlqrencode = $base_url."/observation/data/".$lobervation['uuid_specimen'];
 		$urlgoogle =  urlencode($urlqrencode);
 		$content='<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2"> <tbody> <tr> <td style="width: 100px;">
 			<img src=http://chart.apis.google.com/chart?chs=420x420&cht=qr&chld=H&chl='.$urlgoogle.' width=100><br>	
