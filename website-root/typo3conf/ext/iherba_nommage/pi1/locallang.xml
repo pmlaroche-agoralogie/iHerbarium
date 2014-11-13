@@ -8,11 +8,11 @@
 		
 		
 		<languageKey index="default" type="array">
-			<label index="demandeInfo">Please indicate us the  'tropicos' identifier of this plant. </label>
-			<label index="explication">More on this here : http://www.iherbarium.org/index.php?id=69 .</label>
-			<label index="explication2">You juste have to enter its name thank to the field "Search".</label>
-			<label index="explication3">You will find an identifier for your plant, it's the number to the right of your page's link.</label>
-			<label index="identifiant">Identifier on the website tropicos : </label>
+			<label index="demandeInfo">Write down at least 4 characters of the scientifiqc name. </label>
+			<label index="explication">.</label>
+			<label index="explication2">.</label>
+			<label index="explication3">.</label>
+			<label index="identifiant">Scientific name : </label>
 			<label index="infoUser">We thank you to have indicate us the common name of the plant.</label>
 			<label index="indicationNom">Common name of the plant : </label>
 			<label index="nomCommun">Common name of this plant indicated : </label>
@@ -58,12 +58,12 @@
 		</languageKey>
 		
 		<languageKey index="fr" type="array">
-			<label index="demandeInfo">Si vous êtes botaniste, vous pouvez saisir l'identifiant 'tropicos' de la plante  observée. </label>
-			<label index="explication">voir http://www.iherbarium.org/index.php?id=69 à ce sujet.</label>
-			<label index="explication2"></label>
+			<label index="demandeInfo">Si vous êtes botaniste, vous pouvez saisir le nom scientifique de la planté observée. </label>
+			<label index="explication">Il faut saisir dans le champs ci-dessous au moins 4 caractères, qui seront recherchés dans l'ensemble des noms de plantes déjà observées.</label>
+			<label index="explication2">Si le nom scientifique désiré est absent, meci de nous écrire (contact at iherbrium point fr), nous le rajouterons à notre référentiel.</label>
 			<label index="explication3"></label>
 			<label index="infoUser">Nous vous remercions d'avoir préciser le nom commun de cette plante.</label>
-			<label index="identifiant">Identifiant sur le site tropicos : </label>
+			<label index="identifiant">Nom scientifique choisi dans notre référentiel : </label>
 			<label index="indicationNom">Nom commun ou scientifique de la plante : </label>
 			<label index="nomCommun">Nom commun de la plante indiqué : </label>
 			<label index="infoTropicos">Nous avons trouvé que les informations concernant cette plante, d'identifiant : </label>

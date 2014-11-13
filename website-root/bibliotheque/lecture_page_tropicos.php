@@ -78,7 +78,7 @@ function affichage_formulaire($monobjet){
 
 
   //$content.='<html><head></head><title>Id tropicos</title><body><form method="post" enctype="multipart/form-data" action="index.php?id=31&etape=1&numero_observation='.$numobs.'&L='.$GLOBALS['TSFE']->sys_language_uid.'">';
-  $content.='<form method="post" enctype="multipart/form-data" action="index.php?id=31&etape=1&numero_observation='.$numobs.'&L='.$GLOBALS['TSFE']->sys_language_uid.'">';
+  $content.='<form name="form_tropicos" id="form_tropicos" method="post" enctype="multipart/form-data" action="index.php?id=31&etape=1&numero_observation='.$numobs.'&L='.$GLOBALS['TSFE']->sys_language_uid.'">';
   
   $content.=$monobjet->pi_getLL('indicationNom', '', 1).'<INPUT NAME="nom_commun" TYPE="TEXT" SIZE="15" > <br/><br/>';
 
@@ -215,7 +215,8 @@ function affichage_formulaire($monobjet){
   $content.=$monobjet->pi_getLL('explication2', '', 1)." ";
   $content.=$monobjet->pi_getLL('explication3', '', 1)." ";
   
-  $content.=''.$monobjet->pi_getLL('identifiant', '', 1)." ".' <INPUT NAME="id_tropicos" TYPE="TEXT"   SIZE="15" > ';
+  //POUR CHRSITELLE : saisie automatique ici...
+  $content.='<br>'.$monobjet->pi_getLL('identifiant', '', 1)." ".' <INPUT NAME="id_tropicos" id="id_tropicos" TYPE="TEXT" autocomplete="off" onfocus="focus_taxonomy();" SIZE="60" > ';
     }
   $content.='<input type="hidden" name="retour_suite_form" value="1"><input type="submit" value="'.$monobjet->pi_getLL('valider','',1).'"></form></br></br>';
   
@@ -474,7 +475,11 @@ function preciser_determination($monobjet){
   $content="";
   $site = "";
   if(isset($_POST['id_tropicos'])){
-    $id_tropicos=desamorcer($_POST['id_tropicos']); // on récupère l'identifiant entré dans le formulaire par l'utilisateur
+    $libelle = desamorcer($_POST['id_tropicos']);
+    $id_trop = explode(":",$libelle); 
+    $id_id = explode(" ",$id_trop[2]);
+    $id_tropicos=$id_id[0]; // on récupère l'identifiant entré dans le formulaire par l'utilisateur
+    //echo "-- $id_tropicos --";die();
     if(($id_tropicos!="")&&(!(ctype_digit($id_tropicos))))die("<!--warning not ctype -->"); // anti sql injection
     $name_url= "http://services.tropicos.org/Name/"."$id_tropicos"."?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
     $highertaxa_url= "http://services.tropicos.org/Name/"."$id_tropicos"."/HigherTaxa?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
