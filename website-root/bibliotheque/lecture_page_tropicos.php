@@ -229,7 +229,7 @@ function affichage_formulaire($monobjet){
     $content.= "\n";
 	$content.='<form method="post" enctype="multipart/form-data" action="index.php?id=31&etape=1&numero_observation='.$numobs.'&L='.$GLOBALS['TSFE']->sys_language_uid.'">';
 $content .= "<font size=-2>(".$p['expertise'].")</font><br>";
-  $content.= ' <INPUT NAME="id_tropicos" TYPE="hidden"   SIZE="15" value="'.$p['tropicosid'].'" > ';
+  $content.= ' <INPUT NAME="id_tropicos" TYPE="hidden"   SIZE="15" value="-: - / tropicos:'.$p['tropicosid'].'" > ';
   $content.= ' <INPUT NAME="instanciation" TYPE="hidden"   SIZE="15" value="'.$numobs_proche.'" > ';
   $content.='<input type="hidden" name="retour_suite_form" value="1">';
   
@@ -479,7 +479,7 @@ function preciser_determination($monobjet){
     $id_trop = explode(":",$libelle); 
     $id_id = explode(" ",$id_trop[2]);
     $id_tropicos=$id_id[0]; // on récupère l'identifiant entré dans le formulaire par l'utilisateur
-    //echo "-- $id_tropicos --";die();
+    //print_r ( $id_trop  ); echo "-- $id_tropicos --";die();
     if(($id_tropicos!="")&&(!(ctype_digit($id_tropicos))))die("<!--warning not ctype -->"); // anti sql injection
     $name_url= "http://services.tropicos.org/Name/"."$id_tropicos"."?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
     $highertaxa_url= "http://services.tropicos.org/Name/"."$id_tropicos"."/HigherTaxa?apikey=ea95b5c7-e6e9-41af-8b1b-4bd5e8db61c3&format=json";
